@@ -1,0 +1,46 @@
+@media (max-width: 768px) {
+  .menu-desktop {
+    display: none !important;
+  }
+  .menu-mobile {
+    display: block !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-desktop {
+    display: flex !important;
+  }
+  .menu-mobile {
+    display: none !important;
+  }
+}
+
+.header {
+  display: "flex";
+  align-items: "center";
+  padding: "0 20px";
+}
+
+.ant-menu .ant-menu-item .ant-menu-title-content::after {
+  border-bottom: none !important;
+}
+
+.container {
+  padding: 0 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.language {
+  cursor: pointer;
+}
+.selected-language {
+  cursor: pointer;
+  color: #08ff96;
+}
+.text-start {
+  text-align: left;
+  margin: 16px 0;
+}

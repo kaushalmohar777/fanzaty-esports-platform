@@ -1,0 +1,33 @@
+{
+  "menu": {
+    "home": "Home",
+    "tournaments": "Tournaments",
+    "leaderboard": "Leaderboard",
+    "academy": "Academy",
+    "contact_us": "Contact Us",
+    "about_us": "About Us",
+    "join_our_community": "Join Our Community"
+  },
+  "banner": {
+    "heading": "THE STAGE IS SET",
+    "sub_heading": "GAME ON!",
+    "paragraph": "Unleash The Pro Within You. Compete In Our Tournaments And Claim Their Prizes!",
+    "join_tournament": "Join Tournaments"
+  },
+  "feature-tournament": {
+    "feature_heading": "Featured Tournaments",
+    "feature_sub_heading": "Join our ongoing tournaments: compete and carve your name as one of the game's legends!",
+    "join_for_free": "JOIN FOR FREE 100%",
+    "join_tournament": "Join TOURNAMENT",
+    "tournament_name_1": "FC 2024 TOURNAMENT",
+    "tournament_playstation_1": "Playstation 5, xbox series x/s & pc​",
+    "winner_price_1": "500 SAR for winner",
+    "number_of_participant_1": "1 vs 1",
+    "tournament_date_1": "Tournament starts on 7 July (7-7-2024)",
+    "tournament_name_2": "FC 2024 TOURNAMENT",
+    "tournament_playstation_2": "Playstation 5, xbox series x/s & pc​",
+    "winner_price_2": "500 SAR for winner",
+    "number_of_participant_2": "1 vs 1",
+    "tournament_date_2": "Tournament starts on 7 July (7-7-2024)"
+  }
+}

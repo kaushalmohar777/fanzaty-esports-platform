@@ -1,0 +1,131 @@
+// Navbar.scss
+
+// Variables
+$navbar-bg: #141414;
+$text-color: white;
+$active-color: #08ff96;
+$breakpoint-mobile: 768px;
+
+.navbar {
+  background-color: $navbar-bg;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+
+  .logo {
+    margin-right: 20px;
+
+    img {
+      height: 32px;
+    }
+  }
+
+  .menu-desktop {
+    display: none;
+    flex: 1;
+    justify-content: center;
+
+    @media (min-width: ($breakpoint-mobile + 1)) {
+      display: flex;
+    }
+  }
+
+  .menu-mobile {
+    flex: 1;
+    text-align: right;
+
+    @media (min-width: ($breakpoint-mobile + 1)) {
+      display: none;
+    }
+  }
+
+  .ant-menu {
+    .ant-menu-item {
+      &:hover {
+        color: rgba(255, 255, 255, 0.7) !important;
+        border-bottom: none !important;
+      }
+      &-selected {
+        color: #08ff96 !important;
+        border-bottom: none !important;
+      }
+    }
+  }
+
+  .login-button {
+    margin-left: 15px;
+    background-color: $active-color;
+    border-color: $active-color;
+  }
+}
+
+.ant-drawer {
+  .ant-drawer-content {
+    background-color: $navbar-bg;
+  }
+
+  .ant-drawer-body {
+    padding: 0;
+  }
+
+  .ant-menu {
+    background-color: $navbar-bg;
+  }
+}
+
+.ant-menu-overflow-item
+  .ant-menu-item
+  .ant-menu-item-selected
+  .ant-menu-item-only-child:after {
+  border-bottom: none !important;
+}
+
+// Navbar.scss
+
+.ant-menu-horizontal {
+  &.ant-menu-light,
+  &.ant-menu-dark {
+    .ant-menu-item,
+    .ant-menu-submenu {
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s, color 0.3s;
+
+      &:hover,
+      &-active,
+      &-selected {
+        color: #08ff96 !important;
+        // border-bottom-color: #08ff96 !important;
+      }
+
+      &::after {
+        display: none !important;
+      }
+
+      &-selected {
+        background-color: transparent !important;
+      }
+    }
+  }
+}
+
+// For the mobile drawer menu
+.ant-drawer {
+  .ant-menu-vertical {
+    .ant-menu-item {
+      &:hover,
+      &-active,
+      &-selected {
+        color: #08ff96 !important;
+        border-right: 3px solid #08ff96 !important;
+      }
+
+      &-selected {
+        background-color: rgba(8, 255, 150, 0.1) !important;
+      }
+
+      &::after {
+        display: none !important;
+      }
+    }
+  }
+}

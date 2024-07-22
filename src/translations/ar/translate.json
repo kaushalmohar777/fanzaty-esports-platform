@@ -1,0 +1,33 @@
+{
+  "menu": {
+    "home": "الصفحة الرئيسية",
+    "tournaments": "البطولات",
+    "leaderboard": "لوحة المتصدرين",
+    "academy": "الأكاديمية",
+    "contact_us": "اتصل بنا",
+    "about_us": "معلومات عنا",
+    "join_our_community": "انضم للاكاديمية"
+  },
+  "banner": {
+    "heading": "المسرح جاهز",
+    "sub_heading": "ابدأ اللعب!",
+    "paragraph": "أطلق المحترف بداخلك. تنافس في بطولاتنا واحصل على جوائزها!",
+    "join_tournament": "انضم إلى البطولات"
+  },
+  "feature-tournament": {
+    "feature_heading": "البطولات المميزة",
+    "feature_sub_heading": "انضم إلى بطولاتنا المستمرة: تنافس واحفر اسمك كواحد من أساطير اللعبة!",
+    "join_for_free": "انضم مجانًا 100%",
+    "join_tournament": "انضم إلى البطولة",
+    "tournament_name_1": "بطولة FC 2024",
+    "tournament_playstation_1": "بلايستيشن 5، إكس بوكس سيريس إكس/إس والكمبيوتر الشخصي",
+    "winner_price_1": "500 ريال للفائز",
+    "number_of_participant_1": "1 ضد 1",
+    "tournament_date_1": "تبدأ البطولة في 7 يوليو (7-7-2024)",
+    "tournament_name_2": "بطولة FC 2024",
+    "tournament_playstation_2": "بلايستيشن 5، إكس بوكس سيريس إكس/إس والكمبيوتر الشخصي",
+    "winner_price_2": "500 ريال للفائز",
+    "number_of_participant_2": "1 ضد 1",
+    "tournament_date_2": "تبدأ البطولة في 7 يوليو (7-7-2024)"
+  }
+}
