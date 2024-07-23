@@ -39,6 +39,11 @@ export const menuStyle = {
     backgroundColor: '#141414',
     color: 'white',
     border: 'none',
+    fontFamily: "'Anybody' 'sans - serif'",
+    fontSize: '18px',
+    fontWeight: 300,
+    textAlign: 'center'
+
 };
 
 export const menuItemStyle = {

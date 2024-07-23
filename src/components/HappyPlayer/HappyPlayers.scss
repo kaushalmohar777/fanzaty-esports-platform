@@ -1,0 +1,26 @@
+.happy-player-box {
+  width: 397px;
+  height: 300px;
+  padding: 45px 25px 45px 25px;
+  gap: 10px;
+  border-radius: 10px;
+  border: 1px solid #08ff96;
+  margin: 0;
+  text-align: center;
+  background-color: #141414;
+  display: flex;
+}
+.happy-player-heading {
+  font-family: "Anybody", sans-serif;
+  font-size: 55px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  margin-top: 100px;
+  margin-bottom: 40px;
+}
+.owl-couresel-inner {
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+}

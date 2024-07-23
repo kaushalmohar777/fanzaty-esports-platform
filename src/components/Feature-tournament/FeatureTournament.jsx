@@ -1,5 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
-import { memo, useState } from "react";
+import { memo } from "react";
 import "./FeatureTournament.scss";
 import tournamentImage1 from "../../assets/images/tournament-image1.svg";
 import tournamentImage2 from "../../assets/images/tournament-image2.svg";
@@ -8,34 +7,20 @@ import game from "../../assets/images/game.svg";
 import dollar from "../../assets/images/dollar.svg";
 import dateTime from "../../assets/images/Date-time.svg";
 import { Col, Row } from "antd";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const FeatureTournament = () => {
-  const [data] = useState([
-    {
-      img: tournamentImage1,
-      tournamentName: "FC 2024 TOURNAMENT",
-      tournamentPlayStation: "Playstation 5, xbox series x/s & pc​",
-      winnerPrice: "500 sar for winner",
-      numberOfParticipant: "1 vs 1",
-      TournamentDate: "Tournament starts on 7 July (7-7- 2024)",
-    },
-    {
-      img: tournamentImage2,
-      tournamentName: "FC 2024 TOURNAMENT",
-      tournamentPlayStation: "Playstation 5, xbox series x/s & pc​",
-      winnerPrice: "500 sar for winner",
-      numberOfParticipant: "1 vs 1",
-      TournamentDate: "Tournament starts on 7 July (7-7- 2024)",
-    },
-  ]);
+  const { t } = useTranslation("common");
+
+  const data = t("feature_tournament.tournaments", { returnObjects: true });
 
   return (
     <section className="feature-tournament-section">
       <div className="container">
-        <h1 className="feature-heading">Featured Tournaments</h1>
+        <h1 className="feature-heading">{t("feature_tournament.heading")}</h1>
         <p className="feature-sub-heading">
-          Join our ongoing tournaments: compete and carve your name as one of
-          the game's legends!
+          {t("feature_tournament.sub_heading")}
         </p>
         {data &&
           data.map((item, index) => (
@@ -44,7 +29,7 @@ const FeatureTournament = () => {
                 <Col span={12}>
                   <div>
                     <img
-                      src={item.img}
+                      src={index === 0 ? tournamentImage1 : tournamentImage2}
                       alt="tournament-img"
                       className="tournament-img"
                     />
@@ -53,7 +38,9 @@ const FeatureTournament = () => {
                 <Col span={12}>
                   <div className="tournament-details-section">
                     <div className="text-start">
-                      <a className="join-free-btn">JOIN FOR FREE 100%</a>
+                      <a className="join-free-btn">
+                        {t("feature_tournament.join_free")}
+                      </a>
                     </div>
                     <p className="tournament-name">{item.tournamentName}</p>
 
@@ -74,7 +61,7 @@ const FeatureTournament = () => {
                           className="tournament-icons"
                           alt="dateTime-image"
                         />
-                        <p className="tournament-para">{item.TournamentDate}</p>
+                        <p className="tournament-para">{item.tournamentDate}</p>
                       </div>
                     </div>
                     <div className="tournament-details">
@@ -84,9 +71,7 @@ const FeatureTournament = () => {
                           className="tournament-icons"
                           alt="dollar-image"
                         />
-                        <p className="tournament-para">
-                          {item.tournamentPlayStation}
-                        </p>
+                        <p className="tournament-para">{item.winnerPrice}</p>
                       </div>
                       <div className="tournament-details">
                         <img
@@ -94,17 +79,16 @@ const FeatureTournament = () => {
                           className="tournament-icons"
                           alt="game-image"
                         />
-                        <p className="tournament-para">{item.TournamentDate}</p>
+                        <p className="tournament-para">
+                          {item.numberOfParticipant}
+                        </p>
                       </div>
                     </div>
 
                     <div className="join-tournament-button">
-                      <a
-                        href="javascript:void(0)"
-                        className="join-tournament-btn"
-                      >
-                        Join TOURNAMENT
-                      </a>
+                      <Link className="join-tournament-btn">
+                        {t("feature_tournament.join_tournament")}
+                      </Link>
                     </div>
                   </div>
                 </Col>

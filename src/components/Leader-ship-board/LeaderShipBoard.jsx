@@ -1,5 +1,5 @@
 const LeaderShipBoard = () => {
-  return <div></div>;
+  return <div>Leadership borad working</div>;
 };
 
 export default LeaderShipBoard;

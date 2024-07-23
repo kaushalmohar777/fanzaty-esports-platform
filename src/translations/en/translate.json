@@ -6,7 +6,8 @@
     "academy": "Academy",
     "contact_us": "Contact Us",
     "about_us": "About Us",
-    "join_our_community": "Join Our Community"
+    "join_our_community": "Join Our Community",
+    "sign_up": "Sign up"
   },
   "banner": {
     "heading": "THE STAGE IS SET",
@@ -14,20 +15,101 @@
     "paragraph": "Unleash The Pro Within You. Compete In Our Tournaments And Claim Their Prizes!",
     "join_tournament": "Join Tournaments"
   },
-  "feature-tournament": {
-    "feature_heading": "Featured Tournaments",
-    "feature_sub_heading": "Join our ongoing tournaments: compete and carve your name as one of the game's legends!",
-    "join_for_free": "JOIN FOR FREE 100%",
+
+  "feature_tournament": {
+    "heading": "Featured Tournaments",
+    "sub_heading": "Join our ongoing tournaments: compete and carve your name as one of the game's legends!",
+    "join_free": "JOIN FOR FREE 100%",
     "join_tournament": "Join TOURNAMENT",
-    "tournament_name_1": "FC 2024 TOURNAMENT",
-    "tournament_playstation_1": "Playstation 5, xbox series x/s & pc​",
-    "winner_price_1": "500 SAR for winner",
-    "number_of_participant_1": "1 vs 1",
-    "tournament_date_1": "Tournament starts on 7 July (7-7-2024)",
-    "tournament_name_2": "FC 2024 TOURNAMENT",
-    "tournament_playstation_2": "Playstation 5, xbox series x/s & pc​",
-    "winner_price_2": "500 SAR for winner",
-    "number_of_participant_2": "1 vs 1",
-    "tournament_date_2": "Tournament starts on 7 July (7-7-2024)"
+    "tournaments": [
+      {
+        "tournamentName": "FC 2024 TOURNAMENT",
+        "tournamentPlayStation": "Playstation 5, xbox series x/s & pc​",
+        "winnerPrice": "500 SAR for winner",
+        "numberOfParticipant": "1 vs 1",
+        "tournamentDate": "Tournament starts on 7 July (7-7-2024)"
+      },
+      {
+        "tournamentName": "FC 2024 TOURNAMENT",
+        "tournamentPlayStation": "Playstation 5, xbox series x/s & pc​",
+        "winnerPrice": "500 SAR for winner",
+        "numberOfParticipant": "1 vs 1",
+        "tournamentDate": "Tournament starts on 7 July (7-7-2024)"
+      }
+    ]
+  },
+  "about_us": {
+    "heading": "Who we are",
+    "description": "Fanzaty is a passion turned into reality, a dream come true. It's a dream of a place that embraces all lovers and fanatics of the game. The childhood obsession, the cheers of enthusiasts, all gather here. At Fanzaty, we help you participate, compete, and win, transforming every fan into a professional gamer.",
+    "button": "more about us"
+  },
+
+  "join_our_community": {
+    "heading": "Become a <span className=\"highlighted-text\">pro FC24 player</span> with private lessons from world class coaches",
+    "description": "At Fanzaty Academy, we're all about taking your skills to the next level. We unlock every game secret. Our coaches are absolute legends who share all the insider details. Don’t worry about your progress; with us, you’re in the best hands.",
+    "button": "Join the academy"
+  },
+  "our_client": {
+    "heading": "WHO WE HAVE WORKED WITH"
+  },
+  "happy_players": {
+    "heading": "Happy players",
+    "players": [
+      {
+        "playerName": "Saoud Hifaaw",
+        "description": "“Fanzaty is a passion turned into reality, a dream come true. It’s a dream of a place that embraces all lovers and fanatics of the game.”"
+      },
+      {
+        "playerName": "Saoud Hifaaw",
+        "description": "“There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.”"
+      },
+      {
+        "playerName": "Saoud Hifaaw",
+        "description": "“If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.”"
+      }
+    ]
+  },
+
+  "joinUs": {
+    "heading": "Join us on all our platforms",
+    "description": "We're a family, a community, and a launchpad for champions. Join us, and together, let's paint the digital field with pride.",
+    "buttonText": "Join us today!"
+  },
+
+  "menu_icon": {
+    "home": "Home",
+    "tournaments": "Tournaments",
+    "about_us": "About Us",
+    "contact_us": "Contact Us"
+  },
+  "footer": {
+    "description": "GCC champions, unleash your FC 24 fury! Fanzaty ignites esports tournaments just for you. Dominate leaderboards, conquer rivals, claim glory. Casual or pro, every skill finds its challenge. Gear up, legends! Join the arena, rule the game.",
+    "copyright": "© 2024 fanzaty. All rights reserved"
+  },
+  "buttons": {
+    "login": "Login",
+    "sign_up": "Sign up"
+  },
+
+  "signUp": {
+    "heading": "Sign up",
+    "firstName": "First Name",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastName": "Last Name",
+    "lastNamePlaceholder": "Enter your last name",
+    "username": "Username",
+    "usernamePlaceholder": "Enter username",
+    "phone": "Phone Number",
+    "email": "E-mail",
+    "emailPlaceholder": "Enter your email.",
+    "password": "Password",
+    "passwordPlaceholder": "XXXXXX",
+    "submit": "Sign Up",
+    "formSubmitted": "Form submitted successfully",
+    "formSubmissionFailed": "Form submission failed",
+    "requiredField": "Please enter your {{field}}!",
+    "minLengthField": "{{field}} must be at least {{length}} characters long!",
+    "invalidEmail": "The input is not a valid E-mail!",
+    "invalidPhoneNumber": "Phone number must be between 10 and 15 digits!"
   }
 }

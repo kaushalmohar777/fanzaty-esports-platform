@@ -8,6 +8,9 @@ import Academy from "./components/Academy/Academy";
 import ContactUs from "./components/Contact-us/ContactUs";
 import AboutUs from "./components/About-us/AboutUs";
 import JoinOurCommunty from "./components/Join-our-community/JoinOurCommunity";
+import Login from "./pages/Login/Login";
+import SignUp from "./pages/Sign-up/SignUp";
+import ForgotPassword from "./pages/Forgot-password/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +24,9 @@ const router = createBrowserRouter([
       { path: "/contact-us", element: <ContactUs /> },
       { path: "/about-us", element: <AboutUs /> },
       { path: "/join-our-community", element: <JoinOurCommunty /> },
+      { path: "/login", element: <Login /> },
+      { path: "/sign-up", element: <SignUp /> },
+      { path: "/forgot-password", element: <ForgotPassword /> },
     ],
   },
 ]);

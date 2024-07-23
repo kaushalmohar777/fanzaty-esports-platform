@@ -1,0 +1,198 @@
+.sign-up-section {
+  background: url("../../assets/images/signup-bg.svg");
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.signup-main-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sign-up-box {
+  width: 641px;
+  //   height: 1081.38px;
+  padding: 66px 75px 66px 75px;
+  border-radius: 20px;
+  border: 2px solid #08ff9654;
+  margin: 0 auto 75px auto;
+}
+.sign-up-heading {
+  text-align: center;
+  margin-top: 117px;
+  margin-bottom: 50px;
+  font-family: "Anybody", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 59px;
+  text-align: center;
+  color: #fff;
+}
+
+.submit-btn {
+  background-color: #08ff96;
+  color: #141414;
+  margin-left: 0;
+  font-family: "Anybody", sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+}
+
+.submit-btn:hover {
+  background-color: #08ff96 !important;
+  color: #141414 !important;
+  border-color: #08ff96;
+  margin-left: 0;
+  font-family: "Anybody", sans-serif;
+}
+
+.ant-form-item-label > label {
+  color: white !important;
+}
+
+.ant-input,
+.ant-input-password input {
+  background: none;
+  border-color: white;
+  color: white;
+}
+
+.ant-input:hover,
+.ant-input:focus,
+.ant-input-password input:hover,
+.ant-input-password input:focus {
+  border-color: white !important;
+  box-shadow: none !important;
+  background-color: #141414 !important;
+}
+
+.ant-input:hover,
+.ant-input:focus,
+.ant-input-password input:hover,
+.ant-input-password input:focus,
+.ant-input-affix-wrapper:hover,
+.ant-input-affix-wrapper:focus {
+  border-color: white !important;
+  box-shadow: none !important;
+  background-color: none !important;
+}
+
+.ant-input-affix-wrapper {
+  border-color: white !important;
+  box-shadow: none !important;
+  background-color: #141414 !important;
+}
+
+.ant-form-item-control-input-content {
+  background-color: #141414;
+}
+
+.ant-select-selection-item {
+  color: white;
+}
+
+.ant-select-arrow {
+  color: white;
+}
+
+.ant-select-selector {
+  background: none;
+  border-color: white;
+}
+
+.ant-select-selector:hover,
+.ant-select-selector:focus {
+  border-color: white;
+  box-shadow: none;
+}
+
+.ant-input::placeholder,
+.ant-input-password input::placeholder {
+  color: white !important;
+  background: #141414 !important;
+}
+
+.ant-input {
+  color: white !important;
+  background: #141414 !important;
+  height: 62px;
+}
+
+.ant-select-selection-item::placeholder {
+  color: white;
+  background: #141414;
+}
+
+.ant-input-password-icon {
+  color: white !important; /* Change the color of the password visibility icon */
+}
+.avatar-select-img {
+  display: flex;
+  color: #fff;
+  align-items: center;
+  margin: 33px 0;
+  z-index: 99;
+  position: relative;
+  p {
+    font-family: "Anybody", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: left;
+    margin-right: 15px;
+  }
+  img {
+    cursor: pointer;
+  }
+}
+
+.sign-up-box {
+  position: relative;
+  width: 641px;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid black;
+  border: 1px solid #08ff96;
+  z-index: 1;
+  width: 641px;
+}
+
+.sign-up-box::before {
+  content: "";
+  width: 641px;
+  height: 100%;
+  position: absolute;
+  background-color: #000;
+  box-shadow: 0 0 10px rgb(8, 8, 8);
+  animation: animate 4s linear infinite;
+}
+
+.sign-up-box::after {
+  content: "";
+  width: 641px;
+  height: 100%;
+  position: absolute;
+  inset: 5px;
+  background-color: #000;
+  border: 3px solid #08ff96;
+  z-index: -2;
+  border-radius: 16px;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

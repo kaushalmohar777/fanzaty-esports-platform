@@ -102,9 +102,9 @@ const Navbar = () => {
           En
         </span>
       </div>
-      <Link to="/login">
+      <Link to="/sign-up">
         <Button type="primary" icon={<UserOutlined />} style={loginButtonStyle}>
-          Log in/Sign up
+          {t("menu.sign_up")}
         </Button>
       </Link>
       <Drawer
