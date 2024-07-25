@@ -7,7 +7,8 @@
     "contact_us": "Contact Us",
     "about_us": "About Us",
     "join_our_community": "Join Our Community",
-    "sign_up": "Sign up"
+    "sign_up": "Sign up",
+    "join_tournament": "Join Tournaments"
   },
   "banner": {
     "heading": "THE STAGE IS SET",
@@ -100,16 +101,33 @@
     "username": "Username",
     "usernamePlaceholder": "Enter username",
     "phone": "Phone Number",
-    "email": "E-mail",
+    "email": "Email",
     "emailPlaceholder": "Enter your email.",
     "password": "Password",
     "passwordPlaceholder": "XXXXXX",
     "submit": "Sign Up",
+    "select": "Select",
     "formSubmitted": "Form submitted successfully",
     "formSubmissionFailed": "Form submission failed",
     "requiredField": "Please enter your {{field}}!",
     "minLengthField": "{{field}} must be at least {{length}} characters long!",
     "invalidEmail": "The input is not a valid E-mail!",
-    "invalidPhoneNumber": "Phone number must be between 10 and 15 digits!"
+    "invalidPhoneNumber": "Phone number must be between 10 and 15 digits!",
+    "forgot_Password": "Forgot Password?",
+    "login": "Login",
+    "select_avatar": "Select Avatar",
+    "already_account": "Already have a account?"
+  },
+  "forgot_password": {
+    "heading": "Forgot Password?",
+    "description": "Enter your email for the verification process. We will send 4 digits code to your email.",
+    "button": "Continue",
+    "emailPlaceholder": "fahd123@gmail.com"
+  },
+  "dropdown": {
+    "myProfile": "My Profile",
+    "tournament": "Tournament",
+    "message": "Message",
+    "logout": "Logout"
   }
 }

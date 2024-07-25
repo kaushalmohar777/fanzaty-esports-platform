@@ -7,5 +7,5 @@ export const setLocalStorageData = (key, value) => {
 }
 
 export const clearLocalStorageData = () => {
-    localStorage.setItem()
+    localStorage.clear();
 }

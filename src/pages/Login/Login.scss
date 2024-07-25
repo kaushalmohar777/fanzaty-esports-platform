@@ -1,0 +1,51 @@
+.login-section {
+  background: url("../../assets/images/Login-bg.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.login-main-box {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.login-up-box {
+  width: 641px;
+  padding: 66px 75px 66px 75px;
+  border-radius: 20px;
+  border: 2px solid #08ff9654;
+  margin: 0 auto 75px auto;
+  background-color: #141414;
+}
+
+.login-heading {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 117px;
+  font-family: "Anybody", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 59px;
+  text-align: center;
+  color: #fff;
+}
+
+.ant-form-item-label > label {
+  color: white !important;
+  font-family: "Anybody", sans-serif;
+}
+.ant-form-item {
+  margin-bottom: 15px;
+}
+.forgot-pass {
+  font-family: "Anybody", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 17.6px;
+  text-align: right;
+  color: #fff;
+  margin: 0;
+  cursor: pointer;
+}

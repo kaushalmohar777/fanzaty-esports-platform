@@ -11,6 +11,7 @@ import JoinOurCommunty from "./components/Join-our-community/JoinOurCommunity";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/Sign-up/SignUp";
 import ForgotPassword from "./pages/Forgot-password/ForgotPassword";
+import Notification from "./components/Notification/Notification";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { path: "/contact-us", element: <ContactUs /> },
       { path: "/about-us", element: <AboutUs /> },
       { path: "/join-our-community", element: <JoinOurCommunty /> },
+      { path: "/notification", element: <Notification /> },
       { path: "/login", element: <Login /> },
       { path: "/sign-up", element: <SignUp /> },
       { path: "/forgot-password", element: <ForgotPassword /> },

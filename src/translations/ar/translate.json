@@ -7,7 +7,8 @@
     "contact_us": "اتصل بنا",
     "about_us": "معلومات عنا",
     "join_our_community": "انضم للاكاديمية",
-    "sign_up": "اشتراك"
+    "sign_up": "اشتراك",
+    "join_tournament": "انضم إلى البطولات"
   },
   "banner": {
     "heading": "المسرح جاهز",
@@ -87,17 +88,22 @@
     "username": "اسم المستخدم",
     "usernamePlaceholder": "أدخل اسم المستخدم",
     "phone": "رقم الهاتف",
-    "email": "البريد الإلكتروني",
+    "email": "بريد إلكتروني",
     "emailPlaceholder": "أدخل بريدك الإلكتروني.",
     "password": "كلمه السر",
     "passwordPlaceholder": "XXXXXX",
     "submit": "سجل",
+    "select": "يختار",
     "formSubmitted": "تم إرسال النموذج بنجاح",
     "formSubmissionFailed": "فشل إرسال النموذج",
     "requiredField": "يرجى إدخال {{field}} الخاص بك!",
     "minLengthField": "يجب أن يكون {{field}} على الأقل {{length}} أحرف طويلة!",
     "invalidEmail": "الإدخال ليس بريدًا إلكترونيًا صالحًا!",
-    "invalidPhoneNumber": "يجب أن يتراوح رقم الهاتف بين 10 و 15 رقمًا!"
+    "invalidPhoneNumber": "يجب أن يتراوح رقم الهاتف بين 10 و 15 رقمًا!",
+    "forgot_Password": "هل نسيت كلمة السر؟",
+    "login": "تسجيل الدخول",
+    "select_avatar": "حدد الصورة الرمزية",
+    "already_account": "هل لديك حساب بالفعل؟"
   },
 
   "menu_icon": {
@@ -113,5 +119,17 @@
   "buttons": {
     "login": "تسجيل الدخول",
     "sign_up": "اشتراك"
+  },
+  "forgot_password": {
+    "heading": "هل نسيت كلمة السر؟",
+    "description": "أدخل بريدك الإلكتروني لعملية التحقق. سوف نقوم بإرسال رمز مكون من 4 أرقام إلى بريدك الإلكتروني.",
+    "button": "يكمل",
+    "emailPlaceholder": "فهد123@gmail.com"
+  },
+  "dropdown": {
+    "myProfile": "ملفي",
+    "tournament": "المسابقة",
+    "message": "رسالة",
+    "logout": "تسجيل خروج"
   }
 }

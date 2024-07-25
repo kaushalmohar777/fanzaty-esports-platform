@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
@@ -7,6 +6,9 @@ import i18next from "i18next";
 import common_en from "./translations/en/translate.json";
 import common_ar from "./translations/ar/translate.json";
 import { getLocalStorageData } from "./shared/commonFunction.js";
+import { store } from "./store";
+import { Provider } from "react-redux";
+import Toast from "./shared/sharedComponents/ToasterMessage/ToasterMessage.jsx";
 
 const defaultLanguage = getLocalStorageData("language") || "ar";
 
@@ -25,9 +27,10 @@ i18next.init({
 document.body.dir = defaultLanguage === "ar" ? "rtl" : "ltr";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <I18nextProvider i18n={i18next}>
+  <I18nextProvider i18n={i18next}>
+    <Provider store={store}>
       <App />
-    </I18nextProvider>
-  </React.StrictMode>
+      <Toast />
+    </Provider>
+  </I18nextProvider>
 );

@@ -6,8 +6,32 @@ import { useEffect } from "react";
 const OwlCarousel = ({ data }) => {
   useEffect(() => {}, [data]);
 
+  const carouselConfig = {
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+    ],
+  };
+
   return (
     <Carousel
+      {...carouselConfig}
       draggable={true}
       dots={true}
       slidesToShow={3}

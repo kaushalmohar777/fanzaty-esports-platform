@@ -56,6 +56,7 @@
 
 .ant-form-item-label > label {
   color: white !important;
+  font-family: "Anybody", sans-serif;
 }
 
 .ant-input,
@@ -82,7 +83,8 @@
 .ant-input-affix-wrapper:focus {
   border-color: white !important;
   box-shadow: none !important;
-  background-color: none !important;
+  background: none !important;
+  font-family: "Anybody", sans-serif;
 }
 
 .ant-input-affix-wrapper {
@@ -112,12 +114,15 @@
 .ant-select-selector:focus {
   border-color: white;
   box-shadow: none;
+  font-family: "Anybody", sans-serif;
 }
 
 .ant-input::placeholder,
 .ant-input-password input::placeholder {
   color: white !important;
   background: #141414 !important;
+  font-family: "Anybody", sans-serif;
+  opacity: 30%;
 }
 
 .ant-input {
@@ -188,6 +193,18 @@
   border-radius: 16px;
 }
 
+.avatar-img-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  z-index: 999;
+  position: relative;
+}
+.avatar-img {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
 @keyframes animate {
   0% {
     transform: rotate(0deg);
@@ -195,4 +212,51 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.avatar-img.selected {
+  background-color: #08ff96cc;
+  opacity: 0.3;
+}
+
+.selected-avatar {
+  position: relative;
+  opacity: 1;
+  z-index: 999;
+}
+
+.already-have-account {
+  font-family: "Anybody", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: left;
+  margin-right: 15px;
+  position: relative;
+  z-index: 999;
+  color: #fff;
+  text-align: end;
+}
+
+.login-txt {
+  color: #08ff96;
+}
+
+.flag-img {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.country-option {
+  display: flex !important;
+}
+.ant-select-selection-item {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.ant-select-arrow {
+  color: #fff !important;
 }
