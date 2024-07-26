@@ -33,6 +33,7 @@ import userProfile from "../../assets/icons/user.svg";
 import bellIcon from "../../assets/icons/Bell.svg";
 import messageIcon from "../../assets/icons/message-icon.svg";
 import logOut from "../../assets/icons/logout.svg";
+import { setUser } from "../../features/user/userSlice";
 
 const { Header } = Layout;
 
@@ -59,6 +60,7 @@ const Navbar = () => {
       const response = await getApiRequest(END_POINTS.GET_USER_DATA);
       if (response.success) {
         setUserData(response.user);
+        dispatch(setUser(response.user));
       }
     } catch (error) {
       console.log(error);
@@ -121,7 +123,7 @@ const Navbar = () => {
       ),
     },
     {
-      label: t("dropdown.myProfile"),
+      label: <Link to="/profile">{t("dropdown.myProfile")}</Link>,
       icon: (
         <img
           src={userProfile}

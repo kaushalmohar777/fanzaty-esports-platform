@@ -129,5 +129,32 @@
     "tournament": "Tournament",
     "message": "Message",
     "logout": "Logout"
+  },
+
+  "user_profile": {
+    "fifa": "FIFA",
+    "esports": "Esports",
+    "state_by_game": "Stats by Game",
+    "about_player": "About Player",
+    "write_your_bio": "Write your bio",
+    "points_history": "Points history",
+    "game_id": "Game ID",
+    "games_played": "Games played",
+    "win_rate": "Win Rate",
+    "coins": "Coins",
+    "rival_stats": "Rival Stats",
+    "game_title": "Game title",
+    "ripoint_earn": "Ripoints earned",
+    "rival_record": "Rival record (w-t-l)",
+    "rival_rating": "rival rating"
+  },
+  "game_id": {
+    "uno_id": "UNO ID",
+    "fc24_id": "FC 24 ID",
+    "pubg_id": "Pubg ID"
+  },
+  "rival_stats": {
+    "game_name": "Rival Stats",
+    "game_title_fc24": "EA Sports FC 24"
   }
 }

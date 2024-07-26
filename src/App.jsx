@@ -1,34 +1,135 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./theme/Layout";
-import HomePage from "./components/HomePage";
 import "./App.css";
-import FeatureTournament from "./components/Feature-tournament/FeatureTournament";
-import LeaderShipBoard from "./components/Leader-ship-board/LeaderShipBoard";
-import Academy from "./components/Academy/Academy";
-import ContactUs from "./components/Contact-us/ContactUs";
-import AboutUs from "./components/About-us/AboutUs";
-import JoinOurCommunty from "./components/Join-our-community/JoinOurCommunity";
-import Login from "./pages/Login/Login";
-import SignUp from "./pages/Sign-up/SignUp";
-import ForgotPassword from "./pages/Forgot-password/ForgotPassword";
-import Notification from "./components/Notification/Notification";
+
+const HomePage = lazy(() => import("./components/HomePage"));
+const FeatureTournament = lazy(() =>
+  import("./components/Feature-tournament/FeatureTournament")
+);
+const LeaderShipBoard = lazy(() =>
+  import("./components/Leader-ship-board/LeaderShipBoard")
+);
+const Academy = lazy(() => import("./components/Academy/Academy"));
+const ContactUs = lazy(() => import("./components/Contact-us/ContactUs"));
+const AboutUs = lazy(() => import("./components/About-us/AboutUs"));
+const JoinOurCommunty = lazy(() =>
+  import("./components/Join-our-community/JoinOurCommunity")
+);
+const Login = lazy(() => import("./pages/Login/Login"));
+const SignUp = lazy(() => import("./pages/Sign-up/SignUp"));
+const ForgotPassword = lazy(() =>
+  import("./pages/Forgot-password/ForgotPassword")
+);
+const Notification = lazy(() =>
+  import("./components/Notification/Notification")
+);
+const UserProfile = lazy(() => import("./components/user-profile/UserProfile"));
+
+const LoadingFallback = () => <div className="lazy-loading">Loading...</div>;
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
-      { path: "/", element: <HomePage /> },
-      { path: "/tournaments", element: <FeatureTournament /> },
-      { path: "/leadership-board", element: <LeaderShipBoard /> },
-      { path: "/academy", element: <Academy /> },
-      { path: "/contact-us", element: <ContactUs /> },
-      { path: "/about-us", element: <AboutUs /> },
-      { path: "/join-our-community", element: <JoinOurCommunty /> },
-      { path: "/notification", element: <Notification /> },
-      { path: "/login", element: <Login /> },
-      { path: "/sign-up", element: <SignUp /> },
-      { path: "/forgot-password", element: <ForgotPassword /> },
+      {
+        path: "/",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <HomePage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/tournaments",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <FeatureTournament />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/leadership-board",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <LeaderShipBoard />
+          </Suspense>
+        ),
+      },
+
+      {
+        path: "/academy",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <Academy />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/contact-us",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <ContactUs />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/about-us",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <AboutUs />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/join-our-community",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <JoinOurCommunty />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/notification",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <Notification />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/login",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <Login />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/sign-up",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <SignUp />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/forgot-password",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <ForgotPassword />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <UserProfile />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);

@@ -53,32 +53,35 @@ const SignUp = () => {
       <Select
         showSearch
         style={{ width: 150 }}
-        placeholder="Select a country code"
+        placeholder={t("signUp.selectCountryCode")}
         optionFilterProp="children"
         filterOption={(input, option) => {
-          const countryCode = option.children[0].toString().toLowerCase();
-          const countryName = countryData
-            .find((country) => country.callingCode === option.value)
-            ?.name.toLowerCase();
+          const countryData = option["data-country"];
+          if (!countryData) return false;
+
+          const searchValue = input.toLowerCase();
           return (
-            countryCode.includes(input.toLowerCase()) ||
-            countryName.includes(input.toLowerCase())
+            countryData.callingCode.toLowerCase().includes(searchValue) ||
+            countryData.name.toLowerCase().includes(searchValue)
           );
         }}
       >
         {countryData &&
-          countryData.map((item, index) => {
-            return (
-              <Option
-                value={item.callingCode}
-                key={index}
-                className="country-option"
-              >
-                <span>{item.callingCode}</span>
-                <img src={item.flag} alt="loading-flag" className="flag-img" />
-              </Option>
-            );
-          })}
+          countryData.map((item, index) => (
+            <Option
+              value={item.callingCode}
+              key={index}
+              className="country-option"
+              data-country={item}
+            >
+              <span>{item.callingCode}</span>
+              <img
+                src={item.flag}
+                alt={`${item.name} flag`}
+                className="flag-img"
+              />
+            </Option>
+          ))}
       </Select>
     </Form.Item>
   );

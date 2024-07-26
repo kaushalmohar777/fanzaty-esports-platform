@@ -131,5 +131,33 @@
     "tournament": "المسابقة",
     "message": "رسالة",
     "logout": "تسجيل خروج"
+  },
+
+  "user_profile": {
+    "fifa": "فيفا",
+    "esports": "الرياضات الإلكترونية",
+    "state_by_game": "إحصائيات اللعبة",
+    "about_player": "حول اللاعب",
+    "write_your_bio": "اكتب سيرتك الذاتية",
+    "points_history": "تاريخ النقاط",
+    "game_id": "معرف اللعبة",
+    "games_played": "الألعاب التي تم لعبها",
+    "win_rate": "معدل الفوز",
+    "coins": "العملات",
+    "rival_stats": "إحصائيات المنافسين",
+    "game_title": "عنوان اللعبة",
+    "ripoint_earn": "حصل ريبوينتس",
+    "rival_record": "سجل المنافس (wtl)",
+    "rival_rating": "تصنيف المنافس"
+  },
+
+  "game_id": {
+    "uno_id": "معرف UNO",
+    "fc24_id": "معرف FC 24",
+    "pubg_id": "معرف Pubg"
+  },
+  "rival_stats": {
+    "game_name": "إحصائيات المنافس",
+    "game_title_fc24": "EA Sports FC 24"
   }
 }
