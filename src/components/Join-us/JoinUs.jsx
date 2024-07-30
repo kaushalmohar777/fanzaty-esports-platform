@@ -3,6 +3,7 @@ import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
 import "./JoinUs.scss";
 import { memo } from "react";
+/* eslint-disable react-refresh/only-export-components */
 
 const JoinUs = () => {
   const { t } = useTranslation("common");

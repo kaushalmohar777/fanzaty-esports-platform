@@ -5,6 +5,7 @@ import education from "../../assets/images/education.svg";
 import store from "../../assets/images/store.svg";
 import { useTranslation } from "react-i18next";
 import { memo } from "react";
+/* eslint-disable react-refresh/only-export-components */
 
 const OurClient = () => {
   const { t } = useTranslation("common");

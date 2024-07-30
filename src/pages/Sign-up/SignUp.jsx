@@ -22,9 +22,16 @@ const SignUp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const countryData = useSelector((state) => state.country.countryData);
+  const isLogin = useSelector((state) => state.login.isLogin);
 
   useEffect(() => {
     getAllAvatarImages();
+  }, []);
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate("/");
+    }
   }, []);
 
   const getAllAvatarImages = async () => {

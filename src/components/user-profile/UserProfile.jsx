@@ -10,6 +10,7 @@ import copyIcon from "../../assets/icons/copy-icon.svg";
 import { Flex } from "antd";
 import { Link } from "react-router-dom";
 import { memo } from "react";
+/* eslint-disable react-refresh/only-export-components */
 
 const UserProfile = () => {
   const userData = useSelector((state) => state.user.userData);

@@ -2,6 +2,7 @@
 import { useTranslation } from "react-i18next";
 import "./JoinOurCommunity.scss";
 import { memo } from "react";
+/* eslint-disable react-refresh/only-export-components */
 
 const JoinOurCommunity = () => {
   const { t } = useTranslation("common");

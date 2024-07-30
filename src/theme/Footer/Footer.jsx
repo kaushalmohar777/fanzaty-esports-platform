@@ -4,7 +4,7 @@ import footerLogo from "../../assets/images/footer-logo.svg";
 import footerLogo2 from "../../assets/images/footer-logo2.svg";
 import { useTranslation } from "react-i18next";
 import { activeStyle, menuItemStyle, menuStyle } from "../Navbar/NavbarStyles";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import facebook from "../../assets/icons/facebook.svg";
 import tiktok from "../../assets/icons/tiktok.svg";
 import instagram from "../../assets/icons/Instagram.svg";
@@ -23,6 +23,8 @@ const Footer = () => {
   const { t, i18n } = useTranslation("common");
   const lang = useSelector((state) => state.language.language);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const isLogin = useSelector((state) => state.login.isLogin);
 
   const menuItems = [
     { key: "/", label: t("menu.home") },
@@ -106,12 +108,16 @@ const Footer = () => {
             </div>
 
             <div className="footer-login-buttons">
-              <Link to="/login" className="login-btn">
-                {t("buttons.login")}
-              </Link>
-              <Link to="/sign-up" className="sign-up-btn">
-                {t("buttons.sign_up")}
-              </Link>
+              {!isLogin ? (
+                <>
+                  <Link to="/login" className="login-btn">
+                    {t("buttons.login")}
+                  </Link>
+                  <Link to="/sign-up" className="sign-up-btn">
+                    {t("buttons.sign_up")}
+                  </Link>
+                </>
+              ) : null}
               <span
                 className={lang === "ar" ? `selected-language` : `language`}
                 onClick={() => changeLanguage("ar")}

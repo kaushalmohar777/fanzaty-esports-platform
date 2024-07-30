@@ -1,7 +1,7 @@
 import { memo } from "react";
 import "./Banner.scss";
 import { useTranslation } from "react-i18next";
-
+/* eslint-disable react-refresh/only-export-components */
 const Banner = () => {
   const { t } = useTranslation("common");
   return (

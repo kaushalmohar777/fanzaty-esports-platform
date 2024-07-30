@@ -6,6 +6,7 @@ import "./HappyPlayers.scss";
 import twitter from "../../assets/images/twitter.svg";
 import OwlCarousel from "../../shared/sharedComponents/Carousel/OwlCarousel";
 import { memo } from "react";
+/* eslint-disable react-refresh/only-export-components */
 
 const HappyPlayers = () => {
   const { t } = useTranslation("common");

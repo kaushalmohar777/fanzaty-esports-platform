@@ -9,6 +9,7 @@ import dateTime from "../../assets/images/Date-time.svg";
 import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+/* eslint-disable react-refresh/only-export-components */
 
 const FeatureTournament = () => {
   const { t } = useTranslation("common");

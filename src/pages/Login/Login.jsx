@@ -2,11 +2,11 @@ import { useTranslation } from "react-i18next";
 
 import { Form, Input, Button } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setLoginState } from "../../features/login/loginSlice";
 import { setLocalStorageData } from "../../shared/commonFunction";
 import { login } from "../../services/Api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 import "./Login.scss";
 
@@ -16,6 +16,13 @@ const Login = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const isLogin = useSelector((state) => state.login.isLogin);
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate("/");
+    }
+  }, []);
 
   const onFinish = async (values) => {
     setIsLoading(true);

@@ -18,6 +18,7 @@ import { END_POINTS } from "../../Helper/Constant";
 import { putApiRequest } from "../../services/putApiRequest";
 import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 import { useNavigate } from "react-router-dom";
+/* eslint-disable react-refresh/only-export-components */
 
 const EditUserProfile = () => {
   const { t } = useTranslation("common");
@@ -33,17 +34,17 @@ const EditUserProfile = () => {
   }, [countryData]);
 
   useEffect(() => {
-    const formattedDob = userData?.dob ? moment(userData.dob) : null;
-    if (userData && formattedDob) {
+    if (userData) {
+      const formattedDob = userData?.dob ? moment(userData?.dob) : null;
       form.setFieldsValue({
         firstName: userData?.firstName,
         lastName: userData?.lastName,
         nickName: userData?.nickName,
         phone: userData?.phone,
         email: userData?.email,
-        dob: formattedDob,
         gender: userData?.gender ? userData.gender.toLowerCase() : undefined,
         prefix: userData?.prefix || "Select country code",
+        dob: formattedDob,
       });
     }
   }, [userData, form]);

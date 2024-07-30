@@ -58,6 +58,20 @@ const Navbar = () => {
   }, [isLogin, dispatch]);
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1200) {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     const storedLanguage = getLocalStorageData("language");
     dispatch(setLang(storedLanguage || "en"));
   }, [lang, dispatch]);
@@ -263,8 +277,8 @@ const Navbar = () => {
         title="Menu"
         placement="right"
         onClose={() => setOpen(false)}
-        visible={open}
-        bodyStyle={drawerBodyStyle}
+        open={open}
+        styles={{ body: drawerBodyStyle }}
       >
         <Menu
           mode="vertical"
