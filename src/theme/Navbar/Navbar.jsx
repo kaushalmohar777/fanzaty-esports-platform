@@ -1,8 +1,27 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, Button, Layout, Drawer } from "antd";
+import { Layout, Menu, Button, Drawer, Dropdown, Badge, Space } from "antd";
 import { UserOutlined, DownOutlined, MenuOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import {
+  clearLocalStorageData,
+  getLocalStorageData,
+  setLocalStorageData,
+} from "../../shared/commonFunction";
+import { setLoginState } from "../../features/login/loginSlice";
+import { getApiRequest } from "../../services/getApiRequest";
+import { END_POINTS } from "../../Helper/Constant";
+import { setUser } from "../../features/user/userSlice";
+import { setCountry } from "../../features/country/countrySlice";
+import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
+import { setLang } from "../../features/language/language";
 import logo from "../../assets/images/logo.svg";
+import userProfile from "../../assets/icons/user.svg";
+import bellIcon from "../../assets/icons/Bell.svg";
+import messageIcon from "../../assets/icons/message-icon.svg";
+import logOut from "../../assets/icons/logout.svg";
+import "./Navbar.scss";
 import {
   headerStyle,
   logoStyle,
@@ -15,34 +34,16 @@ import {
   activeStyle,
   drawerBodyStyle,
 } from "./NavbarStyles";
-import "./Navbar.scss";
-import { useTranslation } from "react-i18next";
-import {
-  clearLocalStorageData,
-  getLocalStorageData,
-  setLocalStorageData,
-} from "../../shared/commonFunction";
-import { useDispatch, useSelector } from "react-redux";
-import { Badge, Dropdown, Space } from "antd";
-import bell from "../../assets/icons/Bell.svg";
-// import userprofile from "../../assets/images/user-profile-img.svg";
-import { setLoginState } from "../../features/login/loginSlice";
-import { getApiRequest } from "../../services/getApiRequest";
-import { END_POINTS } from "../../Helper/Constant";
-import userProfile from "../../assets/icons/user.svg";
-import bellIcon from "../../assets/icons/Bell.svg";
-import messageIcon from "../../assets/icons/message-icon.svg";
-import logOut from "../../assets/icons/logout.svg";
-import { setUser } from "../../features/user/userSlice";
+import message from "../../assets/images/message.svg";
 
 const { Header } = Layout;
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const [language, setLanguage] = useState(getLocalStorageData("language"));
   const { t, i18n } = useTranslation("common");
   const isLogin = useSelector((state) => state.login.isLogin);
+  const lang = useSelector((state) => state.language.language);
   const dispatch = useDispatch();
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
@@ -51,11 +52,29 @@ const Navbar = () => {
     const token = getLocalStorageData("token");
     if (token) {
       dispatch(setLoginState(true));
-      getUserData();
+      fetchUserData();
     }
-  }, [isLogin]);
+    fetchCountryData();
+  }, [isLogin, dispatch]);
 
-  const getUserData = async () => {
+  useEffect(() => {
+    const storedLanguage = getLocalStorageData("language");
+    dispatch(setLang(storedLanguage || "en"));
+  }, [lang, dispatch]);
+
+  const fetchCountryData = async () => {
+    try {
+      const response = await getApiRequest(END_POINTS.GET_ALL_COUNTRY_CODE);
+      if (response.success) {
+        dispatch(setCountry(response.countries));
+      }
+    } catch (error) {
+      console.log(error);
+      showToast(error.message, "error");
+    }
+  };
+
+  const fetchUserData = async () => {
     try {
       const response = await getApiRequest(END_POINTS.GET_USER_DATA);
       if (response.success) {
@@ -68,23 +87,18 @@ const Navbar = () => {
   };
 
   const changeLanguage = (lng) => {
-    setLanguage(lng);
+    setLocalStorageData("language", lng);
     i18n.changeLanguage(lng);
     document.body.dir = lng === "ar" ? "rtl" : "ltr";
-    setLocalStorageData("language", lng);
+    dispatch(setLang(lng));
   };
 
-  useEffect(() => {
-    const language = getLocalStorageData("language");
-    setLanguage(language);
-  }, [language]);
-
-  const showDrawer = () => {
-    setOpen(true);
-  };
-
-  const onClose = () => {
-    setOpen(false);
+  const handleLogout = () => {
+    const currentLanguage = getLocalStorageData("language");
+    clearLocalStorageData();
+    setLocalStorageData("language", currentLanguage);
+    dispatch(setLoginState(false));
+    navigate("/login");
   };
 
   const menuItems = [
@@ -97,15 +111,7 @@ const Navbar = () => {
     { key: "/join-our-community", label: t("menu.join_our_community") },
   ];
 
-  const handleLogout = () => {
-    const language = getLocalStorageData("language");
-    clearLocalStorageData();
-    setLocalStorageData("language", language);
-    dispatch(setLoginState(false));
-    navigate("/login");
-  };
-
-  const items = [
+  const userMenuItems = [
     {
       label: (
         <div className="user-email-username">
@@ -133,16 +139,14 @@ const Navbar = () => {
       ),
       className: "my-profile-item",
     },
-
     {
       label: t("dropdown.tournament"),
       icon: (
         <img src={bellIcon} alt="avatar-img" className="user-profile-avatar" />
       ),
     },
-
     {
-      label: t("dropdown.message"),
+      label: <Link to="/messages">{t("dropdown.message")}</Link>,
       icon: (
         <img
           src={messageIcon}
@@ -151,9 +155,7 @@ const Navbar = () => {
         />
       ),
     },
-    {
-      type: "divider",
-    },
+    { type: "divider" },
     {
       label: t("dropdown.logout"),
       icon: (
@@ -162,10 +164,6 @@ const Navbar = () => {
       onClick: handleLogout,
     },
   ];
-
-  const menuProps = {
-    items,
-  };
 
   return (
     <Header style={headerStyle}>
@@ -190,20 +188,20 @@ const Navbar = () => {
         <Button
           type="text"
           icon={<MenuOutlined />}
-          onClick={showDrawer}
+          onClick={() => setOpen(true)}
           style={menuItemStyle}
         />
       </div>
       <div style={menuItemStyle}>
         <span
-          className={language === "ar" ? `selected-language` : `language`}
+          className={lang === "ar" ? `selected-language` : `language`}
           onClick={() => changeLanguage("ar")}
         >
           Ar
         </span>
         /
         <span
-          className={language === "en" ? `selected-language` : `language`}
+          className={lang === "en" ? `selected-language` : `language`}
           onClick={() => changeLanguage("en")}
         >
           En
@@ -230,21 +228,26 @@ const Navbar = () => {
               {t("menu.join_tournament")}
             </Button>
           </Link>
-
           <Link to="/notification" className="noti">
             <Badge count={1} className="notification-bell">
-              <img src={bell} alt="bell-img-load" />
+              <img src={bellIcon} alt="bell-img" />
             </Badge>
           </Link>
 
+          {location.pathname === "/messages" ? (
+            <div className="message-img">
+              <img src={message} alt="message-img" />
+            </div>
+          ) : null}
+
           <Dropdown
             trigger={["click"]}
-            menu={menuProps}
+            overlay={<Menu items={userMenuItems} />}
             className="user-detail-dropdown"
           >
             <Button>
               <Space>
-                {userData?.userName}{" "}
+                {userData?.userName}
                 <img
                   src={userData?.avatarUrl}
                   alt="user-profile"
@@ -256,13 +259,12 @@ const Navbar = () => {
           </Dropdown>
         </div>
       )}
-
       <Drawer
         title="Menu"
         placement="right"
-        onClose={onClose}
-        open={open}
-        styles={{ body: drawerBodyStyle }}
+        onClose={() => setOpen(false)}
+        visible={open}
+        bodyStyle={drawerBodyStyle}
       >
         <Menu
           mode="vertical"
@@ -272,7 +274,7 @@ const Navbar = () => {
             key: item.key,
             label: <Link to={item.key}>{item.label}</Link>,
             style: location.pathname === item.key ? activeStyle : menuItemStyle,
-            onClick: onClose,
+            onClick: () => setOpen(false),
           }))}
         />
       </Drawer>

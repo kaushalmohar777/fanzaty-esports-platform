@@ -116,13 +116,22 @@
     "forgot_Password": "Forgot Password?",
     "login": "Login",
     "select_avatar": "Select Avatar",
-    "already_account": "Already have a account?"
+    "already_account": "Already have a account?",
+    "nick_name": "Nick name",
+    "nick_name_placeholder": "Enter your nick name",
+    "gender": "Gender",
+    "update_form": "Update",
+    "edit_user_profile": "Edit Account",
+    "date_picker": "DatePicker",
+    "male": "Male",
+    "female": "Female"
   },
   "forgot_password": {
     "heading": "Forgot Password?",
     "description": "Enter your email for the verification process. We will send 4 digits code to your email.",
     "button": "Continue",
-    "emailPlaceholder": "fahd123@gmail.com"
+    "emailPlaceholder": "fahd123@gmail.com",
+    "resend": "Resend"
   },
   "dropdown": {
     "myProfile": "My Profile",
@@ -156,5 +165,17 @@
   "rival_stats": {
     "game_name": "Rival Stats",
     "game_title_fc24": "EA Sports FC 24"
+  },
+  "update_password_form": {
+    "current_password": "Current Password",
+    "new_password": "New Password",
+    "confirm_new_password": "Confirm New Password",
+    "input_current_password": "Please input your current password!",
+    "input_new_password": "Please input your new password!",
+    "password_min_length": "Password must be at least 6 characters long",
+    "passwords_do_not_match": "Passwords do not match",
+    "enter_current_password": "Enter your current password",
+    "enter_new_password": "Enter your new password",
+    "update_password": "Update Password"
   }
 }

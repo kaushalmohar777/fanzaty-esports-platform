@@ -3,5 +3,9 @@ export const END_POINTS = {
     GET_AVATAR_IMAGES: 'avtar/get-urls',
     SIGN_UP: "user/auth/signup",
     LOGIN: "user/auth/login",
-    GET_USER_DATA: "user/get-user"
+    GET_USER_DATA: "user/get-user",
+    FORGOT_PASSWORD: "user/forgot-password",
+    VERIFY_OTP: "user/verify-otp",
+    UPDATE_PASSWORD: "user/reset-password",
+    UPDATE_PROFILE: "user/update-profile"
 }

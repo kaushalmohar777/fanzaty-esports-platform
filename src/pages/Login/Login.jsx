@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import "./Login.scss";
+
 import { Form, Input, Button } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -8,6 +8,7 @@ import { setLocalStorageData } from "../../shared/commonFunction";
 import { login } from "../../services/Api";
 import { useState } from "react";
 import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
+import "./Login.scss";
 
 const Login = () => {
   const { t } = useTranslation("common");
@@ -63,7 +64,10 @@ const Login = () => {
                 },
               ]}
             >
-              <Input placeholder={t("signUp.emailPlaceholder")} />
+              <Input
+                placeholder={t("signUp.emailPlaceholder")}
+                autoComplete="email"
+              />
             </Form.Item>
             <Form.Item
               name="password"
@@ -87,7 +91,7 @@ const Login = () => {
             >
               <Input.Password
                 placeholder={t("signUp.passwordPlaceholder")}
-                autoComplete="new-password"
+                autoComplete="password"
               />
             </Form.Item>
 

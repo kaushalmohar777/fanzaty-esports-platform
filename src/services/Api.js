@@ -15,4 +15,15 @@ const login = async (email, password) => {
     }
 };
 
-export { login };
+const forgotPassword = async (email) => {
+    try {
+        const response = await axios.post(`${BASE_URL}/${END_POINTS.FORGOT_PASSWORD}`, {
+            email
+        });
+        return response.data;
+    } catch (error) {
+        throw error.response.data;
+    }
+};
+
+export { login, forgotPassword };

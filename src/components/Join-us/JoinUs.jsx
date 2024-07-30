@@ -2,6 +2,7 @@
 import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
 import "./JoinUs.scss";
+import { memo } from "react";
 
 const JoinUs = () => {
   const { t } = useTranslation("common");
@@ -27,4 +28,4 @@ const JoinUs = () => {
   );
 };
 
-export default JoinUs;
+export default memo(JoinUs);

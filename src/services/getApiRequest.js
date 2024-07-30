@@ -13,11 +13,11 @@ export const getApiRequest = async (END_POINTS) => {
         });
         return response.data;
     } catch (error) {
-        if (error.response.status === 401) {
+        if (error?.response?.status === 401) {
             showToast(error.response.data.message);
             clearLocalStorageData();
             window.location.href = "/login";
-        } else if (error.response.status === 400) {
+        } else if (error?.response?.status === 400) {
             showToast(error.response.data.message);
         }
         throw error;

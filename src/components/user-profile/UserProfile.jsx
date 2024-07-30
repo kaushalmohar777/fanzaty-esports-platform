@@ -8,6 +8,8 @@ import addIcon from "../../assets/icons/add-icon.svg";
 import editIcon from "../../assets/icons/edit-icon.svg";
 import copyIcon from "../../assets/icons/copy-icon.svg";
 import { Flex } from "antd";
+import { Link } from "react-router-dom";
+import { memo } from "react";
 
 const UserProfile = () => {
   const userData = useSelector((state) => state.user.userData);
@@ -116,9 +118,9 @@ const UserProfile = () => {
           <div className="user-avatar">
             <div className="user-avatar-img">
               <img src={userData?.avatarUrl} alt="avatar-img" />
-              <p className="edit-icon-img">
+              <Link to="/edit-user-profile" className="edit-icon-img">
                 <img src={userEditIcon} alt="edit-icon-loading" />
-              </p>
+              </Link>
             </div>
             <h1 className="user-profile-name">
               {userData?.firstName} {userData?.lastName}
@@ -208,4 +210,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default memo(UserProfile);

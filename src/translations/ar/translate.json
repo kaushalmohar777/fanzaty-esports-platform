@@ -103,7 +103,15 @@
     "forgot_Password": "هل نسيت كلمة السر؟",
     "login": "تسجيل الدخول",
     "select_avatar": "حدد الصورة الرمزية",
-    "already_account": "هل لديك حساب بالفعل؟"
+    "already_account": "هل لديك حساب بالفعل؟",
+    "nick_name": "كنية",
+    "nick_name_placeholder": "أدخل اسمك المستعار",
+    "gender": "جنس",
+    "update_form": "تحديث",
+    "edit_user_profile": "تحرير الحساب",
+    "date_picker": "منتقي التاريخ",
+    "male": "ذكر",
+    "female": "أنثى"
   },
 
   "menu_icon": {
@@ -124,7 +132,8 @@
     "heading": "هل نسيت كلمة السر؟",
     "description": "أدخل بريدك الإلكتروني لعملية التحقق. سوف نقوم بإرسال رمز مكون من 4 أرقام إلى بريدك الإلكتروني.",
     "button": "يكمل",
-    "emailPlaceholder": "فهد123@gmail.com"
+    "emailPlaceholder": "فهد123@gmail.com",
+    "resend": "إعادة إرسال"
   },
   "dropdown": {
     "myProfile": "ملفي",
@@ -159,5 +168,17 @@
   "rival_stats": {
     "game_name": "إحصائيات المنافس",
     "game_title_fc24": "EA Sports FC 24"
+  },
+  "update_password_form": {
+    "current_password": "كلمة المرور الحالية",
+    "new_password": "كلمة المرور الجديدة",
+    "input_current_password": "يرجى إدخال كلمة المرور الحالية!",
+    "input_new_password": "يرجى إدخال كلمة المرور الجديدة!",
+    "password_min_length": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+    "passwords_do_not_match": "كلمات المرور غير متطابقة",
+    "enter_current_password": "أدخل كلمة المرور الحالية",
+    "enter_new_password": "أدخل كلمة المرور الجديدة",
+    "confirm_new_password": "أكد كلمة المرور الجديدة",
+    "update_password": "تحديث كلمة المرور"
   }
 }

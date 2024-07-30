@@ -4,6 +4,7 @@ import snoonu from "../../assets/images/snoonu.svg";
 import education from "../../assets/images/education.svg";
 import store from "../../assets/images/store.svg";
 import { useTranslation } from "react-i18next";
+import { memo } from "react";
 
 const OurClient = () => {
   const { t } = useTranslation("common");
@@ -47,4 +48,4 @@ const OurClient = () => {
   );
 };
 
-export default OurClient;
+export default memo(OurClient);

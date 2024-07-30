@@ -5,6 +5,7 @@ import player3 from "../../assets/images/playerImage3.svg";
 import "./HappyPlayers.scss";
 import twitter from "../../assets/images/twitter.svg";
 import OwlCarousel from "../../shared/sharedComponents/Carousel/OwlCarousel";
+import { memo } from "react";
 
 const HappyPlayers = () => {
   const { t } = useTranslation("common");
@@ -45,4 +46,4 @@ const HappyPlayers = () => {
   );
 };
 
-export default HappyPlayers;
+export default memo(HappyPlayers);

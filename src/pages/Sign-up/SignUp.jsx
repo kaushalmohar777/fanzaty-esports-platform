@@ -10,6 +10,8 @@ import { END_POINTS } from "../../Helper/Constant";
 import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { fileUploadApi } from "../../services/fileUpload";
+import { useSelector } from "react-redux";
+
 const SignUp = () => {
   const { t } = useTranslation("common");
   const [form] = Form.useForm();
@@ -17,26 +19,13 @@ const SignUp = () => {
   const [isFormShow, setIsFormShow] = useState(true);
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [allAvatarImages, setAllAvatarImages] = useState([]);
-  const [countryData, setCountryData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const countryData = useSelector((state) => state.country.countryData);
 
   useEffect(() => {
-    getAllCountryData();
     getAllAvatarImages();
   }, []);
-
-  const getAllCountryData = async () => {
-    try {
-      const response = await getApiRequest(END_POINTS.GET_ALL_COUNTRY_CODE);
-      if (response.success) {
-        setCountryData(response.countries);
-      }
-    } catch (error) {
-      console.log(error);
-      showToast(error.error.message, "error");
-    }
-  };
 
   const getAllAvatarImages = async () => {
     try {
@@ -67,7 +56,7 @@ const SignUp = () => {
         }}
       >
         {countryData &&
-          countryData.map((item, index) => (
+          countryData?.map((item, index) => (
             <Option
               value={item.callingCode}
               key={index}

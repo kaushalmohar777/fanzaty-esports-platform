@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import { memo } from "react";
 import "./AboutUs.scss";
 import { useTranslation } from "react-i18next";
 
@@ -22,4 +23,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default memo(AboutUs);

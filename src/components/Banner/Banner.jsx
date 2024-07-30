@@ -1,3 +1,4 @@
+import { memo } from "react";
 import "./Banner.scss";
 import { useTranslation } from "react-i18next";
 
@@ -18,4 +19,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default memo(Banner);

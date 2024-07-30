@@ -16,9 +16,13 @@ import {
   getLocalStorageData,
   setLocalStorageData,
 } from "../../shared/commonFunction";
+import { useDispatch, useSelector } from "react-redux";
+import { setLang } from "../../features/language/language";
 
 const Footer = () => {
   const { t, i18n } = useTranslation("common");
+  const lang = useSelector((state) => state.language.language);
+  const dispatch = useDispatch();
 
   const menuItems = [
     { key: "/", label: t("menu.home") },
@@ -43,11 +47,13 @@ const Footer = () => {
     i18n.changeLanguage(lng);
     document.body.dir = lng === "ar" ? "rtl" : "ltr";
     setLocalStorageData("language", lng);
+    dispatch(setLang(lng));
   };
 
   useEffect(() => {
     const language = getLocalStorageData("language");
     setLanguage(language);
+    dispatch(setLang(language));
   }, [language]);
 
   return (
@@ -100,17 +106,21 @@ const Footer = () => {
             </div>
 
             <div className="footer-login-buttons">
-              <button className="login-btn">{t("buttons.login")}</button>
-              <button className="sign-up-btn">{t("buttons.sign_up")}</button>
+              <Link to="/login" className="login-btn">
+                {t("buttons.login")}
+              </Link>
+              <Link to="/sign-up" className="sign-up-btn">
+                {t("buttons.sign_up")}
+              </Link>
               <span
-                className={language === "ar" ? `selected-language` : `language`}
+                className={lang === "ar" ? `selected-language` : `language`}
                 onClick={() => changeLanguage("ar")}
               >
                 Ar
               </span>
               /
               <span
-                className={language === "en" ? `selected-language` : `language`}
+                className={lang === "en" ? `selected-language` : `language`}
                 onClick={() => changeLanguage("en")}
               >
                 En

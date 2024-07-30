@@ -2,6 +2,10 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./theme/Layout";
 import "./App.css";
+import Login from "./pages/Login/Login";
+import EditUserProfile from "./components/edit-user-profile/EditUserProfile";
+
+const Message = lazy(() => import("./components/Chat/Messages/Message"));
 
 const HomePage = lazy(() => import("./components/HomePage"));
 const FeatureTournament = lazy(() =>
@@ -16,7 +20,7 @@ const AboutUs = lazy(() => import("./components/About-us/AboutUs"));
 const JoinOurCommunty = lazy(() =>
   import("./components/Join-our-community/JoinOurCommunity")
 );
-const Login = lazy(() => import("./pages/Login/Login"));
+
 const SignUp = lazy(() => import("./pages/Sign-up/SignUp"));
 const ForgotPassword = lazy(() =>
   import("./pages/Forgot-password/ForgotPassword")
@@ -54,6 +58,15 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<LoadingFallback />}>
             <LeaderShipBoard />
+          </Suspense>
+        ),
+      },
+
+      {
+        path: "/edit-user-profile",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <EditUserProfile />
           </Suspense>
         ),
       },
@@ -100,11 +113,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: (
-          <Suspense fallback={<LoadingFallback />}>
-            <Login />
-          </Suspense>
-        ),
+        element: <Login />,
       },
       {
         path: "/sign-up",
@@ -114,6 +123,7 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
+
       {
         path: "/forgot-password",
         element: (
@@ -127,6 +137,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<LoadingFallback />}>
             <UserProfile />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/messages",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <Message />
           </Suspense>
         ),
       },

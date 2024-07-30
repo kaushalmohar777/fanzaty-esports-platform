@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useTranslation } from "react-i18next";
 import "./JoinOurCommunity.scss";
+import { memo } from "react";
 
 const JoinOurCommunity = () => {
   const { t } = useTranslation("common");
@@ -26,4 +27,4 @@ const JoinOurCommunity = () => {
   );
 };
 
-export default JoinOurCommunity;
+export default memo(JoinOurCommunity);

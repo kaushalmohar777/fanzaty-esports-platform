@@ -51,7 +51,7 @@
 }
 
 .coin-win-section {
-  margin-top: 42px;
+  margin-top: 180px;
   margin-bottom: 90px;
   display: flex;
   justify-content: center;
@@ -111,6 +111,7 @@
   background-color: #000;
   box-shadow: 0 0 10px rgb(8, 8, 8);
   animation: animate 4s linear infinite;
+  display: flex;
 }
 
 .user-detail-main::after {

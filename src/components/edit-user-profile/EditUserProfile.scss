@@ -1,0 +1,83 @@
+.edit-user-profile-box {
+  width: 100%;
+  background: url("../../assets/images/user-edit-profile-bg.svg");
+  background-repeat: no-repeat;
+  border: 1px solid #d9d9d975;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+.edit-account-heading {
+  font-family: "Anybody", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 59px;
+  text-align: center;
+  margin-top: 90px;
+  margin-bottom: 50px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.user-avatar {
+  width: 152px;
+  height: 152px;
+  border-radius: 100%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 59px;
+  margin-bottom: 35px;
+  img {
+    width: 100%;
+    border-radius: 100%;
+  }
+}
+.fix-user-name {
+  font-family: "Anybody", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 33.12px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 70px;
+}
+.edit-user-form {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ant-form {
+  margin: 0 auto;
+}
+.ant-picker-suffix {
+  color: #fff !important;
+}
+
+.ant-form-item-explain-error {
+  text-align: left;
+}
+.flag-img {
+  width: 50px;
+  height: 30px;
+  object-fit: contain;
+  margin: 0 8px;
+}
+.ant-select-selection-item {
+  display: flex;
+  color: #fff;
+}
+
+.ant-radio-checked::after {
+  border: 1px solid #fff !important;
+}
+
+.ant-radio-inner::after {
+  background-color: #ff6b00 !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-block-start: -10px !important;
+  margin-inline-start: -10px !important;
+}
+
+.ant-radio-checked .ant-radio-inner {
+  border: 1px solid #fff !important;
+  background-color: #fff !important;
+}

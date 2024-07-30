@@ -1,7 +1,8 @@
+import { memo } from "react";
 import "./Notification.scss";
 
 const Notification = () => {
   return <div></div>;
 };
 
-export default Notification;
+export default memo(Notification);
