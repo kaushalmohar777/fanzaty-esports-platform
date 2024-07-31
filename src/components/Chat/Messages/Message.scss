@@ -1,0 +1,194 @@
+.message-heading {
+  font-family: "Anybody", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 59px;
+  text-align: center;
+  color: #fff;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+.message-outer-box {
+  width: 100%;
+  max-height: 898px;
+  height: 100%;
+}
+.message-left-box {
+  width: 100%;
+  background: url("../../../assets/images/message-left-background.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding: 30px;
+  border: 1px solid #d9d9d926;
+  border-radius: 10px;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.message-right-box {
+  width: 100%;
+  height: 898px;
+  background: url("../../../assets/images/message-left-background.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  border-bottom: 1px solid #d9d9d926;
+  border-radius: 10px;
+}
+.message-detail-box {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  align-items: center;
+  margin: 35px 0;
+  cursor: pointer;
+}
+.user-name-tournament-name {
+  margin-top: 15px;
+}
+.message-user-name {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  margin-left: 15px;
+}
+.message-user-tournament {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  text-align: left;
+  margin-left: 15px;
+}
+.contact-us {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #141414;
+}
+.contact-us-btn {
+  width: 281px;
+  height: 68px;
+  background-color: #141414;
+  padding: 22px 24px 22px 24px;
+  border-radius: 5px;
+  border: 1px solid #08ff96;
+  position: absolute;
+  bottom: 20px;
+  margin: 0 auto;
+
+  button {
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24.2px;
+    text-align: center;
+    background: none;
+    color: #08ff96;
+    border: none;
+  }
+}
+.user-image-btn {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.userimage-name {
+  display: flex;
+  align-items: center;
+}
+.chat-user-image {
+  margin: 0 20px;
+  width: 41px;
+  height: 41px;
+}
+.chat-user-name {
+  font-family: "Inter", sans-serif;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 27.84px;
+  text-align: left;
+  color: #fff;
+}
+
+.invite-mark {
+  width: 186px;
+  height: 51px;
+  border: 1px solid #08ff96;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    text-align: center;
+    color: #08ff96;
+    border: none;
+    background: none;
+  }
+}
+.chat-top-hr-line {
+  width: 100%;
+  border: 1px solid #dae0e63b;
+}
+.real-time-date-time {
+  margin-top: 46px;
+  margin-bottom: 60px;
+}
+.live-chat-user-img {
+  width: 71px;
+  height: 71px;
+}
+.upcoming-msg {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 33px;
+}
+.recent-date {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 15px;
+  text-align: center;
+  margin-bottom: 14px;
+  color: #fff;
+  opacity: 30%;
+}
+.recent-para {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  text-align: center;
+  padding: 9px 16px 9px 16px;
+  border-radius: 5px;
+  color: #fff;
+}
+.live-chat-date-time {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 15px;
+  text-align: left;
+  color: #fff;
+  margin: 10px 10px;
+}
+.live-message {
+  font-family: "Inter", sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 22.99px;
+  text-align: left;
+  background-color: #2e415b;
+  padding: 9px 16px 9px 16px;
+  border-radius: 5px 10px 5px 5px;
+  margin: 10px 10px;
+  color: #fff;
+}

@@ -180,5 +180,8 @@
     "enter_new_password": "أدخل كلمة المرور الجديدة",
     "confirm_new_password": "أكد كلمة المرور الجديدة",
     "update_password": "تحديث كلمة المرور"
+  },
+  "messages": {
+    "message": "رسائل"
   }
 }
