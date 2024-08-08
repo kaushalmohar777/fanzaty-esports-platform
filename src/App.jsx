@@ -4,6 +4,7 @@ import Layout from "./theme/Layout";
 import "./App.css";
 import Login from "./pages/Login/Login";
 import EditUserProfile from "./components/edit-user-profile/EditUserProfile";
+import JoinTournament from "./components/Tournament/join-tournament/JoinTournament";
 
 const Message = lazy(() => import("./components/Chat/Messages/Message"));
 
@@ -145,6 +146,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<LoadingFallback />}>
             <Message />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/join-tournament",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <JoinTournament />
           </Suspense>
         ),
       },

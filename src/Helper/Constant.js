@@ -7,5 +7,6 @@ export const END_POINTS = {
     FORGOT_PASSWORD: "user/forgot-password",
     VERIFY_OTP: "user/verify-otp",
     UPDATE_PASSWORD: "user/reset-password",
-    UPDATE_PROFILE: "user/update-profile"
+    UPDATE_PROFILE: "user/update-profile",
+    GET_ALL_USER: "user/get-all"
 }

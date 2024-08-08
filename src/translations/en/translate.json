@@ -180,5 +180,12 @@
   },
   "messages": {
     "message": "Messages"
+  },
+
+  "joinTournament": {
+    "subHead": "We’ll make tournament organizing as fun as playing in them",
+    "heading": "ORGANIZE ESPORTS TOURNAMENTS WITH Fanzaty",
+    "termCondition": "You hereby confirm that you’ve read and agreed to the terms of service for tournament organizers.",
+    "button": "GET STARTED"
   }
 }
