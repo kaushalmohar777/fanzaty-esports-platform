@@ -293,38 +293,33 @@ const Message = () => {
                   </div>
                 </div> */}
 
-                <div
-                  className="flex flex-col gap-2 py-2 mx-2"
-                  ref={currentMessage}
-                >
+                <div className="message-container" ref={currentMessage}>
                   {allMessage.map((msg, index) => {
                     return (
                       <div
-                        className={` p-1 py-1 rounded w-fit max-w-[280px] md:max-w-sm lg:max-w-md ${
-                          user._id === msg?.msgByUserId
-                            ? "ml-auto bg-teal-100"
-                            : "bg-white"
+                        className={`message-bubble ${
+                          user._id === msg?.msgByUserId ? "sent" : "received"
                         }`}
                         key={index}
                       >
                         <div className="w-full relative">
-                          {msg?.imageUrl && (
-                            <img
-                              src={msg?.imageUrl}
-                              alt="loading-chat-img"
-                              className="w-full h-full object-scale-down"
-                            />
-                          )}
-                          {msg?.videoUrl && (
-                            <video
-                              src={msg.videoUrl}
-                              className="w-full h-full object-scale-down"
-                              controls
-                            />
-                          )}
+                          {/* {msg?.imageUrl && (
+                <img
+                  src={msg?.imageUrl}
+                  alt="loading-chat-img"
+                  className="w-full h-full object-scale-down"
+                />
+              )}
+              {msg?.videoUrl && (
+                <video
+                  src={msg.videoUrl}
+                  className="w-full h-full object-scale-down"
+                  controls
+                />
+              )} */}
                         </div>
-                        <p className="px-2">{msg.text}</p>
-                        <p className="text-xs ml-auto w-fit">
+                        <p className="message-text">{msg.text}</p>
+                        <p className="message-timestamp">
                           {moment(msg.createdAt).format("hh:mm")}
                         </p>
                       </div>

@@ -326,3 +326,47 @@
 .online-offline {
   font-size: 18px;
 }
+
+/* Message.scss */
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* gap-2 */
+  padding: 0.5rem 0; /* py-2 */
+  margin: 0 0.5rem; /* mx-2 */
+}
+
+.message-bubble {
+  padding: 0.25rem 0.5rem; /* p-1 py-1 */
+  border-radius: 0.375rem; /* rounded */
+  max-width: 280px;
+
+  @media (min-width: 768px) {
+    max-width: 24rem; /* md:max-w-sm */
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 28rem; /* lg:max-w-md */
+  }
+
+  &.sent {
+    margin-left: auto;
+    background-color: #ccfbf1; /* bg-teal-100 */
+  }
+
+  &.received {
+    background-color: #ffffff; /* bg-white */
+  }
+}
+
+.message-text {
+  padding-left: 0.5rem; /* px-2 */
+  padding-right: 0.5rem; /* px-2 */
+}
+
+.message-timestamp {
+  font-size: 0.75rem; /* text-xs */
+  margin-left: auto;
+  width: fit-content;
+}
