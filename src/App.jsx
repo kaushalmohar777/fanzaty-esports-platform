@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login";
 import EditUserProfile from "./components/edit-user-profile/EditUserProfile";
 import JoinTournament from "./components/Tournament/join-tournament/JoinTournament";
 
+
 const Message = lazy(() => import("./components/Chat/Messages/Message"));
 
 const HomePage = lazy(() => import("./components/HomePage"));
@@ -16,6 +17,9 @@ const LeaderShipBoard = lazy(() =>
   import("./components/Leader-ship-board/LeaderShipBoard")
 );
 const Academy = lazy(() => import("./components/Academy/Academy"));
+const Consumerprofile = lazy(() => import("./components/Consumer-profile/Consumer-Profile"));
+const FeaturedRegiter = lazy(() => import("./components/Regiter-featured/RegiterFeatured"));
+const RegisterTab = lazy(() => import("./components/Regiter-featured-tab/Register-tab"));
 const ContactUs = lazy(() => import("./components/Contact-us/ContactUs"));
 const AboutUs = lazy(() => import("./components/About-us/AboutUs"));
 const JoinOurCommunty = lazy(() =>
@@ -100,7 +104,7 @@ const router = createBrowserRouter([
         path: "/join-our-community",
         element: (
           <Suspense fallback={<LoadingFallback />}>
-            <JoinOurCommunty />
+            <Consumerprofile />
           </Suspense>
         ),
       },
@@ -154,6 +158,30 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<LoadingFallback />}>
             <JoinTournament />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/Consumer-Profile",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <Consumerprofile />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/Regiter-featured",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <FeaturedRegiter />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/Regiter-featured-tab",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <RegisterTab />
           </Suspense>
         ),
       },
