@@ -2,7 +2,13 @@
 import { memo, useEffect, useRef, useState } from "react";
 import "./Message.scss";
 import { useTranslation } from "react-i18next";
-import { Col, Input, Row } from "antd";
+import { Col, Input, Row, Modal, Button, Upload, message } from "antd";
+import {
+  UploadOutlined,
+  FileImageOutlined,
+  VideoCameraOutlined,
+  FileOutlined,
+} from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import useSocket from "../../../hooks/useSocket";
@@ -47,6 +53,15 @@ const Message = () => {
 
   const currentMessage = useRef(null);
   const [allMessage, setAllMessage] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   // Use custom hook to manage socket connection
   const socketConnection = useSocket();
@@ -70,10 +85,7 @@ const Message = () => {
   useEffect(() => {
     if (socketConnection) {
       socketConnection.emit("sidebar", user?._id);
-
       socketConnection.on("conversation", (data) => {
-        console.log("conversation", data);
-
         const conversationUserData = data.map((conversationUser, index) => {
           if (
             conversationUser?.sender?._id === conversationUser?.receiver?._id
@@ -162,6 +174,57 @@ const Message = () => {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage(e);
+    }
+  };
+
+  const handleFileInputClick = (inputId) => {
+    document.getElementById(inputId).click();
+  };
+
+  const handleFileChange = (e, fileType) => {
+    const file = e.target.files[0];
+    if (file) {
+      const fileUrl = URL.createObjectURL(file);
+
+      if (fileType === "Image") {
+        setMessage((prev) => ({
+          ...prev,
+          imageUrl: fileUrl,
+          videoUrl: "",
+          text: "",
+        }));
+      } else if (fileType === "Video") {
+        setMessage((prev) => ({
+          ...prev,
+          videoUrl: fileUrl,
+          imageUrl: "",
+          text: "",
+        }));
+      } else if (fileType === "Document") {
+        setMessage((prev) => ({
+          ...prev,
+          text: file.name,
+          imageUrl: "",
+          videoUrl: "",
+        }));
+      }
+      socketConnection.emit("new message", {
+        sender: userData?._id,
+        receiver: user?._id,
+        text: fileType === "Document" ? file.name : "",
+        imageUrl: fileType === "Image" ? fileUrl : "",
+        videoUrl: fileType === "Video" ? fileUrl : "",
+        msgByUserId: userData?._id,
+      });
+
+      handleCloseModal();
+    }
+  };
+
   return (
     <section>
       <div className="container">
@@ -203,23 +266,27 @@ const Message = () => {
               <div className="message-right-box">
                 {/* chat header */}
                 <div className="user-image-btn">
-                  <div className="userimage-name">
-                    <img
-                      src={userImage}
-                      alt="laoding-img"
-                      className="chat-user-image"
-                    />
-                    <p className="chat-user-name">
-                      {dataUser?.name} <br />
-                      <p className="online-offline">
-                        {dataUser?.online ? (
-                          <span className="text-primary">online</span>
-                        ) : (
-                          <span className="text-slate-400">offline</span>
-                        )}
-                      </p>
-                    </p>
-                  </div>
+                  {dataUser && (
+                    <div className="userimage-name">
+                      <img
+                        src={userImage}
+                        alt="laoding-img"
+                        className="chat-user-image"
+                      />
+                      <div className="chat-user-name">
+                        {dataUser?.name ? dataUser?.name : ""} <br />
+                        <p className="online-offline">
+                          {dataUser.online && dataUser?.online ? (
+                            <span className="text-primary">online</span>
+                          ) : (
+                            <span className="text-slate-400">
+                              {dataUser.online ? "offline" : ""}
+                            </span>
+                          )}
+                        </p>
+                      </div>
+                    </div>
+                  )}
 
                   <div className="invite-mark">
                     <button>Invite Mark</button>
@@ -229,69 +296,6 @@ const Message = () => {
                 <hr className="chat-top-hr-line" />
 
                 {/* inner chat */}
-                {/* <div className="inner-chat-section">
-                  <div className="real-time-date-time">
-                    <p className="recent-date">2 Jul 2024 / 3:34AM</p>
-                    <p className="recent-para">
-                      HKHALILIAN00081 INVITED GEMERS TO PLAY FC24 FOR 3$
-                    </p>
-                  </div>
-
-                  <div className="upcoming-msg">
-                    <img
-                      src={userImage}
-                      alt="user-image-load"
-                      className="live-chat-user-img"
-                    />
-                    <div>
-                      <p className="live-chat-date-time">9 Jul, 3:34AM</p>
-                      <p className="live-message">Hi there how are you?</p>
-                    </div>
-                  </div>
-
-                  <div className="outgoing-msg">
-                    <div>
-                      <p className="out-going-live-chat-date-time">
-                        9 Jul, 3:34AM
-                      </p>
-                      <p className="live-message">Hi there how are you?</p>
-                    </div>
-                    <img
-                      src={avatar1}
-                      alt="user-image-load"
-                      className="live-chat-user-img"
-                    />
-                  </div>
-
-                  <p className="change-date">12 Jul 2024 / 6:34AM</p>
-                  <hr className="change-date-line" />
-
-                  <div className="upcoming-msg">
-                    <img
-                      src={userImage}
-                      alt="user-image-load"
-                      className="live-chat-user-img"
-                    />
-                    <div>
-                      <p className="live-chat-date-time">9 Jul, 3:34AM</p>
-                      <p className="live-message">Hi there how are you?</p>
-                    </div>
-                  </div>
-
-                  <div className="outgoing-msg">
-                    <div>
-                      <p className="out-going-live-chat-date-time">
-                        9 Jul, 3:34AM
-                      </p>
-                      <p className="live-message">Hi there how are you?</p>
-                    </div>
-                    <img
-                      src={avatar1}
-                      alt="user-image-load"
-                      className="live-chat-user-img"
-                    />
-                  </div>
-                </div> */}
 
                 <div className="message-container" ref={currentMessage}>
                   {allMessage.map((msg, index) => {
@@ -303,20 +307,20 @@ const Message = () => {
                         key={index}
                       >
                         <div className="w-full relative">
-                          {/* {msg?.imageUrl && (
-                <img
-                  src={msg?.imageUrl}
-                  alt="loading-chat-img"
-                  className="w-full h-full object-scale-down"
-                />
-              )}
-              {msg?.videoUrl && (
-                <video
-                  src={msg.videoUrl}
-                  className="w-full h-full object-scale-down"
-                  controls
-                />
-              )} */}
+                          {msg?.imageUrl && (
+                            <img
+                              src={msg?.imageUrl}
+                              alt="loading-chat-img"
+                              className="chat-img"
+                            />
+                          )}
+                          {msg?.videoUrl && (
+                            <video
+                              src={msg.videoUrl}
+                              className="chat-video"
+                              controls
+                            />
+                          )}
                         </div>
                         <p className="message-text">{msg.text}</p>
                         <p className="message-timestamp">
@@ -333,7 +337,69 @@ const Message = () => {
                       src={selectFile}
                       alt="loading-select-file"
                       className="select-file-image"
+                      onClick={handleOpenModal}
+                      style={{ position: "relative" }}
                     />
+                    <div className="video-doc-select-modal">
+                      <Modal
+                        title="Select a file to upload"
+                        open={isModalOpen}
+                        onCancel={handleCloseModal}
+                        footer={null}
+                        style={{
+                          maxWidth: "240px",
+                          position: "fixed",
+                          left: "40%",
+                          top: "50%",
+                        }}
+                      >
+                        <div className="file-selection-options">
+                          <Button
+                            icon={<FileImageOutlined />}
+                            onClick={() => handleFileInputClick("Image")}
+                            className="file-select-button"
+                          >
+                            Select Image
+                          </Button>
+                          <Button
+                            icon={<VideoCameraOutlined />}
+                            onClick={() => handleFileInputClick("Video")}
+                            className="file-select-button"
+                          >
+                            Select Video
+                          </Button>
+                          <Button
+                            icon={<FileOutlined />}
+                            onClick={() => handleFileInputClick("Document")}
+                            className="file-select-button"
+                          >
+                            Select Document
+                          </Button>
+                        </div>
+
+                        <input
+                          type="file"
+                          id="Image"
+                          style={{ display: "none" }}
+                          accept="image/*"
+                          onChange={(e) => handleFileChange(e, "Image")}
+                        />
+                        <input
+                          type="file"
+                          id="Video"
+                          style={{ display: "none" }}
+                          accept="video/*"
+                          onChange={(e) => handleFileChange(e, "Video")}
+                        />
+                        <input
+                          type="file"
+                          id="Document"
+                          style={{ display: "none" }}
+                          accept=".pdf,.doc,.docx,.txt"
+                          onChange={(e) => handleFileChange(e, "Document")}
+                        />
+                      </Modal>
+                    </div>
                   </div>
 
                   <div className="input-send">
@@ -343,6 +409,7 @@ const Message = () => {
                         size="large"
                         value={message.text}
                         onChange={handleOnChange}
+                        onKeyDown={handleKeyPress}
                       />
                     </div>
                     <div>

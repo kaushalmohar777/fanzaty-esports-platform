@@ -3,12 +3,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./theme/Layout";
 import "./App.css";
 import Login from "./pages/Login/Login";
-import EditUserProfile from "./components/edit-user-profile/EditUserProfile";
-import JoinTournament from "./components/Tournament/join-tournament/JoinTournament";
-
-
+const EditUserProfile = lazy(() =>
+  import("./components/edit-user-profile/EditUserProfile")
+);
+const JoinTournament = lazy(() =>
+  import("./components/Tournament/join-tournament/JoinTournament")
+);
 const Message = lazy(() => import("./components/Chat/Messages/Message"));
-
 const HomePage = lazy(() => import("./components/HomePage"));
 const FeatureTournament = lazy(() =>
   import("./components/Feature-tournament/FeatureTournament")
@@ -17,9 +18,15 @@ const LeaderShipBoard = lazy(() =>
   import("./components/Leader-ship-board/LeaderShipBoard")
 );
 const Academy = lazy(() => import("./components/Academy/Academy"));
-const Consumerprofile = lazy(() => import("./components/Consumer-profile/Consumer-Profile"));
-const FeaturedRegiter = lazy(() => import("./components/Regiter-featured/RegiterFeatured"));
-const RegisterTab = lazy(() => import("./components/Regiter-featured-tab/Register-tab"));
+const Consumerprofile = lazy(() =>
+  import("./components/Consumer-profile/Consumer-Profile")
+);
+const FeaturedRegiter = lazy(() =>
+  import("./components/Register-featured/RegisterFeatured")
+);
+const RegisterTab = lazy(() =>
+  import("./components/Register-featured-tab/RegisterTab")
+);
 const ContactUs = lazy(() => import("./components/Contact-us/ContactUs"));
 const AboutUs = lazy(() => import("./components/About-us/AboutUs"));
 const JoinOurCommunty = lazy(() =>
@@ -104,7 +111,7 @@ const router = createBrowserRouter([
         path: "/join-our-community",
         element: (
           <Suspense fallback={<LoadingFallback />}>
-            <Consumerprofile />
+            <JoinOurCommunty />
           </Suspense>
         ),
       },
@@ -162,7 +169,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/Consumer-Profile",
+        path: "/consumer-Profile",
         element: (
           <Suspense fallback={<LoadingFallback />}>
             <Consumerprofile />
@@ -170,7 +177,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/Regiter-featured",
+        path: "/register-featured",
         element: (
           <Suspense fallback={<LoadingFallback />}>
             <FeaturedRegiter />
@@ -178,7 +185,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/Regiter-featured-tab",
+        path: "/register-featured-tab",
         element: (
           <Suspense fallback={<LoadingFallback />}>
             <RegisterTab />

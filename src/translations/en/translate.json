@@ -187,5 +187,38 @@
     "heading": "ORGANIZE ESPORTS TOURNAMENTS WITH Fanzaty",
     "termCondition": "You hereby confirm that you’ve read and agreed to the terms of service for tournament organizers.",
     "button": "GET STARTED"
+  },
+  "consumerProfile": {
+    "online": "Online",
+    "date": "09 July 8:03 AM",
+    "winRatio": "Win Ratio",
+    "gamesPlayed": "Games Played",
+    "review": "Review",
+    "region": "Region",
+    "canada": "Canada",
+    "message": "Message",
+    "report": "Report",
+    "block": "Block",
+    "bio": "Bio",
+    "unoId": "UNO ID",
+    "pubg": "Pubg",
+    "fc24": "FC24",
+    "wins": "Wins",
+    "loses": "Loses",
+    "invite": "Invite",
+    "comments": "Comments",
+    "total": "Total",
+    "ratingTitle": "Wilma R. Levan",
+    "ratingDate": "9 Jul 2024 / 3:34AM"
+  },
+
+  "featuredRegister": {
+    "registerNow": "Register now",
+    "timeline": "Timeline",
+    "march1st": "1st March 2024",
+    "march3rd": "3rd March 2024",
+    "march4th": "4th March 2024",
+    "march9th": "9th March 2024",
+    "registrationStarts": "Registration starts"
   }
 }

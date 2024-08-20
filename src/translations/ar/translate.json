@@ -190,5 +190,39 @@
     "heading": "نظم بطولات الرياضات الإلكترونية مع فاناتزي",
     "termCondition": "تؤكد بموجب هذا أنك قرأت ووافقت على شروط الخدمة لمنظمي البطولات.",
     "button": "ابدأ الآن"
+  },
+
+  "consumerProfile": {
+    "online": "متصل",
+    "date": "09 يوليو 8:03 ص",
+    "winRatio": "نسبة الفوز",
+    "gamesPlayed": "الألعاب التي تم لعبها",
+    "review": "مراجعة",
+    "region": "المنطقة",
+    "canada": "كندا",
+    "message": "رسالة",
+    "report": "إبلاغ",
+    "block": "حظر",
+    "bio": "السيرة الذاتية",
+    "unoId": "معرف UNO",
+    "pubg": "ببجي",
+    "fc24": "FC24",
+    "wins": "انتصارات",
+    "loses": "خسائر",
+    "invite": "دعوة",
+    "comments": "تعليقات",
+    "total": "الإجمالي",
+    "ratingTitle": "ويلما ر. ليفان",
+    "ratingDate": "9 يوليو 2024 / 3:34 ص"
+  },
+
+  "featuredRegister": {
+    "registerNow": "سجل الآن",
+    "timeline": "الجدول الزمني",
+    "march1st": "1 مارس 2024",
+    "march3rd": "3 مارس 2024",
+    "march4th": "4 مارس 2024",
+    "march9th": "9 مارس 2024",
+    "registrationStarts": "تبدأ التسجيلات"
   }
 }
