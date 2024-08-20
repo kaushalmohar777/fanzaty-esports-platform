@@ -1,62 +1,33 @@
 .featured-banner-section {
-  background: url(/src/assets/images/register-bg-img.svg);
+  background: url("../../assets/images/register-bg-img.svg");
   background-repeat: no-repeat;
-  background-size: cover;
-  padding: 164px 0 200px;
   display: flex;
-  align-items: center;
   justify-content: center;
   height: 504px;
 }
-.register-title {
+.register-now-title {
   color: #fff;
   font-size: 48px;
   font-family: "Anybody";
   text-transform: uppercase;
   line-height: 59px;
+  margin-top: 162px;
+  margin-bottom: 105px;
 }
+
 //  animation on mainbox
-.main-box {
+.register-now-main-box {
   position: relative;
   width: 100%;
-  height: 430px;
+  height: 415px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   border-radius: 20px;
-  border: 1px solid black;
-  border: 1px solid rgba(217, 217, 217, 0.1490196078);
+  border: 1px solid #08ff96;
   z-index: 1;
-  margin-top: -176px;
-}
-.main-box::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 415px;
-  background: #000;
-  box-shadow: 0 0 10px rgb(8, 8, 8);
-  animation: animate 4s linear infinite;
-}
-
-.main-box::after {
-  content: "";
-  position: absolute;
-  inset: 0px;
-  background-color: #000;
-  border: 3px solid #08ff96;
-  z-index: -1;
-  border-radius: 16px;
-}
-
-@keyframes animate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  background: url("../../assets/images/register-now-tournament.svg");
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -66,10 +37,11 @@
     flex-direction: column;
     margin-top: 6px;
   }
-  .main-box {
+  .register-now-main-box {
     height: auto;
   }
 }
+
 .timline-content {
   z-index: 1;
   width: 100%;
@@ -80,6 +52,8 @@ h2.title-timeline {
   font-size: 48px;
   text-transform: uppercase;
   font-family: "Anybody";
+  position: relative;
+  margin-bottom: 25px;
 }
 .left-pannel {
   padding: 24px;
@@ -93,17 +67,27 @@ h2.title-timeline {
 }
 
 .section-right-pannel {
-  padding: 50px 24px;
+  height: 182px;
+  gap: 0px;
+  border: 1px solid #fff;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
-.timline-content .section-right-pannel .timeline-box-title {
+
+.timeline-box-title {
   font-size: 32px;
   text-align: left;
   color: #fff;
   font-family: "Anybody";
   line-height: 37px;
   font-weight: 700;
+  padding-left: 28px;
 }
+
 .timline-content .section-right-pannel {
   padding: 30px 24px;
 }
@@ -114,7 +98,7 @@ h2.title-timeline {
   font-family: "Anybody";
   font-weight: 400;
   line-height: 25px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 .timline-content .ant-row {
   margin-top: 40px;
@@ -132,4 +116,43 @@ h2.title-timeline {
 }
 .border-green {
   border-color: #08ff96;
+}
+
+.tab-section {
+  margin-top: 90px;
+  margin-bottom: 43px;
+}
+
+.ant-tabs-tab {
+  height: 41px !important;
+  padding: 14px 25px 14px 25px !important;
+  gap: 10px;
+  color: #fff !important;
+}
+.ant-tabs-tab-active {
+  background-color: #08ff96 !important;
+  color: #fff !important;
+  border: none !important;
+  border-bottom: none !important;
+  padding: 25px !important;
+}
+
+.ant-tabs-ink-bar-animated {
+  display: none !important;
+}
+.ant-tabs-tab-btn {
+  color: #fff !important;
+}
+
+.ant-tabs-nav::before {
+  display: none;
+}
+
+.ant-tabs-tab-btn {
+  font-family: "Anybody", "sans-serif";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  padding: 20px 0;
 }

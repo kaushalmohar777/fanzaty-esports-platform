@@ -51,11 +51,12 @@
 }
 
 .coin-win-section {
-  margin-top: 180px;
+  margin-top: 50px;
   margin-bottom: 90px;
   display: flex;
   justify-content: center;
   z-index: 9;
+  position: relative;
 }
 .game-play-box {
   width: 339.54px;
@@ -138,7 +139,6 @@
 }
 
 .ant-tabs-tab {
-  //   width: 101px !important;
   height: 41px !important;
   padding: 14px 25px 14px 25px !important;
   gap: 10px;
