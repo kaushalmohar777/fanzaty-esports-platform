@@ -24,9 +24,7 @@ const Consumerprofile = lazy(() =>
 const FeaturedRegiter = lazy(() =>
   import("./components/Register-featured/RegisterFeatured")
 );
-const RegisterTab = lazy(() =>
-  import("./components/Register-featured-tab/RegisterTab")
-);
+
 const ContactUs = lazy(() => import("./components/Contact-us/ContactUs"));
 const AboutUs = lazy(() => import("./components/About-us/AboutUs"));
 const JoinOurCommunty = lazy(() =>
@@ -181,14 +179,6 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<LoadingFallback />}>
             <FeaturedRegiter />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/register-featured-tab",
-        element: (
-          <Suspense fallback={<LoadingFallback />}>
-            <RegisterTab />
           </Suspense>
         ),
       },
