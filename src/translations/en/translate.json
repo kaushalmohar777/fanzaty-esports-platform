@@ -219,6 +219,43 @@
     "march3rd": "3rd March 2024",
     "march4th": "4th March 2024",
     "march9th": "9th March 2024",
-    "registrationStarts": "Registration starts"
+    "registrationStarts": "Registration starts",
+    "endRegistration": "End registration"
+  },
+
+  "detailsTab": {
+    "heading": "ABOUT 5 FC 24 ULTIMATE TEAM WINTER TOURNAMENT",
+    "contactInfo": "Please contact the tournament organizer on Discord for any questions or issues regarding gameplay, results, match schedules, Registration status, game ID, and more.",
+    "discordLink": "Discord link:",
+    "platforms": "Platforms:",
+    "playstation": "PlayStation 5",
+    "xboxS": "Xbox S",
+    "xbox": "Xbox",
+    "computer": "Computer",
+    "tournament": "Tournament",
+    "rules": "rules:",
+    "playingMode": "Playing in EAFC 24 Ultimate Team mode The winner is determined from one match",
+    "playerDetail": "The player's EA ID must match the ID in the tournament table: if it is wrong, you will be disqualified If an opponent disconnects in the middle of the game, create a new game and continue where the game left off (a screenshot of where the game left off must be provided)",
+    "officialDate": "When a specific time is not agreed upon, the game will be played on the official date and time set by the organizers. Competitors communicate via the game only."
+  },
+
+  "prizePool": {
+    "heading": "Tournament Prizes",
+    "viewMore": "View more",
+    "backToTop": "Back to top",
+    "prizes": [
+      { "place": "1st place", "image": "", "price": "300 SAR" },
+      { "place": "2nd place", "price": "150 SAR" },
+      { "place": "3rd place", "price": "70 SAR" },
+      { "place": "4th place", "price": "70 SAR" },
+      { "place": "5th-9th place", "price": "70 SAR" },
+      { "place": "10th-14th place", "price": "70 SAR" }
+    ]
+  },
+  "player": {
+    "eid": "EA ID",
+    "userName": "User Name",
+    "viewMore": "View more",
+    "backToTop": "Back to top"
   }
 }

@@ -1,48 +1,54 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import "./RegisterFeatured.scss";
 import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
 import { Tabs } from "antd";
 import BracketTab from "../Register-featured/Bracket-tab/BracketTab";
+import PrizePoolTab from "./Prize-pool-tab/PrizePoolTab";
+import DetailsTab from "./Details-tab/DetailsTab";
+import PlayersTab from "./Players-tab/PlayersTab";
+import ChatTab from "./Chat-tab/ChatTab";
+import ScoreSubmissionTab from "./Score-submission-tab/ScoreSubmissionTab";
 
 const RegisterFeatured = () => {
   const { t } = useTranslation("common");
+  const [tabKey, setTabKey] = useState("details");
 
   const items = [
     {
-      key: "1",
+      key: "details",
       label: "Details",
+      children: <DetailsTab />,
+    },
+    {
+      key: "prize",
+      label: "Prize pool",
+      children: <PrizePoolTab />,
+    },
+    {
+      key: "players",
+      label: "Players",
+      children: <PlayersTab />,
+    },
+    {
+      key: "bracket",
+      label: "Bracket",
       children: <BracketTab />,
     },
     {
-      key: "2",
-      label: "Prize pool",
-      children: "Content of Tab Pane 2",
-    },
-    {
-      key: "3",
-      label: "Players",
-      children: "Content of Tab Pane 3",
-    },
-    {
-      key: "4",
-      label: "Bracket",
-      children: "Content of Tab Pane 1",
-    },
-    {
-      key: "5",
+      key: "chat",
       label: "Chat",
-      children: "Content of Tab Pane 2",
+      children: <ChatTab />,
     },
     {
-      key: "6",
+      key: "score",
       label: "Score Submission",
-      children: "Content of Tab Pane 3",
+      children: <ScoreSubmissionTab />,
     },
   ];
 
   const onChange = (key) => {
-    console.log(key);
+    setTabKey(key);
   };
 
   return (
@@ -59,48 +65,57 @@ const RegisterFeatured = () => {
               <h2 className="title-timeline">
                 {t("featuredRegister.timeline")}
               </h2>
-              <Row gutter={{ xs: 8, sm: 24, md: 24, lg: 32 }} justify="center">
-                <Col span={5}>
-                  <div className="section-right-pannel border-green">
-                    <h2 className="timeline-box-title">
-                      {t("featuredRegister.march1st")}
-                    </h2>
-                    <p className="timeline-box-content">
-                      {t("featuredRegister.registrationStarts")}
-                    </p>
-                  </div>
-                </Col>
-                <Col span={5}>
-                  <div className="section-right-pannel">
-                    <h2 className="timeline-box-title">
-                      {t("featuredRegister.march3rd")}
-                    </h2>
-                    <p className="timeline-box-content">
-                      {t("featuredRegister.registrationStarts")}
-                    </p>
-                  </div>
-                </Col>
-                <Col span={5}>
-                  <div className="section-right-pannel border-green">
-                    <h2 className="timeline-box-title">
-                      {t("featuredRegister.march4th")}
-                    </h2>
-                    <p className="timeline-box-content">
-                      {t("featuredRegister.registrationStarts")}
-                    </p>
-                  </div>
-                </Col>
-                <Col span={5}>
-                  <div className="section-right-pannel">
-                    <h2 className="timeline-box-title">
-                      {t("featuredRegister.march9th")}
-                    </h2>
-                    <p className="timeline-box-content">
-                      {t("featuredRegister.registrationStarts")}
-                    </p>
-                  </div>
-                </Col>
-              </Row>
+              {tabKey === "details" || tabKey === "prize" ? (
+                <Row
+                  gutter={{ xs: 8, sm: 24, md: 24, lg: 32 }}
+                  justify="center"
+                >
+                  <Col span={5}>
+                    <div className="section-right-pannel border-green">
+                      <h2 className="timeline-box-title">
+                        {t("featuredRegister.march1st")}
+                      </h2>
+                      <p className="timeline-box-content">
+                        {t("featuredRegister.registrationStarts")}
+                      </p>
+                    </div>
+                  </Col>
+                  <Col span={5}>
+                    <div className="section-right-pannel">
+                      <h2 className="timeline-box-title">
+                        {t("featuredRegister.march3rd")}
+                      </h2>
+                      <p className="timeline-box-content">
+                        {t("featuredRegister.registrationStarts")}
+                      </p>
+                    </div>
+                  </Col>
+                  <Col span={5}>
+                    <div className="section-right-pannel border-green">
+                      <h2 className="timeline-box-title">
+                        {t("featuredRegister.march4th")}
+                      </h2>
+                      <p className="timeline-box-content">
+                        {t("featuredRegister.registrationStarts")}
+                      </p>
+                    </div>
+                  </Col>
+                  <Col span={5}>
+                    <div className="section-right-pannel">
+                      <h2 className="timeline-box-title">
+                        {t("featuredRegister.march9th")}
+                      </h2>
+                      <p className="timeline-box-content">
+                        {t("featuredRegister.registrationStarts")}
+                      </p>
+                    </div>
+                  </Col>
+                </Row>
+              ) : (
+                <div className="end-registration">
+                  {t("featuredRegister.endRegistration")}
+                </div>
+              )}
             </div>
           </div>
 

@@ -6,7 +6,7 @@ import { getLocalStorageData } from '../shared/commonFunction';
 
 const useSocket = () => {
     const socketRef = useRef();
-    const BASE_URL = 'http://localhost:5050';
+    const BASE_URL = 'http://localhost:3000';
     const dispatch = useDispatch();
 
     useEffect(() => {

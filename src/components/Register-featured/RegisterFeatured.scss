@@ -136,6 +136,7 @@ h2.title-timeline {
   border: none !important;
   border-bottom: none !important;
   padding: 25px !important;
+  color: #141414;
 }
 
 .ant-tabs-ink-bar-animated {
@@ -156,4 +157,21 @@ h2.title-timeline {
   line-height: 20px;
   text-align: center;
   padding: 20px 0;
+}
+.end-registration {
+  width: 615px;
+  height: 109px;
+  border-radius: 10px;
+  border: 1px solid #606a6d;
+  font-family: "Anybody";
+  font-size: 56.64px;
+  font-weight: 700;
+  line-height: 58.62px;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #13231c;
+  text-transform: capitalize;
 }

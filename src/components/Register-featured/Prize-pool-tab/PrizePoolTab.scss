@@ -1,0 +1,74 @@
+.prize-pool-section {
+  background: url("./../../../assets/images/prize-pool-bg.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 764px;
+}
+.prize-pool-heading {
+  font-family: "Anybody";
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 41px;
+  text-align: center;
+  color: #08ff96;
+  padding-top: 65px;
+  text-transform: uppercase;
+}
+.prize-pool-inner-content {
+  padding: 71px;
+  max-height: 600px;
+  overflow-y: scroll;
+}
+.price-show-section {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #08ff96;
+  padding: 20px 0;
+}
+.prize-pool-place {
+  font-family: "Anybody";
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 37px;
+  text-align: left;
+  color: #fff;
+}
+
+.prize-pool-price {
+  font-family: "Anybody";
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 37px;
+  text-align: left;
+  color: #fff;
+  display: flex;
+  min-width: 200px;
+}
+.view-more-less {
+  display: flex;
+  justify-content: space-between;
+}
+
+.view {
+  font-family: "Inter";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29.05px;
+  text-align: left;
+  color: #08ff96;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.back {
+  font-family: "Inter";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29.05px;
+  text-align: left;
+  color: #08ff96;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.prize-image {
+  padding: 0 10px;
+}
