@@ -132,6 +132,7 @@ const Message = () => {
       });
 
       socketConnection.on("message", (data) => {
+        console.log("data: ", data);
         setAllMessage(data);
       });
     }
@@ -268,11 +269,13 @@ const Message = () => {
                 <div className="user-image-btn">
                   {dataUser && (
                     <div className="userimage-name">
-                      <img
-                        src={userImage}
-                        alt="laoding-img"
-                        className="chat-user-image"
-                      />
+                      {dataUser?.profile_pic ? (
+                        <img
+                          src={dataUser?.profile_pic}
+                          alt="laoding-img"
+                          className="chat-user-image"
+                        />
+                      ) : null}
                       <div className="chat-user-name">
                         {dataUser?.name ? dataUser?.name : ""} <br />
                         <p className="online-offline">
@@ -300,33 +303,63 @@ const Message = () => {
                 <div className="message-container" ref={currentMessage}>
                   {allMessage.map((msg, index) => {
                     return (
-                      <div
-                        className={`message-bubble ${
-                          user._id === msg?.msgByUserId ? "sent" : "received"
-                        }`}
-                        key={index}
-                      >
-                        <div className="w-full relative">
-                          {msg?.imageUrl && (
-                            <img
-                              src={msg?.imageUrl}
-                              alt="loading-chat-img"
-                              className="chat-img"
-                            />
-                          )}
-                          {msg?.videoUrl && (
-                            <video
-                              src={msg.videoUrl}
-                              className="chat-video"
-                              controls
-                            />
-                          )}
+                      <>
+                        <div className="particular-user-chat" key={index}>
+                          <div
+                            className={`message-bubble ${
+                              user._id === msg?.msgByUserId
+                                ? "sent"
+                                : "received"
+                            }`}
+                          >
+                            <div
+                              style={{ display: "flex", alignItems: "center" }}
+                            >
+                              {dataUser?.profile_pic ? (
+                                <img
+                                  src={dataUser?.profile_pic}
+                                  alt="chat-user-img"
+                                  className={`${
+                                    user._id === msg?.msgByUserId
+                                      ? "sent"
+                                      : "received"
+                                  }`}
+                                />
+                              ) : null}
+                              <div className="w-full relative">
+                                {msg?.imageUrl && (
+                                  <img
+                                    src={msg?.imageUrl}
+                                    alt="loading-chat-img"
+                                    className="chat-img"
+                                  />
+                                )}
+                                {msg?.videoUrl && (
+                                  <video
+                                    src={msg.videoUrl}
+                                    className="chat-video"
+                                    controls
+                                  />
+                                )}
+                              </div>
+                              <div style={{ padding: "5px" }}>
+                                <p className="message-timestamp">
+                                  {moment(msg.createdAt).format("D MMM, h:mmA")}
+                                </p>
+                                <p
+                                  className={
+                                    user._id === msg?.msgByUserId
+                                      ? "message-text-sent"
+                                      : "message-text-received"
+                                  }
+                                >
+                                  {msg.text}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <p className="message-text">{msg.text}</p>
-                        <p className="message-timestamp">
-                          {moment(msg.createdAt).format("hh:mm")}
-                        </p>
-                      </div>
+                      </>
                     );
                   })}
                 </div>

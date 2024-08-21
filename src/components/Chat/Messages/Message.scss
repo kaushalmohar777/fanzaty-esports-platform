@@ -19,7 +19,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   // height: 100vh;
-  padding: 30px;
+  padding: 30px 30px 100px 30px;
   border: 1px solid #d9d9d926;
   border-radius: 10px;
   overflow-y: scroll;
@@ -112,6 +112,7 @@
   margin: 0 20px;
   width: 41px;
   height: 41px;
+  border-radius: 100%;
 }
 .chat-user-name {
   font-family: "Inter", sans-serif;
@@ -361,25 +362,56 @@
 
   &.sent {
     margin-right: auto;
-    background-color: #ccfbf1; /* bg-teal-100 */
+    min-width: 240px;
   }
 
   &.received {
-    background-color: #ffffff;
     margin-left: auto;
+    min-width: 240px;
     /* bg-white */
   }
 }
 
-.message-text {
+.message-text-sent {
   padding-left: 0.5rem; /* px-2 */
-  padding-right: 0.5rem; /* px-2 */
+  padding-right: 0.5rem;
+  background-color: #2e415b;
+  color: #fff;
+  font-family: "Inter";
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 22.99px;
+  text-align: left;
+  padding: 9px 16px 9px 16px;
+  border-radius: 5px 10px 5px 5px;
+}
+.message-text-received {
+  padding-left: 0.5rem; /* px-2 */
+  padding-right: 0.5rem;
+  background-color: #05f38599;
+  color: #fff;
+  font-family: "Inter";
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 22.99px;
+  text-align: left;
+  padding: 9px 16px 9px 16px;
+  border-radius: 5px 10px 5px 5px;
 }
 
 .message-timestamp {
   font-size: 0.75rem; /* text-xs */
   margin-left: auto;
   width: fit-content;
+  padding: 5px;
+  min-width: 130px;
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 15px;
+  text-align: left;
+  color: #fff;
+  opacity: 30%;
 }
 
 .file-select-button {
@@ -398,4 +430,14 @@
 
 .chat-video {
   width: 116px;
+}
+
+.particular-user-chat {
+  display: flex;
+  img {
+    width: 73px;
+    height: 73px;
+    border-radius: 100%;
+    margin: 0 10px;
+  }
 }

@@ -25,7 +25,7 @@ const JoinTournament = () => {
           </Checkbox>
         </p>
 
-        <p className="join-tournament">
+        <p className="join-tournament-green-btn">
           <button className="term-conditon-btn">
             {t("joinTournament.button")}
           </button>

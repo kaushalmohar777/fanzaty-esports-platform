@@ -30,10 +30,6 @@ const EditUserProfile = () => {
   const { Option } = Select;
 
   useEffect(() => {
-    console.log("countryData", countryData);
-  }, [countryData]);
-
-  useEffect(() => {
     if (userData) {
       const formattedDob = userData?.dob ? moment(userData?.dob) : null;
       form.setFieldsValue({
