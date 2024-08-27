@@ -12,7 +12,7 @@ export const putApiRequest = async (endPoint, data) => {
                 'Authorization': `Bearer ${token}`
             }
         });
-        return response.data;
+        return response?.data;
     } catch (error) {
         if (error.response.status === 401) {
             clearLocalStorageData()

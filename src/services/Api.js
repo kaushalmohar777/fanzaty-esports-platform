@@ -9,9 +9,9 @@ const login = async (email, password) => {
             email,
             password,
         });
-        return response.data;
+        return response?.data;
     } catch (error) {
-        throw error.response.data;
+        throw error?.response?.data;
     }
 };
 
@@ -20,7 +20,7 @@ const forgotPassword = async (email) => {
         const response = await axios.post(`${BASE_URL}/${END_POINTS.FORGOT_PASSWORD}`, {
             email
         });
-        return response.data;
+        return response?.data;
     } catch (error) {
         throw error.response.data;
     }

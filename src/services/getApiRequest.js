@@ -11,7 +11,7 @@ export const getApiRequest = async (END_POINTS) => {
                 Authorization: `Bearer ${token}`,
             },
         });
-        return response.data;
+        return response?.data;
     } catch (error) {
         if (error?.response?.status === 401) {
             showToast(error.response.data.message);
