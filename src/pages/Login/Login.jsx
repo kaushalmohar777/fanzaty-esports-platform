@@ -33,6 +33,8 @@ const Login = () => {
         dispatch(setLoginState(true));
         form.resetFields();
         navigate("/");
+      } else {
+        setIsLoading(false);
       }
     } catch (error) {
       console.error("There was an error submitting the form!", error);
