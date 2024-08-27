@@ -17,32 +17,32 @@ const RegisterFeatured = () => {
   const items = [
     {
       key: "details",
-      label: "Details",
+      label: t("featuredRegister.details"),
       children: <DetailsTab />,
     },
     {
       key: "prize",
-      label: "Prize pool",
+      label: t("featuredRegister.prize_pool"),
       children: <PrizePoolTab />,
     },
     {
       key: "players",
-      label: "Players",
+      label: t("featuredRegister.players"),
       children: <PlayersTab />,
     },
     {
       key: "bracket",
-      label: "Bracket",
+      label: t("featuredRegister.brackets"),
       children: <BracketTab />,
     },
     {
       key: "chat",
-      label: "Chat",
+      label: t("featuredRegister.chat"),
       children: <ChatTab />,
     },
     {
       key: "score",
-      label: "Score Submission",
+      label: t("featuredRegister.score_submission"),
       children: <ScoreSubmissionTab />,
     },
   ];

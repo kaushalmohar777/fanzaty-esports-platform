@@ -220,7 +220,13 @@
     "march4th": "4th March 2024",
     "march9th": "9th March 2024",
     "registrationStarts": "Registration starts",
-    "endRegistration": "End registration"
+    "endRegistration": "End registration",
+    "details": "Details",
+    "prize_pool": "Prize pool",
+    "chat": "Chat",
+    "brackets": "Brackets",
+    "players": "Players",
+    "score_submission": "Score Submission"
   },
 
   "detailsTab": {
@@ -257,5 +263,23 @@
     "userName": "User Name",
     "viewMore": "View more",
     "backToTop": "Back to top"
+  },
+  "ongoing_tournament": {
+    "registration_open": "Registration is open until March 23",
+    "tournament_name": "fanzaty weekly tournament (w 1)"
+  },
+
+  "past_tournament_tab": {
+    "join_for_free": "JOIN FOR FREE 100%",
+    "registration_open": "Registration open",
+    "tournament_title": "FC 2024 TOURNAMENT",
+    "tournament_description": "Registration starts 1st March 2024"
+  },
+
+  "tournaments": {
+    "past_tournaments": "Past Tournaments",
+    "ongoing_tournament": "Ongoing Tournament",
+    "upcoming_tournament": "Upcoming Tournament",
+    "my_tournament": "My Tournament"
   }
 }

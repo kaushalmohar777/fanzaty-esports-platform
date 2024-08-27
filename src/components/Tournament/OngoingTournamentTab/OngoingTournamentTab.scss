@@ -1,0 +1,44 @@
+.ongoing-tournament {
+  width: 100%;
+}
+.ongoing-tournament-inner {
+  width: 100%;
+  height: 681px;
+  border: 1px solid #05f38599;
+  border-radius: 10px 10px 15px 10px;
+}
+.ongoing-tournament-image {
+  padding: 28px;
+  img {
+    width: 100%;
+  }
+}
+.tournament-name {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+  .name {
+    font-family: "Anybody";
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 59px;
+    text-align: center;
+    color: #fff;
+    margin-left: 10px;
+    text-transform: capitalize;
+  }
+}
+.registration-open {
+  width: 472px;
+  height: 68px;
+  padding: 22px 32px 22px 32px;
+  border-radius: 5px;
+  border: 1px solid #08ff96;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24.2px;
+  text-align: center;
+  background: none;
+  color: #08ff96;
+}

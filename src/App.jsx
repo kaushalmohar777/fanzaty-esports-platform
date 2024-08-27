@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./theme/Layout";
 import "./App.css";
 import Login from "./pages/Login/Login";
+const Tournaments = lazy(() => import("./components/Tournament/Tournaments"));
 const EditUserProfile = lazy(() =>
   import("./components/edit-user-profile/EditUserProfile")
 );
@@ -179,6 +180,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<LoadingFallback />}>
             <FeaturedRegiter />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/all-tournaments",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <Tournaments />
           </Suspense>
         ),
       },

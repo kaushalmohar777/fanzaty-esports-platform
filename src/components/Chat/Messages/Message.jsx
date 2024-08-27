@@ -2,7 +2,16 @@
 import { memo, useEffect, useRef, useState } from "react";
 import "./Message.scss";
 import { useTranslation } from "react-i18next";
-import { Col, Input, Row, Modal, Button, Upload, message } from "antd";
+import {
+  Col,
+  Input,
+  Row,
+  Modal,
+  Button,
+  Upload,
+  message,
+  Dropdown,
+} from "antd";
 import {
   UploadOutlined,
   FileImageOutlined,
@@ -26,12 +35,15 @@ import avatar1 from "../../../assets/avatar-image/image76.svg";
 import selectFile from "../../../assets/icons/select-file.svg";
 import sendIcon from "../../../assets/icons/send-icon.svg";
 import moment from "moment";
+import { fileUploadApi } from "../../../services/fileUpload";
+import uploadFile from "../../../services/chatFileUpload";
 
 /* eslint-disable react-refresh/only-export-components */
 
 const Message = () => {
   const params = useParams();
   const userData = useSelector((state) => state.user.userData);
+  const [todayDate, setTodayDate] = useState(moment().format("D MMM"));
   const { t } = useTranslation("common");
   const dispatch = useDispatch();
   const [user, setUser] = useState(null);
@@ -186,25 +198,29 @@ const Message = () => {
     document.getElementById(inputId).click();
   };
 
-  const handleFileChange = (e, fileType) => {
+  const handleFileChange = async (e, fileType) => {
     const file = e.target.files[0];
     if (file) {
       const fileUrl = URL.createObjectURL(file);
-
       if (fileType === "Image") {
-        setMessage((prev) => ({
-          ...prev,
-          imageUrl: fileUrl,
-          videoUrl: "",
-          text: "",
-        }));
+        const uploadPhoto = await uploadFile(file);
+        setIsModalOpen(false);
+        setMessage((preve) => {
+          return {
+            ...preve,
+            imageUrl: uploadPhoto.url,
+          };
+        });
       } else if (fileType === "Video") {
-        setMessage((prev) => ({
-          ...prev,
-          videoUrl: fileUrl,
-          imageUrl: "",
-          text: "",
-        }));
+        const uploadPhoto = await uploadFile(file);
+        console.log("uploadPhoto: ", uploadPhoto);
+        setIsModalOpen(false);
+        setMessage((preve) => {
+          return {
+            ...preve,
+            videoUrl: uploadPhoto.url,
+          };
+        });
       } else if (fileType === "Document") {
         setMessage((prev) => ({
           ...prev,
@@ -225,6 +241,65 @@ const Message = () => {
       handleCloseModal();
     }
   };
+
+  const renderDate = (message, index) => {
+    if (
+      index === 0 ||
+      moment(allMessage[index - 1]?.createdAt).format("LL") !==
+        moment(message?.createdAt).format("LL")
+    ) {
+      return (
+        <>
+          <div key={`date-${index}`} className="message-date">
+            {moment(message?.createdAt).format("D MMM") == todayDate
+              ? "Today"
+              : moment(message?.createdAt).format("D MMM, h:mmA")}
+          </div>
+          <div className="msg-divide-hr"></div>
+        </>
+      );
+    }
+    return null;
+  };
+
+  const items = [
+    {
+      key: "1",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.antgroup.com"
+        >
+          1st menu item
+        </a>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.aliyun.com"
+        >
+          2nd menu item
+        </a>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.luohanacademy.com"
+        >
+          3rd menu item
+        </a>
+      ),
+    },
+  ];
 
   return (
     <section>
@@ -247,7 +322,7 @@ const Message = () => {
                     >
                       <img
                         src={item?.avatarUrl || userImage}
-                        className="user-avatar-img"
+                        className="user-avatar-img-side"
                         alt="avatar-img-loading"
                       />
                       <div className="user-name-tournament-name">
@@ -276,18 +351,22 @@ const Message = () => {
                           className="chat-user-image"
                         />
                       ) : null}
-                      <div className="chat-user-name">
-                        {dataUser?.name ? dataUser?.name : ""} <br />
-                        <p className="online-offline">
-                          {dataUser.online && dataUser?.online ? (
-                            <span className="text-primary">online</span>
-                          ) : (
-                            <span className="text-slate-400">
-                              {dataUser.online ? "offline" : ""}
-                            </span>
-                          )}
-                        </p>
-                      </div>
+                      {dataUser?.name ? (
+                        <div className="chat-user-name">
+                          {dataUser?.name} <br />
+                          <p className="online-offline">
+                            {dataUser?.online ? (
+                              <span className="text-primary">online</span>
+                            ) : (
+                              <span className="text-slate-400">
+                                <span className="text-primary">Offline</span>
+                              </span>
+                            )}
+                          </p>
+                        </div>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   )}
 
@@ -303,49 +382,66 @@ const Message = () => {
                 <div className="message-container" ref={currentMessage}>
                   {allMessage.map((msg, index) => {
                     return (
-                      <>
-                        <div className="particular-user-chat" key={index}>
+                      <div className="particular-user-chat" key={index}>
+                        {renderDate(msg, index)}
+                        <div
+                          className={`message-bubble ${
+                            user._id === msg?.msgByUserId ? "sent" : "received"
+                          }`}
+                        >
                           <div
-                            className={`message-bubble ${
-                              user._id === msg?.msgByUserId
-                                ? "sent"
-                                : "received"
-                            }`}
+                            style={{ display: "flex", alignItems: "center" }}
                           >
-                            <div
-                              style={{ display: "flex", alignItems: "center" }}
-                            >
-                              {dataUser?.profile_pic ? (
-                                <img
-                                  src={dataUser?.profile_pic}
-                                  alt="chat-user-img"
-                                  className={`${
-                                    user._id === msg?.msgByUserId
-                                      ? "sent"
-                                      : "received"
-                                  }`}
-                                />
-                              ) : null}
-                              <div className="w-full relative">
-                                {msg?.imageUrl && (
-                                  <img
-                                    src={msg?.imageUrl}
-                                    alt="loading-chat-img"
-                                    className="chat-img"
-                                  />
-                                )}
-                                {msg?.videoUrl && (
-                                  <video
-                                    src={msg.videoUrl}
-                                    className="chat-video"
-                                    controls
-                                  />
-                                )}
-                              </div>
-                              <div style={{ padding: "5px" }}>
+                            {dataUser?.profile_pic &&
+                            user._id === msg?.msgByUserId ? (
+                              <img
+                                src={dataUser?.profile_pic}
+                                alt="chat-user-img"
+                                className={`${
+                                  user._id === msg?.msgByUserId
+                                    ? "sent "
+                                    : "received"
+                                }`}
+                              />
+                            ) : (
+                              <img
+                                src={userData?.avatarUrl}
+                                alt="chat-user-img"
+                                className={`${
+                                  user._id === msg?.msgByUserId
+                                    ? "sent"
+                                    : "received"
+                                }`}
+                              />
+                            )}
+                            <div className="w-full relative">
+                              {msg?.imageUrl || msg?.videoUrl ? (
                                 <p className="message-timestamp">
                                   {moment(msg.createdAt).format("D MMM, h:mmA")}
                                 </p>
+                              ) : null}
+                              {msg?.imageUrl && (
+                                <img
+                                  src={msg?.imageUrl}
+                                  alt="loading-chat-img"
+                                  className="chat-img"
+                                />
+                              )}
+                              {msg?.videoUrl && (
+                                <video
+                                  src={msg.videoUrl}
+                                  className="chat-video"
+                                  controls
+                                />
+                              )}
+                            </div>
+                            <div style={{ padding: "5px" }}>
+                              {msg.text ? (
+                                <p className="message-timestamp">
+                                  {moment(msg.createdAt).format("D MMM, h:mmA")}
+                                </p>
+                              ) : null}
+                              {msg.text ? (
                                 <p
                                   className={
                                     user._id === msg?.msgByUserId
@@ -355,105 +451,120 @@ const Message = () => {
                                 >
                                   {msg.text}
                                 </p>
-                              </div>
+                              ) : null}
                             </div>
                           </div>
                         </div>
-                      </>
+                      </div>
                     );
                   })}
                 </div>
 
                 <div className="type-message-section">
-                  <div>
-                    <img
-                      src={selectFile}
-                      alt="loading-select-file"
-                      className="select-file-image"
-                      onClick={handleOpenModal}
-                      style={{ position: "relative" }}
-                    />
-                    <div className="video-doc-select-modal">
-                      <Modal
-                        title="Select a file to upload"
-                        open={isModalOpen}
-                        onCancel={handleCloseModal}
-                        footer={null}
-                        style={{
-                          maxWidth: "240px",
-                          position: "fixed",
-                          left: "40%",
-                          top: "50%",
-                        }}
-                      >
-                        <div className="file-selection-options">
-                          <Button
-                            icon={<FileImageOutlined />}
-                            onClick={() => handleFileInputClick("Image")}
-                            className="file-select-button"
-                          >
-                            Select Image
-                          </Button>
-                          <Button
-                            icon={<VideoCameraOutlined />}
-                            onClick={() => handleFileInputClick("Video")}
-                            className="file-select-button"
-                          >
-                            Select Video
-                          </Button>
-                          <Button
-                            icon={<FileOutlined />}
-                            onClick={() => handleFileInputClick("Document")}
-                            className="file-select-button"
-                          >
-                            Select Document
-                          </Button>
-                        </div>
-
-                        <input
-                          type="file"
-                          id="Image"
-                          style={{ display: "none" }}
-                          accept="image/*"
-                          onChange={(e) => handleFileChange(e, "Image")}
-                        />
-                        <input
-                          type="file"
-                          id="Video"
-                          style={{ display: "none" }}
-                          accept="video/*"
-                          onChange={(e) => handleFileChange(e, "Video")}
-                        />
-                        <input
-                          type="file"
-                          id="Document"
-                          style={{ display: "none" }}
-                          accept=".pdf,.doc,.docx,.txt"
-                          onChange={(e) => handleFileChange(e, "Document")}
-                        />
-                      </Modal>
-                    </div>
-                  </div>
-
-                  <div className="input-send">
-                    <div className="chat-input">
-                      <Input
-                        placeholder="Enter message"
-                        size="large"
-                        value={message.text}
-                        onChange={handleOnChange}
-                        onKeyDown={handleKeyPress}
-                      />
-                    </div>
+                  {dataUser?.profile_pic && dataUser?.name ? (
                     <div>
-                      <img
-                        src={sendIcon}
-                        alt="loading-select-file"
-                        className="send-icon-image"
-                        onClick={handleSendMessage}
-                      />
+                      <div className="video-doc-select-modal">
+                        {/* <Modal
+                          title="Select a file to upload"
+                          open={isModalOpen}
+                          onCancel={handleCloseModal}
+                          footer={null}
+                          style={{
+                            maxWidth: "240px",
+                            position: "fixed",
+                            left: "40%",
+                            top: "50%",
+                          }}
+                        >
+                          <div className="file-selection-options">
+                            <Button
+                              icon={<FileImageOutlined />}
+                              onClick={() => handleFileInputClick("Image")}
+                              className="file-select-button"
+                            >
+                              Select Image
+                            </Button>
+                            <Button
+                              icon={<VideoCameraOutlined />}
+                              onClick={() => handleFileInputClick("Video")}
+                              className="file-select-button"
+                            >
+                              Select Video
+                            </Button>
+                            <Button
+                              icon={<FileOutlined />}
+                              onClick={() => handleFileInputClick("Document")}
+                              className="file-select-button"
+                            >
+                              Select Document
+                            </Button>
+                          </div>
+
+                          <input
+                            type="file"
+                            id="Image"
+                            style={{ display: "none" }}
+                            accept="image/*"
+                            onChange={(e) => handleFileChange(e, "Image")}
+                          />
+                          <input
+                            type="file"
+                            id="Video"
+                            style={{ display: "none" }}
+                            accept="video/*"
+                            onChange={(e) => handleFileChange(e, "Video")}
+                          />
+                          <input
+                            type="file"
+                            id="Document"
+                            style={{ display: "none" }}
+                            accept=".pdf,.doc,.docx,.txt"
+                            onChange={(e) => handleFileChange(e, "Document")}
+                          />
+                        </Modal> */}
+                        <Dropdown
+                          menu={{
+                            items,
+                          }}
+                          placement="right"
+                          arrow
+                        >
+                          <img
+                            src={selectFile}
+                            alt="loading-select-file"
+                            className="select-file-image"
+                            onClick={handleOpenModal}
+                            style={{ position: "relative" }}
+                          />
+                        </Dropdown>
+                      </div>
                     </div>
-                  </div>
+                  ) : null}
+
+                  {dataUser?.profile_pic && dataUser?.name ? (
+                    <div className="input-send">
+                      <div className="chat-input">
+                        <Input
+                          placeholder="Enter message"
+                          size="large"
+                          value={message.text}
+                          onChange={handleOnChange}
+                          onKeyDown={handleKeyPress}
+                          style={{
+                            backgroundColor: "#343a40",
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <img
+                          src={sendIcon}
+                          alt="loading-select-file"
+                          className="send-icon-image"
+                          onClick={handleSendMessage}
+                        />
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </Col>

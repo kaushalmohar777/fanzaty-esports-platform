@@ -1,5 +1,5 @@
 import "./EditUserProfile.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Button,
   DatePicker,
@@ -12,26 +12,36 @@ import {
 } from "antd";
 import { useTranslation } from "react-i18next";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
-import { memo, useEffect } from "react";
-import moment from "moment"; // Import your action to fetch country data
+import { memo, useEffect, useState } from "react";
+// import moment from "moment"; // Import your action to fetch country data
 import { END_POINTS } from "../../Helper/Constant";
 import { putApiRequest } from "../../services/putApiRequest";
 import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 import { useNavigate } from "react-router-dom";
-/* eslint-disable react-refresh/only-export-components */
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import { setUser } from "../../features/user/userSlice";
 
+/* eslint-disable react-refresh/only-export-components */
+dayjs.extend(customParseFormat);
 const EditUserProfile = () => {
   const { t } = useTranslation("common");
   const userData = useSelector((state) => state.user.userData);
   const countryData = useSelector((state) => state.country.countryData);
   const loading = useSelector((state) => state.country.loading);
+  const [dateOfBirth, setDateOfBirth] = useState();
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const { Option } = Select;
+  const dateFormat = "YYYY-MM-DD";
+  const dispatch = useDispatch();
+
+  const onChange = (_, dateStr) => {
+    setDateOfBirth(dateStr);
+  };
 
   useEffect(() => {
     if (userData) {
-      const formattedDob = userData?.dob ? moment(userData?.dob) : null;
       form.setFieldsValue({
         firstName: userData?.firstName,
         lastName: userData?.lastName,
@@ -40,7 +50,6 @@ const EditUserProfile = () => {
         email: userData?.email,
         gender: userData?.gender ? userData.gender.toLowerCase() : undefined,
         prefix: userData?.prefix || "Select country code",
-        dob: formattedDob,
       });
     }
   }, [userData, form]);
@@ -49,17 +58,17 @@ const EditUserProfile = () => {
     <Form.Item name="prefix" noStyle>
       <Select
         showSearch
-        style={{ width: 150 }}
+        style={{ width: 180 }}
         placeholder={t("signUp.selectCountryCode")}
         optionFilterProp="children"
         filterOption={(input, option) => {
           const countryData = option["data-country"];
           if (!countryData) return false;
-
           const searchValue = input.toLowerCase();
           return (
             countryData.callingCode.toLowerCase().includes(searchValue) ||
-            countryData.name.toLowerCase().includes(searchValue)
+            countryData.name.toLowerCase().includes(searchValue) ||
+            countryData.alpha2Code.toLowerCase().includes(searchValue)
           );
         }}
       >
@@ -71,10 +80,11 @@ const EditUserProfile = () => {
               className="country-option"
               data-country={item}
             >
-              <span>{item.callingCode}</span>
+              <span className="calling-code">{item?.callingCode}</span>{" "}
+              <span>{item?.alpha2Code}</span>
               <img
-                src={item.flag}
-                alt={`${item.name} flag`}
+                src={item?.flag}
+                alt={`${item?.name} flag`}
                 className="flag-img"
               />
             </Option>
@@ -101,10 +111,11 @@ const EditUserProfile = () => {
   };
 
   const onFinish = async (values) => {
-    const payload = { ...values, dob: moment(values.dob).format("YYYY-MM-DD") };
+    const payload = { ...values, dob: dateOfBirth };
     try {
       const response = await putApiRequest(END_POINTS.UPDATE_PROFILE, payload);
       if (response?.success) {
+        dispatch(setUser(response.updatedUser));
         showToast(response?.message, "success");
         form.resetFields();
         navigate("/");
@@ -205,11 +216,7 @@ const EditUserProfile = () => {
                 <Input placeholder={t("signUp.emailPlaceholder")} />
               </Form.Item>
 
-              <Form.Item
-                label={t("signUp.date_picker")}
-                name="dob"
-                rules={[{ required: true, message: "Please input!" }]}
-              >
+              <Form.Item label={t("signUp.date_picker")} name="dob">
                 <Space
                   direction="vertical"
                   style={{
@@ -223,9 +230,10 @@ const EditUserProfile = () => {
                       backgroundColor: "#141414",
                       color: "#fff",
                     }}
-                    format="YYYY-MM-DD"
-                    value={form.getFieldValue("dob")}
-                    onChange={(date) => form.setFieldsValue({ dob: date })}
+                    defaultValue={
+                      userData?.dob ? dayjs(userData?.dob, dateFormat) : null
+                    }
+                    onChange={onChange}
                   />
                 </Space>
               </Form.Item>

@@ -192,6 +192,7 @@ const SignUp = () => {
                 label={t("signUp.phone")}
                 rules={[
                   {
+                    required: true,
                     validator: validatePhoneNumber,
                   },
                 ]}

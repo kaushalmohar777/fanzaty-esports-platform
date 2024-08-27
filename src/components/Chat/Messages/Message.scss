@@ -255,10 +255,15 @@
   width: 95%;
   input {
     border-radius: 100px;
-    background-color: #343a40;
+    background-color: #343a40 !important;
     padding: 20px;
     border: none;
     color: #ffffff;
+    font-family: "Inter";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    text-align: left;
   }
 }
 .select-file-image {
@@ -324,7 +329,7 @@
   padding: 10px;
   margin: 10px;
 }
-.user-avatar-img {
+.user-avatar-img-side {
   width: 41px;
   height: 41px;
   border-radius: 100%;
@@ -434,10 +439,32 @@
 
 .particular-user-chat {
   display: flex;
+  flex-direction: column;
   img {
     width: 73px;
     height: 73px;
     border-radius: 100%;
     margin: 0 10px;
   }
+}
+
+.message-date {
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 15px;
+  text-align: center;
+  color: #ffffff;
+  opacity: 30%;
+  text-align: center;
+  padding: 40px 0 20px 0;
+}
+
+.msg-divide-hr {
+  width: 100%;
+  margin: 10px 0;
+  border: 1px solid #dae0e63b;
+}
+.sent-user-msg-img {
+  display: none;
 }

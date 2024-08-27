@@ -224,7 +224,13 @@
     "march4th": "4 مارس 2024",
     "march9th": "9 مارس 2024",
     "registrationStarts": "تبدأ التسجيلات",
-    "endRegistration": "إنهاء التسجيل"
+    "endRegistration": "إنهاء التسجيل",
+    "details": "التفاصيل",
+    "prize_pool": "جائزة مالية",
+    "chat": "الدردشة",
+    "brackets": "الأقواس",
+    "players": "اللاعبون",
+    "score_submission": "إرسال النتيجة"
   },
 
   "detailsTab": {
@@ -261,5 +267,24 @@
     "userName": "اللقب",
     "viewMore": "عرض المزيد",
     "backToTop": "العودة إلى الأعلى"
+  },
+
+  "ongoing_tournament": {
+    "registration_open": "التسجيل مفتوح حتى 23 مارس",
+    "tournament_name": "بطولة فانزاتي الأسبوعية (الأسبوع 1)"
+  },
+
+  "past_tournament_tab": {
+    "join_for_free": "انضم مجانًا 100٪",
+    "registration_open": "التسجيل مفتوح",
+    "tournament_title": "بطولة 2024",
+    "tournament_description": "يبدأ التسجيل في 1 مارس 2024"
+  },
+
+  "tournaments": {
+    "past_tournaments": "البطولات السابقة",
+    "ongoing_tournament": "البطولة الجارية",
+    "upcoming_tournament": "البطولة القادمة",
+    "my_tournament": "بطولتي"
   }
 }
