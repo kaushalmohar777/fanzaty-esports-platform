@@ -266,46 +266,45 @@ const Message = () => {
     {
       key: "1",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
+        <Button
+          icon={<FileImageOutlined />}
+          onClick={() => handleFileInputClick("Image")}
+          className="file-select-button"
         >
-          1st menu item
-        </a>
+          {t("chatMessages.selectImage")}
+        </Button>
       ),
     },
     {
       key: "2",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
+        <Button
+          icon={<VideoCameraOutlined />}
+          onClick={() => handleFileInputClick("Video")}
+          className="file-select-button"
         >
-          2nd menu item
-        </a>
+          {t("chatMessages.selectVideo")}
+        </Button>
       ),
     },
     {
       key: "3",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
+        <Button
+          icon={<FileOutlined />}
+          onClick={() => handleFileInputClick("Document")}
+          className="file-select-button"
         >
-          3rd menu item
-        </a>
+          {t("chatMessages.selectDocument")}
+        </Button>
       ),
     },
   ];
-
   return (
     <section>
       <div className="container">
         <div>
-          <h1 className="message-heading">{t("messages.message")}</h1>
+          <h1 className="message-heading">{t("chatMessages.message")}</h1>
         </div>
         <div>
           <Row gutter={[16, 16]}>
@@ -334,7 +333,7 @@ const Message = () => {
               </div>
               <div className="contact-us">
                 <div className="contact-us-btn">
-                  <button>Contact support</button>
+                  <button>{t("chatMessages.contactSupport")}</button>
                 </div>
               </div>
             </Col>
@@ -356,10 +355,14 @@ const Message = () => {
                           {dataUser?.name} <br />
                           <p className="online-offline">
                             {dataUser?.online ? (
-                              <span className="text-primary">online</span>
+                              <span className="text-primary">
+                                {t("chatMessages.online")}
+                              </span>
                             ) : (
                               <span className="text-slate-400">
-                                <span className="text-primary">Offline</span>
+                                <span className="text-primary">
+                                  {t("chatMessages.offline")}
+                                </span>
                               </span>
                             )}
                           </p>
@@ -371,7 +374,7 @@ const Message = () => {
                   )}
 
                   <div className="invite-mark">
-                    <button>Invite Mark</button>
+                    <button>{t("chatMessages.inviteMark")}</button>
                   </div>
                 </div>
 
@@ -464,79 +467,45 @@ const Message = () => {
                   {dataUser?.profile_pic && dataUser?.name ? (
                     <div>
                       <div className="video-doc-select-modal">
-                        {/* <Modal
-                          title="Select a file to upload"
-                          open={isModalOpen}
-                          onCancel={handleCloseModal}
-                          footer={null}
-                          style={{
-                            maxWidth: "240px",
-                            position: "fixed",
-                            left: "40%",
-                            top: "50%",
-                          }}
-                        >
-                          <div className="file-selection-options">
-                            <Button
-                              icon={<FileImageOutlined />}
-                              onClick={() => handleFileInputClick("Image")}
-                              className="file-select-button"
-                            >
-                              Select Image
-                            </Button>
-                            <Button
-                              icon={<VideoCameraOutlined />}
-                              onClick={() => handleFileInputClick("Video")}
-                              className="file-select-button"
-                            >
-                              Select Video
-                            </Button>
-                            <Button
-                              icon={<FileOutlined />}
-                              onClick={() => handleFileInputClick("Document")}
-                              className="file-select-button"
-                            >
-                              Select Document
-                            </Button>
-                          </div>
-
-                          <input
-                            type="file"
-                            id="Image"
-                            style={{ display: "none" }}
-                            accept="image/*"
-                            onChange={(e) => handleFileChange(e, "Image")}
-                          />
-                          <input
-                            type="file"
-                            id="Video"
-                            style={{ display: "none" }}
-                            accept="video/*"
-                            onChange={(e) => handleFileChange(e, "Video")}
-                          />
-                          <input
-                            type="file"
-                            id="Document"
-                            style={{ display: "none" }}
-                            accept=".pdf,.doc,.docx,.txt"
-                            onChange={(e) => handleFileChange(e, "Document")}
-                          />
-                        </Modal> */}
-                        <Dropdown
-                          menu={{
-                            items,
-                          }}
-                          placement="right"
-                          arrow
-                        >
-                          <img
-                            src={selectFile}
-                            alt="loading-select-file"
-                            className="select-file-image"
-                            onClick={handleOpenModal}
-                            style={{ position: "relative" }}
-                          />
-                        </Dropdown>
+                        <input
+                          type="file"
+                          id="Image"
+                          style={{ display: "none" }}
+                          accept="image/*"
+                          onChange={(e) => handleFileChange(e, "Image")}
+                        />
+                        <input
+                          type="file"
+                          id="Video"
+                          style={{ display: "none" }}
+                          accept="video/*"
+                          onChange={(e) => handleFileChange(e, "Video")}
+                        />
+                        <input
+                          type="file"
+                          id="Document"
+                          style={{ display: "none" }}
+                          accept=".pdf,.doc,.docx,.txt"
+                          onChange={(e) => handleFileChange(e, "Document")}
+                        />
+                        <div className="">
+                          <Dropdown
+                            menu={{
+                              items,
+                            }}
+                            trigger={["click"]}
+                            placement="topLeft"
+                            arrow
+                          >
+                            <img
+                              src={selectFile}
+                              alt="loading-select-file"
+                              className="select-file-image"
+                              onClick={handleOpenModal}
+                              style={{ position: "relative" }}
+                            />
+                          </Dropdown>
+                        </div>
                       </div>
                     </div>
                   ) : null}

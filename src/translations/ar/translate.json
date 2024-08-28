@@ -286,5 +286,18 @@
     "ongoing_tournament": "البطولة الجارية",
     "upcoming_tournament": "البطولة القادمة",
     "my_tournament": "بطولتي"
+  },
+
+  "chatMessages": {
+    "message": "الرسائل",
+    "contactSupport": "اتصل بالدعم",
+    "inviteMark": "دعوة مارك",
+    "selectImage": "اختر صورة",
+    "selectVideo": "اختر فيديو",
+    "selectDocument": "اختر مستند",
+    "today": "اليوم",
+    "enterMessage": "أدخل الرسالة",
+    "online": "متصل",
+    "offline": "غير متصل"
   }
 }

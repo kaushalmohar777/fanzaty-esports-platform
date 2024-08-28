@@ -104,6 +104,13 @@ const Navbar = () => {
     setLocalStorageData("language", lng);
     i18n.changeLanguage(lng);
     document.body.dir = lng === "ar" ? "rtl" : "ltr";
+    if (lng === "ar") {
+      document.body.classList.add("font-arabic");
+      document.body.classList.remove("font-english");
+    } else {
+      document.body.classList.add("font-english");
+      document.body.classList.remove("font-arabic");
+    }
     dispatch(setLang(lng));
   };
 

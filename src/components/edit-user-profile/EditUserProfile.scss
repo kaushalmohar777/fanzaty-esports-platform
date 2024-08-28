@@ -6,8 +6,19 @@
   border-radius: 10px;
   margin-bottom: 50px;
 }
-.edit-account-heading {
+.font-english .edit-account-heading {
   font-family: "Anybody", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 59px;
+  text-align: center;
+  margin-top: 90px;
+  margin-bottom: 50px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.font-arabic .edit-account-heading {
+  font-family: "Alexandria", sans-serif;
   font-size: 48px;
   font-weight: 700;
   line-height: 59px;
@@ -30,8 +41,17 @@
     border-radius: 100%;
   }
 }
-.fix-user-name {
+.font-english .fix-user-name {
   font-family: "Anybody", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 33.12px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 70px;
+}
+.font-arabic .fix-user-name {
+  font-family: "Alexandria", sans-serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 33.12px;

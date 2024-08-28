@@ -281,5 +281,18 @@
     "ongoing_tournament": "Ongoing Tournament",
     "upcoming_tournament": "Upcoming Tournament",
     "my_tournament": "My Tournament"
+  },
+
+  "chatMessages": {
+    "message": "Messages",
+    "contactSupport": "Contact support",
+    "inviteMark": "Invite Mark",
+    "selectImage": "Select Image",
+    "selectVideo": "Select Video",
+    "selectDocument": "Select Document",
+    "today": "Today",
+    "enterMessage": "Enter message",
+    "online": "Online",
+    "offline": "Offline"
   }
 }

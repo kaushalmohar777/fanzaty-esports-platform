@@ -10,8 +10,16 @@
   justify-content: center;
   align-items: center;
 }
-.our-client-heading {
+.font-english .our-client-heading {
   font-family: "Anybody", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  color: #fff;
+}
+
+.font-arabic .our-client-heading {
+  font-family: "Alexandria", sans-serif;
   font-size: 48px;
   font-weight: 700;
   line-height: 48px;

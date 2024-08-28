@@ -6,7 +6,7 @@
   background-size: cover;
 }
 
-.join-our-heading {
+.font-english .join-our-heading {
   font-family: "Anybody", sans-serif;
   font-size: 55px;
   font-weight: 700;
@@ -17,7 +17,18 @@
   margin-bottom: 24px;
 }
 
-.join-our-heading-para {
+.font-arabic .join-our-heading {
+  font-family: "Alexandria", sans-serif;
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 60px;
+  text-align: left;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.font-english .join-our-heading-para {
   font-family: "Anybody", sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -26,7 +37,16 @@
   color: #fff;
 }
 
-.join-our-community-btn {
+.font-arabic .join-our-heading-para {
+  font-family: "Alexandria", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: left;
+  color: #fff;
+}
+
+.font-english .join-our-community-btn {
   width: 244px;
   height: 65px;
   padding: 22px 24px 22px 24px;
@@ -34,7 +54,26 @@
   background-color: #08ff96;
   margin-top: 26px;
   button {
-    font-family: Anybody;
+    font-family: "Anybody";
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20.7px;
+    text-align: center;
+    color: #141414;
+    border: none;
+    background: none;
+  }
+}
+
+.font-arabic .join-our-community-btn {
+  width: 244px;
+  height: 65px;
+  padding: 22px 24px 22px 24px;
+  border-radius: 5px;
+  background-color: #08ff96;
+  margin-top: 26px;
+  button {
+    font-family: "Alexandria", sans-serif;
     font-size: 20px;
     font-weight: 700;
     line-height: 20.7px;

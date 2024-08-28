@@ -4,9 +4,15 @@
   box-sizing: border-box;
 }
 
-body {
+/* index.css */
+.font-arabic {
+  font-family: "Alexandria", sans-serif;
+}
+
+.font-english {
   font-family: "Anybody", sans-serif;
 }
+
 .lazy-loading {
   color: #fff;
   text-align: center;

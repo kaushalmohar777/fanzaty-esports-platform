@@ -10,8 +10,18 @@
   background-color: #141414;
   display: flex;
 }
-.happy-player-heading {
+.font-english .happy-player-heading {
   font-family: "Anybody", sans-serif;
+  font-size: 55px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  margin-top: 100px;
+  margin-bottom: 40px;
+}
+
+.font-arabic .happy-player-heading {
+  font-family: "Alexandria", sans-serif;
   font-size: 55px;
   font-weight: 700;
   text-align: center;

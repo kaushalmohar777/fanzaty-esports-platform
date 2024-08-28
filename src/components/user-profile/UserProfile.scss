@@ -31,7 +31,7 @@
   margin-top: 59px;
 }
 
-.user-profile-name {
+.font-english .user-profile-name {
   font-family: "Anybody", sans-serif;
   font-size: 32px;
   font-weight: 700;
@@ -41,8 +41,27 @@
   margin-bottom: 20px;
   z-index: 9;
 }
-.user-bio {
+.font-arabic .user-profile-name {
+  font-family: "Alexandria", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 33.12px;
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  z-index: 9;
+}
+.font-english .user-bio {
   font-family: "Anybody", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 29px;
+  text-align: center;
+  z-index: 9;
+}
+
+.font-arabic .user-bio {
+  font-family: "Alexandria", sans-serif;
   font-size: 17px;
   font-weight: 400;
   line-height: 29px;
@@ -73,7 +92,7 @@
   width: 100%;
 }
 
-.game-detail {
+.font-english .game-detail {
   font-family: "Anybody", sans-serif;
   font-size: 24px;
   font-weight: 400;
@@ -83,7 +102,7 @@
   z-index: 9;
 }
 
-.game-score {
+.font-english .game-score {
   font-family: "Anybody", sans-serif;
   font-size: 24px;
   font-weight: 400;
@@ -92,6 +111,27 @@
   color: #fff;
   z-index: 9;
 }
+
+.font-arabic .game-detail {
+  font-family: "Alexandria", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 31px;
+  text-align: left;
+  color: #08ff96;
+  z-index: 9;
+}
+
+.font-arabic .game-score {
+  font-family: "Alexandria", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 31px;
+  text-align: right;
+  color: #fff;
+  z-index: 9;
+}
+
 .edit-icon-img {
   width: 58px;
   height: 58px;
@@ -158,8 +198,19 @@
 .game-played-section {
   margin-top: 100px !important;
 }
-.game-played-section-heading {
+.font-english .game-played-section-heading {
   font-family: "Anybody", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 59px;
+  text-align: left;
+  color: #fff;
+  margin-bottom: 17px;
+  text-transform: uppercase;
+}
+
+.font-arabic .game-played-section-heading {
+  font-family: "Alexandria", sans-serif;
   font-size: 48px;
   font-weight: 700;
   line-height: 59px;
@@ -241,7 +292,7 @@
   z-index: 99;
 }
 
-.game-name {
+.font-english .game-name {
   font-family: "Anybody", sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -250,7 +301,17 @@
   margin-bottom: 17px;
   z-index: 99;
 }
-.game-sub-heading {
+.font-arabic .game-name {
+  font-family: "Alexandria", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24.84px;
+  text-align: left;
+  margin-bottom: 17px;
+  z-index: 99;
+}
+
+.font-english .game-sub-heading {
   font-family: "Anybody", sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -260,7 +321,18 @@
   opacity: 60%;
   margin-bottom: 17px;
 }
-.game-dynamic-sub-head {
+.font-arabic .game-sub-heading {
+  font-family: "Alexandria", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+  text-transform: uppercase;
+  opacity: 60%;
+  margin-bottom: 17px;
+}
+
+.font-english .game-dynamic-sub-head {
   font-family: "Anybody", sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -269,7 +341,16 @@
   color: #fff;
 }
 
-.player-heading {
+.font-arabic .game-dynamic-sub-head {
+  font-family: "Alexandria", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18.63px;
+  text-align: left;
+  color: #fff;
+}
+
+.font-english .player-heading {
   font-family: "Anybody", sans-serif;
   font-size: 48px;
   font-weight: 700;
@@ -280,12 +361,25 @@
   text-transform: uppercase;
   margin-bottom: 25px;
 }
+
+.font-arabic .player-heading {
+  font-family: "Alexandria", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 59px;
+  text-align: left;
+  margin-top: 100px;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
 .bio-section {
   display: flex;
   justify-content: space-between;
 }
 
-.bio {
+.font-english .bio {
   width: 615px;
   height: 109px;
   border-radius: 10px;
@@ -295,6 +389,28 @@
   align-items: center;
   p {
     font-family: "Anybody", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24.84px;
+    text-align: left;
+    color: #08ff96;
+    margin-left: 40px;
+  }
+  img {
+    margin-right: 40px;
+  }
+}
+
+.font-arabic .bio {
+  width: 615px;
+  height: 109px;
+  border-radius: 10px;
+  border: 1px solid #08ff96;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    font-family: "Alexandria", sans-serif;
     font-size: 24px;
     font-weight: 400;
     line-height: 24.84px;
@@ -331,7 +447,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.game-id-heading {
+.font-english .game-id-heading {
   font-family: "Anybody", sans-serif;
   font-size: 48px;
   font-weight: 700;
@@ -341,7 +457,7 @@
   text-transform: uppercase;
   margin-top: 10px;
 }
-.game-id-head {
+.font-english .game-id-head {
   font-family: "Anybody", sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -351,7 +467,7 @@
   color: #fff;
   margin-bottom: 10px;
 }
-.game-dynamic-id {
+.font-english .game-dynamic-id {
   font-family: "Anybody", sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -360,6 +476,37 @@
   color: #fff;
   margin-left: 40px;
 }
+
+.font-arabic .game-id-heading {
+  font-family: "Alexandria", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 59px;
+  text-align: left;
+  color: #fff;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+.font-arabic .game-id-head {
+  font-family: "Alexandria", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24.84px;
+  text-align: left;
+  margin-left: 40px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.font-arabic .game-dynamic-id {
+  font-family: "Alexandria", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: #fff;
+  margin-left: 40px;
+}
+
 .copy-img {
   margin: 0 30px 0 13px;
   cursor: pointer;

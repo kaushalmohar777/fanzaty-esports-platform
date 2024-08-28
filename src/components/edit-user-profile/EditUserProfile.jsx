@@ -45,7 +45,8 @@ const EditUserProfile = () => {
       form.setFieldsValue({
         firstName: userData?.firstName,
         lastName: userData?.lastName,
-        nickName: userData?.nickName,
+        // nickName: userData?.nickName,
+        nickName: userData?.userName,
         phone: userData?.phone,
         email: userData?.email,
         gender: userData?.gender ? userData.gender.toLowerCase() : undefined,
@@ -183,7 +184,10 @@ const EditUserProfile = () => {
               </Form.Item>
 
               <Form.Item name="nickName" label={t("signUp.nick_name")}>
-                <Input placeholder={t("signUp.nick_name_placeholder")} />
+                <Input
+                  disabled="true"
+                  placeholder={t("signUp.nick_name_placeholder")}
+                />
               </Form.Item>
 
               <Form.Item

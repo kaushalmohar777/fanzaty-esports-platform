@@ -5,10 +5,20 @@
   justify-content: center;
   height: 504px;
 }
-.register-now-title {
+.font-english .register-now-title {
   color: #fff;
   font-size: 48px;
   font-family: "Anybody";
+  text-transform: uppercase;
+  line-height: 59px;
+  margin-top: 162px;
+  margin-bottom: 105px;
+}
+
+.font-arabic .register-now-title {
+  color: #fff;
+  font-size: 48px;
+  font-family: "Alexandria", sans-serif;
   text-transform: uppercase;
   line-height: 59px;
   margin-top: 162px;
@@ -48,11 +58,20 @@
   width: 100%;
   padding: 50px;
 }
-h2.title-timeline {
+.font-english h2.title-timeline {
   color: #fff !important;
   font-size: 48px;
   text-transform: uppercase;
   font-family: "Anybody";
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.font-arabic h2.title-timeline {
+  color: #fff !important;
+  font-size: 48px;
+  text-transform: uppercase;
+  font-family: "Alexandria", sans-serif;
   position: relative;
   margin-bottom: 25px;
 }
@@ -79,7 +98,7 @@ h2.title-timeline {
   width: 100%;
 }
 
-.timeline-box-title {
+.font-english .timeline-box-title {
   font-size: 32px;
   text-align: left;
   color: #fff;
@@ -88,11 +107,20 @@ h2.title-timeline {
   font-weight: 700;
   padding-left: 28px;
 }
+.font-arabic .timeline-box-title {
+  font-size: 32px;
+  text-align: left;
+  color: #fff;
+  font-family: "Alexandria", sans-serif;
+  line-height: 37px;
+  font-weight: 700;
+  padding-left: 28px;
+}
 
 .timline-content .section-right-pannel {
   padding: 30px 24px;
 }
-.timeline-box-content {
+.font-english .timeline-box-content {
   font-size: 17px;
   color: #fff;
   text-align: left;
@@ -101,6 +129,17 @@ h2.title-timeline {
   line-height: 25px;
   margin-top: 8px;
 }
+
+.font-arabic .timeline-box-content {
+  font-size: 17px;
+  color: #fff;
+  text-align: left;
+  font-family: "Alexandria", sans-serif;
+  font-weight: 400;
+  line-height: 25px;
+  margin-top: 8px;
+}
+
 .timline-content .ant-row {
   margin-top: 40px;
   gap: 30px;
@@ -150,8 +189,16 @@ h2.title-timeline {
   display: none;
 }
 
-.ant-tabs-tab-btn {
+.font-english .ant-tabs-tab-btn {
   font-family: "Anybody", "sans-serif";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  padding: 20px 0;
+}
+.font-arabic .ant-tabs-tab-btn {
+  font-family: "Alexandria", sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 20px;

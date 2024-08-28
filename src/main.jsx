@@ -24,7 +24,16 @@ i18next.init({
     },
   },
 });
+
 document.body.dir = defaultLanguage === "ar" ? "rtl" : "ltr";
+// Add a class to the body based on the language
+if (defaultLanguage === "ar") {
+  document.body.classList.add("font-arabic");
+  document.body.classList.remove("font-english");
+} else {
+  document.body.classList.add("font-english");
+  document.body.classList.remove("font-arabic");
+}
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <I18nextProvider i18n={i18next}>

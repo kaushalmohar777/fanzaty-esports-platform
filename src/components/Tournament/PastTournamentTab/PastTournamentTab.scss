@@ -55,7 +55,7 @@
   justify-content: center;
   align-items: center;
 }
-.past-tournament-card-section .registration-btn {
+.font-english .past-tournament-card-section .registration-btn {
   width: 253px;
   height: 57px;
   padding: 22px 24px 22px 24px;
@@ -73,7 +73,7 @@
   text-transform: uppercase;
   cursor: pointer;
 }
-.past-tournament-card-section .card-title {
+.font-english .past-tournament-card-section .card-title {
   font-family: "Anybody";
   font-size: 24px;
   font-weight: 700;
@@ -83,8 +83,47 @@
   margin: 16px 0;
   cursor: auto;
 }
-.past-tournament-card-section .card-description {
+.font-english .past-tournament-card-section .card-description {
   font-family: "Anybody";
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: left;
+  color: #fff;
+  margin-bottom: 20px;
+  cursor: auto;
+}
+
+.font-arabic .past-tournament-card-section .registration-btn {
+  width: 253px;
+  height: 57px;
+  padding: 22px 24px 22px 24px;
+  border-radius: 5px;
+  border: 1px;
+  font-family: "Alexandria", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  color: #08ff96;
+  margin-bottom: 21px;
+  background: none;
+  border: 1px solid #08ff96;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.font-arabic .past-tournament-card-section .card-title {
+  font-family: "Alexandria", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 27px;
+  text-align: left;
+  color: #fff;
+  margin: 16px 0;
+  cursor: auto;
+}
+.font-arabic .past-tournament-card-section .card-description {
+  font-family: "Alexandria", sans-serif;
   font-size: 17px;
   font-weight: 400;
   line-height: 25px;

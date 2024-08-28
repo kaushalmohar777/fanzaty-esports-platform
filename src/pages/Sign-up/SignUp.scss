@@ -18,7 +18,7 @@
   border: 2px solid #08ff9654;
   margin: 0 auto 75px auto;
 }
-.sign-up-heading {
+.font-english .sign-up-heading {
   text-align: center;
   margin-top: 117px;
   margin-bottom: 50px;
@@ -30,8 +30,20 @@
   text-align: center;
   color: #fff;
 }
+.font-arabic .sign-up-heading {
+  text-align: center;
+  margin-top: 117px;
+  margin-bottom: 50px;
+  font-family: "Alexandria", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 59px;
+  text-align: center;
+  color: #fff;
+}
 
-.submit-btn {
+.font-english .submit-btn {
   background-color: #08ff96;
   color: #141414;
   margin-left: 0;
@@ -46,7 +58,22 @@
   border-radius: 5px;
 }
 
-.submit-btn:hover {
+.font-arabic .submit-btn {
+  background-color: #08ff96;
+  color: #141414;
+  margin-left: 0;
+  font-family: "Alexandria", sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+}
+
+.font-english .submit-btn:hover {
   background-color: #08ff96 !important;
   color: #141414 !important;
   border-color: #08ff96;
@@ -54,9 +81,22 @@
   font-family: "Anybody", sans-serif;
 }
 
-.ant-form-item-label > label {
+.font-arabic .submit-btn:hover {
+  background-color: #08ff96 !important;
+  color: #141414 !important;
+  border-color: #08ff96;
+  margin-left: 0;
+  font-family: "Alexandria", sans-serif;
+}
+
+.font-english .ant-form-item-label > label {
   color: white !important;
   font-family: "Anybody", sans-serif;
+}
+
+.font-arabic .ant-form-item-label > label {
+  color: white !important;
+  font-family: "Alexandria", sans-serif;
 }
 
 .ant-input,
@@ -75,7 +115,7 @@
   background-color: #141414 !important;
 }
 
-.ant-input:hover,
+.font-english .ant-input:hover,
 .ant-input:focus,
 .ant-input-password input:hover,
 .ant-input-password input:focus,
@@ -85,6 +125,18 @@
   box-shadow: none !important;
   background: none !important;
   font-family: "Anybody", sans-serif;
+}
+
+.font-arabic .ant-input:hover,
+.ant-input:focus,
+.ant-input-password input:hover,
+.ant-input-password input:focus,
+.ant-input-affix-wrapper:hover,
+.ant-input-affix-wrapper:focus {
+  border-color: white !important;
+  box-shadow: none !important;
+  background: none !important;
+  font-family: "Alexandria", sans-serif;
 }
 
 .ant-input-affix-wrapper {
@@ -110,18 +162,33 @@
   border-color: white;
 }
 
-.ant-select-selector:hover,
+.font-english .ant-select-selector:hover,
 .ant-select-selector:focus {
   border-color: white;
   box-shadow: none;
   font-family: "Anybody", sans-serif;
 }
 
-.ant-input::placeholder,
+.font-arabic .ant-select-selector:hover,
+.ant-select-selector:focus {
+  border-color: white;
+  box-shadow: none;
+  font-family: "Alexandria", sans-serif;
+}
+
+.font-english .ant-input::placeholder,
 .ant-input-password input::placeholder {
   color: white !important;
   background: #141414 !important;
   font-family: "Anybody", sans-serif;
+  opacity: 30%;
+}
+
+.font-arabic .ant-input::placeholder,
+.ant-input-password input::placeholder {
+  color: white !important;
+  background: #141414 !important;
+  font-family: "Alexandria", sans-serif;
   opacity: 30%;
 }
 
@@ -139,7 +206,7 @@
 .ant-input-password-icon {
   color: white !important; /* Change the color of the password visibility icon */
 }
-.avatar-select-img {
+.font-english .avatar-select-img {
   display: flex;
   color: #fff;
   align-items: center;
@@ -148,6 +215,26 @@
   position: relative;
   p {
     font-family: "Anybody", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: left;
+    margin-right: 15px;
+  }
+  img {
+    cursor: pointer;
+  }
+}
+
+.font-arabic .avatar-select-img {
+  display: flex;
+  color: #fff;
+  align-items: center;
+  margin: 33px 0;
+  z-index: 99;
+  position: relative;
+  p {
+    font-family: "Alexandria", sans-serif;
     font-size: 24px;
     font-weight: 400;
     line-height: 30px;
@@ -225,8 +312,21 @@
   z-index: 999;
 }
 
-.already-have-account {
+.font-english .already-have-account {
   font-family: "Anybody", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: left;
+  margin-right: 15px;
+  position: relative;
+  z-index: 999;
+  color: #fff;
+  text-align: end;
+}
+
+.font-arabic .already-have-account {
+  font-family: "Alexandria", sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;

@@ -1,7 +1,7 @@
 .feature-tournament-section {
   background-color: #141414;
 }
-.feature-heading {
+.font-english .feature-heading {
   font-size: 55px;
   font-weight: 700;
   line-height: 60px;
@@ -10,12 +10,34 @@
   padding-top: 105px;
   color: #ffffff;
 }
-.feature-sub-heading {
+
+.font-arabic .feature-heading {
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 60px;
+  text-align: center;
+  font-family: "Alexandria", sans-serif;
+  padding-top: 105px;
+  color: #ffffff;
+}
+
+.font-english .feature-sub-heading {
   font-size: 24px;
   font-weight: 400;
   line-height: 36px;
   text-align: center;
   font-family: "Anybody", sans-serif;
+  margin-top: 26px;
+  margin-bottom: 60px;
+  color: #ffffff;
+}
+
+.font-arabic .feature-sub-heading {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
+  font-family: "Alexandria", sans-serif;
   margin-top: 26px;
   margin-bottom: 60px;
   color: #ffffff;
@@ -57,13 +79,22 @@
   text-align: left;
 }
 
-.tournament-name {
+.font-english .tournament-name {
   margin-top: 16px;
   font-size: 36px;
   font-weight: 700;
   line-height: 40px;
   text-align: left;
   font-family: "Anybody", sans-serif;
+}
+
+.font-arabic .tournament-name {
+  margin-top: 16px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: left;
+  font-family: "Alexandria", sans-serif;
 }
 
 .tournament-details {
@@ -78,8 +109,17 @@
   padding: 0.46px 0px 0.47px 0px;
 }
 
-.tournament-para {
+.font-english .tournament-para {
   font-family: "Anybody", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.font-arabic .tournament-para {
+  font-family: "Alexandria", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
