@@ -28,6 +28,7 @@ const Login = () => {
     setIsLoading(true);
     try {
       const response = await login(values.email, values.password);
+      console.log("response: ", response);
       if (response.success) {
         setLocalStorageData("token", response.token);
         dispatch(setLoginState(true));
@@ -36,7 +37,7 @@ const Login = () => {
       }
     } catch (error) {
       console.error("There was an error submitting the form!", error);
-      showToast(error.message, "error");
+      showToast(error, "error");
       setIsLoading(false);
     }
   };
