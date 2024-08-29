@@ -27,7 +27,6 @@
 }
 
 .container {
-  /* padding: 0 50px; */
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
@@ -47,4 +46,12 @@
 
 .bg-color {
   background-color: #141414;
+}
+
+.timeline-section .ant-tabs-tab-active {
+  background-color: #08ff96 !important;
+  border: none !important;
+  border-bottom: none !important;
+  padding: 25px !important;
+  color: #141414 !important;
 }

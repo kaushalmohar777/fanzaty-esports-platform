@@ -17,7 +17,7 @@ const OngoingTournamentTab = () => {
 
         <div className="tournament-name">
           <img src={rightArrow} alt="right-arrow-img" />
-          <p className="name">{t("ongoing_tournament.tournament_name")}</p>
+          <p className="name">{t("ongoing_tournament.tournament_name1")}</p>
         </div>
 
         <button className="registration-open">

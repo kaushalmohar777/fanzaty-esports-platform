@@ -17,3 +17,11 @@
   color: #fff;
   text-align: center;
 }
+
+.ant-tabs-tab-active {
+  background-color: #08ff96 !important;
+  border: none !important;
+  border-bottom: none !important;
+  padding: 25px !important;
+  color: #141414 !important;
+}

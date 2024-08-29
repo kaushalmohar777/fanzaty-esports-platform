@@ -67,6 +67,10 @@ const Message = () => {
   const [allMessage, setAllMessage] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  useEffect(() => {
+    console.log("message", message);
+  }, [message]);
+
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
@@ -144,7 +148,6 @@ const Message = () => {
       });
 
       socketConnection.on("message", (data) => {
-        console.log("data: ", data);
         setAllMessage(data);
       });
     }
@@ -200,10 +203,11 @@ const Message = () => {
 
   const handleFileChange = async (e, fileType) => {
     const file = e.target.files[0];
+    let uploadPhoto;
     if (file) {
       const fileUrl = URL.createObjectURL(file);
       if (fileType === "Image") {
-        const uploadPhoto = await uploadFile(file);
+        uploadPhoto = await uploadFile(file);
         setIsModalOpen(false);
         setMessage((preve) => {
           return {
@@ -212,7 +216,7 @@ const Message = () => {
           };
         });
       } else if (fileType === "Video") {
-        const uploadPhoto = await uploadFile(file);
+        uploadPhoto = await uploadFile(file);
         console.log("uploadPhoto: ", uploadPhoto);
         setIsModalOpen(false);
         setMessage((preve) => {
@@ -229,12 +233,13 @@ const Message = () => {
           videoUrl: "",
         }));
       }
+
       socketConnection.emit("new message", {
         sender: userData?._id,
         receiver: user?._id,
-        text: fileType === "Document" ? file.name : "",
-        imageUrl: fileType === "Image" ? fileUrl : "",
-        videoUrl: fileType === "Video" ? fileUrl : "",
+        text: fileType === "Document" ? uploadPhoto.url : "",
+        imageUrl: fileType === "Image" ? uploadPhoto.url : "",
+        videoUrl: fileType === "Video" ? uploadPhoto.url : "",
         msgByUserId: userData?._id,
       });
 
@@ -383,6 +388,7 @@ const Message = () => {
                 {/* inner chat */}
 
                 <div className="message-container" ref={currentMessage}>
+                  {console.log("allMessage", allMessage)}
                   {allMessage.map((msg, index) => {
                     return (
                       <div className="particular-user-chat" key={index}>

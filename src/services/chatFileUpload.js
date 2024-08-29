@@ -1,9 +1,9 @@
-const url = `https://api.cloudinary.com/v1_1/ddwo8iuhl/auto/upload`
+const url = `https://api.cloudinary.com/v1_1/dorbokwzm/auto/upload`
 
 const uploadFile = async (file) => {
     const formData = new FormData()
     formData.append('file', file)
-    formData.append("upload_preset", "chat-app-file")
+    formData.append('upload_preset', 'fanzaty-esport-preset');
 
     const response = await fetch(url, {
         method: 'post',

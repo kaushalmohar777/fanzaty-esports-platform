@@ -11,6 +11,7 @@
   padding: 14px 25px 14px 25px !important;
   gap: 10px;
   color: #fff !important;
+  position: relative;
 }
 .ant-tabs-tab-active {
   background-color: #08ff96 !important;
@@ -19,6 +20,21 @@
   padding: 25px !important;
   color: #141414 !important;
 }
+
+.ant-tabs-tab-active {
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -24px;
+    transform: translate(223%);
+    border-width: 12px;
+    border-style: solid;
+    border-color: transparent transparent #08ff96 transparent;
+    transform: rotate(180deg);
+  }
+}
+
 .ant-tabs-ink-bar-animated {
   display: none !important;
 }

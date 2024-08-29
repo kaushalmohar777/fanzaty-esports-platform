@@ -271,7 +271,8 @@
 
   "ongoing_tournament": {
     "registration_open": "التسجيل مفتوح حتى 23 مارس",
-    "tournament_name": "بطولة فانزاتي الأسبوعية (الأسبوع 1)"
+    "tournament_name": "بطولة فانزاتي الأسبوعية (الأسبوع 1)",
+    "tournament_name2": "بطولة الهلال"
   },
 
   "past_tournament_tab": {

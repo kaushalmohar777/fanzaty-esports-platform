@@ -266,7 +266,8 @@
   },
   "ongoing_tournament": {
     "registration_open": "Registration is open until March 23",
-    "tournament_name": "fanzaty weekly tournament (w 1)"
+    "tournament_name1": "fanzaty weekly tournament (w 1)",
+    "tournament_name2": "elhilal tourmament"
   },
 
   "past_tournament_tab": {
