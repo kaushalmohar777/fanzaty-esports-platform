@@ -64,7 +64,7 @@
 }
 .upcoming-past-tournament-card-section .card {
   width: 405px;
-  height: 492px;
+  min-height: 492px;
   padding: 3px;
   gap: 32px;
   border-radius: 10px;

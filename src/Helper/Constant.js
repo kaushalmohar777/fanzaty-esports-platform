@@ -8,5 +8,10 @@ export const END_POINTS = {
     VERIFY_OTP: "user/verify-otp",
     UPDATE_PASSWORD: "user/reset-password",
     UPDATE_PROFILE: "user/update-profile",
-    GET_ALL_USER: "user/get-all"
+    GET_ALL_USER: "user/get-all",
+    // Tournaments end points
+    PAST_TOURNAMENTS: 'tournament/filtered/Past_Tournament',
+    ONGOING_TOURNAMENTS: 'tournament/filtered/Ongoing',
+    UPCOMING_TOURNAMENTS: "tournament/filtered/Upcoming",
+    MY_TOURNAMENT: "tournament/mytournaments"
 }
