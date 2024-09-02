@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { useState } from "react";
 import "./RegisterFeatured.scss";
 import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
@@ -120,6 +120,7 @@ const RegisterFeatured = () => {
           </div>
 
           <div className="tab-section">
+            .
             <Tabs defaultActiveKey="1" items={items} onChange={onChange} />;
           </div>
         </div>
@@ -128,4 +129,4 @@ const RegisterFeatured = () => {
   );
 };
 
-export default memo(RegisterFeatured);
+export default RegisterFeatured;

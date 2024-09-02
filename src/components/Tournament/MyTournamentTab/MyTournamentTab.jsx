@@ -32,6 +32,7 @@ const MyTournamentTab = () => {
   const getMyTournaments = async () => {
     try {
       const response = await getApiRequest(END_POINTS.MY_TOURNAMENT);
+
       if (response.success) {
         setMyTournaments(response.tournaments);
       }
