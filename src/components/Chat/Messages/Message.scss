@@ -19,7 +19,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   // height: 100vh;
-  padding: 30px 30px 100px 30px;
+  padding: 30px 0 100px 0px;
   border: 1px solid #d9d9d926;
   border-radius: 10px;
   overflow-y: scroll;
@@ -27,7 +27,10 @@
   max-height: 700px;
   height: 100%;
 }
-
+.message-left-box .message-detail-box {
+  padding-left: 30px;
+  padding-right: 30px;
+}
 .message-right-box {
   width: 100%;
   height: 898px;
@@ -291,7 +294,7 @@
     rgba(13, 71, 93, 1) 0%,
     rgba(16, 17, 21, 1) 100%
   );
-  padding: 15px 10px;
+  padding: 28px 10px;
 }
 
 /* Webkit Browsers (Chrome, Safari, Edge) */
@@ -467,4 +470,16 @@
 }
 .sent-user-msg-img {
   display: none;
+}
+
+.msg-input {
+  width: 100%;
+  background-color: #343a40 !important;
+}
+::-webkit-input-placeholder {
+  background-color: #343a40 !important;
+}
+input:focus-visible {
+  border-color: transparent;
+  outline: 0;
 }

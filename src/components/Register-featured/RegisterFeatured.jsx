@@ -120,7 +120,6 @@ const RegisterFeatured = () => {
           </div>
 
           <div className="tab-section">
-            .
             <Tabs defaultActiveKey="1" items={items} onChange={onChange} />;
           </div>
         </div>

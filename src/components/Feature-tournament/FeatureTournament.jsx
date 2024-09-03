@@ -26,7 +26,7 @@ const FeatureTournament = () => {
         {data &&
           data.map((item, index) => (
             <div className="main-box" key={index}>
-              <Row>
+              <Row style={{ position: "relative", zIndex: "1" }}>
                 <Col span={12}>
                   <div>
                     <img

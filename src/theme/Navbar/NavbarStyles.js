@@ -48,6 +48,7 @@ export const menuStyle = {
 
 export const menuItemStyle = {
     color: 'white',
+    marginLeft: "10px"
 };
 
 export const activeStyle = {

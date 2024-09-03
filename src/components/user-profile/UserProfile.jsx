@@ -116,7 +116,7 @@ const UserProfile = () => {
     <section className="user-profile-section">
       <div className="container">
         <div className="user-detail-main">
-          <div className="user-avatar">
+          <div className="user-avatar" style={{ position: "relative" }}>
             <div className="user-avatar-img">
               <img src={userData?.avatarUrl} alt="avatar-img" />
               <Link to="/edit-user-profile" className="edit-icon-img">
@@ -129,7 +129,7 @@ const UserProfile = () => {
             <p className="user-bio">{t("user_profile.write_your_bio")}</p>
           </div>
 
-          <div className="coin-win-section">
+          <div className="coin-win-section" style={{ position: "relative" }}>
             <Row gutter={{ xs: 8, sm: 24, md: 24, lg: 32 }} justify="center">
               <Col className="gutter-row" span={8}>
                 <div className="game-play-box">

@@ -58,7 +58,8 @@ const SignUp = () => {
           const searchValue = input.toLowerCase();
           return (
             countryData.callingCode.toLowerCase().includes(searchValue) ||
-            countryData.name.toLowerCase().includes(searchValue)
+            countryData.name.toLowerCase().includes(searchValue) ||
+            countryData.alpha2Code.toLowerCase().includes(searchValue)
           );
         }}
       >
@@ -70,12 +71,13 @@ const SignUp = () => {
               className="country-option"
               data-country={item}
             >
-              <span>{item.callingCode}</span>
               <img
                 src={item.flag}
                 alt={`${item.name} flag`}
                 className="flag-img"
               />
+              <span className="calling-code">{item.callingCode}</span>
+              <span className="alpha-calling-code">{item.alpha2Code}</span>
             </Option>
           ))}
       </Select>
@@ -242,6 +244,37 @@ const SignUp = () => {
                   autoComplete="new-password"
                 />
               </Form.Item>
+
+              <Form.Item
+                name="confirm"
+                label="Confirm Password"
+                dependencies={["password"]}
+                hasFeedback
+                rules={[
+                  {
+                    required: true,
+                    message: "Please confirm your password!",
+                  },
+                  ({ getFieldValue }) => ({
+                    validator(_, value) {
+                      if (!value || getFieldValue("password") === value) {
+                        return Promise.resolve();
+                      }
+                      return Promise.reject(
+                        new Error(
+                          "The new password that you entered do not match!"
+                        )
+                      );
+                    },
+                  }),
+                ]}
+              >
+                <Input.Password
+                  placeholder={t("signUp.passwordPlaceholder")}
+                  autoComplete="new-password"
+                />
+              </Form.Item>
+
               <div className="avatar-select-img">
                 <p>{t("signUp.select_avatar")}</p>
                 <img

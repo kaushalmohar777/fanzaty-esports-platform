@@ -11,6 +11,7 @@ import {
   Upload,
   message,
   Dropdown,
+  Form,
 } from "antd";
 import {
   UploadOutlined,
@@ -388,7 +389,6 @@ const Message = () => {
                 {/* inner chat */}
 
                 <div className="message-container" ref={currentMessage}>
-                  {console.log("allMessage", allMessage)}
                   {allMessage.map((msg, index) => {
                     return (
                       <div className="particular-user-chat" key={index}>
@@ -519,15 +519,12 @@ const Message = () => {
                   {dataUser?.profile_pic && dataUser?.name ? (
                     <div className="input-send">
                       <div className="chat-input">
-                        <Input
-                          placeholder="Enter message"
-                          size="large"
+                        <input
                           value={message.text}
                           onChange={handleOnChange}
                           onKeyDown={handleKeyPress}
-                          style={{
-                            backgroundColor: "#343a40",
-                          }}
+                          className="msg-input"
+                          placeholder="Enter message"
                         />
                       </div>
                       <div>

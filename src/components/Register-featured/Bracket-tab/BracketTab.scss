@@ -97,7 +97,7 @@
 }
 
 .font-arabic .team-name {
-  font-family: "Anybody";
+  font-family: "Alexandria";
   font-size: 24px;
   font-weight: 700;
   line-height: 24.84px;
@@ -122,4 +122,93 @@
   top: 50%;
   left: 50%;
   transform: translate(calc(100% - 38px), -50%);
+}
+
+.font-english .tournament-date {
+  font-family: "Anybody";
+  width: 348px;
+  height: 20px;
+
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: #fff;
+}
+.font-arabic .tournament-date {
+  font-family: "Alexandria";
+  width: 348px;
+  height: 20px;
+  margin-left: 5px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: #fff;
+}
+
+.second-round-participant-main-section {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  min-height: 1000px;
+}
+.second-round-team-members {
+  margin-top: 0px;
+  margin-left: 25px;
+}
+.second-round-participant-main-section {
+  position: relative;
+}
+
+.second-round-participant-main-section::after {
+  content: "";
+  background-image: url(/src/assets/images/two-participant-img.svg);
+  background-repeat: no-repeat;
+  background-size: auto;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-height: 450px;
+  top: 49%;
+  left: 70%;
+  transform: translate(calc(100% - 37px), -50%);
+}
+
+.third-round-participant-main-section {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  min-height: 1000px;
+  position: relative;
+}
+
+.third-round-participant-main-section::after {
+  content: "";
+  background-image: url(/src/assets/images/champion-img.svg);
+  background-repeat: no-repeat;
+  background-size: auto;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-height: 5px;
+  top: 49%;
+  left: 70%;
+  transform: translate(calc(100% - 37px), -50%);
+}
+
+.third-round-section {
+  margin-left: 38px;
+  margin-bottom: 18px;
+}
+
+.champion-main-section {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  min-height: 1000px;
+}
+.champion-team-members {
+  margin-left: 75px;
+  margin-bottom: 35px;
 }
