@@ -11,7 +11,8 @@ const login = async (email, password) => {
         });
         return response?.data;
     } catch (error) {
-        throw error?.message;
+        console.log('error: ', error);
+        throw error;
     }
 };
 

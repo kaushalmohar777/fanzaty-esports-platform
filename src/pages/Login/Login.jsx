@@ -34,10 +34,12 @@ const Login = () => {
         dispatch(setLoginState(true));
         form.resetFields();
         navigate("/");
+      } else {
+        showToast(response.message, "error");
       }
     } catch (error) {
       console.error("There was an error submitting the form!", error);
-      showToast(error, "error");
+      showToast(error?.response?.data?.message, "error");
       setIsLoading(false);
     }
   };
@@ -53,7 +55,7 @@ const Login = () => {
             layout="vertical"
             form={form}
             onFinish={onFinish}
-            style={{ maxWidth: 600 }}
+            style={{ maxWidth: 600, width: "100%" }}
             initialValues={{ prefix: "86" }}
           >
             <Form.Item
@@ -100,6 +102,7 @@ const Login = () => {
               <Input.Password
                 placeholder={t("signUp.passwordPlaceholder")}
                 autoComplete="password"
+                style={{ backgroundColor: "#141414" }}
               />
             </Form.Item>
 

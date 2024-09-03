@@ -166,7 +166,7 @@ const UserProfile = () => {
             {t("user_profile.state_by_game")}
           </h2>
 
-          <div>
+          <div className="user-profile">
             <Tabs defaultActiveKey="2" items={items} onChange={onChange} />
           </div>
         </div>

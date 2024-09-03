@@ -6,14 +6,14 @@
   height: 504px;
   align-items: center;
 }
-.ant-tabs-tab {
+.all-tournament-tab-section .ant-tabs-tab {
   height: 41px !important;
   padding: 14px 25px 14px 25px !important;
   gap: 10px;
   color: #fff !important;
   position: relative;
 }
-.ant-tabs-tab-active {
+.all-tournament-tab-section .ant-tabs-tab-active {
   background-color: #08ff96 !important;
   border: none !important;
   border-bottom: none !important;
@@ -21,7 +21,7 @@
   color: #141414 !important;
 }
 
-.ant-tabs-tab-active {
+.all-tournament-tab-section .ant-tabs-tab-active {
   &::after {
     content: "";
     position: absolute;

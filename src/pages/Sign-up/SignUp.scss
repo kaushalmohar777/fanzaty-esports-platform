@@ -255,13 +255,17 @@
   border: 1px solid black;
   border: 1px solid #08ff96;
   z-index: 1;
-  width: 641px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .sign-up-box::before {
   content: "";
-  width: 641px;
-  height: 100%;
+  width: 300px;
+  height: 144%;
   position: absolute;
   background-color: #000;
   box-shadow: 0 0 10px rgb(8, 8, 8);
@@ -270,10 +274,8 @@
 
 .sign-up-box::after {
   content: "";
-  width: 641px;
-  height: 100%;
   position: absolute;
-  inset: 5px;
+  inset: 1px;
   background-color: #000;
   border: 3px solid #08ff96;
   z-index: -2;
@@ -322,7 +324,7 @@
   position: relative;
   z-index: 999;
   color: #fff;
-  text-align: end;
+  text-align: center;
 }
 
 .font-arabic .already-have-account {
@@ -335,7 +337,7 @@
   position: relative;
   z-index: 999;
   color: #fff;
-  text-align: end;
+  text-align: center;
 }
 
 .login-txt {

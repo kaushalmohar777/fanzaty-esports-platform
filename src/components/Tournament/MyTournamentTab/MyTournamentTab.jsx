@@ -42,10 +42,6 @@ const MyTournamentTab = () => {
     }
   };
 
-  useEffect(() => {
-    console.log("myTournaments", myTournaments);
-  }, [myTournaments]);
-
   const data = [
     {
       image: image1,
