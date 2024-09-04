@@ -1,0 +1,49 @@
+.upload-result-tab {
+  width: 100%;
+  height: 507px;
+  background-image: url("../../../assets/images/upload-result-bg.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.upload-question-sec {
+  padding: 65px 0px 70px 71px;
+}
+.font-english .issue-question {
+  font-family: "Anybody";
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 41px;
+  text-align: left;
+  color: #08ff96;
+}
+.font-arabic .issue-question {
+  font-family: "Alexandria", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 41px;
+  text-align: left;
+  color: #08ff96;
+}
+.font-english .answer-list {
+  font-family: "Anybody";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 37px;
+  text-align: left;
+  color: #ffffff;
+  padding: 10px 0;
+}
+.font-arabic .answer-list {
+  font-family: "Anybody";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 37px;
+  text-align: left;
+  color: #ffffff;
+  padding: 10px 0;
+}
+.answer-ul-list {
+  list-style-type: none;
+  margin-top: 40px;
+}

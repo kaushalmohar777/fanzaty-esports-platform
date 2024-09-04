@@ -300,5 +300,14 @@
     "enterMessage": "أدخل الرسالة",
     "online": "متصل",
     "offline": "غير متصل"
+  },
+  "upload_result": {
+    "Upload results": "تحميل النتائج",
+    "players": "اللاعبين",
+    "The division": "التقسيم",
+    "Match results": "نتائج المباراة",
+    "Details Awards": "تفاصيل الجوائز",
+    "score": "النتيجة",
+    "vs": "ضد"
   }
 }

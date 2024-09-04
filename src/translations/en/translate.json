@@ -295,5 +295,14 @@
     "enterMessage": "Enter message",
     "online": "Online",
     "offline": "Offline"
+  },
+  "upload_result": {
+    "Upload results": "Upload results",
+    "players": "Players",
+    "The division": "The division",
+    "Match results": "Match results",
+    "Details Awards": "Details Awards",
+    "score": "Score",
+    "vs": "V/S"
   }
 }

@@ -1,0 +1,270 @@
+.unregistered-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 203px 0;
+}
+.font-english .unregistered-heading {
+  font-family: "Anybody";
+  font-size: 100.75px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 104.28px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 45px;
+}
+.font-arabic .unregistered-heading {
+  font-family: "Alexandria", sans-serif;
+  font-size: 100.75px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 104.28px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 45px;
+}
+.font-english .unregistered-msg {
+  font-family: "Anybody";
+  font-size: 26.68px;
+  font-weight: 400;
+  line-height: 35.58px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 45px;
+}
+.font-arabic .unregistered-msg {
+  font-family: "Alexandria", sans-serif;
+  font-size: 26.68px;
+  font-weight: 400;
+  line-height: 35.58px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 45px;
+}
+.font-english .register-here-btn {
+  width: 199px;
+  height: 65px;
+  gap: 10px;
+  border-radius: 5px;
+  font-family: "Anybody";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  background-color: #08ff96;
+  color: #141414;
+  cursor: pointer;
+}
+.font-arabic .register-here-btn {
+  width: 199px;
+  height: 65px;
+  gap: 10px;
+  border-radius: 5px;
+  font-family: "Alexandria", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  background-color: #08ff96;
+  color: #141414;
+  cursor: pointer;
+}
+
+// register css
+
+.registered-section {
+  width: 100%;
+  height: 959px;
+  border: 1px solid #10482e;
+  border-radius: 10px;
+}
+.register-score-section {
+  margin: 63px 102px 96px 102px;
+}
+.font-english .register-heading {
+  font-family: "Anybody";
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 41px;
+  text-align: center;
+  color: #08ff96;
+}
+.font-arabic .register-heading {
+  font-family: "Alexandria", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 41px;
+  text-align: center;
+  color: #08ff96;
+}
+
+.score-submission-winner-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 497px;
+  height: 208px;
+  border: 1px solid #08ff96;
+  margin: 40px 0;
+  border-radius: 10px;
+}
+.font-english .score-submission-score {
+  width: 86px;
+  height: 86px;
+  border-radius: 100%;
+  background-color: #08ff96;
+  color: #141414;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Anybody";
+  font-size: 41.63px;
+  font-weight: 700;
+  line-height: 43.09px;
+  text-align: left;
+}
+
+.font-arabic .score-submission-score {
+  width: 86px;
+  height: 86px;
+  border-radius: 100%;
+  background-color: #08ff96;
+  color: #141414;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Alexandria", sans-serif;
+  font-size: 41.63px;
+  font-weight: 700;
+  line-height: 43.09px;
+  text-align: left;
+}
+
+.winner-image {
+  width: 118px;
+  height: 118px;
+  border-radius: 100%;
+}
+.font-english .winner-user-name {
+  font-family: "Anybody";
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 33.12px;
+  text-align: center;
+  color: #fff;
+}
+.font-arabic .winner-user-name {
+  font-family: "Alexandria", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 33.12px;
+  text-align: center;
+  color: #fff;
+}
+.score-submission-partison {
+  position: relative;
+}
+
+.score-submission-partison::after {
+  content: "";
+  position: absolute !important;
+  background-image: url(/src/assets/images/score-submission-img.svg);
+  background-repeat: no-repeat;
+  background-size: auto;
+  position: absolute;
+  width: 47%;
+  height: 48%;
+  max-height: 138px;
+  top: 109%;
+  left: -12%;
+  transform: translate(calc(100% - 37px), -50%);
+}
+.font-english .winner-heading {
+  font-family: "Anybody";
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 41px;
+  text-align: center;
+  color: #08ff96;
+}
+.font-arabic .winner-heading {
+  font-family: "Alexandria", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 41px;
+  text-align: center;
+  color: #08ff96;
+}
+
+.winner-score {
+  margin: 40px 0;
+}
+
+.font-english .add-screenshot-btn {
+  width: 317px;
+  height: 65px;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+  font-family: "Anybody";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  background-color: #08ff96;
+  border: none;
+}
+
+.font-arabic .add-screenshot-btn {
+  width: 317px;
+  height: 65px;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+  font-family: "Alexandria", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  background-color: #08ff96;
+  color: #141414;
+  border: none;
+}
+
+.font-arabic .report-issue-btn {
+  width: 317px;
+  height: 65px;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+  font-family: "Alexandria", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  background-color: #ff0d0d;
+  color: #fff;
+  border: none;
+  margin-left: 40px;
+  cursor: pointer;
+}
+
+.font-english .report-issue-btn {
+  width: 317px;
+  height: 65px;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+  font-family: "Anybody";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  background-color: #ff0d0d;
+  margin-left: 40px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
