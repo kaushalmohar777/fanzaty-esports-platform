@@ -1,5 +1,6 @@
 export const END_POINTS = {
     GET_ALL_COUNTRY_CODE: 'country/get-all',
+    // auth endpoints
     GET_AVATAR_IMAGES: 'avtar/get-urls',
     SIGN_UP: "user/auth/signup",
     LOGIN: "user/auth/login",
@@ -13,5 +14,9 @@ export const END_POINTS = {
     PAST_TOURNAMENTS: 'tournament/filtered/Past_Tournament',
     ONGOING_TOURNAMENTS: 'tournament/filtered/Ongoing',
     UPCOMING_TOURNAMENTS: "tournament/filtered/Upcoming",
-    MY_TOURNAMENT: "tournament/mytournaments"
+    MY_TOURNAMENT: "tournament/mytournaments",
+    GET_TOURNAMENT_BY_ID: "tournament/get",
+
+    // notification
+    GET_ALL_NOTIFICATION: 'notification/get-all',
 }

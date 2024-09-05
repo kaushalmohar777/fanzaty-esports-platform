@@ -83,7 +83,7 @@ const ForgotPassword = () => {
                 layout="vertical"
                 form={form}
                 onFinish={onFinish}
-                style={{ maxWidth: 600 }}
+                style={{ maxWidth: 600, width: "100%", zIndex: "9" }}
                 initialValues={{ prefix: "86" }}
               >
                 <Form.Item

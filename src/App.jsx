@@ -178,7 +178,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/register-featured",
+        path: "/register-featured/:id",
         element: (
           <Suspense fallback={<LoadingFallback />}>
             <FeaturedRegiter />

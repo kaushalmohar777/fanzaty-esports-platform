@@ -1,9 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
+import { useEffect } from "react";
 import "./DetailsTab.scss";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 const DetailsTab = () => {
   const { t } = useTranslation("common");
+
+  const data = useSelector((state) => state?.tournament?.data);
+
+  useEffect(() => {
+    console.log("data", data);
+  }, [data]);
 
   return (
     <section className="details-tab-section">

@@ -40,20 +40,20 @@
   font-family: "Anybody";
   font-size: 32px;
   font-weight: 700;
-  line-height: 37px;
   text-align: left;
   color: #fff;
+  display: flex;
 }
 
-.font-arabic .prize-pool-price {
+.font-arabic .prize-pool-place {
   font-family: "Alexandria", sans-serif;
   font-size: 32px;
   font-weight: 700;
-  line-height: 37px;
   text-align: left;
   color: #fff;
   display: flex;
   min-width: 200px;
+  display: flex;
 }
 
 .view-more-less {
@@ -83,4 +83,12 @@
 }
 .prize-image {
   padding: 0 10px;
+}
+.prize-pool-place {
+  sup {
+    margin-right: 4px;
+  }
+  .place {
+    margin-left: 8px;
+  }
 }

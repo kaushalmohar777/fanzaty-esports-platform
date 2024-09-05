@@ -141,127 +141,136 @@ const EditUserProfile = () => {
           {t("signUp.edit_user_profile")}
         </h1>
         <div className="edit-user-profile-box">
-          <div className="user-avatar">
-            <img src={userData?.avatarUrl} alt="loading-user-avatar" />
-          </div>
-          <p className="fix-user-name">{userData?.userName}</p>
+          <div style={{ position: "relative", zIndex: "99", width: "100%" }}>
+            <div className="user-avatar">
+              <img src={userData?.avatarUrl} alt="loading-user-avatar" />
+            </div>
+            <p className="fix-user-name">{userData?.userName}</p>
 
-          <div className="edit-user-form">
-            <Form
-              layout="vertical"
-              form={form}
-              onFinish={onFinish}
-              style={{ maxWidth: 600 }}
-              initialValues={{ prefix: "Select country code" }}
-            >
-              <Form.Item
-                name="firstName"
-                label={t("signUp.firstName")}
-                rules={[
-                  {
-                    required: true,
-                    message: t("signUp.requiredField", {
-                      field: t("signUp.firstName"),
-                    }),
-                  },
-                ]}
+            <div className="edit-user-form">
+              <Form
+                layout="vertical"
+                form={form}
+                onFinish={onFinish}
+                style={{ maxWidth: 600 }}
+                initialValues={{ prefix: "Select country code" }}
               >
-                <Input placeholder={t("signUp.firstNamePlaceholder")} />
-              </Form.Item>
-              <Form.Item
-                name="lastName"
-                label={t("signUp.lastName")}
-                rules={[
-                  {
-                    required: true,
-                    message: t("signUp.requiredField", {
-                      field: t("signUp.lastName"),
-                    }),
-                  },
-                ]}
-              >
-                <Input placeholder={t("signUp.lastNamePlaceholder")} />
-              </Form.Item>
-
-              <Form.Item name="nickName" label={t("signUp.nick_name")}>
-                <Input
-                  disabled="true"
-                  placeholder={t("signUp.nick_name_placeholder")}
-                />
-              </Form.Item>
-
-              <Form.Item
-                name="phone"
-                label={t("signUp.phone")}
-                rules={[
-                  {
-                    validator: validatePhoneNumber,
-                  },
-                ]}
-              >
-                <Input addonBefore={prefixSelector} style={{ width: "100%" }} />
-              </Form.Item>
-              <Form.Item
-                name="email"
-                label={t("signUp.email")}
-                rules={[
-                  {
-                    type: "email",
-                    message: t("signUp.invalidEmail"),
-                  },
-                  {
-                    required: true,
-                    message: t("signUp.requiredField", {
-                      field: t("signUp.email"),
-                    }),
-                  },
-                ]}
-              >
-                <Input placeholder={t("signUp.emailPlaceholder")} />
-              </Form.Item>
-
-              <Form.Item label={t("signUp.date_picker")} name="dob">
-                <Space
-                  direction="vertical"
-                  style={{
-                    width: "100%",
-                  }}
+                <Form.Item
+                  name="firstName"
+                  label={t("signUp.firstName")}
+                  rules={[
+                    {
+                      required: true,
+                      message: t("signUp.requiredField", {
+                        field: t("signUp.firstName"),
+                      }),
+                    },
+                  ]}
                 >
-                  <DatePicker
+                  <Input placeholder={t("signUp.firstNamePlaceholder")} />
+                </Form.Item>
+                <Form.Item
+                  name="lastName"
+                  label={t("signUp.lastName")}
+                  rules={[
+                    {
+                      required: true,
+                      message: t("signUp.requiredField", {
+                        field: t("signUp.lastName"),
+                      }),
+                    },
+                  ]}
+                >
+                  <Input placeholder={t("signUp.lastNamePlaceholder")} />
+                </Form.Item>
+
+                <Form.Item name="nickName" label={t("signUp.nick_name")}>
+                  <Input
+                    disabled="true"
+                    placeholder={t("signUp.nick_name_placeholder")}
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  name="phone"
+                  label={t("signUp.phone")}
+                  rules={[
+                    {
+                      validator: validatePhoneNumber,
+                    },
+                  ]}
+                >
+                  <Input
+                    addonBefore={prefixSelector}
+                    style={{ width: "100%" }}
+                  />
+                </Form.Item>
+                <Form.Item
+                  name="email"
+                  label={t("signUp.email")}
+                  rules={[
+                    {
+                      type: "email",
+                      message: t("signUp.invalidEmail"),
+                    },
+                    {
+                      required: true,
+                      message: t("signUp.requiredField", {
+                        field: t("signUp.email"),
+                      }),
+                    },
+                  ]}
+                >
+                  <Input placeholder={t("signUp.emailPlaceholder")} />
+                </Form.Item>
+
+                <Form.Item label={t("signUp.date_picker")} name="dob">
+                  <Space
+                    direction="vertical"
                     style={{
                       width: "100%",
-                      height: "62px",
-                      backgroundColor: "#141414",
-                      color: "#fff",
                     }}
-                    defaultValue={
-                      userData?.dob ? dayjs(userData?.dob, dateFormat) : null
-                    }
-                    onChange={onChange}
-                  />
-                </Space>
-              </Form.Item>
-              <Form.Item
-                name="gender"
-                label={t("signUp.gender")}
-                style={{ textAlign: "start" }}
-              >
-                <Radio.Group style={{ color: "#fff" }}>
-                  <Radio value="male" style={{ color: "#fff" }}>
-                    {t("signUp.male")}
-                  </Radio>
-                  <Radio value="female" style={{ color: "#fff" }}>
-                    {t("signUp.female")}
-                  </Radio>
-                </Radio.Group>
-              </Form.Item>
+                  >
+                    <DatePicker
+                      style={{
+                        width: "100%",
+                        height: "62px",
+                        backgroundColor: "#141414",
+                        color: "#fff",
+                      }}
+                      defaultValue={
+                        userData?.dob ? dayjs(userData?.dob, dateFormat) : null
+                      }
+                      onChange={onChange}
+                    />
+                  </Space>
+                </Form.Item>
+                <Form.Item
+                  name="gender"
+                  label={t("signUp.gender")}
+                  style={{ textAlign: "start" }}
+                >
+                  <Radio.Group style={{ color: "#fff" }}>
+                    <Radio value="male" style={{ color: "#fff" }}>
+                      {t("signUp.male")}
+                    </Radio>
+                    <Radio value="female" style={{ color: "#fff" }}>
+                      {t("signUp.female")}
+                    </Radio>
+                  </Radio.Group>
+                </Form.Item>
 
-              <Form.Item style={{ textAlign: "start", marginBottom: "36px" }}>
-                <Button type="primary" className="submit-btn" htmlType="submit">
-                  {t("signUp.update_form")}
-                </Button>
-              </Form.Item>
-            </Form>
+                <Form.Item style={{ textAlign: "start", marginBottom: "36px" }}>
+                  <Button
+                    type="primary"
+                    className="submit-btn"
+                    htmlType="submit"
+                  >
+                    {t("signUp.update_form")}
+                  </Button>
+                </Form.Item>
+              </Form>
+            </div>
           </div>
         </div>
       </div>

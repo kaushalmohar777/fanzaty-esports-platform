@@ -225,6 +225,8 @@
     "march9th": "9 مارس 2024",
     "registrationStarts": "تبدأ التسجيلات",
     "endRegistration": "إنهاء التسجيل",
+    "tournamentStarts": "تبدأ البطولة",
+    "tournamentEnd": "نهاية البطولة",
     "details": "التفاصيل",
     "prize_pool": "جائزة مالية",
     "chat": "الدردشة",
@@ -278,6 +280,7 @@
   "past_tournament_tab": {
     "join_for_free": "انضم مجانًا 100٪",
     "registration_open": "التسجيل مفتوح",
+    "tournament_details": "تفاصيل",
     "tournament_title": "بطولة 2024",
     "tournament_description": "يبدأ التسجيل"
   },

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import "./RegisterFeatured.scss";
 import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
@@ -9,10 +9,24 @@ import DetailsTab from "./Details-tab/DetailsTab";
 import PlayersTab from "./Players-tab/PlayersTab";
 import ChatTab from "./Chat-tab/ChatTab";
 import ScoreSubmissionTab from "./Score-submission-tab/ScoreSubmissionTab";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchData } from "../../features/tournament/tournamentSlice";
+import moment from "moment";
 
 const RegisterFeatured = () => {
   const { t } = useTranslation("common");
-  const [tabKey, setTabKey] = useState("details");
+  const { id } = useParams();
+  // const [tabKey, setTabKey] = useState("details");
+  const dispatch = useDispatch();
+  const status = useSelector((state) => state?.tournament?.status);
+  const data = useSelector((state) => state?.tournament?.data);
+
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchData(id));
+    }
+  }, [status, dispatch]);
 
   const items = [
     {
@@ -47,9 +61,9 @@ const RegisterFeatured = () => {
     },
   ];
 
-  const onChange = (key) => {
-    setTabKey(key);
-  };
+  // const onChange = (key) => {
+  //   setTabKey(key);
+  // };
 
   return (
     <>
@@ -65,7 +79,9 @@ const RegisterFeatured = () => {
               <h2 className="title-timeline">
                 {t("featuredRegister.timeline")}
               </h2>
-              {tabKey === "details" || tabKey === "prize" ? (
+              {moment(data?.tournament?.registrationEnds).format(
+                "Do MMMM YYYY"
+              ) > moment().format("Do MMMM YYYY") ? (
                 <Row
                   gutter={{ xs: 8, sm: 24, md: 24, lg: 32 }}
                   justify="center"
@@ -73,7 +89,10 @@ const RegisterFeatured = () => {
                   <Col span={5}>
                     <div className="section-right-pannel border-green">
                       <h2 className="timeline-box-title">
-                        {t("featuredRegister.march1st")}
+                        {/* {t("featuredRegister.march1st")} */}
+                        {moment(data?.tournament?.registrationStarts).format(
+                          "Do MMMM YYYY"
+                        )}
                       </h2>
                       <p className="timeline-box-content">
                         {t("featuredRegister.registrationStarts")}
@@ -83,7 +102,10 @@ const RegisterFeatured = () => {
                   <Col span={5}>
                     <div className="section-right-pannel">
                       <h2 className="timeline-box-title">
-                        {t("featuredRegister.march3rd")}
+                        {/* {t("featuredRegister.march3rd")} */}
+                        {moment(data?.tournament?.registrationEnds).format(
+                          "Do MMMM YYYY"
+                        )}
                       </h2>
                       <p className="timeline-box-content">
                         {t("featuredRegister.registrationStarts")}
@@ -93,20 +115,26 @@ const RegisterFeatured = () => {
                   <Col span={5}>
                     <div className="section-right-pannel border-green">
                       <h2 className="timeline-box-title">
-                        {t("featuredRegister.march4th")}
+                        {/* {t("featuredRegister.march4th")} */}
+                        {moment(data?.tournament?.startDate).format(
+                          "Do MMMM YYYY"
+                        )}
                       </h2>
                       <p className="timeline-box-content">
-                        {t("featuredRegister.registrationStarts")}
+                        {t("featuredRegister.tournamentStarts")}
                       </p>
                     </div>
                   </Col>
                   <Col span={5}>
                     <div className="section-right-pannel">
                       <h2 className="timeline-box-title">
-                        {t("featuredRegister.march9th")}
+                        {/* {t("featuredRegister.march9th")} */}
+                        {moment(data?.tournament?.endDate).format(
+                          "Do MMMM YYYY"
+                        )}
                       </h2>
                       <p className="timeline-box-content">
-                        {t("featuredRegister.registrationStarts")}
+                        {t("featuredRegister.tournamentEnd")}
                       </p>
                     </div>
                   </Col>
@@ -120,7 +148,7 @@ const RegisterFeatured = () => {
           </div>
 
           <div className="tab-section">
-            <Tabs defaultActiveKey="1" items={items} onChange={onChange} />;
+            <Tabs defaultActiveKey="1" items={items} />;
           </div>
         </div>
       </div>

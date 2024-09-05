@@ -35,6 +35,7 @@ import {
   drawerBodyStyle,
 } from "./NavbarStyles";
 import message from "../../assets/images/message.svg";
+import { fetchNotificationData } from "../../features/notification/notificationSlice";
 
 const { Header } = Layout;
 
@@ -44,6 +45,9 @@ const Navbar = () => {
   const { t, i18n } = useTranslation("common");
   const isLogin = useSelector((state) => state.login.isLogin);
   const lang = useSelector((state) => state.language.language);
+  const notificationLength = useSelector(
+    (state) => state?.notification?.notificationLength
+  );
   const dispatch = useDispatch();
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
@@ -52,6 +56,7 @@ const Navbar = () => {
     const token = getLocalStorageData("token");
     if (token) {
       dispatch(setLoginState(true));
+      dispatch(fetchNotificationData());
       fetchUserData();
     }
     fetchCountryData();
@@ -250,7 +255,7 @@ const Navbar = () => {
             </Button>
           </Link>
           <Link to="/notification" className="noti">
-            <Badge count={1} className="notification-bell">
+            <Badge count={notificationLength} className="notification-bell">
               <img src={bellIcon} alt="bell-img" />
             </Badge>
           </Link>

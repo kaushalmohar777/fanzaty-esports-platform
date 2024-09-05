@@ -2,23 +2,25 @@ import { useRef, useState } from "react";
 import "./PlayersTab.scss";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 const PlayersTab = () => {
   const { t } = useTranslation("common");
+  const data = useSelector((state) => state?.tournament?.data);
 
   const playersRef = useRef(null);
-  const data = [
-    { eid: t("player.eid"), userName: t("player.userName") },
-    { eid: "Abo khalil98", userName: "abd" },
-    { eid: "rcx_19", userName: "rcx_19" },
-    { eid: "coxial_tiger72", userName: "coaxial_tiger72" },
-    { eid: "HAMZAH", userName: "HAMZAHGG" },
-    { eid: "GHAZY98", userName: "GH98" },
-    { eid: "SKU_kwt-yo24", userName: "OEhEqJf77LT5Mi5h" },
-    { eid: "Noorpro20002", userName: "Noraldo 2" },
-    { eid: "mohamed0909870", userName: "Ali-AKJ" },
-    { eid: "msh31633", userName: "مشعل بن" },
-  ];
+  // const data = [
+  //   { eid: t("player.eid"), userName: t("player.userName") },
+  //   { eid: "Abo khalil98", userName: "abd" },
+  //   { eid: "rcx_19", userName: "rcx_19" },
+  //   { eid: "coxial_tiger72", userName: "coaxial_tiger72" },
+  //   { eid: "HAMZAH", userName: "HAMZAHGG" },
+  //   { eid: "GHAZY98", userName: "GH98" },
+  //   { eid: "SKU_kwt-yo24", userName: "OEhEqJf77LT5Mi5h" },
+  //   { eid: "Noorpro20002", userName: "Noraldo 2" },
+  //   { eid: "mohamed0909870", userName: "Ali-AKJ" },
+  //   { eid: "msh31633", userName: "مشعل بن" },
+  // ];
 
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -33,7 +35,7 @@ const PlayersTab = () => {
     }
   };
 
-  const visibleData = isExpanded ? data : data?.slice(0, 5);
+  const visibleData = isExpanded ? data?.players : data?.players?.slice(0, 5);
 
   return (
     <section>
@@ -49,7 +51,7 @@ const PlayersTab = () => {
                 <div
                   className="prize-pool-place"
                   dangerouslySetInnerHTML={{
-                    __html: item.eid,
+                    __html: item.editableGameId,
                   }}
                 />
                 <div className="prize-pool-price">{item.userName}</div>

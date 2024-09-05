@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { END_POINTS } from "../../../Helper/Constant";
 import moment from "moment";
 import { showToast } from "../../../shared/sharedComponents/ToasterMessage/ToasterMessage";
+import { useNavigate } from "react-router-dom";
 
 const style = {
   padding: "15px 0",
@@ -19,6 +20,7 @@ const style = {
 
 const PastTournamentTab = () => {
   const { t } = useTranslation("common");
+  const navigate = useNavigate();
   const [pastTournaments, setPastTournaments] = useState([]);
 
   useEffect(() => {
@@ -28,6 +30,7 @@ const PastTournamentTab = () => {
   const getPastTournaments = async () => {
     try {
       const response = await getApiRequest(END_POINTS.PAST_TOURNAMENTS);
+      console.log("response: ", response);
       if (response.success) {
         setPastTournaments(response.tournaments);
       }
@@ -36,34 +39,6 @@ const PastTournamentTab = () => {
       showToast(error?.error?.message, "error");
     }
   };
-
-  // const data = [
-  //   {
-  //     image: image1,
-  //     title: t("past_tournament_tab.tournament_title"),
-  //     description: t("past_tournament_tab.tournament_description"),
-  //   },
-  //   {
-  //     image: image2,
-  //     title: t("past_tournament_tab.tournament_title"),
-  //     description: t("past_tournament_tab.tournament_description"),
-  //   },
-  //   {
-  //     image: image3,
-  //     title: t("past_tournament_tab.tournament_title"),
-  //     description: t("past_tournament_tab.tournament_description"),
-  //   },
-  //   {
-  //     image: image2,
-  //     title: t("past_tournament_tab.tournament_title"),
-  //     description: t("past_tournament_tab.tournament_description"),
-  //   },
-  //   {
-  //     image: image4,
-  //     title: t("past_tournament_tab.tournament_title"),
-  //     description: t("past_tournament_tab.tournament_description"),
-  //   },
-  // ];
 
   return (
     <section className="past-tournament-card-section">
@@ -86,8 +61,13 @@ const PastTournamentTab = () => {
                         {t("past_tournament_tab.tournament_description")}{" "}
                         {moment(item.startDate).format("Do MMMM YYYY")}
                       </p>
-                      <button className="registration-btn">
-                        {t("past_tournament_tab.registration_open")}
+                      <button
+                        className="registration-btn"
+                        onClick={() =>
+                          navigate(`/register-featured/${item._id}`)
+                        }
+                      >
+                        {t("past_tournament_tab.tournament_details")}
                       </button>
                     </div>
                   </Card>

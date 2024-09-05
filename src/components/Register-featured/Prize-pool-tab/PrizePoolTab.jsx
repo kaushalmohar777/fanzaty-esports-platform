@@ -1,14 +1,20 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./PrizePoolTab.scss";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import topTrophy from "../../../assets/images/top-trophy.svg";
 import middleTrophy from "../../../assets/images/middle-trophy.svg";
 import lowTrophy from "../../../assets/images/low-trophy.svg";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 const PrizePoolTab = () => {
   const { t } = useTranslation("common");
   const prizePoolRef = useRef(null);
+  const data = useSelector((state) => state?.tournament?.data);
+
+  useEffect(() => {
+    console.log("data", data);
+  }, [data]);
 
   const images = {
     "1st place": topTrophy,
@@ -19,10 +25,12 @@ const PrizePoolTab = () => {
     "10th-14th place": lowTrophy,
   };
 
-  const data = t("prizePool.prizes", { returnObjects: true }).map((item) => ({
-    ...item,
-    image: images[item.place],
-  }));
+  // const dummyData = t("prizePool.prizes", { returnObjects: true }).map(
+  //   (item) => ({
+  //     ...item,
+  //     image: images[item.place],
+  //   })
+  // );
 
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -38,18 +46,16 @@ const PrizePoolTab = () => {
   };
 
   const renderPlaceWithSup = (place) => {
-    return place
-      .replace(
-        /(\d+)(st|nd|rd|th)/g,
-        (match, number, suffix) => `${number}<sup>${suffix}</sup>`
-      )
-      .replace(
-        /(\d+-\d+)(th)/g,
-        (match, range, suffix) => `${range}<sup>${suffix}</sup>`
-      );
+    return place.replace(
+      /(\d+)(st|nd|rd|th)/g,
+      (match, number, suffix) =>
+        `${number}<sup>${suffix}</sup> <span className="place">Place</span>`
+    );
   };
 
-  const visibleData = isExpanded ? data : data.slice(0, 5);
+  const visibleData = isExpanded
+    ? data?.tournament?.prizePoolCoins
+    : data?.tournament?.prizePoolCoins?.slice(0, 5);
 
   return (
     <section>
@@ -58,23 +64,23 @@ const PrizePoolTab = () => {
           <h1 className="prize-pool-heading">{t("prizePool.heading")}</h1>
 
           <div className="prize-pool-inner-content" ref={prizePoolRef}>
-            {visibleData.map((item, index) => (
+            {visibleData?.map((item, index) => (
               <div key={index} className="price-show-section">
                 <div
                   className="prize-pool-place"
                   dangerouslySetInnerHTML={{
-                    __html: renderPlaceWithSup(item.place),
+                    __html: renderPlaceWithSup(`${item?.rank}`),
                   }}
                 />
                 <div className="prize-pool-price">
                   <p className="prize-image">
                     <img
-                      src={item.image}
+                      src={images[item?.rank] || topTrophy}
                       alt="prize-img-load"
                       className="img-fluid"
                     />
                   </p>
-                  <p>{item.price}</p>
+                  <p>{item.prize}</p>
                 </div>
               </div>
             ))}

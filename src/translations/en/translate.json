@@ -221,6 +221,8 @@
     "march9th": "9th March 2024",
     "registrationStarts": "Registration starts",
     "endRegistration": "End registration",
+    "tournamentStarts": "Tournament starts",
+    "tournamentEnd": "Tournament Ends",
     "details": "Details",
     "prize_pool": "Prize pool",
     "chat": "Chat",
@@ -273,6 +275,7 @@
   "past_tournament_tab": {
     "join_for_free": "JOIN FOR FREE 100%",
     "registration_open": "Registration open",
+    "tournament_details": "Details",
     "tournament_title": "FC 2024 TOURNAMENT",
     "tournament_description": "Registration starts"
   },
