@@ -41,6 +41,33 @@
   margin-top: -162px;
 }
 
+.register-now-main-box::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 331%;
+  background-color: #08ff96;
+  box-shadow: 0 0 10px rgb(8, 8, 8);
+  animation: animate 4s linear infinite;
+}
+
+.register-now-main-box::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background-color: #000;
+  border-radius: 16px;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .tournament-details {
     display: flex;
@@ -235,4 +262,9 @@
   align-items: center;
   background-color: #13231c;
   text-transform: capitalize;
+}
+
+.timeline-content {
+  position: relative;
+  z-index: 1;
 }

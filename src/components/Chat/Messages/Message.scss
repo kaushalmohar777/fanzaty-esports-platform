@@ -295,6 +295,7 @@
     rgba(16, 17, 21, 1) 100%
   );
   padding: 28px 10px;
+  margin: 0;
 }
 
 /* Webkit Browsers (Chrome, Safari, Edge) */
@@ -482,4 +483,8 @@
 input:focus-visible {
   border-color: transparent;
   outline: 0;
+}
+
+.img-select-dropdown .ant-dropdown-menu {
+  background-color: #ffffff !important;
 }

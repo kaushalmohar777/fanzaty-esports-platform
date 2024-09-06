@@ -218,7 +218,6 @@ const Message = () => {
         });
       } else if (fileType === "Video") {
         uploadPhoto = await uploadFile(file);
-        console.log("uploadPhoto: ", uploadPhoto);
         setIsModalOpen(false);
         setMessage((preve) => {
           return {
@@ -226,13 +225,6 @@ const Message = () => {
             videoUrl: uploadPhoto.url,
           };
         });
-      } else if (fileType === "Document") {
-        setMessage((prev) => ({
-          ...prev,
-          text: file.name,
-          imageUrl: "",
-          videoUrl: "",
-        }));
       }
 
       socketConnection.emit("new message", {
@@ -293,18 +285,18 @@ const Message = () => {
         </Button>
       ),
     },
-    {
-      key: "3",
-      label: (
-        <Button
-          icon={<FileOutlined />}
-          onClick={() => handleFileInputClick("Document")}
-          className="file-select-button"
-        >
-          {t("chatMessages.selectDocument")}
-        </Button>
-      ),
-    },
+    // {
+    //   key: "3",
+    //   label: (
+    //     <Button
+    //       icon={<FileOutlined />}
+    //       onClick={() => handleFileInputClick("Document")}
+    //       className="file-select-button"
+    //     >
+    //       {t("chatMessages.selectDocument")}
+    //     </Button>
+    //   ),
+    // },
   ];
   return (
     <section>
@@ -487,13 +479,6 @@ const Message = () => {
                           accept="video/*"
                           onChange={(e) => handleFileChange(e, "Video")}
                         />
-                        <input
-                          type="file"
-                          id="Document"
-                          style={{ display: "none" }}
-                          accept=".pdf,.doc,.docx,.txt"
-                          onChange={(e) => handleFileChange(e, "Document")}
-                        />
                         <div className="">
                           <Dropdown
                             menu={{
@@ -502,6 +487,7 @@ const Message = () => {
                             trigger={["click"]}
                             placement="topLeft"
                             arrow
+                            overlayClassName="img-select-dropdown"
                           >
                             <img
                               src={selectFile}

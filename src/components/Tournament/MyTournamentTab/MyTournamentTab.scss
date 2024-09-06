@@ -2,12 +2,47 @@
   width: 100%;
 }
 .my-tournament-inner {
-  width: 100%;
+  width: 1200px;
   height: 681px;
   border: 1px solid #05f38599;
   border-radius: 10px 10px 15px 10px;
   margin-top: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  overflow: hidden;
 }
+.my-tournament-inner::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 214%;
+  background-color: #08ff96;
+  box-shadow: 0 0 10px rgb(8, 8, 8);
+  animation: animate 4s linear infinite;
+  z-index: -1;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.my-tournament-inner::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background-color: #000;
+  border-radius: 16px;
+  z-index: -1;
+}
+
 .my-tournament-image {
   padding: 28px;
   img {

@@ -2,10 +2,44 @@
   width: 100%;
 }
 .ongoing-tournament-inner {
-  width: 100%;
+  width: 1200px;
   height: 681px;
-  border: 1px solid #05f38599;
+  border: 1px solid rgba(5, 243, 133, 0.6);
   border-radius: 10px 10px 15px 10px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.ongoing-tournament-inner::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 214%;
+  background-color: #08ff96;
+  box-shadow: 0 0 10px rgb(8, 8, 8);
+  animation: animate 4s linear infinite;
+  z-index: -1;
+}
+
+.ongoing-tournament-inner::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background-color: #000;
+  border-radius: 16px;
+  z-index: -1;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .ongoing-tournament-image {
   padding: 28px;

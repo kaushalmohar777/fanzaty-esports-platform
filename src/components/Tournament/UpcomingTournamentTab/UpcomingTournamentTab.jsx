@@ -34,7 +34,7 @@ const UpcomingTournamentTab = () => {
       <div className="container">
         {upcominTournaments &&
           upcominTournaments.map((item, index) => (
-            <div key={index}>
+            <div key={index} className="upcoming-tournament-list">
               <div className="upcoming-tournament-inner">
                 <div className="upcoming-tournament-image">
                   <img src={onGoingTournament} alt="loading-img" />

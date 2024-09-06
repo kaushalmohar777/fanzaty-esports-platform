@@ -141,6 +141,7 @@ $breakpoint-mobile: 768px;
 }
 .noti {
   display: flex;
+  margin-top: 26px;
 }
 .user-detail-dropdown {
   width: 207px;
@@ -226,7 +227,7 @@ $breakpoint-mobile: 768px;
   opacity: 60%;
 }
 .font-arabic .user-name {
-  font-family: "Anybody", sans-serif;
+  font-family: "Alexandria", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 14.49px;
@@ -250,4 +251,39 @@ $breakpoint-mobile: 768px;
 }
 .menu-desktop ul {
   width: 100% !important;
+}
+
+.notification .ant-dropdown-menu-light {
+  min-width: 1200px !important;
+}
+
+.font-english .congratulation {
+  font-family: "Anybody";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 37px;
+  text-align: left;
+}
+.font-arabic .congratulation {
+  font-family: "Alexandria", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 37px;
+  text-align: left;
+}
+.notification-bell {
+  cursor: pointer;
+}
+.user-name-navbar {
+  color: #08ff96;
+}
+.user-name-navbar:hover {
+  color: #08ff96;
+}
+.anticon .anticon-down:hover {
+  color: #08ff96;
+}
+.ant-dropdown-arrow::before {
+  color: #08ff96 !important;
+  background: #08ff96 !important;
 }

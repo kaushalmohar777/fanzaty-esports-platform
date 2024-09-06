@@ -36,6 +36,8 @@ import {
 } from "./NavbarStyles";
 import message from "../../assets/images/message.svg";
 import { fetchNotificationData } from "../../features/notification/notificationSlice";
+import tournamentNotify from "../../assets/images/notify-bell-icon.svg";
+import cup from "../../assets/images/cup.svg";
 
 const { Header } = Layout;
 
@@ -48,9 +50,11 @@ const Navbar = () => {
   const notificationLength = useSelector(
     (state) => state?.notification?.notificationLength
   );
+  const data = useSelector((state) => state?.notification?.data);
   const dispatch = useDispatch();
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
+  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     const token = getLocalStorageData("token");
@@ -61,6 +65,25 @@ const Navbar = () => {
     }
     fetchCountryData();
   }, [isLogin, dispatch]);
+
+  useEffect(() => {
+    if (data) {
+      const notificationItems = data?.map((notification) => ({
+        icon: <img src={tournamentNotify} alt="tournament-notify-img" />,
+        label: (
+          <>
+            <div className="congratulation">Congratulations!</div>
+            <div className="congratulation">{notification.text}</div>
+          </>
+        ),
+        className: "notification-class",
+        onClick: () => {
+          console.log(`Notification ${notification._id} clicked`);
+        },
+      }));
+      setNotifications(notificationItems);
+    }
+  }, [data]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -167,9 +190,7 @@ const Navbar = () => {
     },
     {
       label: t("dropdown.tournament"),
-      icon: (
-        <img src={bellIcon} alt="avatar-img" className="user-profile-avatar" />
-      ),
+      icon: <img src={cup} alt="avatar-img" className="user-profile-avatar" />,
     },
     {
       label: <Link to="/messages">{t("dropdown.message")}</Link>,
@@ -190,6 +211,18 @@ const Navbar = () => {
       onClick: handleLogout,
     },
   ];
+
+  const [notificationOpen, setNotificationOpen] = useState(false);
+  const handleMenuClick = (e) => {
+    if (e.key === "3") {
+      setNotificationOpen(false);
+    }
+  };
+  const handleOpenChange = (nextOpen, info) => {
+    if (info.source === "trigger" || nextOpen) {
+      setNotificationOpen(nextOpen);
+    }
+  };
 
   return (
     <Header style={headerStyle}>
@@ -254,11 +287,25 @@ const Navbar = () => {
               {t("menu.join_tournament")}
             </Button>
           </Link>
-          <Link to="/notification" className="noti">
-            <Badge count={notificationLength} className="notification-bell">
-              <img src={bellIcon} alt="bell-img" />
-            </Badge>
-          </Link>
+          <div className="noti">
+            <Dropdown
+              menu={{
+                items: notifications,
+                onClick: handleMenuClick,
+              }}
+              onOpenChange={handleOpenChange}
+              open={notificationOpen}
+              trigger={["click"]}
+              arrow
+              overlayClassName="notification"
+            >
+              <Space>
+                <Badge count={notificationLength} className="notification-bell">
+                  <img src={bellIcon} alt="bell-img" />
+                </Badge>
+              </Space>
+            </Dropdown>
+          </div>
 
           {location.pathname === "/messages" ? (
             <div className="message-img">
@@ -273,7 +320,7 @@ const Navbar = () => {
           >
             <Button>
               <Space>
-                {userData?.userName}
+                <div className="user-name-navbar">{userData?.userName}</div>
                 <img
                   src={userData?.avatarUrl}
                   alt="user-profile"
