@@ -176,7 +176,11 @@ const UserProfile = () => {
           <div className="bio-section">
             <div className="bio">
               <p>{t("user_profile.write_your_bio")}</p>
-              <img src={addIcon} alt="" />
+              <p>
+                <Link to="/edit-user-profile">
+                  <img src={addIcon} alt="bio-icon" />
+                </Link>
+              </p>
             </div>
             <div>
               <button className="point-history-btn">

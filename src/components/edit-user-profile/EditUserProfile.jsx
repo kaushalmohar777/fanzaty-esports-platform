@@ -50,6 +50,7 @@ const EditUserProfile = () => {
         phone: userData?.phone,
         email: userData?.email,
         gender: userData?.gender ? userData.gender.toLowerCase() : undefined,
+        bio: userData?.bio,
         prefix: userData?.prefix || "Select country code",
       });
     }
@@ -186,7 +187,7 @@ const EditUserProfile = () => {
 
                 <Form.Item name="nickName" label={t("signUp.nick_name")}>
                   <Input
-                    disabled="true"
+                    disabled={true}
                     placeholder={t("signUp.nick_name_placeholder")}
                   />
                 </Form.Item>
@@ -245,6 +246,11 @@ const EditUserProfile = () => {
                     />
                   </Space>
                 </Form.Item>
+
+                <Form.Item name="bio" label={t("signUp.bio")}>
+                  <Input placeholder={t("signUp.bio_place_holder")} />
+                </Form.Item>
+
                 <Form.Item
                   name="gender"
                   label={t("signUp.gender")}

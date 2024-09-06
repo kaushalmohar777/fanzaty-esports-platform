@@ -124,7 +124,9 @@
     "edit_user_profile": "Edit Account",
     "date_picker": "DatePicker",
     "male": "Male",
-    "female": "Female"
+    "female": "Female",
+    "bio": "Bio",
+    "bio_place_holder": "Write a bio"
   },
   "forgot_password": {
     "heading": "Forgot Password?",

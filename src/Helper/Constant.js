@@ -16,6 +16,7 @@ export const END_POINTS = {
     UPCOMING_TOURNAMENTS: "tournament/filtered/Upcoming",
     MY_TOURNAMENT: "tournament/mytournaments",
     GET_TOURNAMENT_BY_ID: "tournament/get",
+    FEATURED_TOURNAMENT: "tournament/featured",
 
     // notification
     GET_ALL_NOTIFICATION: 'notification/get-all',

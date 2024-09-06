@@ -157,7 +157,9 @@ const Navbar = () => {
     { key: "/academy", label: t("menu.academy") },
     { key: "/contact-us", label: t("menu.contact_us") },
     { key: "/about-us", label: t("menu.about_us") },
-    { key: "/join-our-community", label: t("menu.join_our_community") },
+    ...(lang === "ar"
+      ? [{ key: "/join-our-community", label: t("menu.join_our_community") }]
+      : []),
   ];
 
   const userMenuItems = [

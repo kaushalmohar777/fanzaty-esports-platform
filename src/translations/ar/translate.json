@@ -111,7 +111,9 @@
     "edit_user_profile": "تحرير الحساب",
     "date_picker": "منتقي التاريخ",
     "male": "ذكر",
-    "female": "أنثى"
+    "female": "أنثى",
+    "bio": "السيرة الذاتية",
+    "bio_place_holder": "اكتب سيرة ذاتية"
   },
 
   "menu_icon": {

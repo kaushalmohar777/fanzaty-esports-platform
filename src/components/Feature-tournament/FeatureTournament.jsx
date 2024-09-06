@@ -1,7 +1,6 @@
-import { memo } from "react";
+/* eslint-disable no-irregular-whitespace */
+import { memo, useEffect, useState } from "react";
 import "./FeatureTournament.scss";
-import tournamentImage1 from "../../assets/images/tournament-image1.svg";
-import tournamentImage2 from "../../assets/images/tournament-image2.svg";
 import userImage from "../../assets/images/userImage.svg";
 import game from "../../assets/images/game.svg";
 import dollar from "../../assets/images/dollar.svg";
@@ -9,12 +8,28 @@ import dateTime from "../../assets/images/Date-time.svg";
 import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
+import { getApiRequest } from "../../services/getApiRequest";
+import { END_POINTS } from "../../Helper/Constant";
 /* eslint-disable react-refresh/only-export-components */
 
 const FeatureTournament = () => {
   const { t } = useTranslation("common");
+  const [featuredTournaments, setFeaturedTournaments] = useState([]);
 
-  const data = t("feature_tournament.tournaments", { returnObjects: true });
+  useEffect(() => {
+    getFeturedTournament();
+  }, []);
+
+  const getFeturedTournament = async () => {
+    try {
+      const response = await getApiRequest(END_POINTS.FEATURED_TOURNAMENT);
+      if (response.success) setFeaturedTournaments(response.tournaments);
+    } catch (error) {
+      console.log("error: ", error);
+      showToast(error?.error?.message);
+    }
+  };
 
   return (
     <section className="feature-tournament-section">
@@ -23,14 +38,14 @@ const FeatureTournament = () => {
         <p className="feature-sub-heading">
           {t("feature_tournament.sub_heading")}
         </p>
-        {data &&
-          data.map((item, index) => (
+        {featuredTournaments &&
+          featuredTournaments?.map((item, index) => (
             <div className="main-box" key={index}>
               <Row style={{ position: "relative", zIndex: "1" }}>
                 <Col span={12}>
                   <div>
                     <img
-                      src={index === 0 ? tournamentImage1 : tournamentImage2}
+                      src={item?.fileUrl}
                       alt="tournament-img"
                       className="tournament-img"
                     />
@@ -43,7 +58,7 @@ const FeatureTournament = () => {
                         {t("feature_tournament.join_free")}
                       </a>
                     </div>
-                    <p className="tournament-name">{item.tournamentName}</p>
+                    <p className="tournament-name">{item.name}</p>
 
                     <div className="tournament-details">
                       <div className="tournament-details">
@@ -53,7 +68,7 @@ const FeatureTournament = () => {
                           alt="userImage"
                         />
                         <p className="tournament-para">
-                          {item.tournamentPlayStation}
+                          Playstation 5, xbox series x/s & pc​
                         </p>
                       </div>
                       <div className="tournament-details">
@@ -62,7 +77,9 @@ const FeatureTournament = () => {
                           className="tournament-icons"
                           alt="dateTime-image"
                         />
-                        <p className="tournament-para">{item.tournamentDate}</p>
+                        <p className="tournament-para">
+                          {item.registrationStarts}
+                        </p>
                       </div>
                     </div>
                     <div className="tournament-details">
@@ -72,7 +89,9 @@ const FeatureTournament = () => {
                           className="tournament-icons"
                           alt="dollar-image"
                         />
-                        <p className="tournament-para">{item.winnerPrice}</p>
+                        <p className="tournament-para">
+                          {item?.prizePoolCoins[0]?.prize}
+                        </p>
                       </div>
                       <div className="tournament-details">
                         <img
@@ -81,7 +100,7 @@ const FeatureTournament = () => {
                           alt="game-image"
                         />
                         <p className="tournament-para">
-                          {item.numberOfParticipant}
+                          {item.participants?.length} / {item.maxParticipants}
                         </p>
                       </div>
                     </div>

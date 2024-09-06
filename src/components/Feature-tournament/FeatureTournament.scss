@@ -55,6 +55,7 @@
 
 .tournament-img {
   width: 100%;
+  height: 100%;
 }
 
 .tournament-details-section {
@@ -80,7 +81,7 @@
 }
 
 .font-english .tournament-name {
-  margin-top: 16px;
+  margin-top: 30px;
   font-size: 36px;
   font-weight: 700;
   line-height: 40px;
@@ -89,7 +90,7 @@
 }
 
 .font-arabic .tournament-name {
-  margin-top: 16px;
+  margin-top: 30px;
   font-size: 36px;
   font-weight: 700;
   line-height: 40px;
@@ -141,8 +142,22 @@
   text-align: left;
 }
 
+.join-tournament-btn:hover {
+  width: 250px;
+  height: 57px;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+  border: 1px solid #08ff96;
+  background-color: #08ff96;
+  color: #141414;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: left;
+}
+
 .join-tournament-button {
-  margin-top: 26px;
+  margin-top: 40px;
 }
 
 //  animation on mainbox
