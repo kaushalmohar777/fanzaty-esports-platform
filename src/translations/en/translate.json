@@ -22,6 +22,7 @@
     "sub_heading": "Join our ongoing tournaments: compete and carve your name as one of the game's legends!",
     "join_free": "JOIN FOR FREE 100%",
     "join_tournament": "Join TOURNAMENT",
+    "start_date":"Tournament starts on",
     "tournaments": [
       {
         "tournamentName": "FC 2024 TOURNAMENT",

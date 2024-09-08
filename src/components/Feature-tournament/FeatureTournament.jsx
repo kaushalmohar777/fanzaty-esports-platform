@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 import { getApiRequest } from "../../services/getApiRequest";
 import { END_POINTS } from "../../Helper/Constant";
+import moment from "moment";
 /* eslint-disable react-refresh/only-export-components */
 
 const FeatureTournament = () => {
@@ -78,7 +79,7 @@ const FeatureTournament = () => {
                           alt="dateTime-image"
                         />
                         <p className="tournament-para">
-                          {item.registrationStarts}
+                          {t('feature_tournament.start_date')} {moment(item.registrationStarts).format("Do MMMM YYYY")}
                         </p>
                       </div>
                     </div>

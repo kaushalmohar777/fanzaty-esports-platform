@@ -381,7 +381,7 @@ const Message = () => {
                 {/* inner chat */}
 
                 <div className="message-container" ref={currentMessage}>
-                  {allMessage.map((msg, index) => {
+                  {allMessage?.map((msg, index) => {
                     return (
                       <div className="particular-user-chat" key={index}>
                         {renderDate(msg, index)}

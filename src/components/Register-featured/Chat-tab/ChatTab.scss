@@ -1,0 +1,491 @@
+.message-heading {
+    font-family: "Anybody", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 59px;
+    text-align: center;
+    color: #fff;
+    margin-top: 90px;
+    margin-bottom: 50px;
+  }
+  .message-outer-box {
+    width: 100%;
+    max-height: 898px;
+    height: 100%;
+  }
+  .message-left-box {
+    width: 100%;
+    background: url("../../../assets/images/message-left-background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    // height: 100vh;
+    padding: 30px 0 100px 0px;
+    border: 1px solid #d9d9d926;
+    border-radius: 10px;
+    overflow-y: scroll;
+    position: relative;
+    max-height: 700px;
+    height: 100%;
+  }
+  .message-left-box .message-detail-box {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .message-right-box {
+    width: 100%;
+    height: 898px;
+  
+    background: url("../../../assets/images/message-left-background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    border-bottom: 1px solid #d9d9d926;
+    border-radius: 10px;
+  }
+  .message-detail-box {
+    display: flex;
+    // justify-content: space-between;
+    color: #fff;
+    align-items: center;
+    margin: 35px 0;
+    cursor: pointer;
+  }
+  .user-name-tournament-name {
+    // margin-top: 15px;
+  }
+  .message-user-name {
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    margin-left: 15px;
+  }
+  .message-user-tournament {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    text-align: left;
+    margin-left: 15px;
+  }
+  .contact-us {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #141414;
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    max-width: 374px;
+    margin: 0 auto;
+    transform: translate(-50%, 0);
+    padding-bottom: 48px;
+    padding-top: 10px;
+  }
+  .contact-us-btn {
+    width: 281px;
+    height: 68px;
+    background-color: #141414;
+    padding: 22px 24px 22px 24px;
+    border-radius: 5px;
+    border: 1px solid #08ff96;
+  
+    button {
+      font-family: "Inter", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 24.2px;
+      text-align: center;
+      background: none;
+      color: #08ff96;
+      border: none;
+    }
+  }
+  .user-image-btn {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  .userimage-name {
+    display: flex;
+    align-items: center;
+  }
+  .chat-user-image {
+    margin: 0 20px;
+    width: 41px;
+    height: 41px;
+    border-radius: 100%;
+  }
+  .chat-user-name {
+    font-family: "Inter", sans-serif;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 27.84px;
+    text-align: left;
+    color: #fff;
+  }
+  
+  .invite-mark {
+    width: 186px;
+    height: 51px;
+    border: 1px solid #08ff96;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      font-family: "Inter", sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 29px;
+      text-align: center;
+      color: #08ff96;
+      border: none;
+      background: none;
+    }
+  }
+  .chat-top-hr-line {
+    width: 100%;
+    border: 1px solid #dae0e63b;
+  }
+  .real-time-date-time {
+    margin-top: 46px;
+    margin-bottom: 60px;
+  }
+  .live-chat-user-img {
+    width: 71px;
+    height: 71px;
+    border-radius: 100%;
+  }
+  .upcoming-msg {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 33px;
+  }
+  .recent-date {
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: center;
+    margin-bottom: 14px;
+    color: #fff;
+    opacity: 30%;
+  }
+  .recent-para {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    text-align: center;
+    padding: 9px 16px 9px 16px;
+    border-radius: 5px;
+    color: #fff;
+  }
+  .live-chat-date-time {
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: left;
+    color: #fff;
+    margin: 10px 10px;
+    opacity: 30%;
+  }
+  .live-message {
+    font-family: "Inter", sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 22.99px;
+    text-align: left;
+    background-color: #2e415b;
+    padding: 9px 16px 9px 16px;
+    border-radius: 5px 10px 5px 5px;
+    margin: 10px 10px;
+    color: #fff;
+  }
+  .outgoing-msg {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 33px;
+  }
+  .out-going-live-chat-date-time {
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: right;
+    color: #fff;
+    margin: 10px 10px;
+    opacity: 30%;
+  }
+  
+  .change-date {
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: center;
+    color: #fff;
+    margin: 10px 10px;
+    opacity: 30%;
+    margin: 15px 0;
+  }
+  .change-date-line {
+    width: 100%;
+    border: 1px solid #dae0e63b;
+    color: #dae0e63b;
+    opacity: 23%;
+  }
+  .inner-chat-section {
+    width: 100%;
+    max-height: 463px;
+    overflow-y: scroll;
+    position: relative;
+    height: 100%;
+  }
+  .type-message-section {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+  .chat-input {
+    width: 95%;
+    input {
+      border-radius: 100px;
+      background-color: #343a40 !important;
+      padding: 20px;
+      border: none;
+      color: #ffffff;
+      font-family: "Inter";
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 19.36px;
+      text-align: left;
+    }
+  }
+  .select-file-image {
+    padding-top: 7px;
+    padding-left: 30px;
+    padding-right: 20px;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+  .input-send {
+    width: 100%;
+  }
+  .send-icon-image {
+    position: absolute;
+    top: 15%;
+    right: 8%;
+    cursor: pointer;
+  }
+  
+  .add-highlighted-bg {
+    width: 100%;
+    background: rgb(13, 71, 93);
+    background: linear-gradient(
+      107deg,
+      rgba(13, 71, 93, 1) 0%,
+      rgba(16, 17, 21, 1) 100%
+    );
+    padding: 28px 10px;
+    margin: 0;
+  }
+  
+  /* Webkit Browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 12px; /* Width of the entire scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners of the track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners of the thumb */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the thumb on hover */
+  }
+  
+  /* Firefox */
+  * {
+    scrollbar-width: none; /* Thin scrollbar width */
+    scrollbar-color: #888 #f1f1f1; /* Color of the thumb and track */
+  }
+  
+  /* Example container with overflow-y: scroll */
+  .scroll-container {
+    max-height: 400px;
+    overflow-y: scroll;
+    /* For demonstration purposes */
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+  }
+  .user-avatar-img-side {
+    width: 41px;
+    height: 41px;
+    border-radius: 100%;
+  }
+  
+  .online-offline {
+    font-size: 18px;
+  }
+  
+  /* Message.scss */
+  
+  .message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* gap-2 */
+    padding: 0.5rem 0; /* py-2 */
+    margin: 0 0.5rem; /* mx-2 */
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+  
+  .message-bubble {
+    padding: 0.25rem 0.5rem; /* p-1 py-1 */
+    border-radius: 0.375rem; /* rounded */
+    max-width: 280px;
+  
+    @media (min-width: 768px) {
+      max-width: 24rem; /* md:max-w-sm */
+    }
+  
+    @media (min-width: 1024px) {
+      max-width: 8rem;
+      text-align: left;
+    }
+  
+    &.sent {
+      margin-right: auto;
+      min-width: 240px;
+    }
+  
+    &.received {
+      margin-left: auto;
+      min-width: 240px;
+      /* bg-white */
+    }
+  }
+  
+  .message-text-sent {
+    padding-left: 0.5rem; /* px-2 */
+    padding-right: 0.5rem;
+    background-color: #2e415b;
+    color: #fff;
+    font-family: "Inter";
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 22.99px;
+    text-align: left;
+    padding: 9px 16px 9px 16px;
+    border-radius: 5px 10px 5px 5px;
+  }
+  .message-text-received {
+    padding-left: 0.5rem; /* px-2 */
+    padding-right: 0.5rem;
+    background-color: #05f38599;
+    color: #fff;
+    font-family: "Inter";
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 22.99px;
+    text-align: left;
+    padding: 9px 16px 9px 16px;
+    border-radius: 5px 10px 5px 5px;
+  }
+  
+  .message-timestamp {
+    font-size: 0.75rem; /* text-xs */
+    margin-left: auto;
+    width: fit-content;
+    padding: 5px;
+    min-width: 130px;
+    font-family: "Inter";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: left;
+    color: #fff;
+    opacity: 30%;
+  }
+  
+  .file-select-button {
+    margin: 10px 10px;
+    border: none;
+  }
+  .video-doc-select-modal {
+    .ant-modal {
+      max-width: 240px !important;
+    }
+  }
+  
+  .chat-img {
+    width: 116px;
+  }
+  
+  .chat-video {
+    width: 116px;
+  }
+  
+  .particular-user-chat {
+    display: flex;
+    flex-direction: column;
+    img {
+      width: 73px;
+      height: 73px;
+      border-radius: 100%;
+      margin: 0 10px;
+    }
+  }
+  
+  .message-date {
+    font-family: "Inter";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: center;
+    color: #ffffff;
+    opacity: 30%;
+    text-align: center;
+    padding: 40px 0 20px 0;
+  }
+  
+  .msg-divide-hr {
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #dae0e63b;
+  }
+  .sent-user-msg-img {
+    display: none;
+  }
+  
+  .msg-input {
+    width: 100%;
+    background-color: #343a40 !important;
+  }
+  ::-webkit-input-placeholder {
+    background-color: #343a40 !important;
+  }
+  input:focus-visible {
+    border-color: transparent;
+    outline: 0;
+  }
+  
+  .img-select-dropdown .ant-dropdown-menu {
+    background-color: #ffffff !important;
+  }
+  
