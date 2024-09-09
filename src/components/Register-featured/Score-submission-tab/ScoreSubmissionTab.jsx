@@ -1,14 +1,15 @@
-import { useState } from "react";
 import "./ScoreSubmissionTab.scss";
 import image76 from "../../../assets/avatar-image/image76.svg";
 import { Col, Row } from "antd";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ScoreSubmissionTab = () => {
-  const [isRegistered] = useState(true);
+  const data = useSelector((state) => state?.tournament?.data);
+
   return (
     <>
-      {isRegistered ? (
+      {data?.isRegistered ? (
         <section className="registered-section">
           <div className="register-score-section">
             <h1 className="register-heading">score submission</h1>

@@ -47,7 +47,7 @@
     width: 100%;
   }
 }
-.font-english .tournament-name {
+.font-english .ongoing-tournament .tournament-name {
   display: flex;
   justify-content: center;
   padding: 50px 0;
@@ -63,7 +63,7 @@
   }
 }
 
-.font-arabic .tournament-name {
+.font-arabic .ongoing-tournament .tournament-name {
   display: flex;
   justify-content: center;
   padding: 50px 0;
