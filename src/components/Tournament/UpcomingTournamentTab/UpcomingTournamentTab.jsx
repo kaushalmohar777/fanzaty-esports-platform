@@ -7,9 +7,12 @@ import { useEffect, useState } from "react";
 import { getApiRequest } from "../../../services/getApiRequest";
 import { END_POINTS } from "../../../Helper/Constant";
 import { showToast } from "../../../shared/sharedComponents/ToasterMessage/ToasterMessage";
+import { Button } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const UpcomingTournamentTab = () => {
   const { t } = useTranslation("common");
+  const navigate = useNavigate();
 
   const [upcominTournaments, setUpcominTournaments] = useState([]);
 
@@ -52,9 +55,18 @@ const UpcomingTournamentTab = () => {
                 </p>
               </div>
 
-              <button className="registration-open">
-                {t("ongoing_tournament.registration_open")}
-              </button>
+              {!item.isRegistered ? (
+                <Button className="registration-open">
+                  {t("ongoing_tournament.registration_open")}
+                </Button>
+              ) : (
+                <Button
+                  className="registration-open"
+                  onClick={() => navigate(`/register-featured/${item._id}`)}
+                >
+                  {t("ongoing_tournament.details")}
+                </Button>
+              )}
             </div>
           ))}
       </div>

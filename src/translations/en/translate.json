@@ -22,7 +22,7 @@
     "sub_heading": "Join our ongoing tournaments: compete and carve your name as one of the game's legends!",
     "join_free": "JOIN FOR FREE 100%",
     "join_tournament": "Join TOURNAMENT",
-    "start_date":"Tournament starts on",
+    "start_date": "Tournament starts on",
     "tournaments": [
       {
         "tournamentName": "FC 2024 TOURNAMENT",
@@ -272,7 +272,8 @@
   "ongoing_tournament": {
     "registration_open": "Registration is open until March 23",
     "tournament_name1": "fanzaty weekly tournament (w 1)",
-    "tournament_name2": "elhilal tourmament"
+    "tournament_name2": "elhilal tourmament",
+    "details": "Details"
   },
 
   "past_tournament_tab": {
@@ -280,7 +281,8 @@
     "registration_open": "Registration open",
     "tournament_details": "Details",
     "tournament_title": "FC 2024 TOURNAMENT",
-    "tournament_description": "Registration starts"
+    "tournament_description": "Registration starts",
+    "details": "Details"
   },
 
   "tournaments": {

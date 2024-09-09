@@ -11,6 +11,7 @@ import { getApiRequest } from "../../../services/getApiRequest";
 import { END_POINTS } from "../../../Helper/Constant";
 import { showToast } from "../../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
 const style = {
   padding: "15px 0",
@@ -24,6 +25,7 @@ const MyTournamentTab = () => {
     ongoingTournaments: [],
     upcomingTournaments: [],
   });
+  const navigate = useNavigate();
 
   useEffect(() => {
     getMyTournaments();
@@ -75,8 +77,11 @@ const MyTournamentTab = () => {
               <img src={rightArrow} alt="right-arrow-img" />
               <p className="name">{item.name}</p>
             </div>
-            <button className="registration-open">
-              {t("ongoing_tournament.registration_open")}
+            <button
+              className="registration-open"
+              onClick={() => navigate(`/register-featured/${item._id}`)}
+            >
+              {t("past_tournament_tab.details")}
             </button>
           </div>
         ))}
@@ -93,8 +98,11 @@ const MyTournamentTab = () => {
               <img src={rightArrow} alt="right-arrow-img" />
               <p className="name">{item.name}</p>
             </div>
-            <button className="registration-open">
-              {t("ongoing_tournament.registration_open")}
+            <button
+              className="registration-open"
+              onClick={() => navigate(`/register-featured/${item._id}`)}
+            >
+              {t("past_tournament_tab.details")}
             </button>
           </div>
         ))}
@@ -122,8 +130,13 @@ const MyTournamentTab = () => {
                           {t("past_tournament_tab.tournament_description")}{" "}
                           {moment(item.startDate).format("Do MMMM YYYY")}
                         </p>
-                        <button className="registration-btn">
-                          {t("past_tournament_tab.registration_open")}
+                        <button
+                          className="registration-btn"
+                          onClick={() =>
+                            navigate(`/register-featured/${item._id}`)
+                          }
+                        >
+                          {t("past_tournament_tab.details")}
                         </button>
                       </div>
                     </Card>

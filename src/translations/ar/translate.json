@@ -22,7 +22,7 @@
     "sub_heading": "انضم إلى بطولاتنا الجارية: تنافس واحفر اسمك كواحد من أساطير اللعبة!",
     "join_free": "انضم مجانًا 100%",
     "join_tournament": "انضم إلى البطولة",
-    "start_date":"تبدأ البطولة يوم",
+    "start_date": "تبدأ البطولة يوم",
     "tournaments": [
       {
         "tournamentName": "بطولة FC 2024",
@@ -277,7 +277,8 @@
   "ongoing_tournament": {
     "registration_open": "التسجيل مفتوح حتى 23 مارس",
     "tournament_name": "بطولة فانزاتي الأسبوعية (الأسبوع 1)",
-    "tournament_name2": "بطولة الهلال"
+    "tournament_name2": "بطولة الهلال",
+    "details": "تفاصيل"
   },
 
   "past_tournament_tab": {
@@ -285,7 +286,8 @@
     "registration_open": "التسجيل مفتوح",
     "tournament_details": "تفاصيل",
     "tournament_title": "بطولة 2024",
-    "tournament_description": "يبدأ التسجيل"
+    "tournament_description": "يبدأ التسجيل",
+    "details": "تفاصيل"
   },
 
   "tournaments": {

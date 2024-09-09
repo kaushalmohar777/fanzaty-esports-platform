@@ -255,6 +255,8 @@ $breakpoint-mobile: 768px;
 
 .notification .ant-dropdown-menu-light {
   min-width: 1200px !important;
+  max-height: 300px;
+  overflow-y: scroll;
 }
 
 .font-english .congratulation {
