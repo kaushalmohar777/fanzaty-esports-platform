@@ -79,7 +79,10 @@ const FeatureTournament = () => {
                           alt="dateTime-image"
                         />
                         <p className="tournament-para">
-                          {t('feature_tournament.start_date')} {moment(item.registrationStarts).format("Do MMMM YYYY")}
+                          {t("feature_tournament.start_date")}{" "}
+                          {moment(item.registrationStarts).format(
+                            "Do MMMM YYYY"
+                          )}
                         </p>
                       </div>
                     </div>

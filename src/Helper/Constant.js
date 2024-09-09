@@ -20,4 +20,7 @@ export const END_POINTS = {
 
     // notification
     GET_ALL_NOTIFICATION: 'notification/get-all',
+
+    // Group chat endpoints
+    GET_USER_BY_TOURNAMENT: "user/tournament-wise-users"
 }

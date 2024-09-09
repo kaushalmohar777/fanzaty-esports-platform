@@ -1,14 +1,9 @@
 /* eslint-disable no-unused-vars */
 import "./ChatTab.scss";
 import { useTranslation } from "react-i18next";
-import {
-  Col,
-  Row,
-  Button,
-  Dropdown,
-} from "antd";
-import {  useEffect, useRef, useState } from "react";
-import {  useSelector } from "react-redux";
+import { Col, Row, Button, Dropdown } from "antd";
+import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import moment from "moment";
 import uploadFile from "../../../services/chatFileUpload";
 import { getApiRequest } from "../../../services/getApiRequest";
@@ -17,15 +12,14 @@ import { showToast } from "../../../shared/sharedComponents/ToasterMessage/Toast
 import useSocket from "../../../hooks/useSocket";
 import selectFile from "../../../assets/icons/select-file.svg";
 import sendIcon from "../../../assets/icons/send-icon.svg";
-import {
-  FileImageOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+import { FileImageOutlined, VideoCameraOutlined } from "@ant-design/icons";
 import userImage from "../../../assets/images/user-image.svg";
+
 /* eslint-disable react-refresh/only-export-components */
 
 const ChatTab = () => {
   const userData = useSelector((state) => state.user.userData);
+  const data = useSelector((state) => state?.tournament?.data);
   const [todayDate] = useState(moment().format("D MMM"));
   const { t } = useTranslation("common");
   const [user, setUser] = useState(null);
@@ -49,10 +43,6 @@ const ChatTab = () => {
   const [allMessage, setAllMessage] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    console.log("message", message);
-  }, [message]);
-
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
@@ -65,22 +55,10 @@ const ChatTab = () => {
   const socketConnection = useSocket();
 
   useEffect(() => {
-    getAllUser();
-  }, []);
-
-  
-
-  const getAllUser = async () => {
-    try {
-      const response = await getApiRequest(END_POINTS.GET_ALL_USER);
-      if (response.success) {
-        setUserList(response.users);
-      }
-    } catch (error) {
-      console.log("error: ", error);
-      showToast(error.message, "error");
+    if (data) {
+      setUserList(data?.tournament?.participants);
     }
-  };
+  }, [data]);
 
   useEffect(() => {
     if (socketConnection) {
@@ -266,15 +244,17 @@ const ChatTab = () => {
           {t("chatMessages.selectVideo")}
         </Button>
       ),
-    }
+    },
   ];
 
-  return <section>
-    <div className="container">
-    <div>
+  return (
+    <section>
+      <div className="container">
+        <div>
           <Row gutter={[16, 16]}>
             <Col span={8} className="message-outer-box">
               <div className="message-left-box">
+                {console.log("userList", userList)}
                 {userList &&
                   userList.map((item, index) => (
                     <div
@@ -291,6 +271,9 @@ const ChatTab = () => {
                       />
                       <div className="user-name-tournament-name">
                         <p className="message-user-name">{item?.userName}</p>
+                        <p className="message-user-name">
+                          {data?.tournament?.name}
+                        </p>
                       </div>
                       <div>{item?.date}</div>
                     </div>
@@ -495,8 +478,9 @@ const ChatTab = () => {
             </Col>
           </Row>
         </div>
-    </div>
-  </section>;
+      </div>
+    </section>
+  );
 };
 
 export default ChatTab;
