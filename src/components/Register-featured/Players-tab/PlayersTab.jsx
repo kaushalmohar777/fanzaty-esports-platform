@@ -60,17 +60,19 @@ const PlayersTab = () => {
           </div>
         </div>
 
-        <div className="view-more-less">
-          <p className="view" onClick={handleViewMore}>
-            <ArrowDownOutlined />
-            {t("player.viewMore")}
-          </p>
+        {data?.players?.length > 5 ? (
+          <div className="view-more-less">
+            <p className="view" onClick={handleViewMore}>
+              <ArrowDownOutlined />
+              {t("player.viewMore")}
+            </p>
 
-          <p className="back" onClick={handleBackToTop}>
-            <ArrowUpOutlined />
-            {t("player.backToTop")}
-          </p>
-        </div>
+            <p className="back" onClick={handleBackToTop}>
+              <ArrowUpOutlined />
+              {t("player.backToTop")}
+            </p>
+          </div>
+        ) : null}
       </div>
     </section>
   );

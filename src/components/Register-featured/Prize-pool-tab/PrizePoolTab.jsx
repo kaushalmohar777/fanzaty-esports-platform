@@ -54,8 +54,8 @@ const PrizePoolTab = () => {
   };
 
   const visibleData = isExpanded
-    ? data?.tournament?.prizePoolCoins
-    : data?.tournament?.prizePoolCoins?.slice(0, 5);
+    ? data?.prizePoolCoins
+    : data?.prizePoolCoins?.slice(0, 5);
 
   return (
     <section>
@@ -87,17 +87,19 @@ const PrizePoolTab = () => {
           </div>
         </div>
 
-        <div className="view-more-less">
-          <p className="view" onClick={handleViewMore}>
-            <ArrowDownOutlined />
-            {t("prizePool.viewMore")}
-          </p>
+        {data?.prizePoolCoins.length > 5 ? (
+          <div className="view-more-less">
+            <p className="view" onClick={handleViewMore}>
+              <ArrowDownOutlined />
+              {t("prizePool.viewMore")}
+            </p>
 
-          <p className="back" onClick={handleBackToTop}>
-            <ArrowUpOutlined />
-            {t("prizePool.backToTop")}
-          </p>
-        </div>
+            <p className="back" onClick={handleBackToTop}>
+              <ArrowUpOutlined />
+              {t("prizePool.backToTop")}
+            </p>
+          </div>
+        ) : null}
       </div>
     </section>
   );

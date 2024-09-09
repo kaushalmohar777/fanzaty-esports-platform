@@ -56,7 +56,7 @@ const ChatTab = () => {
 
   useEffect(() => {
     if (data) {
-      setUserList(data?.tournament?.participants);
+      setUserList(data?.participants);
     }
   }, [data]);
 
@@ -271,9 +271,7 @@ const ChatTab = () => {
                       />
                       <div className="user-name-tournament-name">
                         <p className="message-user-name">{item?.userName}</p>
-                        <p className="message-user-name">
-                          {data?.tournament?.name}
-                        </p>
+                        <p className="message-user-name">{data?.name}</p>
                       </div>
                       <div>{item?.date}</div>
                     </div>

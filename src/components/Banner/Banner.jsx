@@ -1,6 +1,7 @@
 import { memo } from "react";
 import "./Banner.scss";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 /* eslint-disable react-refresh/only-export-components */
 const Banner = () => {
   const { t } = useTranslation("common");
@@ -12,7 +13,7 @@ const Banner = () => {
         <h2 className="sub-heading">{t("banner.sub_heading")}</h2>
         <p className="banner-para">{t("banner.paragraph")}</p>
         <div className="join-tournament">
-          <a>{t("banner.join_tournament")}</a>
+          <Link to="/join-tournament">{t("banner.join_tournament")}</Link>
         </div>
       </div>
     </section>
