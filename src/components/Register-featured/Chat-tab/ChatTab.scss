@@ -77,7 +77,7 @@
   background-color: #141414;
   position: absolute;
   bottom: 1px;
-  left: 50%;
+  left: 52%;
   max-width: 374px;
   margin: 0 auto;
   transform: translate(-50%, 0);
@@ -315,7 +315,7 @@
 
 /* Firefox */
 * {
-  scrollbar-width: none; /* Thin scrollbar width */
+  scrollbar-width: 5px; /* Thin scrollbar width */
   scrollbar-color: #888 #f1f1f1; /* Color of the thumb and track */
 }
 

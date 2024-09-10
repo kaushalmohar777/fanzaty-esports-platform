@@ -49,6 +49,7 @@ const FeatureTournament = () => {
                     src={item?.fileUrl}
                     alt="tournament-img"
                     className="tournament-img"
+                    loading="lazy"
                   />
                 </Col>
                 <Col span={12}>

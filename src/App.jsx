@@ -38,9 +38,7 @@ const SignUp = lazy(() => import("./pages/Sign-up/SignUp"));
 const ForgotPassword = lazy(() =>
   import("./pages/Forgot-password/ForgotPassword")
 );
-const Notification = lazy(() =>
-  import("./components/Notification/Notification")
-);
+
 const UserProfile = lazy(() => import("./components/user-profile/UserProfile"));
 
 const LoadingFallback = () => <div className="lazy-loading">Loading...</div>;
@@ -113,14 +111,6 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<LoadingFallback />}>
             <JoinOurCommunty />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/notification",
-        element: (
-          <Suspense fallback={<LoadingFallback />}>
-            <Notification />
           </Suspense>
         ),
       },

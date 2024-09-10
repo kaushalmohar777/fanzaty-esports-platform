@@ -19,14 +19,14 @@ const RegisterFeatured = () => {
   const { id } = useParams();
   // const [tabKey, setTabKey] = useState("details");
   const dispatch = useDispatch();
-  const status = useSelector((state) => state?.tournament?.status);
+  // const status = useSelector((state) => state?.tournament?.status);
   const data = useSelector((state) => state?.tournament?.data);
 
   useEffect(() => {
-    if (status === "idle") {
-      dispatch(fetchData(id));
+    if (id) {
+      dispatch(fetchData(id)); // This will only trigger when id changes
     }
-  }, [status, dispatch]);
+  }, [id, dispatch]); // depend only on id
 
   const items = [
     {

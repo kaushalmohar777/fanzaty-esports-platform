@@ -78,7 +78,8 @@ const Navbar = () => {
         ),
         className: "notification-class",
         onClick: () => {
-          console.log(`Notification ${notification._id} clicked`);
+          navigate(`/register-featured/${notification?.tournamentId}`);
+          setNotificationOpen(false);
         },
       }));
       setNotifications(notificationItems);
