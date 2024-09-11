@@ -9,10 +9,12 @@ import { END_POINTS } from "../../../Helper/Constant";
 import { showToast } from "../../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
+import { postApiRequest } from "../../../services/postApiRequest";
 
 const UpcomingTournamentTab = () => {
   const { t } = useTranslation("common");
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const [upcominTournaments, setUpcominTournaments] = useState([]);
 
@@ -32,9 +34,26 @@ const UpcomingTournamentTab = () => {
     }
   };
 
+  const handleRegister = async (id) => {
+    setLoading(true);
+    try {
+      const response = await postApiRequest(END_POINTS.REGISTER_TOURNAMENT, {
+        tournamentId: id,
+      });
+      if (response.success) {
+        setLoading(false);
+        getUpcomingTournaments();
+      }
+    } catch (error) {
+      console.log("error: ", error);
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="upcoming-tournament">
       <div className="container">
+        {console.log("upcominTournaments", upcominTournaments)}
         {upcominTournaments &&
           upcominTournaments.map((item, index) => (
             <div key={index} className="upcoming-tournament-list">
@@ -56,7 +75,11 @@ const UpcomingTournamentTab = () => {
               </div>
 
               {!item.isRegistered ? (
-                <Button className="registration-open">
+                <Button
+                  className="registration-open"
+                  onClick={() => handleRegister(item._id)}
+                  loading={loading}
+                >
                   {t("ongoing_tournament.registration_open")}
                 </Button>
               ) : (

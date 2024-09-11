@@ -50,18 +50,12 @@ const OngoingTournamentTab = () => {
                 </p>
               </div>
 
-              {!item.isRegistered ? (
-                <Button className="registration-open">
-                  {t("ongoing_tournament.registration_open")}
-                </Button>
-              ) : (
-                <Button
-                  className="registration-open"
-                  onClick={() => navigate(`/register-featured/${item._id}`)}
-                >
-                  {t("ongoing_tournament.details")}
-                </Button>
-              )}
+              <Button
+                className="registration-open"
+                onClick={() => navigate(`/register-featured/${item._id}`)}
+              >
+                {t("ongoing_tournament.details")}
+              </Button>
             </div>
           ))}
       </div>

@@ -10,6 +10,8 @@ import copyIcon from "../../assets/icons/copy-icon.svg";
 import { Flex } from "antd";
 import { Link } from "react-router-dom";
 import { memo } from "react";
+import copy from "copy-to-clipboard";
+import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 /* eslint-disable react-refresh/only-export-components */
 
 const UserProfile = () => {
@@ -52,6 +54,15 @@ const UserProfile = () => {
 
   const onChange = (key) => {
     console.log(key);
+  };
+
+  //Function to add text to clipboard
+  const copyToClipboard = (id) => {
+    let copyText = id;
+    let isCopy = copy(copyText);
+    if (isCopy) {
+      showToast("Copied to Clipboard", "success");
+    }
   };
 
   const getTabOneData = () => {
@@ -203,7 +214,12 @@ const UserProfile = () => {
                     </div>
                     <div>
                       <img src={editIcon} alt="edit-img" className="edit-img" />
-                      <img src={copyIcon} alt="copy-img" className="copy-img" />
+                      <img
+                        src={copyIcon}
+                        alt="copy-img"
+                        className="copy-img"
+                        onClick={() => copyToClipboard(item.gameId)}
+                      />
                     </div>
                   </div>
                 );

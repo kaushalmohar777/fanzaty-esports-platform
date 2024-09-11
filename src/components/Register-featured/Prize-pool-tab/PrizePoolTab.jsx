@@ -17,12 +17,12 @@ const PrizePoolTab = () => {
   }, [data]);
 
   const images = {
-    "1st place": topTrophy,
-    "2nd place": middleTrophy,
-    "3rd place": lowTrophy,
-    "4th place": lowTrophy,
-    "5th-9th place": lowTrophy,
-    "10th-14th place": lowTrophy,
+    "1st": topTrophy,
+    "2nd": middleTrophy,
+    "3rd": lowTrophy,
+    "4th": lowTrophy,
+    "5th-9th": lowTrophy,
+    "10th-14th": lowTrophy,
   };
 
   // const dummyData = t("prizePool.prizes", { returnObjects: true }).map(
