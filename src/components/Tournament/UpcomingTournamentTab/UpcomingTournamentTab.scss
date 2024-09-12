@@ -51,34 +51,24 @@
 }
 .font-english .upcoming-tournament .tournament-name {
   display: flex;
-  justify-content: center;
-  padding: 50px 0;
-  .name {
-    font-family: "Anybody";
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 59px;
-    text-align: center;
-    color: #fff;
-    margin-left: 10px;
-    text-transform: capitalize;
-  }
+  font-family: "Anybody";
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 59px;
+  color: #fff;
+  margin-left: 10px;
+  text-transform: capitalize;
 }
 
 .font-arabic .upcoming-tournament .tournament-name {
   display: flex;
-  justify-content: center;
-  padding: 50px 0;
-  .name {
-    font-family: "Alexandria", sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 59px;
-    text-align: center;
-    color: #fff;
-    margin-left: 10px;
-    text-transform: capitalize;
-  }
+  font-family: "Alexandria", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 59px;
+  color: #fff;
+  margin-left: 10px;
+  text-transform: capitalize;
 }
 .registration-open {
   width: 472px;
@@ -133,5 +123,248 @@
   text-align: center;
   background: none !important;
   color: #08ff96 !important;
+  cursor: pointer;
+}
+
+.feature-tournament-section {
+  background-color: #141414;
+}
+.font-english .feature-heading {
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 60px;
+  text-align: center;
+  font-family: "Anybody", sans-serif;
+  padding-top: 105px;
+  color: #ffffff;
+}
+
+.font-arabic .feature-heading {
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 60px;
+  text-align: center;
+  font-family: "Alexandria", sans-serif;
+  padding-top: 105px;
+  color: #ffffff;
+}
+
+.font-english .feature-sub-heading {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
+  font-family: "Anybody", sans-serif;
+  margin-top: 26px;
+  margin-bottom: 60px;
+  color: #ffffff;
+}
+
+.font-arabic .feature-sub-heading {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
+  font-family: "Alexandria", sans-serif;
+  margin-top: 26px;
+  margin-bottom: 60px;
+  color: #ffffff;
+}
+
+.main-box {
+  width: 100%;
+  height: 415px;
+  border: 1px solid #08ff96;
+  border-radius: 5px;
+  padding: 25px;
+  color: #fff;
+  margin-top: 30px;
+}
+
+.tournament-img {
+  width: 100%;
+  height: 100%;
+}
+
+.tournament-details-section {
+  padding: 20px 30px;
+}
+.join-free-btn {
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12.1px;
+  text-align: center;
+  background-color: #141414;
+  color: #fff;
+  box-shadow: none;
+  padding: 14px 25px 14px 25px;
+  text-decoration: none;
+  border-radius: 100px;
+  border: 1px solid #fff;
+}
+
+.tournament-details-section {
+  text-align: left;
+}
+
+.font-english .feature-tournament-section .tournament-name {
+  margin-top: 30px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: left;
+  font-family: "Anybody", sans-serif;
+}
+
+.font-arabic .feature-tournament-section .tournament-name {
+  margin-top: 30px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: left;
+  font-family: "Alexandria", sans-serif;
+}
+
+.tournament-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.tournament-icons {
+  width: 23px;
+  height: 23px;
+  padding: 0.46px 0px 0.47px 0px;
+}
+
+.font-english .tournament-para {
+  font-family: "Anybody", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.font-arabic .tournament-para {
+  font-family: "Alexandria", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.join-tournament-btn {
+  width: 250px;
+  height: 57px;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+  border: 1px solid #08ff96;
+  background-color: #141414;
+  color: #08ff96;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: left;
+}
+
+.join-tournament-btn:hover {
+  width: 250px;
+  height: 57px;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+  border: 1px solid #08ff96;
+  background-color: #08ff96;
+  color: #141414;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: left;
+}
+
+.join-tournament-button {
+  margin-top: 40px;
+}
+
+//  animation on mainbox
+.main-box {
+  position: relative;
+  width: 100%;
+  height: 415px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid black;
+  border: 1px solid #08ff96;
+  z-index: 1;
+}
+.main-box::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 315%;
+  background-color: #08ff96;
+  box-shadow: 0 0 10px rgb(8, 8, 8);
+  animation: animate 6s linear infinite;
+}
+
+.main-box::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background-color: #000;
+  border-radius: 16px;
+  border: 0px solid #08ff96;
+  z-index: 0;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tournament-details {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 6px;
+  }
+  .main-box {
+    height: auto;
+  }
+}
+
+.swal2-popup {
+  background-color: #f9f9f9;
+}
+
+.swal2-confirm {
+  background-color: #4caf50;
+  padding: 15px;
+  margin: 10px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.swal2-cancel {
+  background-color: #f44336;
+  margin: 10px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 15px;
+  border-radius: 10px;
   cursor: pointer;
 }

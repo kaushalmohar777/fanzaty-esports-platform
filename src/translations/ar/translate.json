@@ -317,5 +317,25 @@
     "Details Awards": "تفاصيل الجوائز",
     "score": "النتيجة",
     "vs": "ضد"
+  },
+  "score_submission": {
+    "score_submission": "تقديم النتيجة",
+    "user": "المستخدم XYZ",
+    "winner": "الفائز",
+    "add_screenshot": "أضف لقطة شاشة كدليل",
+    "report_issue": "الإبلاغ عن مشكلة",
+    "sorry": "عذراً!",
+    "cant_submit": "لا يمكنك تقديم نتائجك دون التسجيل في البطولة",
+    "register_here": "سجل هنا"
+  },
+  "sweet_alert": {
+    "title": "هل أنت متأكد؟",
+    "text_message": "أنت على وشك التسجيل في بطولة الاسم هذه!",
+    "confirm": "نعم سجلني!",
+    "cancel": "لا، إلغاء!",
+    "cancel_message": "لم يتم تسجيلك في البطولة",
+    "cancelled": "تم الإلغاء",
+    "registered": "مسجل",
+    "name": "اسم"
   }
 }

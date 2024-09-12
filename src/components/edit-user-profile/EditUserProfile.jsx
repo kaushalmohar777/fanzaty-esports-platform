@@ -101,7 +101,6 @@ const EditUserProfile = () => {
         t("signUp.requiredField", { field: t("signUp.phone") })
       );
     }
-
     const prefix = form.getFieldValue("prefix");
     const fullPhoneNumber = `${prefix}${value}`;
     const phoneNumber = parsePhoneNumberFromString(fullPhoneNumber);

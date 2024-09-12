@@ -83,6 +83,7 @@
 }
 .prize-image {
   padding: 0 10px;
+  width: 50%;
 }
 .prize-pool-place {
   sup {
@@ -91,4 +92,38 @@
   .place {
     margin-left: 8px;
   }
+}
+
+.coin-img {
+  width: 40px;
+  height: 40px;
+}
+.coins {
+  margin-left: 18px;
+}
+
+.font-english .prize-pool-price {
+  font-family: "Anybody";
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 37px;
+  text-align: left;
+  color: #fff;
+  display: flex;
+  min-width: 140px;
+}
+
+.font-arabic .prize-pool-price {
+  font-family: "Alexandria", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 37px;
+  text-align: left;
+  color: #fff;
+  display: flex;
+  min-width: 140px;
+}
+
+.prize {
+  width: 50%;
 }

@@ -3,8 +3,10 @@ import image76 from "../../../assets/avatar-image/image76.svg";
 import { Col, Row } from "antd";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const ScoreSubmissionTab = () => {
+  const { t } = useTranslation("common");
   const data = useSelector((state) => state?.tournament?.data);
 
   return (
@@ -12,7 +14,9 @@ const ScoreSubmissionTab = () => {
       {data?.isRegistered ? (
         <section className="registered-section">
           <div className="register-score-section">
-            <h1 className="register-heading">score submission</h1>
+            <h1 className="register-heading">
+              {t("score_submission.score_submission")}
+            </h1>
 
             <Row
               gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
@@ -27,7 +31,9 @@ const ScoreSubmissionTab = () => {
                       alt="loading-winner-img"
                       className="winner-image"
                     />
-                    <p className="winner-user-name">USER XYZ</p>
+                    <p className="winner-user-name">
+                      {t("score_submission.user")}
+                    </p>
                   </div>
                 </div>
               </Col>
@@ -40,14 +46,17 @@ const ScoreSubmissionTab = () => {
                       alt="loading-winner-img"
                       className="winner-image"
                     />
-                    <p className="winner-user-name">USER XYZ</p>
+                    <p className="winner-user-name">
+                      {t("score_submission.user")}
+                    </p>
                   </div>
                 </div>
               </Col>
             </Row>
 
+            {/* Winner Section */}
             <div className="winner-score">
-              <h4 className="winner-heading">Winner</h4>
+              <h4 className="winner-heading">{t("score_submission.winner")}</h4>
               <Row>
                 <Col span={12} offset={6}>
                   <div className="score-submission-winner-list">
@@ -57,19 +66,22 @@ const ScoreSubmissionTab = () => {
                         alt="loading-winner-img"
                         className="winner-image"
                       />
-                      <p className="winner-user-name">USER XYZ</p>
+                      <p className="winner-user-name">
+                        {t("score_submission.user")}
+                      </p>
                     </div>
                   </div>
                 </Col>
               </Row>
             </div>
 
+            {/* Action Buttons */}
             <div>
               <button className="add-screenshot-btn">
-                Add a Screenshot Proof
+                {t("score_submission.add_screenshot")}
               </button>
               <Link className="report-issue-btn" to="/result">
-                report an issue
+                {t("score_submission.report_issue")}
               </Link>
             </div>
           </div>
@@ -77,13 +89,16 @@ const ScoreSubmissionTab = () => {
       ) : (
         <section>
           <div className="unregistered-section">
-            <h1 className="unregistered-heading">Sorry!</h1>
+            <h1 className="unregistered-heading">
+              {t("score_submission.sorry")}
+            </h1>
             <p className="unregistered-msg">
-              YOU CAN’T SUBMITT YOUR SCORES WITHOUT REGISTERING IN THE
-              TOURNAMENT
+              {t("score_submission.cant_submit")}
             </p>
 
-            <button className="register-here-btn">REGISTER HERE</button>
+            <button className="register-here-btn">
+              {t("score_submission.register_here")}
+            </button>
           </div>
         </section>
       )}

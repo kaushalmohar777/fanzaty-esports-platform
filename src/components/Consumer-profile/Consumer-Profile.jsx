@@ -73,9 +73,9 @@ const ConsumerProfile = () => {
                 <h3 className="text-bio">{t("consumerProfile.block")}</h3>
               </div>
             </div>
-            <Button type="primary" className="btn-boi">
+            {/* <Button type="primary" className="btn-boi">
               {t("consumerProfile.bio")}
-            </Button>
+            </Button> */}
           </div>
         </Col>
         <Col span={17}>

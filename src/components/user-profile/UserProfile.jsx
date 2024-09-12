@@ -9,14 +9,19 @@ import editIcon from "../../assets/icons/edit-icon.svg";
 import copyIcon from "../../assets/icons/copy-icon.svg";
 import { Flex } from "antd";
 import { Link } from "react-router-dom";
-import { memo } from "react";
+import { memo, useState } from "react";
 import copy from "copy-to-clipboard";
 import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
+import CommonModal from "../../shared/sharedComponents/CommonModal/CommonModal";
+import { getApiRequest } from "../../services/getApiRequest";
+import { END_POINTS } from "../../Helper/Constant";
 /* eslint-disable react-refresh/only-export-components */
 
 const UserProfile = () => {
   const userData = useSelector((state) => state.user.userData);
   const { t } = useTranslation("common");
+  const [open, setOpen] = useState(false);
+  const [editData, setEditData] = useState(null);
 
   const gameIdData = [
     {
@@ -123,8 +128,31 @@ const UserProfile = () => {
     },
   ];
 
+  const getGameData = async () => {
+    try {
+      const response = await getApiRequest(END_POINTS);
+      if (response.success) {
+        console.log("response: ", response);
+      }
+    } catch (error) {
+      console.log("error: ", error);
+      showToast(error?.error?.message || "Something went wrong", "error");
+    }
+  };
+
+  const handleEditGameId = async (item) => {
+    setOpen(true);
+    setEditData(item);
+  };
+
   return (
     <section className="user-profile-section">
+      <CommonModal
+        open={open}
+        handleClose={setOpen}
+        data={editData}
+        onModalClose={getGameData}
+      />
       <div className="container">
         <div className="user-detail-main">
           <div className="user-avatar" style={{ position: "relative" }}>
@@ -213,7 +241,12 @@ const UserProfile = () => {
                       <p className="game-dynamic-id">{item.gameId}</p>
                     </div>
                     <div>
-                      <img src={editIcon} alt="edit-img" className="edit-img" />
+                      <img
+                        src={editIcon}
+                        alt="edit-img"
+                        className="edit-img"
+                        onClick={() => handleEditGameId(item)}
+                      />
                       <img
                         src={copyIcon}
                         alt="copy-img"

@@ -312,5 +312,25 @@
     "Details Awards": "Details Awards",
     "score": "Score",
     "vs": "V/S"
+  },
+  "score_submission": {
+    "score_submission": "Score Submission",
+    "user": "USER XYZ",
+    "winner": "Winner",
+    "add_screenshot": "Add a Screenshot Proof",
+    "report_issue": "Report an Issue",
+    "sorry": "Sorry!",
+    "cant_submit": "YOU CAN’T SUBMIT YOUR SCORES WITHOUT REGISTERING IN THE TOURNAMENT",
+    "register_here": "REGISTER HERE"
+  },
+  "sweet_alert": {
+    "title": "Are you sure?",
+    "text_message": "You are about to register for this name tournament!",
+    "confirm": "Yes, register me!",
+    "cancel": "No, cancel!",
+    "cancel_message": "You have not been registered for the tournament.",
+    "cancelled": "Cancelled",
+    "registered": "Registered",
+    "name": "name"
   }
 }

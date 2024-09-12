@@ -6,6 +6,7 @@ import middleTrophy from "../../../assets/images/middle-trophy.svg";
 import lowTrophy from "../../../assets/images/low-trophy.svg";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import coin from "../../../assets/images/money-bag.svg";
 
 const PrizePoolTab = () => {
   const { t } = useTranslation("common");
@@ -73,6 +74,10 @@ const PrizePoolTab = () => {
                   }}
                 />
                 <div className="prize-pool-price">
+                  <img src={coin} alt="coin-img-load" className="coin-img" />
+                  <span className="coins">{item?.coins}</span>
+                </div>
+                <div className="prize-pool-price">
                   <p className="prize-image">
                     <img
                       src={images[item?.rank] || topTrophy}
@@ -80,14 +85,14 @@ const PrizePoolTab = () => {
                       className="img-fluid"
                     />
                   </p>
-                  <p>{item.prize}</p>
+                  <p className="prize">{item?.prize}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {data?.prizePoolCoins.length > 5 ? (
+        {data?.prizePoolCoins?.length > 5 ? (
           <div className="view-more-less">
             <p className="view" onClick={handleViewMore}>
               <ArrowDownOutlined />

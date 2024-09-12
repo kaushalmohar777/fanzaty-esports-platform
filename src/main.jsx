@@ -9,6 +9,7 @@ import { getLocalStorageData } from "./shared/commonFunction.js";
 import { store } from "./store";
 import { Provider } from "react-redux";
 import Toast from "./shared/sharedComponents/ToasterMessage/ToasterMessage.jsx";
+import "sweetalert2/src/sweetalert2.scss";
 
 const defaultLanguage = getLocalStorageData("language") || "ar";
 

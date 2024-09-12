@@ -5,10 +5,12 @@ import { useEffect, useState } from "react";
 import { getApiRequest } from "../../../services/getApiRequest";
 import { END_POINTS } from "../../../Helper/Constant";
 import { showToast } from "../../../shared/sharedComponents/ToasterMessage/ToasterMessage";
+import winTropy from "../../../assets/images/top-trophy.svg";
 
 const BracketTab = () => {
   const { id } = useParams();
   const [bracketData, setBracketData] = useState([]);
+  const [championData, setChampionData] = useState(null);
 
   useEffect(() => {
     if (id) {
@@ -23,6 +25,7 @@ const BracketTab = () => {
       );
       if (response.success && response.brackets) {
         setBracketData(response.brackets);
+        findChampion(response.brackets);
       } else {
         showToast("No bracket data available", "info");
       }
@@ -50,6 +53,27 @@ const BracketTab = () => {
     ));
   };
 
+  const findChampion = (brackets) => {
+    if (!brackets || brackets.length === 0) return;
+    const lastRound = brackets.reduce((prev, current) =>
+      prev.level > current.level ? prev : current
+    );
+
+    const qualifiedTeams = lastRound.groups.flatMap((group) =>
+      group.filter((team) => team.isQualified)
+    );
+
+    console.log("qualifiedTeams", qualifiedTeams);
+
+    if (qualifiedTeams.length > 0) {
+      setChampionData(qualifiedTeams[0]);
+    }
+  };
+
+  useEffect(() => {
+    console.log("championData", championData);
+  }, [championData]);
+
   return (
     <section className="bracket-tab-section">
       <div className="bracket-heading-btn">
@@ -64,12 +88,42 @@ const BracketTab = () => {
                   justifyContent: "center",
                   minHeight: "900px",
                   height: "100%",
+                  marginLeft: "35px",
                 }}
               >
                 {renderTeamMembers(item.groups)}
               </div>
             </Col>
           ))}
+          <Col span={4}>
+            {championData && (
+              <button className="round-btn">Final Round </button>
+            )}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                minHeight: "900px",
+                height: "100%",
+              }}
+            >
+              {championData && (
+                <div className="champion-main-section">
+                  <div className="champion-team-members">
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <img src={winTropy} alt="champion-img" />
+                      <span className="champion">{championData.name}</span>
+                    </div>
+                    <div className="player-combination-section">
+                      <div className="player-number">{championData.score}</div>
+                      <div className="team-name">{championData.name}</div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </Col>
         </Row>
       </div>
     </section>
