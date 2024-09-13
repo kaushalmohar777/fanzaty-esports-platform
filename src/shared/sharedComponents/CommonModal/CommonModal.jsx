@@ -34,6 +34,7 @@ const CommonModal = ({ open, handleClose, onModalClose, data }) => {
   return (
     <Modal
       title="Edit Game ID"
+      className="custom-modal"
       centered
       open={open}
       onOk={handleOk}

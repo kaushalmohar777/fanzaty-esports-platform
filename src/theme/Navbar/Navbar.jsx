@@ -192,7 +192,7 @@ const Navbar = () => {
       className: "my-profile-item",
     },
     {
-      label: t("dropdown.tournament"),
+      label: <Link to="/all-tournaments">{t("dropdown.tournament")}</Link>,
       icon: <img src={cup} alt="avatar-img" className="user-profile-avatar" />,
     },
     {
