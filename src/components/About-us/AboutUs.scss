@@ -7,7 +7,7 @@
 .about-us-section {
   background: url("../../assets/images/about-us-image.svg");
   background-repeat: no-repeat;
-  height: 525px;
+  min-height: 525px;
   width: 100%;
 }
 
@@ -50,7 +50,7 @@
 
 .font-english .about-us-btn {
   max-width: 212px;
-  height: 55px;
+  min-height: 55px;
   padding: 22px 24px 22px 24px;
   background-color: #ffffff;
   border-radius: 5px;
@@ -70,7 +70,7 @@
 
 .font-arabic .about-us-btn {
   max-width: 212px;
-  height: 55px;
+  min-height: 55px;
   padding: 22px 24px 22px 24px;
   background-color: #ffffff;
   border-radius: 5px;
@@ -94,5 +94,5 @@
   flex-direction: column;
   margin-left: auto;
   justify-content: center;
-  height: 525px;
+  min-height: 525px;
 }

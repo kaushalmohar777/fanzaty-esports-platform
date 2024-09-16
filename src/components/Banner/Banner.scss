@@ -2,7 +2,7 @@
   background: url("../../assets/images/bg-banner.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 680px;
+  min-height: 680px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,7 +34,7 @@
 
 .join-tournament {
   width: 433.51px;
-  height: 84px;
+  min-height: 84px;
   border-radius: 5px;
   background-color: #08ff96;
   display: flex;

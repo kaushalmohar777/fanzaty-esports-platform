@@ -61,7 +61,7 @@
 }
 .edit-user-profile-box .user-avatar {
   width: 152px;
-  height: 152px;
+  min-height: 152px;
   border-radius: 100%;
   text-align: center;
   margin: 0 auto;
@@ -107,7 +107,7 @@
 }
 .flag-img {
   width: 50px;
-  height: 30px;
+  min-height: 30px;
   object-fit: contain;
   margin: 0 8px;
 }
@@ -123,7 +123,7 @@
 .ant-radio-inner::after {
   background-color: #ff6b00 !important;
   width: 20px !important;
-  height: 20px !important;
+  min-height: 20px !important;
   margin-block-start: -10px !important;
   margin-inline-start: -10px !important;
 }
