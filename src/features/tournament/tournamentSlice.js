@@ -8,8 +8,10 @@ export const fetchData = createAsyncThunk(
     async (id, { rejectWithValue }) => {
         try {
             const response = await getApiRequest(`${END_POINTS.GET_TOURNAMENT_BY_ID}/${id}`);
+            console.log('response: ', response);
             return response.tournament;
         } catch (error) {
+            console.log('error: ', error);
             return rejectWithValue(error.response.data);
         }
     }

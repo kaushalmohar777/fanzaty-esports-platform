@@ -24,9 +24,9 @@ const RegisterFeatured = () => {
 
   useEffect(() => {
     if (id) {
-      dispatch(fetchData(id)); // This will only trigger when id changes
+      dispatch(fetchData(id));
     }
-  }, [id, dispatch]); // depend only on id
+  }, [id, dispatch]);
 
   const items = [
     {

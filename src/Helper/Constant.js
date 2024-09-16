@@ -24,5 +24,9 @@ export const END_POINTS = {
 
     // Group chat endpoints
     GET_USER_BY_TOURNAMENT: "user/tournament-wise-users",
-    GET_BRACKET_DATA: "game/get-brackets"
+    GET_BRACKET_DATA: "game/get-brackets",
+
+
+    // Score submission
+    SCORE_SUBMISSION: "score/submit-score"
 }

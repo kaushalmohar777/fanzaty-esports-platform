@@ -7,7 +7,7 @@ import dollar from "../../assets/images/dollar.svg";
 import dateTime from "../../assets/images/Date-time.svg";
 import { Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 import { getApiRequest } from "../../services/getApiRequest";
 import { END_POINTS } from "../../Helper/Constant";
@@ -17,7 +17,6 @@ import moment from "moment";
 const FeatureTournament = () => {
   const { t } = useTranslation("common");
   const [featuredTournaments, setFeaturedTournaments] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     getFeturedTournament();
@@ -112,9 +111,7 @@ const FeatureTournament = () => {
                     <div className="join-tournament-button">
                       <Link
                         className="join-tournament-btn"
-                        onClick={() =>
-                          navigate(`/register-featured/${item._id}`)
-                        }
+                        to={`/register-featured/${item._id}`}
                       >
                         {t("feature_tournament.join_tournament")}
                       </Link>

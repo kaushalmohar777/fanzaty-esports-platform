@@ -347,8 +347,6 @@
 .flag-img {
   width: 30px;
   height: 30px;
-  margin-left: 10px;
-  margin-top: 10px;
 }
 .country-option {
   display: flex !important;
@@ -368,4 +366,46 @@
 }
 .alpha-calling-code {
   margin-left: 8px;
+}
+
+.sign-up-box .ant-form-item-control {
+  width: 360px !important;
+  max-width: 360px !important;
+}
+
+.font-english span.ant-input-group-addon .ant-select-selector {
+  font-size: 12px !important;
+  font-family: "Anybody", sans-serif;
+}
+
+.font-arabic span.ant-input-group-addon .ant-select-selector {
+  font-size: 12px !important;
+  font-family: "Alexandria", sans-serif;
+}
+
+.font-english
+  .ant-input.css-dev-only-do-not-override-1gwfwyx.ant-input-outlined,
+.ant-input.css-dev-only-do-not-override-1gwfwyx {
+  font-size: 14px !important;
+  font-family: "Anybody", sans-serif !important;
+}
+
+.font-arabic .ant-input.css-dev-only-do-not-override-1gwfwyx.ant-input-outlined,
+.ant-input.css-dev-only-do-not-override-1gwfwyx {
+  font-size: 14px !important;
+  font-family: "Alexandria", sans-serif !important;
+}
+
+.ant-select-item-option-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ant-select-item-option-content span {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

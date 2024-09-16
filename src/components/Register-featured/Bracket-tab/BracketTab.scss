@@ -75,7 +75,7 @@
   text-align: left;
 }
 .team-members {
-  margin-top: 68px;
+  margin-top: 0;
 }
 .player-combination-section {
   width: 248px;
@@ -111,18 +111,20 @@
 .main-team-members {
   position: relative;
 }
-.main-team-members::after {
+.main-team-members::before {
   content: "";
-  background-image: url(/src/assets/images/win-border.svg);
-  background-repeat: no-repeat;
-  background-size: auto;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  max-height: 171px;
-  top: 60%;
-  left: 50%;
-  transform: translate(calc(100% - -10px), -50%);
+  // background-image: url(/src/assets/images/win-border.svg);
+  // background-repeat: no-repeat;
+  // background-size: auto;
+  // position: absolute;
+  // width: 100%;
+  // height: 470px;
+  // top: 95px;
+  // left: calc(-100% - 60px);
+  // transform: translate(calc(100% + 10px), -50%);
+  // background: url(/src/assets/images/team-border.svg);
+  // background-size: contain;
+  // background-repeat: no-repeat;
 }
 
 .font-english .tournament-date {
@@ -223,6 +225,14 @@
   color: #fff;
   margin-top: 56px;
 }
+.main-team-members:nth-child(even):after {
+  top: 0;
+  border-bottom: 1px solid #ffffff;
+  border-top: 0;
+}
+.main-team-members:nth-child(even)::before {
+  border: 0;
+}
 .font-arabic .last-game-score-submission {
   font-family: "Alexandria";
   font-size: 20px;
@@ -276,4 +286,65 @@
 .font-arabic .player-number {
   @include player-number;
   font-family: "Alexandria";
+}
+
+.ant-row.ant-row-space-around.css-dev-only-do-not-override-1gwfwyx {
+  justify-content: flex-start !important;
+  flex-wrap: nowrap;
+  gap: 112px;
+}
+
+.abc {
+  background: url("../../../assets/images/team-border.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+// .team-border-2 .main-team-members::before {
+//   height: 235px;
+// }
+// .team-border-2 {
+//   row-gap: 267px;
+// }
+// .team-border-4 {
+//   row-gap: 40px;
+// }
+// .team-border-4 .main-team-members::before {
+//   height: 194px;
+// }
+// .team-border-8 {
+//   row-gap: 60px;
+// }
+.ant-col.ant-col-4.css-dev-only-do-not-override-1gwfwyx > div {
+  justify-content: space-evenly !important;
+}
+.main-team-members {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.main-team-members::after {
+  border-right: 3px solid #ffffff;
+  content: " ";
+  position: absolute;
+  right: calc(-100% + 50px);
+  width: 100%;
+  height: 50%;
+  bottom: 0;
+  border-top: 1px solid #ffffff;
+  border-bottom: 0;
+  width: 20px;
+}
+.team-border-1 .main-team-members::after {
+  display: none;
+}
+.main-team-members::before {
+  content: "";
+  border-bottom: 1px solid #ffffff;
+  position: absolute;
+  bottom: 0;
+  right: calc(-100% + 31px);
+  width: 20px;
+  height: 100%;
 }

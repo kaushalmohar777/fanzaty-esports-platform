@@ -36,7 +36,7 @@ const BracketTab = () => {
 
   const renderTeamMembers = (teams = []) => {
     return teams.map((item, index) => (
-      <div className="main-team-members" key={index}>
+      <div className={`main-team-members`} key={index}>
         {renderBrackets(item)}
       </div>
     ));
@@ -90,6 +90,7 @@ const BracketTab = () => {
                   height: "100%",
                   marginLeft: "35px",
                 }}
+                className={`team-border-${item?.groups?.length}`}
               >
                 {renderTeamMembers(item.groups)}
               </div>

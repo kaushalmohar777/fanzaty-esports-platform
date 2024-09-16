@@ -21,6 +21,7 @@ const Login = () => {
   useEffect(() => {
     if (isLogin) {
       navigate("/");
+      window.scrollTo(0, 0);
     }
   }, []);
 
@@ -33,6 +34,7 @@ const Login = () => {
         dispatch(setLoginState(true));
         form.resetFields();
         navigate("/");
+        window.scrollTo(0, 0);
       } else {
         showToast(response.message, "error");
       }
