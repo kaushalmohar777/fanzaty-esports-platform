@@ -9,24 +9,50 @@ import DetailsTab from "./Details-tab/DetailsTab";
 import PlayersTab from "./Players-tab/PlayersTab";
 import ChatTab from "./Chat-tab/ChatTab";
 import ScoreSubmissionTab from "./Score-submission-tab/ScoreSubmissionTab";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../features/tournament/tournamentSlice";
 import moment from "moment";
+import { postApiRequest } from "../../services/postApiRequest";
+import { END_POINTS } from "../../Helper/Constant";
+import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
+import { fetchNotificationData } from "../../features/notification/notificationSlice";
 
 const RegisterFeatured = () => {
   const { t } = useTranslation("common");
   const { id } = useParams();
+  const location = useLocation();
   // const [tabKey, setTabKey] = useState("details");
   const dispatch = useDispatch();
   // const status = useSelector((state) => state?.tournament?.status);
   const data = useSelector((state) => state?.tournament?.data);
+  const state = location.state || {};
 
   useEffect(() => {
     if (id) {
       dispatch(fetchData(id));
     }
   }, [id, dispatch]);
+
+  useEffect(() => {
+    if (state?.fromNotification) {
+      handleNotification();
+    }
+  }, [state]);
+
+  const handleNotification = async () => {
+    try {
+      const response = await postApiRequest(
+        `${END_POINTS.NOTIFICATION_SEEN}/${state?.notificationId}`
+      );
+      if (response.success) {
+        dispatch(fetchNotificationData());
+      }
+    } catch (error) {
+      console.log("error: ", error);
+      showToast(error?.error?.message, "error");
+    }
+  };
 
   const items = [
     {

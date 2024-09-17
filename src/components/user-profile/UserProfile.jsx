@@ -1,6 +1,6 @@
 import "./UserProfile.scss";
 import { Col, Row, Tabs } from "antd";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import userEditIcon from "../../assets/images/user-edit-icon.svg";
 import { useTranslation } from "react-i18next";
 import gameImage from "../../assets/images/game-image.svg";
@@ -13,6 +13,7 @@ import { memo, useState } from "react";
 import copy from "copy-to-clipboard";
 import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 import CommonModal from "../../shared/sharedComponents/CommonModal/CommonModal";
+import { setUser } from "../../features/user/userSlice";
 import { getApiRequest } from "../../services/getApiRequest";
 import { END_POINTS } from "../../Helper/Constant";
 /* eslint-disable react-refresh/only-export-components */
@@ -22,21 +23,7 @@ const UserProfile = () => {
   const { t } = useTranslation("common");
   const [open, setOpen] = useState(false);
   const [editData, setEditData] = useState(null);
-
-  const gameIdData = [
-    {
-      gameIdHeading: t("game_id.uno_id"),
-      gameId: "232354655545",
-    },
-    {
-      gameIdHeading: t("game_id.fc24_id"),
-      gameId: "232354655545",
-    },
-    {
-      gameIdHeading: t("game_id.pubg_id"),
-      gameId: "ZZ10",
-    },
-  ];
+  const dispatch = useDispatch();
 
   const data = [
     {
@@ -128,21 +115,21 @@ const UserProfile = () => {
     },
   ];
 
-  const getGameData = async () => {
-    try {
-      const response = await getApiRequest(END_POINTS);
-      if (response.success) {
-        console.log("response: ", response);
-      }
-    } catch (error) {
-      console.log("error: ", error);
-      showToast(error?.error?.message || "Something went wrong", "error");
-    }
-  };
-
   const handleEditGameId = async (item) => {
     setOpen(true);
     setEditData(item);
+  };
+
+  const fetchUserData = async () => {
+    try {
+      const response = await getApiRequest(END_POINTS.GET_USER_DATA);
+      if (response.success) {
+        dispatch(setUser(response.user));
+      }
+    } catch (error) {
+      console.log(error);
+      showToast(error?.error?.message, "error");
+    }
   };
 
   return (
@@ -151,7 +138,7 @@ const UserProfile = () => {
         open={open}
         handleClose={setOpen}
         data={editData}
-        onModalClose={getGameData}
+        onModalClose={fetchUserData}
       />
       <div className="container">
         <div className="user-detail-main">
@@ -232,13 +219,13 @@ const UserProfile = () => {
         <div className="game-id">
           <h4 className="game-id-heading">{t("user_profile.game_id")}</h4>
           <Flex wrap gap="middle">
-            {gameIdData &&
-              gameIdData.map((item, index) => {
+            {userData?.gameIds &&
+              userData?.gameIds?.map((item, index) => {
                 return (
                   <div className="game-id-division" key={index}>
                     <div>
-                      <p className="game-id-head">{item.gameIdHeading}</p>
-                      <p className="game-dynamic-id">{item.gameId}</p>
+                      <p className="game-id-head">{item?.tournament}</p>
+                      <p className="game-dynamic-id">{item?.editableGameId}</p>
                     </div>
                     <div>
                       <img

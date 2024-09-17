@@ -5,14 +5,21 @@ import { useEffect, useState } from "react";
 import { putApiRequest } from "../../../services/putApiRequest";
 import { END_POINTS } from "../../../Helper/Constant";
 import { memo } from "react";
+import { showToast } from "../ToasterMessage/ToasterMessage";
 
 const CommonModal = ({ open, handleClose, onModalClose, data }) => {
-  const [inputVal, setInputVal] = useState(null);
+  const [editableGameId, setEditableGameId] = useState(null);
+  const [enrollmentId, setEnrollmentId] = useState(null);
 
   const handleOk = async () => {
+    const payload = {
+      enrollementId: enrollmentId,
+      editableGameId: editableGameId,
+    };
     try {
-      const response = await putApiRequest(END_POINTS, inputVal);
+      const response = await putApiRequest(END_POINTS.EDIT_GAME_ID, payload);
       if (response.success) {
+        showToast(response?.message, "success");
         handleClose(false);
         onModalClose();
       }
@@ -27,7 +34,8 @@ const CommonModal = ({ open, handleClose, onModalClose, data }) => {
 
   useEffect(() => {
     if (data) {
-      setInputVal(data.gameId);
+      setEditableGameId(data.editableGameId);
+      setEnrollmentId(data._id);
     }
   }, [data]);
 
@@ -43,8 +51,8 @@ const CommonModal = ({ open, handleClose, onModalClose, data }) => {
       <Input
         placeholder="Enter game id"
         variant="filled"
-        value={inputVal}
-        onChange={(e) => setInputVal(e.target.value)}
+        value={editableGameId}
+        onChange={(e) => setEditableGameId(e.target.value)}
       />
     </Modal>
   );

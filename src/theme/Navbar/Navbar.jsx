@@ -78,7 +78,12 @@ const Navbar = () => {
         ),
         className: "notification-class",
         onClick: () => {
-          navigate(`/register-featured/${notification?.tournamentId}`);
+          navigate(`/register-featured/${notification?.tournamentId}`, {
+            state: {
+              fromNotification: true,
+              notificationId: notification._id,
+            },
+          });
           setNotificationOpen(false);
         },
       }));
@@ -221,6 +226,7 @@ const Navbar = () => {
       setNotificationOpen(false);
     }
   };
+
   const handleOpenChange = (nextOpen, info) => {
     if (info.source === "trigger" || nextOpen) {
       setNotificationOpen(nextOpen);

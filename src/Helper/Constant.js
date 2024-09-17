@@ -21,6 +21,7 @@ export const END_POINTS = {
 
     // notification
     GET_ALL_NOTIFICATION: 'notification/get-all',
+    NOTIFICATION_SEEN: "notification/change-status",
 
     // Group chat endpoints
     GET_USER_BY_TOURNAMENT: "user/tournament-wise-users",
@@ -28,5 +29,9 @@ export const END_POINTS = {
 
 
     // Score submission
-    SCORE_SUBMISSION: "score/submit-score"
+    SCORE_SUBMISSION: "score/submit-score",
+
+    // Game ID edit end points
+    EDIT_GAME_ID: "game/udpate-gameID"
+
 }

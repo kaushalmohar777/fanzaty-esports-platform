@@ -3,19 +3,21 @@ import "./ScoreSubmissionTab.scss";
 import image76 from "../../../assets/avatar-image/image76.svg";
 import { Button, Col, Row } from "antd";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { fileUploadApi } from "../../../services/fileUpload";
 import { END_POINTS } from "../../../Helper/Constant";
 import { showToast } from "../../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 import { postApiRequest } from "../../../services/postApiRequest";
 import Swal from "sweetalert2";
+import { fetchData } from "../../../features/tournament/tournamentSlice";
 
 const ScoreSubmissionTab = () => {
   const { t } = useTranslation("common");
   const data = useSelector((state) => state?.tournament?.data);
   const [screenshot, setScreenshot] = useState(null);
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const fileInputRef = useRef(null);
 
@@ -32,6 +34,10 @@ const ScoreSubmissionTab = () => {
           END_POINTS.SCORE_SUBMISSION,
           payload
         );
+        if (response.success) {
+          showToast(response?.message, "success");
+          setScreenshot(null);
+        }
         console.log("response", response);
       } catch (error) {
         console.log("error: ", error);
@@ -79,6 +85,7 @@ const ScoreSubmissionTab = () => {
                 response?.message,
                 "success"
               );
+              dispatch(fetchData(id));
             } else {
               throw new Error(
                 response?.error?.message || "Registration failed"

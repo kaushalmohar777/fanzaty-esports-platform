@@ -46,7 +46,7 @@ const PlayersTab = () => {
               <p className="eid">{t("player.eid")}</p>
               <p className="user-name">{t("player.userName")}</p>
             </div>
-            {visibleData.map((item, index) => (
+            {visibleData?.map((item, index) => (
               <div key={index} className="price-show-section" ref={playersRef}>
                 <div
                   className="prize-pool-place"
