@@ -3,26 +3,14 @@ import "./PlayersTab.scss";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const PlayersTab = () => {
   const { t } = useTranslation("common");
   const data = useSelector((state) => state?.tournament?.data);
-
   const playersRef = useRef(null);
-  // const data = [
-  //   { eid: t("player.eid"), userName: t("player.userName") },
-  //   { eid: "Abo khalil98", userName: "abd" },
-  //   { eid: "rcx_19", userName: "rcx_19" },
-  //   { eid: "coxial_tiger72", userName: "coaxial_tiger72" },
-  //   { eid: "HAMZAH", userName: "HAMZAHGG" },
-  //   { eid: "GHAZY98", userName: "GH98" },
-  //   { eid: "SKU_kwt-yo24", userName: "OEhEqJf77LT5Mi5h" },
-  //   { eid: "Noorpro20002", userName: "Noraldo 2" },
-  //   { eid: "mohamed0909870", userName: "Ali-AKJ" },
-  //   { eid: "msh31633", userName: "مشعل بن" },
-  // ];
-
   const [isExpanded, setIsExpanded] = useState(false);
+  const navigate = useNavigate();
 
   const handleViewMore = () => {
     setIsExpanded(true);
@@ -36,6 +24,7 @@ const PlayersTab = () => {
   };
 
   const visibleData = isExpanded ? data?.players : data?.players?.slice(0, 5);
+  console.log("visibleData: ", visibleData);
 
   return (
     <section>
@@ -47,7 +36,12 @@ const PlayersTab = () => {
               <p className="user-name">{t("player.userName")}</p>
             </div>
             {visibleData?.map((item, index) => (
-              <div key={index} className="price-show-section" ref={playersRef}>
+              <div
+                key={index}
+                className="price-show-section"
+                ref={playersRef}
+                onClick={() => navigate(`/consumer-Profile/${item._id}`)}
+              >
                 <div
                   className="prize-pool-place"
                   dangerouslySetInnerHTML={{

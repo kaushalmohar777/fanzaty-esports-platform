@@ -30,6 +30,7 @@ const RegisterFeatured = () => {
 
   useEffect(() => {
     if (id) {
+      console.log("called, id", id);
       dispatch(fetchData(id));
     }
   }, [id, dispatch]);

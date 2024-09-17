@@ -1,5 +1,5 @@
-import { memo } from "react";
-import "./consumerProfile.scss";
+import { memo, useEffect } from "react";
+import "./ConsumerProfile.scss";
 import { Col, Row } from "antd";
 import { Button } from "antd";
 import { useTranslation } from "react-i18next";
@@ -9,16 +9,22 @@ import Thumbimg from "../../assets/icons/thumb.svg";
 import Lockbimg from "../../assets/icons/lock.svg";
 import userimg from "../../assets/icons/user-rating.svg";
 import starimg from "../../assets/icons/star.svg";
+import { useParams } from "react-router-dom";
 
 /* eslint-disable react-refresh/only-export-components */
 const ConsumerProfile = () => {
   const { t } = useTranslation("common");
+  const { id } = useParams();
+
+  useEffect(() => {
+    console.log("id", id);
+  }, [id]);
 
   return (
-    <div className="Container-main-box">
-      <Row>
+    <div className="container">
+      <Row gutter={[16, 16]} className="consumer-profile-section">
         <Col span={7}>
-          <div className="section-right-pannel bg-dark-black border-1">
+          <div className="consumer-section-right-pannel bg-dark-black border-1">
             <div className="user-profile-section">
               <img className="profile-img" src={Userprofileimg} alt="" />
               <h1 className="profile-title">Fanzaty</h1>
@@ -82,7 +88,7 @@ const ConsumerProfile = () => {
           <div className="profile-right-section">
             <Row>
               <Col span={7}>
-                <div className="section-right-pannel left-pannel bg-dark-black border-1 ">
+                <div className="consumer-section-right-pannel left-pannel bg-dark-black border-1 ">
                   <h2 className="text-invited">{t("consumerProfile.unoId")}</h2>
                   <h3 className="text-invited-num">23235</h3>
                   <table className="profile-table table-loses">
@@ -103,7 +109,7 @@ const ConsumerProfile = () => {
                 </div>
               </Col>
               <Col span={7}>
-                <div className="section-right-pannel left-pannel bg-dark-black border-1">
+                <div className="consumer-section-right-pannel left-pannel bg-dark-black border-1">
                   <h2 className="text-invited">{t("consumerProfile.pubg")}</h2>
                   <h3 className="text-invited-num">ZZ10</h3>
                   <table className="profile-table table-loses">
@@ -124,7 +130,7 @@ const ConsumerProfile = () => {
                 </div>
               </Col>
               <Col span={7}>
-                <div className="section-right-pannel left-pannel bg-dark-black border-1">
+                <div className="consumer-section-right-pannel left-pannel bg-dark-black border-1">
                   <h2 className="text-invited">{t("consumerProfile.fc24")}</h2>
                   <h3 className="text-invited-num">PS3 XBI</h3>
                   <table className="profile-table table-loses">
@@ -148,7 +154,7 @@ const ConsumerProfile = () => {
             <div className="comment-section">
               <Row>
                 <Col span={24}>
-                  <div className="section-right-pannel left-pannel bg-dark-black border-1 ">
+                  <div className="consumer-section-right-pannel left-pannel bg-dark-black border-1 ">
                     <div className="comment-total-sectipn">
                       <div className="text-comment">
                         <h3>{t("consumerProfile.comments")}</h3>

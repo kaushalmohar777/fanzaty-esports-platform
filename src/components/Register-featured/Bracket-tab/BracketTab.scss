@@ -348,3 +348,17 @@
   width: 20px;
   height: 100%;
 }
+.team-border-1 .main-team-members::before {
+  display: none;
+}
+.champion-player {
+  position: relative;
+}
+.champion-player::before {
+  content: " ";
+  width: 74px;
+  border-bottom: 1px solid #ffffff;
+  position: absolute;
+  left: -74px;
+  top: calc(50% + -7px);
+}

@@ -27,7 +27,6 @@ export const END_POINTS = {
     GET_USER_BY_TOURNAMENT: "user/tournament-wise-users",
     GET_BRACKET_DATA: "game/get-brackets",
 
-
     // Score submission
     SCORE_SUBMISSION: "score/submit-score",
 

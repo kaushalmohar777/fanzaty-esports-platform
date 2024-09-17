@@ -231,7 +231,8 @@
     "chat": "Chat",
     "brackets": "Brackets",
     "players": "Players",
-    "score_submission": "Score Submission"
+    "score_submission": "Score Submission",
+    "champion": "Champion"
   },
 
   "detailsTab": {

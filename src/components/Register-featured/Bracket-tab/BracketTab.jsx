@@ -6,11 +6,13 @@ import { getApiRequest } from "../../../services/getApiRequest";
 import { END_POINTS } from "../../../Helper/Constant";
 import { showToast } from "../../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 import winTropy from "../../../assets/images/top-trophy.svg";
+import { useTranslation } from "react-i18next";
 
 const BracketTab = () => {
   const { id } = useParams();
   const [bracketData, setBracketData] = useState([]);
   const [championData, setChampionData] = useState(null);
+  const { t } = useTranslation("common");
 
   useEffect(() => {
     if (id) {
@@ -99,9 +101,7 @@ const BracketTab = () => {
             </Col>
           ))}
           <Col span={4}>
-            {championData && (
-              <button className="round-btn">Final Round </button>
-            )}
+            {championData && <button className="round-btn">Champion </button>}
             <div
               style={{
                 display: "flex",
@@ -116,9 +116,12 @@ const BracketTab = () => {
                   <div className="champion-team-members">
                     <div style={{ display: "flex", alignItems: "center" }}>
                       <img src={winTropy} alt="champion-img" />
-                      <span className="champion">{championData.name}</span>
+                      <span className="champion">
+                        {" "}
+                        {t("featuredRegister.champion")}
+                      </span>
                     </div>
-                    <div className="player-combination-section">
+                    <div className="player-combination-section champion-player">
                       <div className="player-number">{championData.score}</div>
                       <div className="team-name">{championData.name}</div>
                     </div>

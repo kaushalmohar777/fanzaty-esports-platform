@@ -160,7 +160,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/consumer-Profile",
+        path: "/consumer-Profile/:id",
         element: (
           <Suspense fallback={<LoadingFallback />}>
             <Consumerprofile />
