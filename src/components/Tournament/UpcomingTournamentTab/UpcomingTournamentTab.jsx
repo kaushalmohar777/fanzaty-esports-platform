@@ -18,7 +18,7 @@ import Swal from "sweetalert2";
 const UpcomingTournamentTab = () => {
   const { t } = useTranslation("common");
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState({});
 
   const [upcominTournaments, setUpcominTournaments] = useState([]);
 
@@ -62,7 +62,7 @@ const UpcomingTournamentTab = () => {
       })
       .then(async (result) => {
         if (result.isConfirmed) {
-          setLoading(true);
+          setLoading((prev) => ({ ...prev, [id]: true }));
           try {
             const response = await postApiRequest(
               END_POINTS.REGISTER_TOURNAMENT,
@@ -91,6 +91,8 @@ const UpcomingTournamentTab = () => {
               error?.message || "Something went wrong",
               "error"
             );
+          } finally {
+            setLoading((prev) => ({ ...prev, [id]: false })); // Stop the loader
           }
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           swalWithBootstrapButtons.fire(
@@ -180,7 +182,7 @@ const UpcomingTournamentTab = () => {
                         <Button
                           className="registration-open"
                           onClick={() => handleRegister(item._id, item.name)}
-                          loading={loading}
+                          loading={loading[item._id]}
                         >
                           {t("ongoing_tournament.registration_open")}
                         </Button>

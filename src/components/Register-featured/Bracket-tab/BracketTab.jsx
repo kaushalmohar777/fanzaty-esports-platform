@@ -58,9 +58,14 @@ const BracketTab = () => {
     const lastRound = brackets.reduce((prev, current) =>
       prev.level > current.level ? prev : current
     );
+
+    console.log("lastRound", lastRound);
+
     const qualifiedTeams = lastRound.groups.flatMap((group) =>
       group.filter((team) => team.isQualified)
     );
+
+    console.log("qualifiedTeams", qualifiedTeams);
 
     if (qualifiedTeams.length > 0) {
       setChampionData(qualifiedTeams[0]);
