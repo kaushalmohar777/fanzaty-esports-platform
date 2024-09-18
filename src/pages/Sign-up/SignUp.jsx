@@ -11,6 +11,7 @@ import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterM
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { fileUploadApi } from "../../services/fileUpload";
 import { useSelector } from "react-redux";
+import userImage from "../../assets/images/user-image.svg";
 
 const SignUp = () => {
   const { t } = useTranslation("common");
@@ -102,10 +103,12 @@ const SignUp = () => {
   };
 
   const onFinish = async (values) => {
+    const avatarToSend = selectedAvatar || userImage;
     setIsLoading(true);
-    const payload = { ...values, avatarUrl: selectedAvatar };
+    const payload = { ...values, avatarUrl: avatarToSend };
     try {
       const response = await fileUploadApi(END_POINTS.SIGN_UP, payload);
+      console.log("response: ", response);
       if (response.data.success) {
         form.resetFields();
         setIsLoading(false);
@@ -114,6 +117,7 @@ const SignUp = () => {
       }
     } catch (error) {
       message.error(t("signUp.formSubmissionFailed"));
+      showToast(error?.response?.data?.message, "error");
       setIsLoading(false);
     }
   };

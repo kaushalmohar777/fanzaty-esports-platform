@@ -120,6 +120,7 @@ const EditUserProfile = () => {
         showToast(response?.message, "success");
         form.resetFields();
         navigate("/");
+        window.scrollTo(0, 0);
       }
     } catch (error) {
       console.log("error: ", error);

@@ -10,6 +10,7 @@ export const END_POINTS = {
     UPDATE_PASSWORD: "user/reset-password",
     UPDATE_PROFILE: "user/update-profile",
     GET_ALL_USER: "user/get-all",
+    GET_USER_BY_ID: "user/get-user-by-id",
     // Tournaments end points
     PAST_TOURNAMENTS: 'tournament/filtered/Past_Tournament',
     ONGOING_TOURNAMENTS: 'tournament/filtered/Ongoing',
@@ -31,6 +32,6 @@ export const END_POINTS = {
     SCORE_SUBMISSION: "score/submit-score",
 
     // Game ID edit end points
-    EDIT_GAME_ID: "game/udpate-gameID"
+    EDIT_GAME_ID: "game/udpate-gameID",
 
 }

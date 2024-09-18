@@ -6,10 +6,12 @@ import { putApiRequest } from "../../../services/putApiRequest";
 import { END_POINTS } from "../../../Helper/Constant";
 import { memo } from "react";
 import { showToast } from "../ToasterMessage/ToasterMessage";
+import { useTranslation } from "react-i18next";
 
 const CommonModal = ({ open, handleClose, onModalClose, data }) => {
   const [editableGameId, setEditableGameId] = useState(null);
   const [enrollmentId, setEnrollmentId] = useState(null);
+  const { t } = useTranslation("common");
 
   const handleOk = async () => {
     const payload = {
@@ -41,15 +43,17 @@ const CommonModal = ({ open, handleClose, onModalClose, data }) => {
 
   return (
     <Modal
-      title="Edit Game ID"
+      title={t("model.edit_game_id")}
       className="custom-modal"
       centered
       open={open}
       onOk={handleOk}
       onCancel={handleCancel}
+      okText={t("model.modal_ok")} // Translate OK button
+      cancelText={t("model.modal_cancel")}
     >
       <Input
-        placeholder="Enter game id"
+        placeholder={t("model.enter_game_id")}
         variant="filled"
         value={editableGameId}
         onChange={(e) => setEditableGameId(e.target.value)}

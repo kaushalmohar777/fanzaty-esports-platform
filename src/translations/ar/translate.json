@@ -338,5 +338,11 @@
     "cancelled": "تم الإلغاء",
     "registered": "مسجل",
     "name": "اسم"
+  },
+  "model": {
+    "edit_game_id": "تحرير معرف اللعبة",
+    "enter_game_id": "أدخل معرف اللعبة",
+    "modal_ok": "موافق",
+    "modal_cancel": "إلغاء"
   }
 }

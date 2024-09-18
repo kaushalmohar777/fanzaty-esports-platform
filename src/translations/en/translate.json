@@ -333,5 +333,11 @@
     "cancelled": "Cancelled",
     "registered": "Registered",
     "name": "name"
+  },
+  "model": {
+    "edit_game_id": "Edit Game ID",
+    "enter_game_id": "Enter game id",
+    "modal_ok": "OK",
+    "modal_cancel": "Cancel"
   }
 }

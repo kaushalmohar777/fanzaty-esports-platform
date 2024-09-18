@@ -10,6 +10,8 @@ import Lockbimg from "../../assets/icons/lock.svg";
 import userimg from "../../assets/icons/user-rating.svg";
 import starimg from "../../assets/icons/star.svg";
 import { useParams } from "react-router-dom";
+import { getApiRequest } from "../../services/getApiRequest";
+import { END_POINTS } from "../../Helper/Constant";
 
 /* eslint-disable react-refresh/only-export-components */
 const ConsumerProfile = () => {
@@ -17,8 +19,21 @@ const ConsumerProfile = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log("id", id);
+    if (id) getUserDetailsById(id);
   }, [id]);
+
+  const getUserDetailsById = async (id) => {
+    try {
+      const response = await getApiRequest(
+        `${END_POINTS.GET_USER_BY_ID}/${id}`
+      );
+      if (response.success) {
+        console.log(response);
+      }
+    } catch (error) {
+      console.log("error: ", error);
+    }
+  };
 
   return (
     <div className="container">
