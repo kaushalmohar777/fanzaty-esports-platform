@@ -14,11 +14,14 @@ import dateTime from "../../../assets/images/Date-time.svg";
 import { Button, Col, Row } from "antd";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { fetchNotificationData } from "../../../features/notification/notificationSlice";
+import { useDispatch } from "react-redux";
 
 const UpcomingTournamentTab = () => {
   const { t } = useTranslation("common");
   const navigate = useNavigate();
   const [loading, setLoading] = useState({});
+  const dispatch = useDispatch();
 
   const [upcominTournaments, setUpcominTournaments] = useState([]);
 
@@ -78,6 +81,7 @@ const UpcomingTournamentTab = () => {
                 response?.message,
                 "success"
               );
+              dispatch(fetchNotificationData());
             } else {
               throw new Error(
                 response?.error?.message || "Registration failed"
