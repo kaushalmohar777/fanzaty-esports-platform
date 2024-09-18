@@ -61,13 +61,9 @@ const BracketTab = () => {
       prev.level > current.level ? prev : current
     );
 
-    console.log("lastRound", lastRound);
-
     const qualifiedTeams = lastRound.groups.flatMap((group) =>
       group.filter((team) => team.isQualified)
     );
-
-    console.log("qualifiedTeams", qualifiedTeams);
 
     if (qualifiedTeams.length > 0) {
       setChampionData(qualifiedTeams[0]);
@@ -122,8 +118,8 @@ const BracketTab = () => {
                       </span>
                     </div>
                     <div className="player-combination-section champion-player">
-                      <div className="player-number">{championData.score}</div>
-                      <div className="team-name">{championData.name}</div>
+                      <div className="player-number">{championData?.score}</div>
+                      <div className="team-name">{championData?.name}</div>
                     </div>
                   </div>
                 </div>

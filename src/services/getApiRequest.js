@@ -19,7 +19,7 @@ export const getApiRequest = async (END_POINTS) => {
             clearLocalStorageData();
             window.location.href = "/login";
         } else if (error?.response?.status === 400) {
-            showToast(error.response.data.message);
+            showToast(error.response.data.message, 'error');
         }
         throw error;
     }
