@@ -76,16 +76,20 @@ const RegisterFeatured = () => {
       label: t("featuredRegister.brackets"),
       children: <BracketTab />,
     },
-    {
-      key: "chat",
-      label: t("featuredRegister.chat"),
-      children: <ChatTab />,
-    },
-    {
-      key: "score",
-      label: t("featuredRegister.score_submission"),
-      children: <ScoreSubmissionTab />,
-    },
+    ...(data.status !== "Past_Tournament"
+      ? [
+          {
+            key: "chat",
+            label: t("featuredRegister.chat"),
+            children: <ChatTab />,
+          },
+          {
+            key: "score",
+            label: t("featuredRegister.score_submission"),
+            children: <ScoreSubmissionTab />,
+          },
+        ]
+      : []),
   ];
 
   // const onChange = (key) => {

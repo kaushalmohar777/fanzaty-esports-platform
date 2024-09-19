@@ -21,6 +21,7 @@ import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { setUser } from "../../features/user/userSlice";
+import TextArea from "antd/es/input/TextArea";
 
 /* eslint-disable react-refresh/only-export-components */
 dayjs.extend(customParseFormat);
@@ -247,8 +248,15 @@ const EditUserProfile = () => {
                   </Space>
                 </Form.Item>
 
-                <Form.Item name="bio" label={t("signUp.bio")}>
+                {/* <Form.Item name="bio" label={t("signUp.bio")}>
                   <Input placeholder={t("signUp.bio_place_holder")} />
+                </Form.Item> */}
+                <Form.Item name="bio" label={t("signUp.bio")}>
+                  <TextArea
+                    rows={4}
+                    placeholder={t("signUp.bio_place_holder")}
+                    maxLength={256}
+                  />
                 </Form.Item>
 
                 <Form.Item

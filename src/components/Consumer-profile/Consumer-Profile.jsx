@@ -12,6 +12,7 @@ import starimg from "../../assets/icons/star.svg";
 import { useParams } from "react-router-dom";
 import { getApiRequest } from "../../services/getApiRequest";
 import { END_POINTS } from "../../Helper/Constant";
+import sendIcon from "../../assets/icons/send-icon.svg";
 
 /* eslint-disable react-refresh/only-export-components */
 const ConsumerProfile = () => {
@@ -168,18 +169,18 @@ const ConsumerProfile = () => {
             </Row>
             <div className="comment-section">
               <Row>
-                <Col span={24}>
-                  <div className="consumer-section-right-pannel left-pannel bg-dark-black border-1 ">
-                    <div className="comment-total-sectipn">
-                      <div className="text-comment">
-                        <h3>{t("consumerProfile.comments")}</h3>
-                      </div>
-                      <div className="total">
-                        <h3>
-                          {t("consumerProfile.total")} <span>(3)</span>
-                        </h3>
-                      </div>
+                <Col span={24} className="border-1">
+                  <div className="comment-total-sectipn">
+                    <div className="text-comment">
+                      <h3>{t("consumerProfile.comments")}</h3>
                     </div>
+                    <div className="total">
+                      <h3>
+                        {t("consumerProfile.total")} <span>(3)</span>
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="comment-section consumer-section-right-pannel left-pannel bg-dark-black  ">
                     <div className="ratings-section">
                       <img src={userimg} alt="" />
                       <div className="rating-content">
@@ -292,6 +293,15 @@ const ConsumerProfile = () => {
                         </p>
                       </div>
                     </div>
+                  </div>
+
+                  <div className="add-comment-section">
+                    <input placeholder="Comment..." />
+                    <img
+                      src={sendIcon}
+                      alt="loading-send-icon"
+                      className="comment-send-icon"
+                    />
                   </div>
                 </Col>
               </Row>

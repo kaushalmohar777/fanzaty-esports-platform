@@ -1,10 +1,14 @@
 .upload-result-tab {
   width: 100%;
-  height: 507px;
-  background-image: url("../../../assets/images/upload-result-bg.svg");
-  background-size: contain;
+  min-height: 507px;
+  // background-image: url("../../../assets/images/upload-result-bg.svg");
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: #14211c;
+  color: #fff !important;
+  border: 1px solid #08ff96;
+  border-radius: 10px;
 }
 .upload-question-sec {
   padding: 65px 0px 70px 71px;
@@ -46,4 +50,86 @@
 .answer-ul-list {
   list-style-type: none;
   margin-top: 40px;
+}
+
+.issues {
+  margin: 10px 10px;
+}
+.issue-checkbox {
+  width: 16px;
+  height: 16px;
+}
+.issue-checkbox:checked {
+  width: 16px;
+  height: 16px;
+  accent-color: #08ff96;
+}
+.issue-text-area {
+  width: 80%;
+}
+.other-reason-input {
+  text-align: left;
+}
+
+.font-english .issue-submit-btn {
+  width: 245px;
+  height: 57px;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+  font-family: "Anybody";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  background-color: #08ff96;
+  color: #141414;
+}
+.font-english .issue-submit-btn:hover {
+  width: 245px;
+  height: 57px;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+  font-family: "Anybody";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  background-color: #08ff96 !important;
+  background: #08ff96 !important;
+  color: #141414 !important;
+}
+.font-arabic .issue-submit-btn {
+  width: 245px;
+  height: 57px;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+  font-family: "Alexandria", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  background-color: #08ff96 !important;
+  color: #141414 !important;
+}
+
+.font-arabic .issue-submit-btn:hover {
+  width: 245px;
+  height: 57px;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+  font-family: "Alexandria", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  background-color: #08ff96 !important;
+  background: #08ff96 !important;
+  color: #141414 !important;
+}
+.question-division {
+  margin-bottom: 20px;
 }

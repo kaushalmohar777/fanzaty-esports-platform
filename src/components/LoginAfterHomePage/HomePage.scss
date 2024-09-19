@@ -1,0 +1,96 @@
+.active-tourn-bg {
+  width: 100%;
+  background: url("../../assets/images/active-tournament.svg");
+  background-repeat: no-repeat;
+  height: 746px;
+  background-size: cover;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.active-tourn-bg::before {
+  background-color: #141414;
+  content: "";
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.join-academy-bg {
+  width: 100%;
+  background: url("../../assets/images/join-academy-img.svg");
+  background-repeat: no-repeat;
+  height: 746px;
+  background-size: cover;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.join-academy-bg::before {
+  background-color: #141414;
+  content: "";
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.active-tour-division {
+  width: 100%;
+  margin: 50px 0;
+  border: 1px solid #08ff96;
+  padding: 35px;
+  border-radius: 14.54px;
+}
+.login-after-home-page {
+  padding: 50px;
+}
+.active-tour-heading {
+  font-family: "Anybody", sans-serif;
+  font-size: 96px;
+  font-weight: 800;
+  line-height: 90px;
+  text-align: center;
+  color: #fffefe;
+  text-transform: uppercase;
+}
+
+.our-esport-track {
+  font-family: "Anybody";
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 59px;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+}
+.track {
+  display: flex;
+  gap: 20px;
+  margin: 35px 0;
+}
+.track-record {
+  width: 608px;
+  height: 310px;
+  padding: 46px 63px 46px 63px;
+  gap: 10px;
+  border-radius: 10px;
+  border: 1px solid #05f385;
+}
+.record-name {
+  font-family: "Anybody";
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 47px;
+  text-align: left;
+  color: #fff;
+}

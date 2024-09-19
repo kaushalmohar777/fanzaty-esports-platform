@@ -117,12 +117,14 @@ const UpcomingTournamentTab = () => {
             <div className="main-box" key={index}>
               <Row style={{ position: "relative", zIndex: "1" }}>
                 <Col span={12}>
-                  <img
-                    src={item?.fileUrl}
-                    alt="tournament-img"
-                    className="tournament-img"
-                    loading="lazy"
-                  />
+                  <div className="tournament-upcoming-img">
+                    <img
+                      src={item?.fileUrl}
+                      alt="tournament-img"
+                      className="tournament-img"
+                      loading="lazy"
+                    />
+                  </div>
                 </Col>
                 <Col span={12}>
                   <div className="tournament-details-section">

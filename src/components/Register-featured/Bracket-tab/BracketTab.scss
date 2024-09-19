@@ -225,13 +225,32 @@
   color: #fff;
   margin-top: 56px;
 }
-.main-team-members:nth-child(even):after {
+.font-english .main-team-members:nth-child(even):after {
   top: 0;
   border-bottom: 1px solid #ffffff;
   border-top: 0;
 }
-.main-team-members:nth-child(even)::before {
+.font-arabic .main-team-members:nth-child(odd):after {
+  top: auto;
+  bottom: 0;
+  rotate: 180deg;
+  left: calc(-100% + 48px);
+  // border-top: 0;
+}
+.font-arabic .main-team-members:nth-child(odd)::after {
+  border-top: 0;
+}
+.font-arabic .main-team-members:nth-child(even)::after {
+  border-bottom: 0;
+}
+.font-english .main-team-members:nth-child(even)::before {
   border: 0;
+}
+.font-arabic .team-border-4 .main-team-members:nth-child(even)::before {
+  border: 0;
+}
+.font-arabic .player-combination-section {
+  justify-content: space-around;
 }
 .font-arabic .last-game-score-submission {
   font-family: "Alexandria";
@@ -336,10 +355,20 @@
   border-bottom: 0;
   width: 20px;
 }
-.team-border-1 .main-team-members::after {
+.font-arabic .main-team-members::after {
+  top: 0;
+  bottom: auto;
+  border-bottom: 1px solid #ffffff;
+  left: calc(-100% + 48px);
+  right: auto;
+  rotate: 180deg;
+}
+.font-english .team-border-1 .main-team-members::after,
+.font-arabic .team-border-1 .main-team-members::after {
   display: none;
 }
-.main-team-members::before {
+.font-english .main-team-members::before,
+.font-arabic .main-team-members::before {
   content: "";
   border-bottom: 1px solid #ffffff;
   position: absolute;
@@ -348,17 +377,29 @@
   width: 20px;
   height: 100%;
 }
-.team-border-1 .main-team-members::before {
+.font-english .team-border-1 .main-team-members::before,
+.font-arabic .team-border-1 .main-team-members::before {
   display: none;
 }
-.champion-player {
+.font-english .champion-player,
+.font-arabic .champion-player {
   position: relative;
 }
-.champion-player::before {
+.font-english .champion-player::before,
+.font-arabic .champion-player::before {
   content: " ";
   width: 74px;
   border-bottom: 1px solid #ffffff;
   position: absolute;
   left: -74px;
   top: calc(50% + -7px);
+}
+.font-arabic .champion-player::before {
+  right: -74px;
+  left: auto;
+}
+.font-arabic .main-team-members::before {
+  left: calc(-100% + 30px);
+  right: auto;
+  border-top: 0;
 }
