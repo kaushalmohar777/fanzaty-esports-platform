@@ -47,7 +47,7 @@ const UpcomingTournamentTab = () => {
         confirmButton: "btn btn-success",
         cancelButton: "btn btn-danger",
       },
-      buttonsStyling: false,
+      buttonsStyling: true,
     });
 
     swalWithBootstrapButtons
@@ -96,7 +96,7 @@ const UpcomingTournamentTab = () => {
               "error"
             );
           } finally {
-            setLoading((prev) => ({ ...prev, [id]: false })); // Stop the loader
+            setLoading((prev) => ({ ...prev, [id]: false }));
           }
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           swalWithBootstrapButtons.fire(

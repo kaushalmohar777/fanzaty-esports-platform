@@ -322,6 +322,7 @@ const SignUp = () => {
                     src={item}
                     alt="avatar"
                     key={index}
+                    loading="lazy"
                     className={`avatar-img ${
                       selectedAvatar === item ? "selected" : ""
                     }`}
