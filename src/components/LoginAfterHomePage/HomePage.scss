@@ -11,6 +11,7 @@
   position: relative;
   z-index: 1;
 }
+
 .active-tourn-bg::before {
   background-color: #141414;
   content: "";
@@ -50,7 +51,57 @@
   border: 1px solid #08ff96;
   padding: 35px;
   border-radius: 14.54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
 }
+
+//  animation on mainbox
+.main-box {
+  position: relative;
+  width: 100%;
+  min-height: 415px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid black;
+  border: 1px solid #08ff96;
+  z-index: 1;
+}
+.active-tour-division::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 315%;
+  background-color: #08ff96;
+  box-shadow: 0 0 10px rgb(8, 8, 8);
+  animation: animate 6s linear infinite;
+}
+
+.active-tour-division::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background-color: #000;
+  border-radius: 16px;
+  border: 0px solid #08ff96;
+  z-index: 0;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .login-after-home-page {
   padding: 50px;
 }
@@ -62,6 +113,9 @@
   text-align: center;
   color: #fffefe;
   text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
 }
 
 .our-esport-track {
@@ -84,13 +138,29 @@
   padding: 46px 63px 46px 63px;
   gap: 10px;
   border-radius: 10px;
-  border: 1px solid #05f385;
+  border: 1px solid #0e6d41;
+  text-align: left;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(11, 160, 91, 1) 0%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(14, 126, 75, 1) 300%
+  );
 }
 .record-name {
   font-family: "Anybody";
   font-size: 36px;
   font-weight: 700;
   line-height: 47px;
+  text-align: left;
+  color: #fff;
+}
+.track-score {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24.2px;
   text-align: left;
   color: #fff;
 }

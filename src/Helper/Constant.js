@@ -34,4 +34,10 @@ export const END_POINTS = {
     // Game ID edit end points
     EDIT_GAME_ID: "game/udpate-gameID",
 
+    // comment Endpoints
+    ADD_COMMENT: "comment/add-comment",
+
+    // report issue endpoints
+    REPORT_ISSUE: "issue/report-issue"
+
 }

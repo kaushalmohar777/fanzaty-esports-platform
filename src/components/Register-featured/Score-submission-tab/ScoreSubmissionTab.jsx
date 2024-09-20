@@ -200,7 +200,7 @@ const ScoreSubmissionTab = () => {
                 accept="image/*"
               />
 
-              <Link className="report-issue-btn" to="/result">
+              <Link className="report-issue-btn" to={`/result/${data?._id}`}>
                 {t("score_submission.report_issue")}
               </Link>
             </div>

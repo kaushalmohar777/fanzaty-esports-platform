@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { memo, useEffect, useState } from "react";
 import "./ConsumerProfile.scss";
 import { Col, Row } from "antd";
 import { Button } from "antd";
@@ -13,11 +13,15 @@ import { useParams } from "react-router-dom";
 import { getApiRequest } from "../../services/getApiRequest";
 import { END_POINTS } from "../../Helper/Constant";
 import sendIcon from "../../assets/icons/send-icon.svg";
+import { postApiRequest } from "../../services/postApiRequest";
+import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 
 /* eslint-disable react-refresh/only-export-components */
 const ConsumerProfile = () => {
   const { t } = useTranslation("common");
   const { id } = useParams();
+  const [consumerDetails, setConsumerDetails] = useState([]);
+  const [comment, setComment] = useState(null);
 
   useEffect(() => {
     if (id) getUserDetailsById(id);
@@ -29,10 +33,28 @@ const ConsumerProfile = () => {
         `${END_POINTS.GET_USER_BY_ID}/${id}`
       );
       if (response.success) {
+        setConsumerDetails(response.user);
         console.log(response);
       }
     } catch (error) {
       console.log("error: ", error);
+    }
+  };
+
+  const handleSubmitComment = async (id) => {
+    const payload = {
+      comment: comment,
+      commentedOn: id,
+    };
+    try {
+      const response = await postApiRequest(END_POINTS.ADD_COMMENT, payload);
+      if (response.success) {
+        getUserDetailsById(id);
+        setComment(null);
+      }
+    } catch (error) {
+      console.log("error: ", error);
+      showToast(error?.error?.message, "error");
     }
   };
 
@@ -176,132 +198,70 @@ const ConsumerProfile = () => {
                     </div>
                     <div className="total">
                       <h3>
-                        {t("consumerProfile.total")} <span>(3)</span>
+                        {t("consumerProfile.total")}{" "}
+                        <span>
+                          (
+                          {consumerDetails?.comments?.length == 0
+                            ? 0
+                            : consumerDetails?.comments?.length}
+                          )
+                        </span>
                       </h3>
                     </div>
                   </div>
                   <div className="comment-section consumer-section-right-pannel left-pannel bg-dark-black  ">
-                    <div className="ratings-section">
-                      <img src={userimg} alt="" />
-                      <div className="rating-content">
-                        <h5 className="rating-title">
-                          {t("consumerProfile.ratingTitle")}
-                        </h5>
-                        <ul className="rating-list">
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                        </ul>
-                        <p className="rating-date">
-                          <span>{t("consumerProfile.ratingDate")}</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="ratings-section">
-                      <img src={userimg} alt="" />
-                      <div className="rating-content">
-                        <h5 className="rating-title">
-                          {t("consumerProfile.ratingTitle")}
-                        </h5>
-                        <ul className="rating-list">
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                        </ul>
-                        <p className="rating-date">
-                          <span>{t("consumerProfile.ratingDate")}</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="ratings-section">
-                      <img src={userimg} alt="" />
-                      <div className="rating-content">
-                        <h5 className="rating-title">
-                          {t("consumerProfile.ratingTitle")}
-                        </h5>
-                        <ul className="rating-list">
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                        </ul>
-                        <p className="rating-date">
-                          <span>{t("consumerProfile.ratingDate")}</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="ratings-section">
-                      <img src={userimg} alt="" />
-                      <div className="rating-content">
-                        <h5 className="rating-title">
-                          {t("consumerProfile.ratingTitle")}
-                        </h5>
-                        <ul className="rating-list">
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                          <li>
-                            <img src={starimg} alt="" />
-                          </li>
-                        </ul>
-                        <p className="rating-date">
-                          <span>{t("consumerProfile.ratingDate")}</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                    {consumerDetails && consumerDetails?.comments?.length > 0
+                      ? consumerDetails?.comments?.map((item, index) => (
+                          <div className="ratings-section" key={index}>
+                            <img src={userimg} alt="loading-comment-user-img" />
+                            <div className="rating-content">
+                              <h5 className="rating-title">
+                                {/* {t("consumerProfile.ratingTitle")} */}
+                                {item.fullName}
+                              </h5>
 
+                              <ul className="rating-list">
+                                <li>
+                                  <img src={starimg} alt="" />
+                                </li>
+                                <li>
+                                  <img src={starimg} alt="" />
+                                </li>
+                                <li>
+                                  <img src={starimg} alt="" />
+                                </li>
+                                <li>
+                                  <img src={starimg} alt="" />
+                                </li>
+                                <li>
+                                  <img src={starimg} alt="" />
+                                </li>
+                              </ul>
+                              <p className="rating-title">{item.comment}</p>
+                              <p className="rating-date">
+                                <span>{t("consumerProfile.ratingDate")}</span>
+                              </p>
+                            </div>
+                          </div>
+                        ))
+                      : null}
+                  </div>
                   <div className="add-comment-section">
-                    <input placeholder="Comment..." />
-                    <img
-                      src={sendIcon}
-                      alt="loading-send-icon"
-                      className="comment-send-icon"
+                    <input
+                      placeholder="Comment..."
+                      value={comment}
+                      onChange={(e) => setComment(e.target.value)}
                     />
+                    {comment && comment != null ? (
+                      <img
+                        src={sendIcon}
+                        alt="loading-send-icon"
+                        className="comment-send-icon"
+                        onClick={() =>
+                          handleSubmitComment(consumerDetails?._id)
+                        }
+                      />
+                    ) : null}
                   </div>
                 </Col>
               </Row>

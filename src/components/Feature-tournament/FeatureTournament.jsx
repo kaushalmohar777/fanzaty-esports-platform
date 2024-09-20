@@ -109,12 +109,21 @@ const FeatureTournament = () => {
                     </div>
 
                     <div className="join-tournament-button">
-                      <Link
-                        className="join-tournament-btn"
-                        to={`/register-featured/${item._id}`}
-                      >
-                        {t("feature_tournament.join_tournament")}
-                      </Link>
+                      {item.status !== "Past_Tournament" ? (
+                        <Link
+                          className="join-tournament-btn"
+                          to={`/register-featured/${item._id}`}
+                        >
+                          {t("feature_tournament.join_tournament")}
+                        </Link>
+                      ) : (
+                        <Link
+                          className="registration-open"
+                          to={`/register-featured/${item._id}`}
+                        >
+                          {t("ongoing_tournament.details")}
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </Col>

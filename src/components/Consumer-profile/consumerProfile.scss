@@ -183,6 +183,7 @@
   color: #ffffff;
   font-size: 19px;
   font-family: "Inter";
+  text-align: left;
 }
 .ratings-section {
   display: flex;
@@ -201,6 +202,7 @@
   font-size: 15px;
   font-family: "Inter";
   margin-top: 8px;
+  text-align: left;
 }
 
 .consumer-profile-section {
@@ -224,6 +226,7 @@
   position: absolute;
   right: 20px;
   top: 20px;
+  cursor: pointer;
 }
 .add-comment-section {
   position: sticky;
