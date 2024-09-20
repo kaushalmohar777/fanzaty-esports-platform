@@ -10,8 +10,12 @@
   border: 1px solid #08ff96;
   border-radius: 10px;
 }
-.upload-question-sec {
+.font-english .upload-question-sec {
   padding: 65px 0px 70px 71px;
+}
+
+.font-arabic .upload-question-sec {
+  padding: 65px 70px 70px 0px;
 }
 .font-english .issue-question {
   font-family: "Anybody";
@@ -26,7 +30,7 @@
   font-size: 36px;
   font-weight: 700;
   line-height: 41px;
-  text-align: left;
+  text-align: right;
   color: #08ff96;
 }
 .font-english .answer-list {
@@ -39,11 +43,11 @@
   padding: 10px 0;
 }
 .font-arabic .answer-list {
-  font-family: "Anybody";
+  font-family: "Alexandria", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 37px;
-  text-align: left;
+  text-align: right;
   color: #ffffff;
   padding: 10px 0;
 }

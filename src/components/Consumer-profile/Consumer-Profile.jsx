@@ -50,7 +50,7 @@ const ConsumerProfile = () => {
       const response = await postApiRequest(END_POINTS.ADD_COMMENT, payload);
       if (response.success) {
         getUserDetailsById(id);
-        setComment(null);
+        setComment("");
       }
     } catch (error) {
       console.log("error: ", error);

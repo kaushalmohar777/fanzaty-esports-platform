@@ -17,7 +17,12 @@ const HomePage = () => {
 
       <div className="active-tour-division">
         <div className="join-academy-bg">
-          <h1 className="active-tour-heading">Join the Acedemy</h1>
+          <h1 className="active-tour-heading">
+            <Link to="/academy" className="active-tour-heading">
+              {" "}
+              Join the Acedemy
+            </Link>
+          </h1>
         </div>
       </div>
       <div className="container">

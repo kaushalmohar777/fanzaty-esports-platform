@@ -339,5 +339,33 @@
     "enter_game_id": "Enter game id",
     "modal_ok": "OK",
     "modal_cancel": "Cancel"
+  },
+  "uploadResultTab": {
+    "whatIsTheIssue": "What is the issue?",
+    "opponentNoAccept": "The opponent did not accept the match request.",
+    "opponentNoShow": "The opponent did not show up for the match.",
+    "disconnections": "Repeated disconnections from opponent (deliberate).",
+    "abusiveLanguage": "Abusive language from the opponent.",
+    "otherReason": "Other reason (please specify).",
+    "pleaseSpecifyIssue": "Please specify the issue",
+    "submit": "Submit"
+  },
+
+  "joinAcademy": {
+    "heading": "Join Academy",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone Number",
+    "email": "Email Address",
+    "selectCountryCode": "Select Country Code",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastNamePlaceholder": "Enter your last name",
+    "phonePlaceholder": "Enter your phone number",
+    "emailPlaceholder": "Enter your email",
+    "submit": "Submit",
+    "requiredField": "Please enter your {{field}}",
+    "invalidPhoneNumber": "Invalid phone number",
+    "invalidEmail": "Please enter a valid email",
+    "formSubmissionFailed": "Form submission failed, please try again later"
   }
 }

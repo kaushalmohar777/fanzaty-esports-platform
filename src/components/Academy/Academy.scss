@@ -1,0 +1,412 @@
+.join-academy-section {
+  background: url("../../assets/images/signup-bg.svg");
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.signup-main-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sign-up-box {
+  width: 641px;
+  //   height: 1081.38px;
+  padding: 66px 75px 66px 75px;
+  border-radius: 20px;
+  border: 2px solid #08ff9654;
+  margin: 0 auto 75px auto;
+}
+.font-english .sign-up-heading {
+  text-align: center;
+  margin-top: 117px;
+  margin-bottom: 50px;
+  font-family: "Anybody", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 59px;
+  text-align: center;
+  color: #fff;
+}
+.font-arabic .sign-up-heading {
+  text-align: center;
+  margin-top: 117px;
+  margin-bottom: 50px;
+  font-family: "Alexandria", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 59px;
+  text-align: center;
+  color: #fff;
+}
+
+.font-english .submit-btn {
+  background-color: #08ff96;
+  color: #141414;
+  margin-left: 0;
+  font-family: "Anybody", sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+}
+
+.font-arabic .submit-btn {
+  background-color: #08ff96;
+  color: #141414;
+  margin-left: 0;
+  font-family: "Alexandria", sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+}
+
+.font-english .submit-btn:hover {
+  background-color: #08ff96 !important;
+  color: #141414 !important;
+  border-color: #08ff96;
+  margin-left: 0;
+  font-family: "Anybody", sans-serif;
+}
+
+.font-arabic .submit-btn:hover {
+  background-color: #08ff96 !important;
+  color: #141414 !important;
+  border-color: #08ff96;
+  margin-left: 0;
+  font-family: "Alexandria", sans-serif;
+}
+
+.font-english .ant-form-item-label > label {
+  color: white !important;
+  font-family: "Anybody", sans-serif;
+}
+
+.font-arabic .ant-form-item-label > label {
+  color: white !important;
+  font-family: "Alexandria", sans-serif;
+}
+
+.ant-input,
+.ant-input-password input {
+  background: none;
+  border-color: white;
+  color: white;
+}
+
+.ant-input:hover,
+.ant-input:focus,
+.ant-input-password input:hover,
+.ant-input-password input:focus {
+  border-color: white !important;
+  box-shadow: none !important;
+  background-color: #141414 !important;
+}
+
+.font-english .ant-input:hover,
+.ant-input:focus,
+.ant-input-password input:hover,
+.ant-input-password input:focus,
+.ant-input-affix-wrapper:hover,
+.ant-input-affix-wrapper:focus {
+  border-color: white !important;
+  box-shadow: none !important;
+  background: none !important;
+  font-family: "Anybody", sans-serif;
+}
+
+.font-arabic .ant-input:hover,
+.ant-input:focus,
+.ant-input-password input:hover,
+.ant-input-password input:focus,
+.ant-input-affix-wrapper:hover,
+.ant-input-affix-wrapper:focus {
+  border-color: white !important;
+  box-shadow: none !important;
+  background: none !important;
+  font-family: "Alexandria", sans-serif;
+}
+
+.ant-input-affix-wrapper {
+  border-color: white !important;
+  box-shadow: none !important;
+  background-color: #141414 !important;
+}
+
+.ant-form-item-control-input-content {
+  background-color: #141414;
+}
+
+.ant-select-selection-item {
+  color: white;
+}
+
+.ant-select-arrow {
+  color: white;
+}
+
+.ant-select-selector {
+  background: none;
+  border-color: white;
+}
+
+.font-english .ant-select-selector:hover,
+.ant-select-selector:focus {
+  border-color: white;
+  box-shadow: none;
+  font-family: "Anybody", sans-serif;
+}
+
+.font-arabic .ant-select-selector:hover,
+.ant-select-selector:focus {
+  border-color: white;
+  box-shadow: none;
+  font-family: "Alexandria", sans-serif;
+}
+
+.font-english .ant-input::placeholder,
+.ant-input-password input::placeholder {
+  color: white !important;
+  background: #141414 !important;
+  font-family: "Anybody", sans-serif;
+  opacity: 30%;
+}
+
+.font-arabic .ant-input::placeholder,
+.ant-input-password input::placeholder {
+  color: white !important;
+  background: #141414 !important;
+  font-family: "Alexandria", sans-serif;
+  opacity: 30%;
+}
+
+.ant-input {
+  color: white !important;
+  background: #141414 !important;
+  height: 62px;
+}
+
+.ant-select-selection-item::placeholder {
+  color: white;
+  background: #141414;
+}
+
+.ant-input-password-icon {
+  color: white !important; /* Change the color of the password visibility icon */
+}
+.font-english .avatar-select-img {
+  display: flex;
+  color: #fff;
+  align-items: center;
+  margin: 33px 0;
+  z-index: 99;
+  position: relative;
+  p {
+    font-family: "Anybody", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: left;
+    margin-right: 15px;
+  }
+  img {
+    cursor: pointer;
+  }
+}
+
+.font-arabic .avatar-select-img {
+  display: flex;
+  color: #fff;
+  align-items: center;
+  margin: 33px 0;
+  z-index: 99;
+  position: relative;
+  p {
+    font-family: "Alexandria", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: left;
+    margin-right: 15px;
+  }
+  img {
+    cursor: pointer;
+  }
+}
+
+.sign-up-box {
+  position: relative;
+  width: 641px;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid black;
+  border: 1px solid #08ff96;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-up-box::before {
+  content: "";
+  width: 610px;
+  height: 132%;
+  position: absolute;
+  background-color: #000;
+  box-shadow: 0 0 10px rgb(8, 8, 8);
+  animation: animate 4s linear infinite;
+}
+
+.sign-up-box::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background-color: #000;
+  border: 3px solid #08ff96;
+  z-index: -2;
+  border-radius: 16px;
+}
+
+.avatar-img-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  z-index: 999;
+  position: relative;
+}
+.avatar-img {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.avatar-img.selected {
+  background-color: #08ff96cc;
+  opacity: 0.3;
+}
+
+.selected-avatar {
+  position: relative;
+  opacity: 1;
+  z-index: 999;
+}
+
+.font-english .already-have-account {
+  font-family: "Anybody", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: left;
+  margin-right: 15px;
+  position: relative;
+  z-index: 999;
+  color: #fff;
+  text-align: center;
+}
+
+.font-arabic .already-have-account {
+  font-family: "Alexandria", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: left;
+  margin-right: 15px;
+  position: relative;
+  z-index: 999;
+  color: #fff;
+  text-align: center;
+}
+
+.login-txt {
+  color: #08ff96;
+}
+
+.flag-img {
+  width: 30px;
+  height: 30px;
+}
+.country-option {
+  display: flex !important;
+}
+.ant-select-selection-item {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.ant-select-arrow {
+  color: #fff !important;
+}
+
+.calling-code {
+  margin-right: 8px;
+}
+.alpha-calling-code {
+  margin-left: 8px;
+}
+
+.sign-up-box .ant-form-item-control {
+  width: 360px !important;
+  max-width: 360px !important;
+  margin: 15px 0;
+}
+
+.font-english span.ant-input-group-addon .ant-select-selector {
+  font-size: 12px !important;
+  font-family: "Anybody", sans-serif;
+}
+
+.font-arabic span.ant-input-group-addon .ant-select-selector {
+  font-size: 12px !important;
+  font-family: "Alexandria", sans-serif;
+}
+
+.font-english
+  .ant-input.css-dev-only-do-not-override-1gwfwyx.ant-input-outlined,
+.ant-input.css-dev-only-do-not-override-1gwfwyx {
+  font-size: 14px !important;
+  font-family: "Anybody", sans-serif !important;
+}
+
+.font-arabic .ant-input.css-dev-only-do-not-override-1gwfwyx.ant-input-outlined,
+.ant-input.css-dev-only-do-not-override-1gwfwyx {
+  font-size: 14px !important;
+  font-family: "Alexandria", sans-serif !important;
+}
+
+.ant-select-item-option-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ant-select-item-option-content span {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -344,5 +344,32 @@
     "enter_game_id": "أدخل معرف اللعبة",
     "modal_ok": "موافق",
     "modal_cancel": "إلغاء"
+  },
+  "uploadResultTab": {
+    "whatIsTheIssue": "ما هي المشكلة؟",
+    "opponentNoAccept": "لم يقبل الخصم طلب المباراة.",
+    "opponentNoShow": "لم يظهر الخصم للمباراة.",
+    "disconnections": "انقطاعات متكررة من الخصم (متعمد).",
+    "abusiveLanguage": "لغة مسيئة من الخصم.",
+    "otherReason": "سبب آخر (يرجى التحديد).",
+    "pleaseSpecifyIssue": "يرجى تحديد المشكلة",
+    "submit": "إرسال"
+  },
+  "joinAcademy": {
+    "heading": "انضم إلى الأكاديمية",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "phone": "رقم الهاتف",
+    "email": "عنوان البريد الإلكتروني",
+    "selectCountryCode": "اختر رمز البلد",
+    "firstNamePlaceholder": "أدخل اسمك الأول",
+    "lastNamePlaceholder": "أدخل اسم العائلة",
+    "phonePlaceholder": "أدخل رقم هاتفك",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "submit": "إرسال",
+    "requiredField": "يرجى إدخال {{field}} الخاص بك",
+    "invalidPhoneNumber": "رقم الهاتف غير صحيح",
+    "invalidEmail": "يرجى إدخال بريد إلكتروني صحيح",
+    "formSubmissionFailed": "فشل إرسال النموذج، يرجى المحاولة مرة أخرى لاحقًا"
   }
 }

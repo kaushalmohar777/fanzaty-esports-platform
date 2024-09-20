@@ -6,23 +6,26 @@ import { postApiRequest } from "../../../services/postApiRequest";
 import { END_POINTS } from "../../../Helper/Constant";
 import { showToast } from "../../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const UploadResultTab = () => {
   const { id } = useParams();
+  const { t } = useTranslation("common");
+
   const issuesList = [
-    "The opponent did not accept the match request.",
-    "The opponent did not show up for the match.",
-    "Repeated disconnections from opponent (deliberate).",
-    "Abusive language from the opponent.",
-    "Other reason (please specify).",
+    t("uploadResultTab.opponentNoAccept"),
+    t("uploadResultTab.opponentNoShow"),
+    t("uploadResultTab.disconnections"),
+    t("uploadResultTab.abusiveLanguage"),
+    t("uploadResultTab.otherReason"),
   ];
 
   const [selectedIssues, setSelectedIssues] = useState([]);
-  const [otherReasonError, setOtherReasonError] = useState(false); // New state for validation
+  const [error, setError] = useState(false);
 
   const handleCheckboxChange = (issue) => {
-    if (issue === "Other reason (please specify).") {
-      setOtherReasonError(false); // Reset error on checkbox change
+    setError(false);
+    if (issue === t("uploadResultTab.otherReason")) {
       if (!selectedIssues.some((i) => i.startsWith("Other reason:"))) {
         setSelectedIssues([...selectedIssues, "Other reason: "]);
       } else {
@@ -41,7 +44,6 @@ const UploadResultTab = () => {
 
   const handleOtherReasonChange = (e) => {
     const otherText = e.target.value;
-    setOtherReasonError(false); // Reset error when typing
     setSelectedIssues((prevIssues) => {
       return prevIssues.map((i) =>
         i.startsWith("Other reason:") ? `Other reason: ${otherText}` : i
@@ -50,32 +52,26 @@ const UploadResultTab = () => {
   };
 
   const handleSubmit = async () => {
-    const otherReason = selectedIssues
-      .find((i) => i.startsWith("Other reason:"))
-      ?.replace("Other reason: ", "");
-
-    // Check for validation: if 'Other reason' is selected but the text area is empty
     if (
-      selectedIssues.some((i) => i.startsWith("Other reason:")) &&
-      !otherReason
+      selectedIssues.includes("Other reason: ") ||
+      selectedIssues.includes(t("uploadResultTab.otherReason"))
     ) {
-      setOtherReasonError(true); // Set error state
-      return;
+      const otherReason = selectedIssues.find((issue) =>
+        issue.startsWith("Other reason:")
+      );
+      if (!otherReason || otherReason === "Other reason: ") {
+        setError(true);
+        return;
+      }
     }
 
     const payload = {
       issues: selectedIssues,
       tournamentId: id,
     };
-
     try {
       const response = await postApiRequest(END_POINTS.REPORT_ISSUE, payload);
-      if (response.success) {
-        showToast(response?.message, "success");
-        setSelectedIssues([]);
-      } else {
-        showToast(response.message, "error");
-      }
+      console.log("response: ", response);
     } catch (error) {
       console.log("error: ", error);
       showToast(error?.error?.message, "error");
@@ -85,7 +81,9 @@ const UploadResultTab = () => {
   return (
     <section className="upload-result-tab">
       <div className="upload-question-sec">
-        <h1 className="issue-question">What is the issue?</h1>
+        <h1 className="issue-question">
+          {t("uploadResultTab.whatIsTheIssue")}
+        </h1>
         <div className="question-division">
           <ul className="answer-ul-list">
             {issuesList.map((issue, index) => (
@@ -96,7 +94,7 @@ const UploadResultTab = () => {
                     className="issue-checkbox"
                     value={issue}
                     checked={
-                      issue === "Other reason (please specify)."
+                      issue === t("uploadResultTab.otherReason")
                         ? selectedIssues.some((i) =>
                             i.startsWith("Other reason:")
                           )
@@ -113,7 +111,7 @@ const UploadResultTab = () => {
             <div className="other-reason-input">
               <TextArea
                 rows={4}
-                placeholder="Please specify your reason"
+                placeholder={t("uploadResultTab.pleaseSpecifyIssue")}
                 value={
                   selectedIssues
                     .find((i) => i.startsWith("Other reason:"))
@@ -123,15 +121,17 @@ const UploadResultTab = () => {
                 maxLength={256}
                 className="issue-text-area"
               />
-              {otherReasonError && (
-                <p className="error-message">Please specify the issue.</p> // Display error message
+              {error && (
+                <div className="error-message">
+                  {t("uploadResultTab.pleaseSpecifyIssue")}
+                </div>
               )}
             </div>
           )}
         </div>
         {selectedIssues.length > 0 && (
           <Button className="issue-submit-btn" onClick={handleSubmit}>
-            Submit
+            {t("uploadResultTab.submit")}
           </Button>
         )}
       </div>
