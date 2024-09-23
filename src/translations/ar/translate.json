@@ -221,6 +221,8 @@
 
   "featuredRegister": {
     "registerNow": "سجل الآن",
+    "tournament-ended": "انتهت البطولة",
+    "tournament-full": "للأسف البطولة ممتلئة",
     "timeline": "الجدول الزمني",
     "march1st": "1 مارس 2024",
     "march3rd": "3 مارس 2024",

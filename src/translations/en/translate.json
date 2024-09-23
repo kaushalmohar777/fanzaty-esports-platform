@@ -217,6 +217,8 @@
 
   "featuredRegister": {
     "registerNow": "Register now",
+    "tournament-ended": "Tournament Ended",
+    "tournament-full": "Unfortunately The tournament is full",
     "timeline": "Timeline",
     "march1st": "1st March 2024",
     "march3rd": "3rd March 2024",

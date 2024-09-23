@@ -185,25 +185,27 @@ const ScoreSubmissionTab = () => {
             </div>
 
             {/* Action Buttons */}
-            <div>
-              <button
-                className="add-screenshot-btn"
-                onClick={handleAddScreenshotClick}
-              >
-                {t("score_submission.add_screenshot")}
-              </button>
-              <input
-                type="file"
-                ref={fileInputRef}
-                style={{ display: "none" }}
-                onChange={handleFileChange}
-                accept="image/*"
-              />
+            {data?.status !== "Past_Tournament" ? (
+              <div>
+                <button
+                  className="add-screenshot-btn"
+                  onClick={handleAddScreenshotClick}
+                >
+                  {t("score_submission.add_screenshot")}
+                </button>
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  style={{ display: "none" }}
+                  onChange={handleFileChange}
+                  accept="image/*"
+                />
 
-              <Link className="report-issue-btn" to={`/result/${data?._id}`}>
-                {t("score_submission.report_issue")}
-              </Link>
-            </div>
+                <Link className="report-issue-btn" to={`/result/${data?._id}`}>
+                  {t("score_submission.report_issue")}
+                </Link>
+              </div>
+            ) : null}
 
             {screenshot && (
               <div className="screenshot-preview">

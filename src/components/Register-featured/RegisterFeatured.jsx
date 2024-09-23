@@ -55,6 +55,10 @@ const RegisterFeatured = () => {
     }
   };
 
+  useEffect(() => {
+    console.log("data", data);
+  }, [data]);
+
   const items = [
     {
       key: "details",
@@ -76,13 +80,21 @@ const RegisterFeatured = () => {
       label: t("featuredRegister.brackets"),
       children: <BracketTab />,
     },
-    ...(data.status !== "Past_Tournament"
+    ...(["Upcoming", "Ongoing"]?.includes(data?.status) && data?.isRegistered
       ? [
           {
             key: "chat",
             label: t("featuredRegister.chat"),
             children: <ChatTab />,
           },
+          {
+            key: "score",
+            label: t("featuredRegister.score_submission"),
+            children: <ScoreSubmissionTab />,
+          },
+        ]
+      : ["Past_Tournament"]?.includes(data?.status) && data?.isRegistered
+      ? [
           {
             key: "score",
             label: t("featuredRegister.score_submission"),
@@ -99,9 +111,20 @@ const RegisterFeatured = () => {
   return (
     <>
       <div className="featured-banner-section">
-        <h1 className="register-now-title">
-          {t("featuredRegister.registerNow")}
-        </h1>
+        {data?.status == "Past_Tournament" ? (
+          <h1 className="register-now-title">
+            {t("featuredRegister.tournament-ended")}
+          </h1>
+        ) : !data?.isRegistered &&
+          data?.maxParticipants === data?.participants?.length ? (
+          <h1 className="register-now-title">
+            {t("featuredRegister.tournament-full")}
+          </h1>
+        ) : (
+          <h1 className="register-now-title">
+            {t("featuredRegister.registerNow")}
+          </h1>
+        )}
       </div>
       <div className="timeline-section">
         <div className="container">
