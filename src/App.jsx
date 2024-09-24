@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./theme/Layout";
 import "./App.css";
 import Login from "./pages/Login/Login";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 const Result = lazy(() => import("./components/Result/Result"));
 const Tournaments = lazy(() => import("./components/Tournament/Tournaments"));
@@ -138,33 +139,41 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: (
-          <Suspense fallback={<LoadingFallback />}>
-            <UserProfile />
-          </Suspense>
+          <ProtectedRoute>
+            <Suspense fallback={<LoadingFallback />}>
+              <UserProfile />
+            </Suspense>
+          </ProtectedRoute>
         ),
       },
       {
         path: "/messages",
         element: (
-          <Suspense fallback={<LoadingFallback />}>
-            <Message />
-          </Suspense>
+          <ProtectedRoute>
+            <Suspense fallback={<LoadingFallback />}>
+              <Message />
+            </Suspense>
+          </ProtectedRoute>
         ),
       },
       {
         path: "/join-tournament",
         element: (
-          <Suspense fallback={<LoadingFallback />}>
-            <JoinTournament />
-          </Suspense>
+          <ProtectedRoute>
+            <Suspense fallback={<LoadingFallback />}>
+              <JoinTournament />
+            </Suspense>
+          </ProtectedRoute>
         ),
       },
       {
         path: "/consumer-Profile/:id",
         element: (
-          <Suspense fallback={<LoadingFallback />}>
-            <Consumerprofile />
-          </Suspense>
+          <ProtectedRoute>
+            <Suspense fallback={<LoadingFallback />}>
+              <Consumerprofile />
+            </Suspense>
+          </ProtectedRoute>
         ),
       },
       {
@@ -186,9 +195,11 @@ const router = createBrowserRouter([
       {
         path: "/result/:id",
         element: (
-          <Suspense fallback={<LoadingFallback />}>
-            <Result />
-          </Suspense>
+          <ProtectedRoute>
+            <Suspense fallback={<LoadingFallback />}>
+              <Result />
+            </Suspense>
+          </ProtectedRoute>
         ),
       },
     ],

@@ -9,19 +9,21 @@ import Thumbimg from "../../assets/icons/thumb.svg";
 import Lockbimg from "../../assets/icons/lock.svg";
 import userimg from "../../assets/icons/user-rating.svg";
 import starimg from "../../assets/icons/star.svg";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getApiRequest } from "../../services/getApiRequest";
 import { END_POINTS } from "../../Helper/Constant";
 import sendIcon from "../../assets/icons/send-icon.svg";
 import { postApiRequest } from "../../services/postApiRequest";
 import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
+import { setLocalStorageData } from "../../shared/commonFunction";
 
 /* eslint-disable react-refresh/only-export-components */
 const ConsumerProfile = () => {
   const { t } = useTranslation("common");
   const { id } = useParams();
   const [consumerDetails, setConsumerDetails] = useState([]);
-  const [comment, setComment] = useState(null);
+  const [comment, setComment] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (id) getUserDetailsById(id);
@@ -38,8 +40,13 @@ const ConsumerProfile = () => {
       }
     } catch (error) {
       console.log("error: ", error);
+      showToast(error?.error?.message, "error");
     }
   };
+
+  useEffect(() => {
+    console.log("consumerDetails", consumerDetails);
+  }, [consumerDetails]);
 
   const handleSubmitComment = async (id) => {
     const payload = {
@@ -56,6 +63,11 @@ const ConsumerProfile = () => {
       console.log("error: ", error);
       showToast(error?.error?.message, "error");
     }
+  };
+
+  const handleChat = (_id) => {
+    setLocalStorageData("isChatUser", _id);
+    navigate("/messages");
   };
 
   return (
@@ -93,7 +105,10 @@ const ConsumerProfile = () => {
                 </tr>
               </tbody>
             </table>
-            <div className="border-btn-list">
+            <div
+              className="border-btn-list"
+              onClick={() => handleChat(consumerDetails?._id)}
+            >
               <div className="icon-box">
                 <img src={msgimg} alt="" />
               </div>

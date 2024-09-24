@@ -38,6 +38,9 @@ export const END_POINTS = {
     ADD_COMMENT: "comment/add-comment",
 
     // report issue endpoints
-    REPORT_ISSUE: "issue/report-issue"
+    REPORT_ISSUE: "issue/report-issue",
+
+    // Join academy
+    JOIN_ACADEMY: "tournament/join-academy"
 
 }

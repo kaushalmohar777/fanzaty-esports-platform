@@ -38,17 +38,24 @@ import sendIcon from "../../../assets/icons/send-icon.svg";
 import moment from "moment";
 import { fileUploadApi } from "../../../services/fileUpload";
 import uploadFile from "../../../services/chatFileUpload";
+import {
+  getLocalStorageData,
+  setLocalStorageData,
+} from "../../../shared/commonFunction";
+import { setUser } from "../../../features/user/userSlice";
 
 /* eslint-disable react-refresh/only-export-components */
 
 const Message = () => {
-  const params = useParams();
   const userData = useSelector((state) => state.user.userData);
+  const [isChatUser, setIsChatUser] = useState(
+    getLocalStorageData("isChatUser")
+  );
   const [todayDate, setTodayDate] = useState(moment().format("D MMM"));
   const { t } = useTranslation("common");
   const dispatch = useDispatch();
-  const [user, setUser] = useState(null);
-  const [userList, setUserList] = useState([]);
+  const [user, setUserData] = useState(null);
+  const [userList, setUserDataList] = useState([]);
   const [allUser, setAllUser] = useState([]);
   const [dataUser, setDataUser] = useState({
     name: "",
@@ -69,8 +76,10 @@ const Message = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    console.log("message", message);
-  }, [message]);
+    if (userData?.conversationUser?.length > 0) {
+      setUserDataList(userData.conversationUser);
+    }
+  }, [userData]);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -80,24 +89,44 @@ const Message = () => {
     setIsModalOpen(false);
   };
 
-  // Use custom hook to manage socket connection
-  const socketConnection = useSocket();
-
   useEffect(() => {
-    getAllUser();
-  }, []);
+    if (isChatUser) {
+      getUserDetailsById(isChatUser);
+    }
+  }, [isChatUser]);
 
-  const getAllUser = async () => {
+  const getUserDetailsById = async (isChatUser) => {
     try {
-      const response = await getApiRequest(END_POINTS.GET_ALL_USER);
+      const response = await getApiRequest(
+        `${END_POINTS.GET_USER_BY_ID}/${isChatUser}`
+      );
       if (response.success) {
-        setUserList(response.users);
+        setUserData(response.user);
       }
     } catch (error) {
       console.log("error: ", error);
-      showToast(error.message, "error");
+      showToast(error?.error?.message, "error");
     }
   };
+
+  // Use custom hook to manage socket connection
+  const socketConnection = useSocket();
+
+  // useEffect(() => {
+  //   getAllUser();
+  // }, []);
+
+  // const getAllUser = async () => {
+  //   try {
+  //     const response = await getApiRequest(END_POINTS.GET_ALL_USER);
+  //     if (response.success) {
+  //       setUserDataList(userData.conversationUser);
+  //     }
+  //   } catch (error) {
+  //     console.log("error: ", error);
+  //     showToast(error.message, "error");
+  //   }
+  // };
 
   useEffect(() => {
     if (socketConnection) {
@@ -155,7 +184,8 @@ const Message = () => {
   }, [socketConnection, user?._id, user]);
 
   const handleUser = (e, item) => {
-    setUser(item);
+    setLocalStorageData("isChatUser", item?._id);
+    setUserData(item);
   };
 
   const handleOnChange = (e) => {
@@ -171,7 +201,6 @@ const Message = () => {
 
   const handleSendMessage = (e) => {
     e.preventDefault();
-
     if (message.text || message.imageUrl || message.videoUrl) {
       if (socketConnection) {
         socketConnection.emit("new message", {
@@ -187,7 +216,20 @@ const Message = () => {
           imageUrl: "",
           videoUrl: "",
         });
+        fetchUserData();
       }
+    }
+  };
+
+  const fetchUserData = async () => {
+    try {
+      const response = await getApiRequest(END_POINTS.GET_USER_DATA);
+      if (response.success) {
+        dispatch(setUser(response.user));
+      }
+    } catch (error) {
+      console.log(error);
+      showToast(error?.error?.message, "error");
     }
   };
 

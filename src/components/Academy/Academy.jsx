@@ -73,9 +73,11 @@ const Academy = () => {
   const onFinish = async (values) => {
     try {
       const response = await postApiRequest(END_POINTS.JOIN_ACADEMY, values);
-      if (response.data.success) {
-        showToast(response.data.message, "success");
-        navigate("/confirmation");
+      console.log("response: ", response);
+      if (response?.success) {
+        showToast(response.message, "success");
+        navigate("/");
+        window.scroll(0, 0);
       }
     } catch (error) {
       message.error(t("joinAcademy.formSubmissionFailed"));

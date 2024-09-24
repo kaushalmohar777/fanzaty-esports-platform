@@ -185,9 +185,10 @@ const UpcomingTournamentTab = () => {
 
                     <div className="join-tournament-button">
                       {!item?.isRegistered &&
-                      item.maxParticipants !== item?.participants?.length &&
-                      moment(item?.registrationEnds).format("Do MMMM YYYY") <
-                        moment().format("Do MMMM YYYY") ? (
+                      item.maxParticipants != item?.participants?.length &&
+                      moment(item?.registrationEnds)
+                        .startOf("day")
+                        .isSameOrAfter(moment().startOf("day")) ? (
                         <Button
                           className="registration-open"
                           onClick={() => handleRegister(item._id, item.name)}

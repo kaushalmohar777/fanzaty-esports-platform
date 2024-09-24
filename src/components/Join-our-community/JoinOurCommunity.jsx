@@ -2,6 +2,7 @@
 import { useTranslation } from "react-i18next";
 import "./JoinOurCommunity.scss";
 import { memo } from "react";
+import { Link } from "react-router-dom";
 /* eslint-disable react-refresh/only-export-components */
 
 const JoinOurCommunity = () => {
@@ -19,9 +20,14 @@ const JoinOurCommunity = () => {
           <p className="join-our-heading-para">
             {t("join_our_community.description")}
           </p>
-          <div className="join-our-community-btn">
-            <button>{t("join_our_community.button")}</button>
-          </div>
+
+          <>{t("join_our_community.button")}</>
+
+          <Link to="/academy" style={{ textDecoration: "none" }}>
+            <div className="join-our-community-btn">
+              <button>{t("join_our_community.button")}</button>
+            </div>
+          </Link>
         </div>
       </div>
     </section>

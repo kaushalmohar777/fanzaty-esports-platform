@@ -33,8 +33,6 @@ const userSlice = createSlice({
             state.onlineUser = action.payload
         },
         setSocketConnection: (state, action) => {
-            console.log('action: ', action);
-
             state.socketConnection = action.payload
         }
 
