@@ -310,7 +310,9 @@
     "today": "اليوم",
     "enterMessage": "أدخل الرسالة",
     "online": "متصل",
-    "offline": "غير متصل"
+    "offline": "غير متصل",
+    "chat": "محادثة",
+    "group": "دردشة جماعية"
   },
   "upload_result": {
     "Upload results": "تحميل النتائج",

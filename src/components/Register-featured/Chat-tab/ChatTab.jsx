@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import "./ChatTab.scss";
 import { useTranslation } from "react-i18next";
-import { Col, Row, Button, Dropdown } from "antd";
+import { Col, Row, Button, Dropdown, Tabs } from "antd";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import moment from "moment";
@@ -247,6 +247,49 @@ const ChatTab = () => {
     },
   ];
 
+  const getChatData = () => {
+    return (
+      userList &&
+      userList.map((item, index) => (
+        <div
+          className={`message-detail-box ${
+            item._id === user?._id ? "add-highlighted-bg" : null
+          }`}
+          key={index}
+          onClick={(e) => handleUser(e, item)}
+        >
+          <img
+            src={item?.avatarUrl || userImage}
+            className="user-avatar-img-side"
+            alt="avatar-img-loading"
+          />
+          <div className="user-name-tournament-name">
+            <p className="message-user-name">{item?.userName}</p>
+            <p className="message-user-name">{data?.name}</p>
+          </div>
+          <div>{item?.date}</div>
+        </div>
+      ))
+    );
+  };
+
+  const tabData = [
+    {
+      key: "1",
+      label: t("chatMessages.chat"),
+      children: getChatData(),
+    },
+    {
+      key: "2",
+      label: t("chatMessages.group"),
+      // children: getTabOneData(),
+    },
+  ];
+
+  const onChange = (key) => {
+    console.log(key);
+  };
+
   return (
     <section>
       <div className="container">
@@ -254,28 +297,13 @@ const ChatTab = () => {
           <Row gutter={[16, 16]}>
             <Col span={8} className="message-outer-box">
               <div className="message-left-box">
-                {console.log("userList", userList)}
-                {userList &&
-                  userList.map((item, index) => (
-                    <div
-                      className={`message-detail-box ${
-                        item._id === user?._id ? "add-highlighted-bg" : null
-                      }`}
-                      key={index}
-                      onClick={(e) => handleUser(e, item)}
-                    >
-                      <img
-                        src={item?.avatarUrl || userImage}
-                        className="user-avatar-img-side"
-                        alt="avatar-img-loading"
-                      />
-                      <div className="user-name-tournament-name">
-                        <p className="message-user-name">{item?.userName}</p>
-                        <p className="message-user-name">{data?.name}</p>
-                      </div>
-                      <div>{item?.date}</div>
-                    </div>
-                  ))}
+                <div className="tournament-chat-tabs">
+                  <Tabs
+                    defaultActiveKey="1"
+                    items={tabData}
+                    onChange={onChange}
+                  />
+                </div>
               </div>
               <div className="contact-us">
                 <div className="contact-us-btn">

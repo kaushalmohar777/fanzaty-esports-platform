@@ -184,7 +184,14 @@ const Navbar = () => {
       ),
     },
     {
-      label: <Link to="/profile">{t("dropdown.myProfile")}</Link>,
+      label: (
+        <Link
+          to="/profile"
+          className={location.pathname === "/profile" ? "highlight" : ""}
+        >
+          {t("dropdown.myProfile")}
+        </Link>
+      ),
       icon: (
         <img
           src={userProfile}
@@ -195,11 +202,27 @@ const Navbar = () => {
       className: "my-profile-item",
     },
     {
-      label: <Link to="/all-tournaments">{t("dropdown.tournament")}</Link>,
+      label: (
+        <Link
+          to="/all-tournaments"
+          className={
+            location.pathname === "/all-tournaments" ? "highlight" : ""
+          }
+        >
+          {t("dropdown.tournament")}
+        </Link>
+      ),
       icon: <img src={cup} alt="avatar-img" className="user-profile-avatar" />,
     },
     {
-      label: <Link to="/messages">{t("dropdown.message")}</Link>,
+      label: (
+        <Link
+          to="/messages"
+          className={location.pathname === "/messages" ? "highlight" : ""}
+        >
+          {t("dropdown.message")}
+        </Link>
+      ),
       icon: (
         <img
           src={messageIcon}
@@ -320,9 +343,29 @@ const Navbar = () => {
             </div>
           ) : null}
 
-          <Dropdown
+          {/* <Dropdown
             trigger={["click"]}
             overlay={<Menu items={userMenuItems} />}
+            className="user-detail-dropdown"
+          >
+            <Button>
+              <Space>
+                <div className="user-name-navbar">{userData?.userName}</div>
+                <img
+                  src={userData?.avatarUrl}
+                  alt="user-profile"
+                  className="user-profile-img"
+                />
+                <DownOutlined />
+              </Space>
+            </Button>
+          </Dropdown> */}
+
+          <Dropdown
+            trigger={["click"]}
+            menu={{
+              items: userMenuItems,
+            }}
             className="user-detail-dropdown"
           >
             <Button>

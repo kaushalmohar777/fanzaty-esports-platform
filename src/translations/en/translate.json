@@ -305,7 +305,9 @@
     "today": "Today",
     "enterMessage": "Enter message",
     "online": "Online",
-    "offline": "Offline"
+    "offline": "Offline",
+    "chat": "Chat",
+    "group": "Group Chat"
   },
   "upload_result": {
     "Upload results": "Upload results",

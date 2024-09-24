@@ -310,7 +310,9 @@ $breakpoint-mobile: 768px;
 ::-webkit-scrollbar-thumb:hover {
   background: #08ff96;
 }
-
+.highlight {
+  color: #08ff96 !important;
+}
 // * {
 //   scrollbar-width: 5px;
 // }
