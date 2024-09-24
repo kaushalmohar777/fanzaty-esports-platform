@@ -1,5 +1,7 @@
 export const END_POINTS = {
     GET_ALL_COUNTRY_CODE: 'country/get-all',
+
+    GET_HOME_PAGE_DATA: "tournament/get-homepage-data",
     // auth endpoints
     GET_AVATAR_IMAGES: 'avtar/get-urls',
     SIGN_UP: "user/auth/signup",
@@ -11,6 +13,8 @@ export const END_POINTS = {
     UPDATE_PROFILE: "user/update-profile",
     GET_ALL_USER: "user/get-all",
     GET_USER_BY_ID: "user/get-user-by-id",
+
+
     // Tournaments end points
     PAST_TOURNAMENTS: 'tournament/filtered/Past_Tournament',
     ONGOING_TOURNAMENTS: 'tournament/filtered/Ongoing',
@@ -41,6 +45,8 @@ export const END_POINTS = {
     REPORT_ISSUE: "issue/report-issue",
 
     // Join academy
-    JOIN_ACADEMY: "tournament/join-academy"
+    JOIN_ACADEMY: "tournament/join-academy",
+
+
 
 }

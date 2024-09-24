@@ -373,5 +373,13 @@
     "invalidPhoneNumber": "رقم الهاتف غير صحيح",
     "invalidEmail": "يرجى إدخال بريد إلكتروني صحيح",
     "formSubmissionFailed": "فشل إرسال النموذج، يرجى المحاولة مرة أخرى لاحقًا"
+  },
+  "homePage": {
+    "activeTournaments": "البطولات النشطة",
+    "joinAcademy": "انضم إلى الأكاديمية",
+    "esportsTrackRecord": "سجل تتبع الرياضات الإلكترونية",
+    "tournamentNumber": "البطولة + العدد",
+    "academyTrainee": "الأكاديمية + عدد المتدربين",
+    "score": "+٢٣٥٦٥٨"
   }
 }

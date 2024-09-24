@@ -86,9 +86,11 @@ const router = createBrowserRouter([
       {
         path: "/academy",
         element: (
-          <Suspense fallback={<LoadingFallback />}>
-            <Academy />
-          </Suspense>
+          <ProtectedRoute>
+            <Suspense fallback={<LoadingFallback />}>
+              <Academy />
+            </Suspense>
+          </ProtectedRoute>
         ),
       },
       {

@@ -369,5 +369,14 @@
     "invalidPhoneNumber": "Invalid phone number",
     "invalidEmail": "Please enter a valid email",
     "formSubmissionFailed": "Form submission failed, please try again later"
+  },
+
+  "homePage": {
+    "activeTournaments": "ACTIVE TOURNAMENTS",
+    "joinAcademy": "Join the Academy",
+    "esportsTrackRecord": "our esports track record",
+    "tournamentNumber": "Tournament + Number",
+    "academyTrainee": "Academy + Number Trainee",
+    "score": "+235658"
   }
 }
