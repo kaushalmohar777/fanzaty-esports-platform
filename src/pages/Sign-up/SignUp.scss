@@ -89,14 +89,31 @@
   font-family: "Alexandria", sans-serif;
 }
 
-.font-english .ant-form-item-label > label {
+.font-english .ant-form-item-label .ant-form-item-required {
   color: white !important;
   font-family: "Anybody", sans-serif;
 }
 
-.font-arabic .ant-form-item-label > label {
+.font-arabic .ant-form-item-label .ant-form-item-required {
   color: white !important;
   font-family: "Alexandria", sans-serif;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  line-height: 30px !important;
+  text-align: right !important;
+}
+
+.font-arabic .ant-form-item-required {
+  color: white !important;
+  font-family: "Alexandria", sans-serif;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  line-height: 30px !important;
+  text-align: right !important;
+}
+
+.ant-row .ant-form-item-row {
+  margin-block: 15px !important;
 }
 
 .ant-input,
@@ -192,10 +209,26 @@
   opacity: 30%;
 }
 
-.ant-input {
+.font-english .ant-input {
   color: white !important;
   background: #141414 !important;
-  height: 62px;
+  height: 62px !important;
+  font-family: "Anybody";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18.63px;
+  text-align: left;
+}
+
+.font-arabic .ant-input {
+  color: white !important;
+  background: #141414 !important;
+  height: 62px !important;
+  font-family: "Alexandria", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18.63px;
+  text-align: right;
 }
 
 .ant-select-selection-item::placeholder {

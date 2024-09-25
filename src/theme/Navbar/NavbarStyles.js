@@ -30,9 +30,16 @@ export const loginButtonStyle = {
     marginLeft: '15px',
     backgroundColor: '#08FF96',
     borderColor: '#08FF96',
-    width: '183px',
+    width: '198px',
     height: '50px',
-    borderRadius: '5px'
+    padding: '14px 12px 14px 12px',
+    gap: '10px',
+    borderRadius: '5px',
+    fontFamily: "Inter",
+    fontSize: '18px',
+    fontWeight: '400',
+    lineHeight: '21.78px',
+    textAlign: 'center'
 };
 
 export const menuStyle = {

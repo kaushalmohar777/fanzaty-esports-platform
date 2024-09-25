@@ -413,9 +413,9 @@ const Message = () => {
                     </div>
                   )}
 
-                  <div className="invite-mark">
+                  {/* <div className="invite-mark">
                     <button>{t("chatMessages.inviteMark")}</button>
-                  </div>
+                  </div> */}
                 </div>
 
                 <hr className="chat-top-hr-line" />
@@ -552,7 +552,7 @@ const Message = () => {
                           onChange={handleOnChange}
                           onKeyDown={handleKeyPress}
                           className="msg-input"
-                          placeholder="Enter message"
+                          placeholder={t("chatMessages.placeholder")}
                         />
                       </div>
                       <div>

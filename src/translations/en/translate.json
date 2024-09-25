@@ -123,7 +123,7 @@
     "gender": "Gender",
     "update_form": "Update",
     "edit_user_profile": "Edit Account",
-    "date_picker": "DatePicker",
+    "date_picker": "Date of birth",
     "male": "Male",
     "female": "Female",
     "bio": "Bio",
@@ -307,7 +307,8 @@
     "online": "Online",
     "offline": "Offline",
     "chat": "Chat",
-    "group": "Group Chat"
+    "group": "Group Chat",
+    "placeholder": "Enter Message"
   },
   "upload_result": {
     "Upload results": "Upload results",

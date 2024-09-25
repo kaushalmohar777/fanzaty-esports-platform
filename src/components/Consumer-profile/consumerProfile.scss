@@ -253,3 +253,16 @@
 .comment-section {
   min-height: 496px;
 }
+
+.font-arabic .consumer-basic-details {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  td {
+    font-family: "Alexandria";
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+  }
+}

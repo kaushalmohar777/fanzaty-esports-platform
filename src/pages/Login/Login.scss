@@ -57,16 +57,26 @@
   opacity: 30%;
 }
 
-.ant-input {
+.font-english .ant-input {
   color: white !important;
   background: #141414 !important;
   height: 62px;
+  font-family: "Anybody";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18.63px;
+  text-align: left;
 }
 
-.ant-input {
+.font-arabic .ant-input {
   color: white !important;
   background: #141414 !important;
   height: 62px;
+  font-family: "Alexandria", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18.63px;
+  text-align: right;
 }
 
 .ant-select-selection-item::placeholder {

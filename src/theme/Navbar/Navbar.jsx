@@ -308,15 +308,13 @@ const Navbar = () => {
         </Link>
       ) : (
         <div className="noti-join-tou">
-          <Link to="/join-tournament">
-            <Button
-              type="primary"
-              icon={<UserOutlined />}
-              style={loginButtonStyle}
-            >
-              {t("menu.join_tournament")}
-            </Button>
-          </Link>
+          <Button
+            type="primary"
+            icon={<UserOutlined />}
+            style={loginButtonStyle}
+          >
+            <Link to="/join-tournament">{t("menu.join_tournament")}</Link>
+          </Button>
           <div className="noti">
             <Dropdown
               menu={{

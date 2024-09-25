@@ -139,6 +139,18 @@ $breakpoint-mobile: 768px;
   align-items: center;
   gap: 28px;
 }
+.join-tournament-navbar-btn {
+  width: 198px;
+  height: 50px;
+  padding: 14px 12px 14px 12px;
+  gap: 10px;
+  border-radius: 5px;
+  font-family: "Inter";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  text-align: center;
+}
 .noti {
   display: flex;
   margin-top: 26px;
@@ -316,3 +328,19 @@ $breakpoint-mobile: 768px;
 // * {
 //   scrollbar-width: 5px;
 // }
+
+.font-english .ant-menu-title-content {
+  font-family: "Anybody", "sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16.56px;
+  text-align: center;
+}
+
+.font-arabic .ant-menu-title-content {
+  font-family: "Alexandria", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16.56px;
+  text-align: center;
+}

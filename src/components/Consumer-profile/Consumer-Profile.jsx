@@ -83,23 +83,23 @@ const ConsumerProfile = () => {
             </div>
             <table className="profile-table">
               <tbody>
-                <tr>
+                <tr className="consumer-basic-details">
                   <td>{t("consumerProfile.winRatio")}</td>
                   <td>10%</td>
                 </tr>
-                <tr>
+                <tr className="consumer-basic-details">
                   <td>{t("consumerProfile.gamesPlayed")}</td>
                   <td>10%</td>
                 </tr>
-                <tr>
+                <tr className="consumer-basic-details">
                   <td>{t("consumerProfile.winRatio")}</td>
                   <td>10%</td>
                 </tr>
-                <tr>
+                <tr className="consumer-basic-details">
                   <td>{t("consumerProfile.review")}</td>
                   <td>9.1</td>
                 </tr>
-                <tr>
+                <tr className="consumer-basic-details">
                   <td>{t("consumerProfile.region")}</td>
                   <td>{t("consumerProfile.canada")}</td>
                 </tr>
@@ -146,11 +146,11 @@ const ConsumerProfile = () => {
                   <h3 className="text-invited-num">23235</h3>
                   <table className="profile-table table-loses">
                     <tbody>
-                      <tr>
+                      <tr className="consumer-basic-details">
                         <td>100</td>
                         <td>{t("consumerProfile.wins")}</td>
                       </tr>
-                      <tr>
+                      <tr className="consumer-basic-details">
                         <td>80</td>
                         <td>{t("consumerProfile.loses")}</td>
                       </tr>
@@ -167,11 +167,11 @@ const ConsumerProfile = () => {
                   <h3 className="text-invited-num">ZZ10</h3>
                   <table className="profile-table table-loses">
                     <tbody>
-                      <tr>
+                      <tr className="consumer-basic-details">
                         <td>{t("consumerProfile.wins")}</td>
                         <td>30</td>
                       </tr>
-                      <tr>
+                      <tr className="consumer-basic-details">
                         <td>{t("consumerProfile.loses")}</td>
                         <td>20</td>
                       </tr>
@@ -188,11 +188,11 @@ const ConsumerProfile = () => {
                   <h3 className="text-invited-num">PS3 XBI</h3>
                   <table className="profile-table table-loses">
                     <tbody>
-                      <tr>
+                      <tr className="consumer-basic-details">
                         <td>{t("consumerProfile.wins")}</td>
                         <td>80</td>
                       </tr>
-                      <tr>
+                      <tr className="consumer-basic-details">
                         <td>{t("consumerProfile.loses")}</td>
                         <td>40</td>
                       </tr>
