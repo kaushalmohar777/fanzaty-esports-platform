@@ -51,7 +51,6 @@ const ChatTab = () => {
     setIsModalOpen(false);
   };
 
-  // Use custom hook to manage socket connection
   const socketConnection = useSocket();
 
   useEffect(() => {
@@ -249,27 +248,57 @@ const ChatTab = () => {
 
   const getChatData = () => {
     return (
-      userList &&
-      userList.map((item, index) => (
-        <div
-          className={`message-detail-box ${
-            item._id === user?._id ? "add-highlighted-bg" : null
-          }`}
-          key={index}
-          onClick={(e) => handleUser(e, item)}
-        >
-          <img
-            src={item?.avatarUrl || userImage}
-            className="user-avatar-img-side"
-            alt="avatar-img-loading"
-          />
-          <div className="user-name-tournament-name">
-            <p className="message-user-name">{item?.userName}</p>
-            <p className="message-user-name">{data?.name}</p>
-          </div>
-          <div>{item?.date}</div>
-        </div>
-      ))
+      <div className="message-left-box">
+        {userList &&
+          userList.map((item, index) => (
+            <div
+              className={`message-detail-box ${
+                item._id === user?._id ? "add-highlighted-bg" : null
+              }`}
+              key={index}
+              onClick={(e) => handleUser(e, item)}
+            >
+              <img
+                src={item?.avatarUrl || userImage}
+                className="user-avatar-img-side"
+                alt="avatar-img-loading"
+              />
+              <div className="user-name-tournament-name">
+                <p className="message-user-name">{item?.userName}</p>
+                <p className="message-user-name">{data?.name}</p>
+              </div>
+              <div>{item?.date}</div>
+            </div>
+          ))}
+      </div>
+    );
+  };
+
+  const getTabGroupData = () => {
+    return (
+      <div className="message-left-box">
+        {userList &&
+          userList.map((item, index) => (
+            <div
+              className={`message-detail-box ${
+                item._id === user?._id ? "add-highlighted-bg" : null
+              }`}
+              key={index}
+              onClick={(e) => handleUser(e, item)}
+            >
+              <img
+                src={item?.avatarUrl || userImage}
+                className="user-avatar-img-side"
+                alt="avatar-img-loading"
+              />
+              <div className="user-name-tournament-name">
+                <p className="message-user-name">{item?.userName}</p>
+                <p className="message-user-name">{data?.name}</p>
+              </div>
+              <div>{item?.date}</div>
+            </div>
+          ))}
+      </div>
     );
   };
 
@@ -282,7 +311,7 @@ const ChatTab = () => {
     {
       key: "2",
       label: t("chatMessages.group"),
-      // children: getTabOneData(),
+      children: getTabGroupData(),
     },
   ];
 
@@ -296,7 +325,7 @@ const ChatTab = () => {
         <div>
           <Row gutter={[16, 16]}>
             <Col span={8} className="message-outer-box">
-              <div className="message-left-box">
+              <div>
                 <div className="tournament-chat-tabs">
                   <Tabs
                     defaultActiveKey="1"

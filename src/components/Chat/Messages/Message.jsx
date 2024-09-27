@@ -74,6 +74,7 @@ const Message = () => {
   const currentMessage = useRef(null);
   const [allMessage, setAllMessage] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const bottomRef = useRef(null);
 
   useEffect(() => {
     if (userData?.conversationUser?.length > 0) {
@@ -159,11 +160,8 @@ const Message = () => {
   }, [socketConnection, user]);
 
   useEffect(() => {
-    if (currentMessage.current) {
-      currentMessage.current.scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-      });
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [allMessage]);
 
@@ -501,6 +499,7 @@ const Message = () => {
                       </div>
                     );
                   })}
+                  <div ref={bottomRef} />
                 </div>
 
                 <div className="type-message-section">

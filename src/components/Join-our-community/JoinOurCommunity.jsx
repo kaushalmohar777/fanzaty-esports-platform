@@ -21,7 +21,7 @@ const JoinOurCommunity = () => {
             {t("join_our_community.description")}
           </p>
 
-          <>{t("join_our_community.button")}</>
+          {/* <>{t("join_our_community.button")}</> */}
 
           <Link to="/academy" style={{ textDecoration: "none" }}>
             <div className="join-our-community-btn">

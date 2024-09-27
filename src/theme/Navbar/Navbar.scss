@@ -288,8 +288,15 @@ $breakpoint-mobile: 768px;
 .notification-bell {
   cursor: pointer;
 }
+
 .user-name-navbar {
   color: #08ff96;
+  font-family: "Inter";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21.78px;
+  text-align: left;
+  /* padding-left: 3px; */
 }
 .user-name-navbar:hover {
   color: #08ff96;

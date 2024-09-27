@@ -20,7 +20,7 @@ const Academy = () => {
     <Form.Item name="prefix" noStyle>
       <Select
         showSearch
-        style={{ width: 150 }}
+        style={{ width: 170 }}
         placeholder={t("joinAcademy.selectCountryCode")}
         optionFilterProp="children"
         filterOption={(input, option) => {

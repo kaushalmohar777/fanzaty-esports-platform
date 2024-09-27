@@ -18,7 +18,6 @@
   background: url("../../../assets/images/message-left-background.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  // height: 100vh;
   padding: 30px 0 100px 0px;
   border: 1px solid #d9d9d926;
   border-radius: 10px;
@@ -35,7 +34,6 @@
 .message-right-box {
   width: 100%;
   min-height: 898px;
-
   background: url("../../../assets/images/message-left-background.svg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -45,15 +43,12 @@
 }
 .message-detail-box {
   display: flex;
-  // justify-content: space-between;
   color: #fff;
   align-items: center;
   margin: 35px 0;
   cursor: pointer;
 }
-.user-name-tournament-name {
-  // margin-top: 15px;
-}
+
 .message-user-name {
   font-family: "Inter", sans-serif;
   font-size: 20px;
@@ -71,7 +66,7 @@
   margin-left: 15px;
 }
 .contact-us {
-  width: 100%;
+  width: 81%;
   display: flex;
   justify-content: center;
   background-color: #141414;
@@ -334,7 +329,7 @@
 .message-bubble {
   padding: 0.25rem 0.5rem; /* p-1 py-1 */
   border-radius: 0.375rem; /* rounded */
-  max-width: 280px;
+  max-width: 360px;
 
   @media (min-width: 768px) {
     max-width: 24rem; /* md:max-w-sm */
@@ -347,7 +342,7 @@
 
   &.sent {
     margin-right: auto;
-    min-width: 240px;
+    min-width: 360px;
   }
 
   &.received {
