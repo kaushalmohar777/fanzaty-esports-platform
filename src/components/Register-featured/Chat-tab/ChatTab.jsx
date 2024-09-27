@@ -23,6 +23,7 @@ const ChatTab = () => {
   const [todayDate] = useState(moment().format("D MMM"));
   const { t } = useTranslation("common");
   const [user, setUser] = useState(null);
+  const [group, setGroup] = useState(null);
   const [userList, setUserList] = useState([]);
   const [allUser, setAllUser] = useState([]);
   const [dataUser, setDataUser] = useState({
@@ -30,6 +31,13 @@ const ChatTab = () => {
     email: "",
     profile_pic: "",
     online: false,
+    _id: "",
+    isGroup: false,
+  });
+
+  const [groupData, setGroupData] = useState({
+    name: "",
+    profile_pic: "",
     _id: "",
   });
 
@@ -114,8 +122,28 @@ const ChatTab = () => {
     }
   }, [socketConnection, user?._id, user]);
 
+  useEffect(() => {
+    if (socketConnection) {
+      socketConnection.emit("group-message-page", group?._id);
+
+      socketConnection.on("group-data", (data) => {
+        setDataUser(data);
+      });
+
+      socketConnection.on("group-message", (data) => {
+        setAllMessage(data);
+      });
+    }
+  }, [socketConnection, group?._id, group]);
+
   const handleUser = (e, item) => {
+    setGroup(null);
     setUser(item);
+  };
+
+  const handleGroupUser = (e, item) => {
+    setUser(userData);
+    setGroup(item);
   };
 
   const handleOnChange = (e) => {
@@ -128,24 +156,41 @@ const ChatTab = () => {
     });
   };
 
-  const handleSendMessage = (e) => {
+  const handleSendMessage = (e, isGroup) => {
     e.preventDefault();
-
-    if (message.text || message.imageUrl || message.videoUrl) {
-      if (socketConnection) {
-        socketConnection.emit("new message", {
-          sender: userData?._id,
-          receiver: user?._id,
-          text: message.text,
-          imageUrl: message.imageUrl,
-          videoUrl: message.videoUrl,
-          msgByUserId: userData?._id,
-        });
-        setMessage({
-          text: "",
-          imageUrl: "",
-          videoUrl: "",
-        });
+    if (!isGroup) {
+      if (message.text || message.imageUrl || message.videoUrl) {
+        if (socketConnection) {
+          socketConnection.emit("new message", {
+            sender: userData?._id,
+            receiver: user?._id,
+            text: message.text,
+            imageUrl: message.imageUrl,
+            videoUrl: message.videoUrl,
+            msgByUserId: userData?._id,
+          });
+          setMessage({
+            text: "",
+            imageUrl: "",
+            videoUrl: "",
+          });
+        }
+      }
+    } else {
+      if (message.text || message.imageUrl || message.videoUrl) {
+        if (socketConnection) {
+          socketConnection.emit("send-group-message", {
+            groupId: group?._id,
+            text: message.text,
+            imageUrl: message.imageUrl,
+            videoUrl: message.videoUrl,
+          });
+          setMessage({
+            text: "",
+            imageUrl: "",
+            videoUrl: "",
+          });
+        }
       }
     }
   };
@@ -153,7 +198,7 @@ const ChatTab = () => {
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      handleSendMessage(e);
+      handleSendMessage(e, dataUser.isGroup);
     }
   };
 
@@ -277,27 +322,25 @@ const ChatTab = () => {
   const getTabGroupData = () => {
     return (
       <div className="message-left-box">
-        {userList &&
-          userList.map((item, index) => (
-            <div
-              className={`message-detail-box ${
-                item._id === user?._id ? "add-highlighted-bg" : null
-              }`}
-              key={index}
-              onClick={(e) => handleUser(e, item)}
-            >
-              <img
-                src={item?.avatarUrl || userImage}
-                className="user-avatar-img-side"
-                alt="avatar-img-loading"
-              />
-              <div className="user-name-tournament-name">
-                <p className="message-user-name">{item?.userName}</p>
-                <p className="message-user-name">{data?.name}</p>
-              </div>
-              <div>{item?.date}</div>
+        {data.group && (
+          <div
+            className={`message-detail-box ${
+              data.group._id === group?._id ? "add-highlighted-bg" : null
+            }`}
+            onClick={(e) => handleGroupUser(e, data?.group)}
+          >
+            <img
+              src={data?.group?.avatarUrl || userImage}
+              className="user-avatar-img-side"
+              alt="avatar-img-loading"
+            />
+            <div className="user-name-tournament-name">
+              <p className="message-user-name">{data?.group?.userName}</p>
+              <p className="message-user-name">{data?.name}</p>
             </div>
-          ))}
+            <div>{data?.group?.date}</div>
+          </div>
+        )}
       </div>
     );
   };
@@ -340,197 +383,204 @@ const ChatTab = () => {
                 </div>
               </div>
             </Col>
-            <Col span={16}>
-              <div className="message-right-box">
-                {/* chat header */}
-                <div className="user-image-btn">
-                  {dataUser && (
-                    <div className="userimage-name">
-                      {dataUser?.profile_pic ? (
-                        <img
-                          src={dataUser?.profile_pic}
-                          alt="laoding-img"
-                          className="chat-user-image"
-                        />
-                      ) : null}
-                      {dataUser?.name ? (
-                        <div className="chat-user-name">
-                          {dataUser?.name} <br />
-                          <p className="online-offline">
-                            {dataUser?.online ? (
-                              <span className="text-primary">
-                                {t("chatMessages.online")}
-                              </span>
-                            ) : (
-                              <span className="text-slate-400">
+            {
+              <Col span={16}>
+                <div className="message-right-box">
+                  {/* chat header */}
+                  <div className="user-image-btn">
+                    {dataUser && (
+                      <div className="userimage-name">
+                        {dataUser?.profile_pic ? (
+                          <img
+                            src={dataUser?.profile_pic}
+                            alt="laoding-img"
+                            className="chat-user-image"
+                          />
+                        ) : null}
+                        {dataUser?.name ? (
+                          <div className="chat-user-name">
+                            {dataUser?.name} <br />
+                            <p className="online-offline">
+                              {dataUser?.online ? (
                                 <span className="text-primary">
-                                  {t("chatMessages.offline")}
+                                  {t("chatMessages.online")}
                                 </span>
-                              </span>
-                            )}
-                          </p>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                  )}
+                              ) : (
+                                <span className="text-slate-400">
+                                  <span className="text-primary">
+                                    {t("chatMessages.offline")}
+                                  </span>
+                                </span>
+                              )}
+                            </p>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    )}
+                  </div>
 
-                  {/* <div className="invite-mark">
-                    <button>{t("chatMessages.inviteMark")}</button>
-                  </div> */}
-                </div>
+                  <hr className="chat-top-hr-line" />
 
-                <hr className="chat-top-hr-line" />
-
-                {/* inner chat */}
-
-                <div className="message-container" ref={currentMessage}>
-                  {allMessage.map((msg, index) => {
-                    return (
-                      <div className="particular-user-chat" key={index}>
-                        {renderDate(msg, index)}
-                        <div
-                          className={`message-bubble ${
-                            user._id === msg?.msgByUserId ? "sent" : "received"
-                          }`}
-                        >
+                  {/* inner chat */}
+                  <div className="message-container" ref={currentMessage}>
+                    {allMessage.map((msg, index) => {
+                      return (
+                        <div className="particular-user-chat" key={index}>
+                          {renderDate(msg, index)}
                           <div
-                            style={{ display: "flex", alignItems: "center" }}
+                            className={`message-bubble ${
+                              user?._id === msg?.msgByUserId
+                                ? "sent"
+                                : "received"
+                            }`}
                           >
-                            {dataUser?.profile_pic &&
-                            user._id === msg?.msgByUserId ? (
-                              <img
-                                src={dataUser?.profile_pic}
-                                alt="chat-user-img"
-                                className={`${
-                                  user._id === msg?.msgByUserId
-                                    ? "sent "
-                                    : "received"
-                                }`}
-                              />
-                            ) : (
-                              <img
-                                src={userData?.avatarUrl}
-                                alt="chat-user-img"
-                                className={`${
-                                  user._id === msg?.msgByUserId
-                                    ? "sent"
-                                    : "received"
-                                }`}
-                              />
-                            )}
-                            <div className="w-full relative">
-                              {msg?.imageUrl || msg?.videoUrl ? (
-                                <p className="message-timestamp">
-                                  {moment(msg.createdAt).format("D MMM, h:mmA")}
-                                </p>
-                              ) : null}
-                              {msg?.imageUrl && (
+                            <div
+                              style={{ display: "flex", alignItems: "center" }}
+                            >
+                              {dataUser?.profile_pic &&
+                              user?._id === msg?.msgByUserId ? (
                                 <img
-                                  src={msg?.imageUrl}
-                                  alt="loading-chat-img"
-                                  className="chat-img"
+                                  src={dataUser?.profile_pic}
+                                  alt="chat-user-img"
+                                  className={`${
+                                    user?._id === msg?.msgByUserId
+                                      ? "sent "
+                                      : "received"
+                                  }`}
+                                />
+                              ) : (
+                                <img
+                                  src={userData?.avatarUrl}
+                                  alt="chat-user-img"
+                                  className={`${
+                                    user?._id === msg?.msgByUserId
+                                      ? "sent"
+                                      : "received"
+                                  }`}
                                 />
                               )}
-                              {msg?.videoUrl && (
-                                <video
-                                  src={msg.videoUrl}
-                                  className="chat-video"
-                                  controls
-                                />
-                              )}
-                            </div>
-                            <div style={{ padding: "5px" }}>
-                              {msg.text ? (
-                                <p className="message-timestamp">
-                                  {moment(msg.createdAt).format("D MMM, h:mmA")}
-                                </p>
-                              ) : null}
-                              {msg.text ? (
-                                <p
-                                  className={
-                                    user._id === msg?.msgByUserId
-                                      ? "message-text-sent"
-                                      : "message-text-received"
-                                  }
-                                >
-                                  {msg.text}
-                                </p>
-                              ) : null}
+                              <div className="w-full relative">
+                                {msg?.imageUrl || msg?.videoUrl ? (
+                                  <p className="message-timestamp">
+                                    {moment(msg.createdAt).format(
+                                      "D MMM, h:mmA"
+                                    )}
+                                  </p>
+                                ) : null}
+                                {msg?.imageUrl && (
+                                  <img
+                                    src={msg?.imageUrl}
+                                    alt="loading-chat-img"
+                                    className="chat-img"
+                                  />
+                                )}
+                                {msg?.videoUrl && (
+                                  <video
+                                    src={msg.videoUrl}
+                                    className="chat-video"
+                                    controls
+                                  />
+                                )}
+                              </div>
+                              <div style={{ padding: "5px" }}>
+                                {msg.text ? (
+                                  <p className="message-timestamp">
+                                    {moment(msg.createdAt).format(
+                                      "D MMM, h:mmA"
+                                    )}
+                                  </p>
+                                ) : null}
+                                {msg.text ? (
+                                  <p
+                                    className={
+                                      user?._id === msg?.msgByUserId
+                                        ? "message-text-sent"
+                                        : "message-text-received"
+                                    }
+                                  >
+                                    {msg.text}
+                                  </p>
+                                ) : null}
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                </div>
+                      );
+                    })}
+                  </div>
 
-                <div className="type-message-section">
-                  {dataUser?.profile_pic && dataUser?.name ? (
-                    <div>
-                      <div className="video-doc-select-modal">
-                        <input
-                          type="file"
-                          id="Image"
-                          style={{ display: "none" }}
-                          accept="image/*"
-                          onChange={(e) => handleFileChange(e, "Image")}
-                        />
-                        <input
-                          type="file"
-                          id="Video"
-                          style={{ display: "none" }}
-                          accept="video/*"
-                          onChange={(e) => handleFileChange(e, "Video")}
-                        />
-                        <div className="">
-                          <Dropdown
-                            menu={{
-                              items,
-                            }}
-                            trigger={["click"]}
-                            placement="topLeft"
-                            arrow
-                            overlayClassName="img-select-dropdown"
-                          >
-                            <img
-                              src={selectFile}
-                              alt="loading-select-file"
-                              className="select-file-image"
-                              onClick={handleOpenModal}
-                              style={{ position: "relative" }}
-                            />
-                          </Dropdown>
+                  <div className="type-message-section">
+                    {dataUser?.profile_pic && dataUser?.name ? (
+                      <div>
+                        <div className="video-doc-select-modal">
+                          <input
+                            type="file"
+                            id="Image"
+                            style={{ display: "none" }}
+                            accept="image/*"
+                            onChange={(e) => handleFileChange(e, "Image")}
+                          />
+                          <input
+                            type="file"
+                            id="Video"
+                            style={{ display: "none" }}
+                            accept="video/*"
+                            onChange={(e) => handleFileChange(e, "Video")}
+                          />
+                          <div className="">
+                            <Dropdown
+                              menu={{
+                                items,
+                              }}
+                              trigger={["click"]}
+                              placement="topLeft"
+                              arrow
+                              overlayClassName="img-select-dropdown"
+                            >
+                              <img
+                                src={selectFile}
+                                alt="loading-select-file"
+                                className="select-file-image"
+                                onClick={handleOpenModal}
+                                style={{ position: "relative" }}
+                              />
+                            </Dropdown>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ) : null}
-
-                  {dataUser?.profile_pic && dataUser?.name ? (
-                    <div className="input-send">
-                      <div className="chat-input">
-                        <input
-                          value={message.text}
-                          onChange={handleOnChange}
-                          onKeyDown={handleKeyPress}
-                          className="msg-input"
-                          placeholder="Enter message"
-                        />
+                    ) : null}
+                    {console.log("dataUser", dataUser)}
+                    {dataUser?.profile_pic && dataUser?.name ? (
+                      <div className="input-send">
+                        <div className="chat-input">
+                          <input
+                            value={message.text}
+                            onChange={handleOnChange}
+                            onKeyDown={(e) =>
+                              handleKeyPress(e, dataUser.isGroup)
+                            }
+                            className="msg-input"
+                            placeholder="Enter message"
+                          />
+                        </div>
+                        <div>
+                          <img
+                            src={sendIcon}
+                            alt="loading-select-file"
+                            className="send-icon-image"
+                            onClick={(e) =>
+                              handleSendMessage(e, dataUser.isGroup)
+                            }
+                          />
+                        </div>
                       </div>
-                      <div>
-                        <img
-                          src={sendIcon}
-                          alt="loading-select-file"
-                          className="send-icon-image"
-                          onClick={handleSendMessage}
-                        />
-                      </div>
-                    </div>
-                  ) : null}
+                    ) : null}
+                  </div>
                 </div>
-              </div>
-            </Col>
+              </Col>
+            }
           </Row>
         </div>
       </div>
