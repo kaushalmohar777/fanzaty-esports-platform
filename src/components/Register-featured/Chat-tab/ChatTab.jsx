@@ -34,7 +34,7 @@ const ChatTab = () => {
     _id: "",
   });
 
-  const [group, setGroup] = useState([]);
+  const [group, setGroup] = useState(null);
   const [selectedGroup, setSelectedGroup] = useState(null);
 
   const [message, setMessage] = useState({
@@ -43,7 +43,7 @@ const ChatTab = () => {
     videoUrl: "",
   });
 
-  const currentMessage = useRef(null);
+  const messageEndRef = useRef(null);
   const [allMessage, setAllMessage] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -62,10 +62,6 @@ const ChatTab = () => {
       setUserList(data?.participants);
     }
   }, [data]);
-
-  useEffect(() => {
-    console.log("userData", userData);
-  }, [userData]);
 
   useEffect(() => {
     if (socketConnection) {
@@ -98,13 +94,12 @@ const ChatTab = () => {
   }, [socketConnection, user]);
 
   useEffect(() => {
-    if (currentMessage.current) {
-      currentMessage.current.scrollIntoView({
+    if (messageEndRef.current) {
+      messageEndRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "end",
       });
     }
-  }, [allMessage]);
+  }, [allMessage, activeTab]);
 
   useEffect(() => {
     if (socketConnection && user?._id) {
@@ -143,7 +138,6 @@ const ChatTab = () => {
   };
 
   const handlegroup = (e, item) => {
-    console.log("item: ", item);
     setGroup(item);
   };
 
@@ -156,10 +150,6 @@ const ChatTab = () => {
       };
     });
   };
-
-  useEffect(() => {
-    console.log("allMessage", allMessage);
-  }, [allMessage]);
 
   const handleSendMessage = (e, isGroup) => {
     e.preventDefault();
@@ -379,6 +369,8 @@ const ChatTab = () => {
       _id: "",
     });
     setAllMessage([]);
+    setGroup(null);
+    setUser(null);
   };
 
   return (
@@ -448,7 +440,7 @@ const ChatTab = () => {
 
                   {/* inner chat */}
 
-                  <div className="message-container" ref={currentMessage}>
+                  <div className="message-container">
                     {allMessage.map((msg, index) => {
                       return (
                         <div className="particular-user-chat" key={index}>
@@ -527,6 +519,7 @@ const ChatTab = () => {
                                     {msg.text}
                                   </p>
                                 ) : null}
+                                <div ref={messageEndRef} />
                               </div>
                             </div>
                           </div>
@@ -650,7 +643,7 @@ const ChatTab = () => {
 
                   {/* inner chat */}
 
-                  <div className="message-container" ref={currentMessage}>
+                  <div className="message-container">
                     {allMessage.map((msg, index) => {
                       return (
                         <div className="particular-user-chat" key={index}>
@@ -730,6 +723,8 @@ const ChatTab = () => {
                                     {msg.text}
                                   </p>
                                 ) : null}
+
+                                <div ref={messageEndRef} />
                               </div>
                             </div>
                           </div>
