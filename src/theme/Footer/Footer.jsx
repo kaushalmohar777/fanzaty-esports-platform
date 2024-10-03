@@ -61,13 +61,13 @@ const Footer = () => {
   return (
     <section className="footer-section">
       <div className="container">
-        <Row>
-          <Col span={6}>
+        <Row gutter={[16, 16]} justify="space-between">
+          <Col xs={24} sm={12} md={6} className="footer-logo">
             <div>
               <img src={footerLogo} alt="footer-logo" />
             </div>
           </Col>
-          <Col span={12}>
+          <Col xs={24} sm={12} md={12} className="footer-middle">
             <div className="footer-description">{t("footer.description")}</div>
             <div className="footer-menu-icons">
               <Menu
@@ -102,8 +102,8 @@ const Footer = () => {
               <p className="copy-write">{t("footer.copyright")}</p>
             </div>
           </Col>
-          <Col span={6}>
-            <div>
+          <Col xs={24} sm={12} md={6} className="footer-right">
+            <div className="ea-sports-logo">
               <img src={footerLogo2} alt="footer-logo" />
             </div>
 

@@ -1,0 +1,194 @@
+.forgot-pass-section {
+  background: url("../../assets/images/Forgot-Password.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 600px;
+}
+
+.forgot-main-box {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.font-english .forgot-pass-heading {
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 117px;
+  font-family: "Anybody", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 59px;
+  text-align: center;
+  color: #fff;
+}
+
+.font-arabic .forgot-pass-heading {
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 117px;
+  font-family: "Alexandria", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 59px;
+  text-align: center;
+  color: #fff;
+}
+
+.font-english .forgot-pass-para {
+  font-family: "Anybody", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.font-arabic .forgot-pass-para {
+  font-family: "Alexandria", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.font-english .submit-btn {
+  background-color: #08ff96;
+  color: #141414;
+  margin-left: 0;
+  font-family: "Anybody", sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+}
+
+.font-arabic .submit-btn {
+  background-color: #08ff96;
+  color: #141414;
+  margin-left: 0;
+  font-family: "Alexandria", sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20.7px;
+  text-align: center;
+  padding: 22px 24px 22px 24px;
+  gap: 10px;
+  border-radius: 5px;
+  margin: 0 15px;
+}
+
+.font-english .submit-btn:hover {
+  background-color: #08ff96 !important;
+  color: #141414 !important;
+  border-color: #08ff96;
+  margin-left: 0;
+  font-family: "Anybody", sans-serif;
+}
+
+.font-arabic .submit-btn:hover {
+  background-color: #08ff96 !important;
+  color: #141414 !important;
+  border-color: #08ff96;
+  margin-left: 0;
+  font-family: "Alexandria", sans-serif;
+}
+
+.ant-input-affix-wrapper {
+  background-color: #141414;
+}
+.ant-input-affix-wrapper:hover,
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper:active,
+.ant-input-affix-wrapper::before,
+.ant-input-affix-wrapper::after {
+  background-color: #141414;
+}
+
+.ant-input-number-input-wrap > input {
+  color: white !important;
+  background: #141414 !important;
+  height: 62px;
+}
+
+.ant-input-number-handler {
+  display: none !important;
+}
+
+.ant-input-number-handler-wrap {
+  background: #141414 !important;
+}
+
+.ant-input-affix-wrapper::before {
+  background-color: #141414 !important;
+  color: #fff !important;
+}
+
+.ant-input:hover {
+  border-color: #fff;
+}
+
+.forgot-up-box {
+  width: 641px;
+  padding: 66px 75px 66px 75px;
+  border-radius: 20px;
+  border: 2px solid #08ff9654;
+  margin: 0 auto 75px auto;
+  background-color: #141414;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid #08ff96;
+  z-index: 11;
+  position: relative;
+  position: relative;
+  width: 641px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid black;
+  z-index: 999;
+}
+
+.forgot-up-box::before {
+  margin: 0 auto;
+  content: "";
+  position: absolute;
+  width: 348px;
+  height: 190%;
+  background-color: #08ff96;
+  box-shadow: 0 0 10px rgb(8, 8, 8);
+  animation: animate 4s linear infinite;
+  z-index: -1;
+}
+
+.forgot-up-box::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background-color: #000;
+  border-radius: 16px;
+  z-index: -1;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

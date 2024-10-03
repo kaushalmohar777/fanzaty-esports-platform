@@ -73,7 +73,6 @@ const Academy = () => {
   const onFinish = async (values) => {
     try {
       const response = await postApiRequest(END_POINTS.JOIN_ACADEMY, values);
-      console.log("response: ", response);
       if (response?.success) {
         showToast(response.message, "success");
         navigate("/");

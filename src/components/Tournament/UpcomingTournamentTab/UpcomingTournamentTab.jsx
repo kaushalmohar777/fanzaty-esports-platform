@@ -115,8 +115,11 @@ const UpcomingTournamentTab = () => {
         {upcominTournaments &&
           upcominTournaments.map((item, index) => (
             <div className="main-box" key={index}>
-              <Row style={{ position: "relative", zIndex: "1" }}>
-                <Col span={12}>
+              <Row
+                gutter={[16, 16]}
+                style={{ position: "relative", zIndex: "1" }}
+              >
+                <Col xs={24} md={12} span={12}>
                   <div className="tournament-upcoming-img">
                     <img
                       src={item?.fileUrl}
@@ -126,7 +129,7 @@ const UpcomingTournamentTab = () => {
                     />
                   </div>
                 </Col>
-                <Col span={12}>
+                <Col xs={24} md={12} span={12}>
                   <div className="tournament-details-section">
                     <div className="text-start">
                       <a className="join-free-btn">

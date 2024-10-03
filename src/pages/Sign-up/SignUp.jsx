@@ -12,6 +12,7 @@ import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { fileUploadApi } from "../../services/fileUpload";
 import { useSelector } from "react-redux";
 import userImage from "../../assets/images/user-image.svg";
+import { setLocalStorageData } from "../../shared/commonFunction";
 
 const SignUp = () => {
   const { t } = useTranslation("common");
@@ -108,12 +109,12 @@ const SignUp = () => {
     const payload = { ...values, avatarUrl: avatarToSend };
     try {
       const response = await fileUploadApi(END_POINTS.SIGN_UP, payload);
-      console.log("response: ", response);
       if (response.data.success) {
         form.resetFields();
         setIsLoading(false);
         showToast(response.data.message, "success");
-        navigate("/login");
+        setLocalStorageData("email", response?.data?.user?.email);
+        navigate("/verify-otp");
       }
     } catch (error) {
       message.error(t("signUp.formSubmissionFailed"));

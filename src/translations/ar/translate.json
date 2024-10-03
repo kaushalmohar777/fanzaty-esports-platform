@@ -136,7 +136,10 @@
     "description": "أدخل بريدك الإلكتروني لعملية التحقق. سوف نقوم بإرسال رمز مكون من 4 أرقام إلى بريدك الإلكتروني.",
     "button": "يكمل",
     "emailPlaceholder": "فهد123@gmail.com",
-    "resend": "إعادة إرسال"
+    "resend": "إعادة إرسال",
+    "otp_heading": "التحقق من OTP",
+    "enter_otp": "أدخل كلمة المرور لمرة واحدة",
+    "otp_validation": "الرجاء إدخال كلمة المرور"
   },
   "dropdown": {
     "myProfile": "ملفي",
@@ -206,6 +209,7 @@
     "message": "أرسل رسالة",
     "report": "الابلاغ عنه",
     "block": "حظر",
+    "unblock": "إلغاء الحظر",
     "bio": "السيرة الذاتية",
     "unoId": "معرف UNO",
     "pubg": "ببجي",
@@ -343,6 +347,18 @@
     "cancelled": "تم الإلغاء",
     "registered": "مسجل",
     "name": "اسم"
+  },
+  "block_user": {
+    "sweet_alert": {
+      "title": "هل أنت متأكد؟",
+      "text_message": "تريد حظر المستخدم name.",
+      "confirm": "نعم، حظر",
+      "cancel": "لا، إلغاء!",
+      "cancel_message": "لم تقم بحظر هذا المستخدم.",
+      "cancelled": "تم الإلغاء",
+      "registered": "تم الحظر",
+      "name": "اسم"
+    }
   },
   "model": {
     "edit_game_id": "تحرير معرف اللعبة",

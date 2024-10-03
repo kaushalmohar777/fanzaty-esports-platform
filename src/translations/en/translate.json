@@ -134,7 +134,10 @@
     "description": "Enter your email for the verification process. We will send 4 digits code to your email.",
     "button": "Continue",
     "emailPlaceholder": "fahd123@gmail.com",
-    "resend": "Resend"
+    "resend": "Resend",
+    "otp_heading": "OTP Verify",
+    "enter_otp": "Enter OTP",
+    "otp_validation": "Please enter otp."
   },
   "dropdown": {
     "myProfile": "My Profile",
@@ -202,6 +205,7 @@
     "message": "Message",
     "report": "Report",
     "block": "Block",
+    "unblock": "Unblock",
     "bio": "Bio",
     "unoId": "UNO ID",
     "pubg": "Pubg",
@@ -339,6 +343,19 @@
     "registered": "Registered",
     "name": "name"
   },
+  "block_user": {
+    "sweet_alert": {
+      "title": "Are you sure?",
+      "text_message": "You want to block name.",
+      "confirm": "Yes, Block",
+      "cancel": "No, cancel!",
+      "cancel_message": "You have not block this user.",
+      "cancelled": "Cancelled",
+      "registered": "Blocked",
+      "name": "name"
+    }
+  },
+
   "model": {
     "edit_game_id": "Edit Game ID",
     "enter_game_id": "Enter game id",

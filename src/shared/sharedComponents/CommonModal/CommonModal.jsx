@@ -27,6 +27,7 @@ const CommonModal = ({ open, handleClose, onModalClose, data }) => {
       }
     } catch (error) {
       console.log("error: ", error);
+      showToast(error?.error?.message, "error");
     }
   };
 
@@ -49,7 +50,7 @@ const CommonModal = ({ open, handleClose, onModalClose, data }) => {
       open={open}
       onOk={handleOk}
       onCancel={handleCancel}
-      okText={t("model.modal_ok")} // Translate OK button
+      okText={t("model.modal_ok")}
       cancelText={t("model.modal_cancel")}
     >
       <Input

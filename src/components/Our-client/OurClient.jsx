@@ -11,39 +11,37 @@ const OurClient = () => {
   const { t } = useTranslation("common");
 
   return (
-    <section>
+    <section className="our-client-section">
       <div className="container">
-        <div className="our-client-section">
-          <Row
-            gutter={{
-              xs: 8,
-              sm: 16,
-              md: 24,
-              lg: 32,
-            }}
-          >
-            <Col className="gutter-row" span={10}>
-              <div className="our-client-heading">
-                {t("our_client.heading")}
-              </div>
-            </Col>
-            <Col className="gutter-row" span={5}>
-              <div>
-                <img src={store} alt="loading-img" />
-              </div>
-            </Col>
-            <Col className="gutter-row" span={5}>
-              <div>
-                <img src={education} alt="loading-img" />
-              </div>
-            </Col>
-            <Col className="gutter-row" span={4}>
-              <div>
-                <img src={snoonu} alt="loading-img" />
-              </div>
-            </Col>
-          </Row>
-        </div>
+        <Row
+          gutter={{
+            xs: 8,
+            sm: 16,
+            md: 24,
+            lg: 32,
+          }}
+          justify="center"
+          align="middle"
+        >
+          <Col xs={24} sm={24} md={10} className="gutter-row">
+            <div className="our-client-heading">{t("our_client.heading")}</div>
+          </Col>
+          <Col xs={24} sm={8} md={5} className="gutter-row">
+            <div className="our-client-img">
+              <img src={store} alt="loading-img" />
+            </div>
+          </Col>
+          <Col xs={24} sm={8} md={5} className="gutter-row">
+            <div className="our-client-img">
+              <img src={education} alt="loading-img" />
+            </div>
+          </Col>
+          <Col xs={24} sm={8} md={4} className="gutter-row">
+            <div className="our-client-img-pic">
+              <img src={snoonu} alt="loading-img" />
+            </div>
+          </Col>
+        </Row>
       </div>
     </section>
   );

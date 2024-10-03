@@ -1,0 +1,365 @@
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    width: 100%;
+    padding: 20px;
+  }
+  .join-community-content {
+    width: 100%;
+  }
+  .join-tournament {
+    width: 80% !important;
+    height: 60px !important;
+  }
+  .join-community-content {
+    width: 100%;
+  }
+  .ea-sports-logo {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .lanuage-selection-division {
+    margin: 0 !important;
+  }
+  .sign-up {
+    padding: 0 !important;
+    width: 130px !important;
+  }
+  .about-us-details {
+    width: 100% !important;
+  }
+  .join-us-section {
+    height: auto !important;
+  }
+  .font-arabic .feature-heading {
+    font-size: 45px !important;
+  }
+  .footer-login-buttons {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .heading {
+    font-size: 60px !important;
+    line-height: 60px !important;
+  }
+  .sub-heading {
+    font-size: 60px !important;
+    line-height: 60px !important;
+  }
+  .our-client-section {
+    height: auto !important;
+    margin-top: 60px !important;
+  }
+  .font-english .join-our-heading {
+    font-size: 45px !important;
+  }
+  .join-community-section {
+    height: auto;
+  }
+  .font-english .join-us-heading {
+    font-size: 45px !important;
+  }
+  .font-arabic .join-us-heading {
+    font-size: 45px !important;
+  }
+  .banner-section {
+    height: auto !important;
+  }
+  .sign-up-box {
+    width: 100% !important;
+    padding: 66px 0px 66px 0px !important;
+  }
+  .signup-main-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 15px;
+  }
+  .login-up-box {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+  .join-tournament {
+    width: 80% !important;
+    height: 60px !important;
+  }
+  .join-community-content {
+    width: 100% !important;
+  }
+
+  .ea-sports-logo {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .lanuage-selection-division {
+    margin: 0 !important;
+  }
+  .sign-up {
+    padding: 0 !important;
+    width: 130px !important;
+  }
+  .footer-section {
+    height: auto;
+  }
+  .about-us-details {
+    width: 100% !important;
+  }
+  .join-us-section {
+    height: auto !important;
+  }
+  .font-english .feature-heading {
+    font-size: 45px !important;
+    padding-top: 0 !important;
+  }
+  .font-arabic .feature-heading {
+    font-size: 45px !important;
+    padding-top: 0 !important;
+  }
+  .footer-login-buttons {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .heading {
+    font-size: 60px !important;
+    line-height: 60px !important;
+  }
+  .sub-heading {
+    font-size: 60px !important;
+    line-height: 60px !important;
+  }
+  .about-section-bg {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .our-client-section {
+    height: auto !important;
+    margin-top: 60px !important;
+  }
+  .font-english .about-heading {
+    font-size: 45px !important;
+  }
+  .font-arabic .about-heading {
+    font-size: 45px !important;
+  }
+  .font-english .join-our-heading {
+    font-size: 45px !important;
+  }
+  .join-community-section {
+    height: auto;
+  }
+  .font-english .join-us-heading {
+    font-size: 45px !important;
+  }
+  .font-arabic .join-us-heading {
+    font-size: 45px !important;
+  }
+  .banner-section {
+    height: auto !important;
+  }
+  .sign-up-box {
+    width: 100% !important;
+  }
+  .signup-main-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 16px;
+  }
+  .sign-up-box::before {
+    content: "";
+    width: 300px !important;
+    height: 132%;
+    position: absolute;
+    background-color: #000;
+    box-shadow: 0 0 10px rgb(8, 8, 8);
+    animation: animate 4s linear infinite;
+  }
+  .login-up-box {
+    width: 100% !important;
+    padding: 50px 20px 50px 20px !important;
+  }
+  .login-main-box {
+    padding: 0 15px !important;
+  }
+  .login-up-box::before {
+    width: 345px !important;
+  }
+  .ant-drawer-close {
+    color: white !important;
+  }
+  .forgot-up-box {
+    width: 100% !important;
+    padding: 66px 30px 66px 30px !important;
+    height: auto !important;
+  }
+  .forgot-up-main-box {
+    padding: 0 15px;
+  }
+  .font-english .forgot-pass-para {
+    font-size: 18px !important;
+  }
+  .forgot-pass-section {
+    height: auto !important;
+  }
+  .font-arabic .forgot-pass-para {
+    font-size: 18px !important;
+  }
+  .forgot-up-box::before {
+    margin: 0 auto;
+    content: "";
+    position: absolute;
+    width: 260px !important;
+    height: 190%;
+    background-color: #08ff96;
+    box-shadow: 0 0 10px rgb(8, 8, 8);
+    animation: animate 4s linear infinite;
+    z-index: -1;
+  }
+  .login-after-home-page {
+    padding: 15px !important;
+  }
+  .active-tourn-bg {
+    height: auto !important;
+  }
+  .active-tour-heading {
+    line-height: 48px !important;
+    font-size: 40px !important;
+  }
+  .active-tour-division::before {
+    content: "";
+    position: absolute;
+    width: 169px !important;
+    height: 315%;
+    background-color: #08ff96;
+    box-shadow: 0 0 10px rgb(8, 8, 8);
+    animation: animate 6s linear infinite;
+  }
+  .join-academy-bg {
+    height: auto !important;
+  }
+  .track {
+    flex-direction: column;
+  }
+  .track-record {
+    width: 100% !important;
+  }
+  .user-name-navbar {
+    display: none !important;
+  }
+  .user-detail-dropdown {
+    width: 100px !important;
+  }
+  .noti-join-tou {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+  .join-tour-navbar-btn a {
+    display: none !important;
+  }
+  .past-tournament-section {
+    width: 100% !important;
+  }
+  .ongoing-tournament-inner {
+    width: 100% !important;
+    height: auto !important;
+  }
+  .registration-open {
+    width: 100% !important;
+  }
+  .main-box {
+    height: auto !important;
+  }
+  .join-tournament-button {
+    width: 275px !important;
+    .registration-open span {
+      font-size: 15px;
+    }
+  }
+  .my-tournament-inner {
+    width: 100% !important;
+    height: auto !important;
+  }
+  .end-registration {
+    width: 100% !important;
+    font-size: 32.64px !important;
+    padding: 8px !important;
+  }
+  .details-tab-section {
+    height: auto !important;
+  }
+  .font-english .details-tab-section-heading {
+    width: 100% !important;
+  }
+  .font-arabic .details-tab-section-heading {
+    width: 100% !important;
+  }
+  .font-english .details-tab-section-para {
+    width: 100% !important;
+  }
+  .font-arabic .details-tab-section-para {
+    width: 100% !important;
+  }
+  .font-english .details-tab-section-para {
+    width: 100% !important;
+  }
+  .details-inner-section {
+    padding: 0 !important;
+  }
+  .font-english .details-tab-section-para {
+    height: auto !important;
+  }
+  .font-arabic .details-tab-section-para {
+    height: auto !important;
+  }
+  .notification .ant-dropdown-menu-light {
+    min-width: 100% !important;
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .game-detail-box {
+    width: 100% !important;
+  }
+  .bio-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .font-english .bio {
+    width: 100% !important;
+  }
+  .game-play-box {
+    width: 100% !important;
+  }
+  .game-img {
+    width: 100% !important;
+  }
+  .user-detail-main {
+    height: auto !important;
+  }
+  .coin-win-section {
+    padding: 15px !important;
+  }
+  .game-detail-inner {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+  .game-detail-box {
+    height: auto !important;
+  }
+
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .message-right-box {
+    display: block;
+  }
+}

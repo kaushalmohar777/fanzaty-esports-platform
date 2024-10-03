@@ -281,7 +281,7 @@ const Navbar = () => {
           style={menuItemStyle}
         />
       </div>
-      <div style={menuItemStyle}>
+      <div style={menuItemStyle} className="lanuage-selection-division">
         <span
           className={lang === "ar" ? `selected-language` : `language`}
           onClick={() => changeLanguage("ar")}
@@ -302,19 +302,24 @@ const Navbar = () => {
             type="primary"
             icon={<UserOutlined />}
             style={loginButtonStyle}
+            className="sign-up"
           >
             {t("menu.sign_up")}
           </Button>
         </Link>
       ) : (
         <div className="noti-join-tou">
-          <Button
-            type="primary"
-            icon={<UserOutlined />}
-            style={loginButtonStyle}
-          >
-            <Link to="/join-tournament">{t("menu.join_tournament")}</Link>
-          </Button>
+          <Link to="/join-tournament">
+            <Button
+              type="primary"
+              icon={<UserOutlined />}
+              style={loginButtonStyle}
+            >
+              <span className="join-tour-navbar-btn">
+                {t("menu.join_tournament")}
+              </span>
+            </Button>
+          </Link>
           <div className="noti">
             <Dropdown
               menu={{

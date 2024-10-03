@@ -2,8 +2,10 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./theme/Layout";
 import "./App.css";
+
 import Login from "./pages/Login/Login";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import VerifyOtp from "./pages/Verify-otp/VerifyOtp";
 
 const Result = lazy(() => import("./components/Result/Result"));
 const Tournaments = lazy(() => import("./components/Tournament/Tournaments"));
@@ -135,6 +137,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<LoadingFallback />}>
             <ForgotPassword />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/verify-otp",
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <VerifyOtp />
           </Suspense>
         ),
       },

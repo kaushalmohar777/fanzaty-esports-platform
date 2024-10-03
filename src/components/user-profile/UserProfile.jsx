@@ -157,7 +157,7 @@ const UserProfile = () => {
 
           <div className="coin-win-section" style={{ position: "relative" }}>
             <Row gutter={{ xs: 8, sm: 24, md: 24, lg: 32 }} justify="center">
-              <Col className="gutter-row" span={8}>
+              <Col xs={24} sm={24} md={8} className="gutter-row" span={8}>
                 <div className="game-play-box">
                   <div className="inner-box">
                     <p className="game-detail">
@@ -167,7 +167,7 @@ const UserProfile = () => {
                   </div>
                 </div>
               </Col>
-              <Col className="gutter-row" span={8}>
+              <Col xs={24} sm={24} md={8} className="gutter-row" span={8}>
                 <div className="game-play-box">
                   <div className="inner-box">
                     <p className="game-detail">{t("user_profile.win_rate")}</p>
@@ -175,7 +175,7 @@ const UserProfile = () => {
                   </div>
                 </div>
               </Col>
-              <Col className="gutter-row" span={8}>
+              <Col xs={24} sm={24} md={8} className="gutter-row" span={8}>
                 <div className="game-play-box">
                   <div className="inner-box">
                     <p className="game-detail">{t("user_profile.coins")}</p>

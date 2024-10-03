@@ -2,7 +2,7 @@ export const END_POINTS = {
     GET_ALL_COUNTRY_CODE: 'country/get-all',
 
     GET_HOME_PAGE_DATA: "tournament/get-homepage-data",
-    // auth endpoints
+    // auth user endpoints
     GET_AVATAR_IMAGES: 'avtar/get-urls',
     SIGN_UP: "user/auth/signup",
     LOGIN: "user/auth/login",
@@ -13,6 +13,8 @@ export const END_POINTS = {
     UPDATE_PROFILE: "user/update-profile",
     GET_ALL_USER: "user/get-all",
     GET_USER_BY_ID: "user/get-user-by-id",
+    BLOCK_USER: "user/block-user",
+    REPORT_USER: "user/report-user",
 
 
     // Tournaments end points

@@ -16,6 +16,8 @@ import sendIcon from "../../assets/icons/send-icon.svg";
 import { postApiRequest } from "../../services/postApiRequest";
 import { showToast } from "../../shared/sharedComponents/ToasterMessage/ToasterMessage";
 import { setLocalStorageData } from "../../shared/commonFunction";
+import Swal from "sweetalert2";
+import ReportModal from "../../shared/sharedComponents/ReportModal/ReportModal";
 
 /* eslint-disable react-refresh/only-export-components */
 const ConsumerProfile = () => {
@@ -70,8 +72,83 @@ const ConsumerProfile = () => {
     navigate("/messages");
   };
 
+  const handleBlockUnBlock = async (id, type) => {
+    if (type === "BLOCK") {
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-danger",
+        },
+        buttonsStyling: true,
+      });
+      swalWithBootstrapButtons
+        .fire({
+          title: t("block_user.sweet_alert.title"),
+          text: t("block_user.sweet_alert.text_message")?.replace(
+            t("block_user.sweet_alert.name"),
+            consumerDetails?.firstName
+          ),
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: t("block_user.sweet_alert.confirm"),
+          cancelButtonText: t("block_user.sweet_alert.cancel"),
+          reverseButtons: true,
+        })
+        .then(async (result) => {
+          if (result.isConfirmed) {
+            try {
+              const response = await postApiRequest(
+                `${END_POINTS.BLOCK_USER}/${id}`,
+                {}
+              );
+              if (response.success) {
+                getUserDetailsById(id);
+              }
+            } catch (error) {
+              console.log("error: ", error);
+              showToast(error?.error?.message, "error");
+            }
+          }
+        });
+    } else {
+      try {
+        const response = await postApiRequest(
+          `${END_POINTS.BLOCK_USER}/${id}`,
+          {}
+        );
+        if (response.success) {
+          getUserDetailsById(id);
+        }
+      } catch (error) {
+        console.log("error: ", error);
+        showToast(error?.error?.message, "error");
+      }
+    }
+  };
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleClose = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleSubmit = (values) => {
+    console.log("Report values: ", values);
+  };
+
   return (
     <div className="container">
+      <ReportModal
+        visible={isModalVisible}
+        onClose={handleClose}
+        onSubmit={handleSubmit}
+        id={consumerDetails?._id}
+      />
+
       <Row gutter={[16, 16]} className="consumer-profile-section">
         <Col span={7}>
           <div className="consumer-section-right-pannel bg-dark-black border-1">
@@ -105,18 +182,20 @@ const ConsumerProfile = () => {
                 </tr>
               </tbody>
             </table>
-            <div
-              className="border-btn-list"
-              onClick={() => handleChat(consumerDetails?._id)}
-            >
-              <div className="icon-box">
-                <img src={msgimg} alt="" />
+            {!consumerDetails?.isBlocked ? (
+              <div
+                className="border-btn-list"
+                onClick={() => handleChat(consumerDetails?._id)}
+              >
+                <div className="icon-box">
+                  <img src={msgimg} alt="" />
+                </div>
+                <div className="text-box">
+                  <h3 className="text-bio">{t("consumerProfile.message")}</h3>
+                </div>
               </div>
-              <div className="text-box">
-                <h3 className="text-bio">{t("consumerProfile.message")}</h3>
-              </div>
-            </div>
-            <div className="border-btn-list">
+            ) : null}
+            <div className="border-btn-list" onClick={() => showModal()}>
               <div className="icon-box">
                 <img src={Thumbimg} alt="" />
               </div>
@@ -124,14 +203,35 @@ const ConsumerProfile = () => {
                 <h3 className="text-bio">{t("consumerProfile.report")}</h3>
               </div>
             </div>
-            <div className="border-btn-list">
-              <div className="icon-box">
-                <img src={Lockbimg} alt="" />
+            {!consumerDetails?.isBlocked ? (
+              <div
+                className="border-btn-list"
+                onClick={() =>
+                  handleBlockUnBlock(consumerDetails?._id, "BLOCK")
+                }
+              >
+                <div className="icon-box">
+                  <img src={Lockbimg} alt="" />
+                </div>
+                <div className="text-box">
+                  <h3 className="text-bio">{t("consumerProfile.block")}</h3>
+                </div>
               </div>
-              <div className="text-box">
-                <h3 className="text-bio">{t("consumerProfile.block")}</h3>
+            ) : (
+              <div
+                className="border-btn-list"
+                onClick={() =>
+                  handleBlockUnBlock(consumerDetails?._id, "UNBLOCK")
+                }
+              >
+                <div className="icon-box">
+                  <img src={Lockbimg} alt="" />
+                </div>
+                <div className="text-box">
+                  <h3 className="text-bio">{t("consumerProfile.unblock")}</h3>
+                </div>
               </div>
-            </div>
+            )}
             {/* <Button type="primary" className="btn-boi">
               {t("consumerProfile.bio")}
             </Button> */}
