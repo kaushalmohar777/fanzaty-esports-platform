@@ -23,8 +23,8 @@ const ChatTab = () => {
   const [todayDate] = useState(moment().format("D MMM"));
   const { t } = useTranslation("common");
   const [user, setUser] = useState(null);
-  const [group, setGroup] = useState(null);
   const [userList, setUserList] = useState([]);
+  const [activeTab, setActiveTab] = useState("chat");
   const [allUser, setAllUser] = useState([]);
   const [dataUser, setDataUser] = useState({
     name: "",
@@ -32,14 +32,10 @@ const ChatTab = () => {
     profile_pic: "",
     online: false,
     _id: "",
-    isGroup: false,
   });
 
-  const [groupData, setGroupData] = useState({
-    name: "",
-    profile_pic: "",
-    _id: "",
-  });
+  const [group, setGroup] = useState([]);
+  const [selectedGroup, setSelectedGroup] = useState(null);
 
   const [message, setMessage] = useState({
     text: "",
@@ -66,6 +62,10 @@ const ChatTab = () => {
       setUserList(data?.participants);
     }
   }, [data]);
+
+  useEffect(() => {
+    console.log("userData", userData);
+  }, [userData]);
 
   useEffect(() => {
     if (socketConnection) {
@@ -107,7 +107,7 @@ const ChatTab = () => {
   }, [allMessage]);
 
   useEffect(() => {
-    if (socketConnection) {
+    if (socketConnection && user?._id) {
       socketConnection.emit("message-page", user?._id);
 
       socketConnection.emit("seen", user?._id);
@@ -123,26 +123,27 @@ const ChatTab = () => {
   }, [socketConnection, user?._id, user]);
 
   useEffect(() => {
-    if (socketConnection) {
+    if (socketConnection && group?._id) {
       socketConnection.emit("group-message-page", group?._id);
+
+      // socketConnection.emit("seen", group?._id);
 
       socketConnection.on("group-data", (data) => {
         setDataUser(data);
       });
 
-      socketConnection.on("group-message", (data) => {
+      socketConnection.on("message", (data) => {
         setAllMessage(data);
       });
     }
   }, [socketConnection, group?._id, group]);
 
   const handleUser = (e, item) => {
-    setGroup(null);
     setUser(item);
   };
 
-  const handleGroupUser = (e, item) => {
-    setUser(userData);
+  const handlegroup = (e, item) => {
+    console.log("item: ", item);
     setGroup(item);
   };
 
@@ -156,9 +157,35 @@ const ChatTab = () => {
     });
   };
 
+  useEffect(() => {
+    console.log("allMessage", allMessage);
+  }, [allMessage]);
+
   const handleSendMessage = (e, isGroup) => {
     e.preventDefault();
-    if (!isGroup) {
+    if (
+      isGroup &&
+      socketConnection &&
+      (message.text || message.imageUrl || message.videoUrl)
+    ) {
+      socketConnection.emit("new-group-message", {
+        sender: userData?._id,
+        admin: userData.role === "admin" ? userData?._id : null,
+        text: message.text,
+        imageUrl: message.imageUrl,
+        videoUrl: message.videoUrl,
+        // msgByUserId: userData?._id,
+      });
+      socketConnection.on("conversation", (data) => {
+        console.log("data: ", data);
+      });
+
+      setMessage({
+        text: "",
+        imageUrl: "",
+        videoUrl: "",
+      });
+    } else {
       if (message.text || message.imageUrl || message.videoUrl) {
         if (socketConnection) {
           socketConnection.emit("new message", {
@@ -176,29 +203,13 @@ const ChatTab = () => {
           });
         }
       }
-    } else {
-      if (message.text || message.imageUrl || message.videoUrl) {
-        if (socketConnection) {
-          socketConnection.emit("send-group-message", {
-            groupId: group?._id,
-            text: message.text,
-            imageUrl: message.imageUrl,
-            videoUrl: message.videoUrl,
-          });
-          setMessage({
-            text: "",
-            imageUrl: "",
-            videoUrl: "",
-          });
-        }
-      }
     }
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e, isGroup) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      handleSendMessage(e, dataUser.isGroup);
+      handleSendMessage(e, isGroup);
     }
   };
 
@@ -266,7 +277,7 @@ const ChatTab = () => {
 
   const items = [
     {
-      key: "1",
+      key: "chat",
       label: (
         <Button
           icon={<FileImageOutlined />}
@@ -278,7 +289,7 @@ const ChatTab = () => {
       ),
     },
     {
-      key: "2",
+      key: "group",
       label: (
         <Button
           icon={<VideoCameraOutlined />}
@@ -327,7 +338,7 @@ const ChatTab = () => {
             className={`message-detail-box ${
               data.group._id === group?._id ? "add-highlighted-bg" : null
             }`}
-            onClick={(e) => handleGroupUser(e, data?.group)}
+            onClick={(e) => handlegroup(e, data.group)}
           >
             <img
               src={data?.group?.avatarUrl || userImage}
@@ -347,19 +358,27 @@ const ChatTab = () => {
 
   const tabData = [
     {
-      key: "1",
+      key: "chat",
       label: t("chatMessages.chat"),
       children: getChatData(),
     },
     {
-      key: "2",
+      key: "group",
       label: t("chatMessages.group"),
       children: getTabGroupData(),
     },
   ];
 
   const onChange = (key) => {
-    console.log(key);
+    setActiveTab(key);
+    setDataUser({
+      name: "",
+      email: "",
+      profile_pic: "",
+      online: false,
+      _id: "",
+    });
+    setAllMessage([]);
   };
 
   return (
@@ -383,7 +402,7 @@ const ChatTab = () => {
                 </div>
               </div>
             </Col>
-            {
+            {activeTab == "chat" ? (
               <Col span={16}>
                 <div className="message-right-box">
                   {/* chat header */}
@@ -419,11 +438,16 @@ const ChatTab = () => {
                         )}
                       </div>
                     )}
+
+                    {/* <div className="invite-mark">
+                    <button>{t("chatMessages.inviteMark")}</button>
+                  </div> */}
                   </div>
 
                   <hr className="chat-top-hr-line" />
 
                   {/* inner chat */}
+
                   <div className="message-container" ref={currentMessage}>
                     {allMessage.map((msg, index) => {
                       return (
@@ -431,7 +455,7 @@ const ChatTab = () => {
                           {renderDate(msg, index)}
                           <div
                             className={`message-bubble ${
-                              user?._id === msg?.msgByUserId
+                              user._id === msg?.msgByUserId
                                 ? "sent"
                                 : "received"
                             }`}
@@ -440,12 +464,12 @@ const ChatTab = () => {
                               style={{ display: "flex", alignItems: "center" }}
                             >
                               {dataUser?.profile_pic &&
-                              user?._id === msg?.msgByUserId ? (
+                              user._id === msg?.msgByUserId ? (
                                 <img
                                   src={dataUser?.profile_pic}
                                   alt="chat-user-img"
                                   className={`${
-                                    user?._id === msg?.msgByUserId
+                                    user._id === msg?.msgByUserId
                                       ? "sent "
                                       : "received"
                                   }`}
@@ -455,7 +479,7 @@ const ChatTab = () => {
                                   src={userData?.avatarUrl}
                                   alt="chat-user-img"
                                   className={`${
-                                    user?._id === msg?.msgByUserId
+                                    user._id === msg?.msgByUserId
                                       ? "sent"
                                       : "received"
                                   }`}
@@ -495,7 +519,7 @@ const ChatTab = () => {
                                 {msg.text ? (
                                   <p
                                     className={
-                                      user?._id === msg?.msgByUserId
+                                      user._id === msg?.msgByUserId
                                         ? "message-text-sent"
                                         : "message-text-received"
                                     }
@@ -551,7 +575,7 @@ const ChatTab = () => {
                         </div>
                       </div>
                     ) : null}
-                    {console.log("dataUser", dataUser)}
+
                     {dataUser?.profile_pic && dataUser?.name ? (
                       <div className="input-send">
                         <div className="chat-input">
@@ -559,7 +583,7 @@ const ChatTab = () => {
                             value={message.text}
                             onChange={handleOnChange}
                             onKeyDown={(e) =>
-                              handleKeyPress(e, dataUser.isGroup)
+                              handleKeyPress(e, dataUser?.isGroup)
                             }
                             className="msg-input"
                             placeholder="Enter message"
@@ -571,7 +595,7 @@ const ChatTab = () => {
                             alt="loading-select-file"
                             className="send-icon-image"
                             onClick={(e) =>
-                              handleSendMessage(e, dataUser.isGroup)
+                              handleSendMessage(e, dataUser?.isGroup)
                             }
                           />
                         </div>
@@ -580,7 +604,210 @@ const ChatTab = () => {
                   </div>
                 </div>
               </Col>
-            }
+            ) : (
+              <Col span={16}>
+                <div className="message-right-box">
+                  {/* chat header */}
+                  <div className="user-image-btn">
+                    {dataUser && (
+                      <div className="userimage-name">
+                        {dataUser?.profile_pic ? (
+                          <img
+                            src={dataUser?.profile_pic}
+                            alt="laoding-img"
+                            className="chat-user-image"
+                          />
+                        ) : null}
+                        {dataUser?.name ? (
+                          <div className="chat-user-name">
+                            {dataUser?.name} <br />
+                            {/* <p className="online-offline">
+                              {dataUser?.online ? (
+                                <span className="text-primary">
+                                  {t("chatMessages.online")}
+                                </span>
+                              ) : (
+                                <span className="text-slate-400">
+                                  <span className="text-primary">
+                                    {t("chatMessages.offline")}
+                                  </span>
+                                </span>
+                              )}
+                            </p> */}
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    )}
+
+                    {/* <div className="invite-mark">
+                    <button>{t("chatMessages.inviteMark")}</button>
+                  </div> */}
+                  </div>
+
+                  <hr className="chat-top-hr-line" />
+
+                  {/* inner chat */}
+
+                  <div className="message-container" ref={currentMessage}>
+                    {allMessage.map((msg, index) => {
+                      return (
+                        <div className="particular-user-chat" key={index}>
+                          {renderDate(msg, index)}
+                          <div
+                            className={`message-bubble ${
+                              userData?._id === msg?.sender?._id
+                                ? "received"
+                                : "sent"
+                            }`}
+                          >
+                            <div
+                              style={{ display: "flex", alignItems: "center" }}
+                            >
+                              {dataUser?.profile_pic &&
+                              userData?._id === msg?.sender?._id ? (
+                                <img
+                                  src={dataUser?.profile_pic}
+                                  alt="chat-user-img"
+                                  className={`${
+                                    userData?._id === msg?.sender?._id
+                                      ? "received"
+                                      : "sent"
+                                  }`}
+                                />
+                              ) : (
+                                <img
+                                  src={userData?.avatarUrl}
+                                  alt="chat-user-img"
+                                  className={`${
+                                    userData?._id === msg?.sender?._id
+                                      ? "received"
+                                      : "sent"
+                                  }`}
+                                />
+                              )}
+                              <div className="w-full relative">
+                                {msg?.imageUrl || msg?.videoUrl ? (
+                                  <p className="message-timestamp">
+                                    {moment(msg.createdAt).format(
+                                      "D MMM, h:mmA"
+                                    )}
+                                  </p>
+                                ) : null}
+                                {msg?.imageUrl && (
+                                  <img
+                                    src={msg?.imageUrl}
+                                    alt="loading-chat-img"
+                                    className="chat-img"
+                                  />
+                                )}
+                                {msg?.videoUrl && (
+                                  <video
+                                    src={msg.videoUrl}
+                                    className="chat-video"
+                                    controls
+                                  />
+                                )}
+                              </div>
+                              <div style={{ padding: "5px" }}>
+                                {msg.text ? (
+                                  <p className="message-timestamp">
+                                    {msg?.sender?.firstName}{" "}
+                                    {moment(msg.createdAt).format(
+                                      "D MMM, h:mmA"
+                                    )}
+                                  </p>
+                                ) : null}
+                                {msg.text ? (
+                                  <p
+                                    className={
+                                      userData?._id === msg?.sender?._id
+                                        ? "message-text-sent"
+                                        : "message-text-received"
+                                    }
+                                  >
+                                    {msg.text}
+                                  </p>
+                                ) : null}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="type-message-section">
+                    {dataUser?.profile_pic && dataUser?.name ? (
+                      <div>
+                        <div className="video-doc-select-modal">
+                          <input
+                            type="file"
+                            id="Image"
+                            style={{ display: "none" }}
+                            accept="image/*"
+                            onChange={(e) => handleFileChange(e, "Image")}
+                          />
+                          <input
+                            type="file"
+                            id="Video"
+                            style={{ display: "none" }}
+                            accept="video/*"
+                            onChange={(e) => handleFileChange(e, "Video")}
+                          />
+                          <div className="">
+                            <Dropdown
+                              menu={{
+                                items,
+                              }}
+                              trigger={["click"]}
+                              placement="topLeft"
+                              arrow
+                              overlayClassName="img-select-dropdown"
+                            >
+                              <img
+                                src={selectFile}
+                                alt="loading-select-file"
+                                className="select-file-image"
+                                onClick={handleOpenModal}
+                                style={{ position: "relative" }}
+                              />
+                            </Dropdown>
+                          </div>
+                        </div>
+                      </div>
+                    ) : null}
+
+                    {dataUser?.profile_pic && dataUser?.name ? (
+                      <div className="input-send">
+                        <div className="chat-input">
+                          <input
+                            value={message.text}
+                            onChange={handleOnChange}
+                            onKeyDown={(e) =>
+                              handleKeyPress(e, dataUser?.isGroup)
+                            }
+                            className="msg-input"
+                            placeholder="Enter message"
+                          />
+                        </div>
+                        <div>
+                          <img
+                            src={sendIcon}
+                            alt="loading-select-file"
+                            className="send-icon-image"
+                            onClick={(e) =>
+                              handleSendMessage(e, dataUser?.isGroup)
+                            }
+                          />
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              </Col>
+            )}
           </Row>
         </div>
       </div>
