@@ -22,8 +22,7 @@ const UpcomingTournamentTab = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState({});
   const dispatch = useDispatch();
-
-  const [upcominTournaments, setUpcominTournaments] = useState([]);
+  const [upcomingTournaments, setUpcomingTournaments] = useState([]);
 
   useEffect(() => {
     getUpcomingTournaments();
@@ -33,7 +32,7 @@ const UpcomingTournamentTab = () => {
     try {
       const response = await getApiRequest(END_POINTS.UPCOMING_TOURNAMENTS);
       if (response.success) {
-        setUpcominTournaments(response.tournaments);
+        setUpcomingTournaments(response.tournaments);
       }
     } catch (error) {
       console.log("error", error);
@@ -111,9 +110,8 @@ const UpcomingTournamentTab = () => {
   return (
     <section className="upcoming-tournament">
       <div className="container">
-        {console.log("upcominTournaments", upcominTournaments)}
-        {upcominTournaments &&
-          upcominTournaments.map((item, index) => (
+        {upcomingTournaments &&
+          upcomingTournaments.map((item, index) => (
             <div className="main-box" key={index}>
               <Row
                 gutter={[16, 16]}
