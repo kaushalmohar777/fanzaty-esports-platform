@@ -256,10 +256,12 @@
     display: none !important;
   }
   .user-detail-dropdown {
-    width: 100px !important;
+    width: 68px !important;
+    margin-right: 18px;
+    margin-left: 18px;
   }
   .noti-join-tou {
-    flex-direction: column !important;
+    // flex-direction: column !important;
     gap: 0 !important;
   }
   .join-tour-navbar-btn a {
@@ -337,12 +339,16 @@
   }
   .game-play-box {
     width: 100% !important;
+    margin: 10px 0 !important;
   }
   .game-img {
     width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
   }
   .user-detail-main {
     height: auto !important;
+    margin-top: 20px !important;
   }
   .coin-win-section {
     padding: 15px !important;
@@ -361,5 +367,81 @@
 
   .message-right-box {
     display: block;
+  }
+  .edit-user-profile-box::before {
+    width: 290px !important;
+  }
+  .edit-user-form {
+    padding: 20px !important;
+  }
+  .join-tour-navbar-btn {
+    display: none !important;
+  }
+  .user-profile-img {
+    width: 31px;
+    height: 31px;
+    border-radius: 100%;
+  }
+  .join-tournament-style {
+    padding-right: 15px !important;
+    width: 50px !important;
+  }
+  .mobile {
+    display: block !important;
+  }
+  .desktop {
+    display: none !important;
+  }
+  .join-tournament-sub-head {
+    width: 100% !important;
+    height: auto !important;
+  }
+  .font-english .join-tournament-heading {
+    width: 100% !important;
+    font-size: 36px !important;
+  }
+  .font-arabic .join-tournament-heading {
+    width: 100% !important;
+  }
+  .message-img {
+    display: none;
+  }
+  .chat-back-icon {
+    display: block !important;
+    font-size: 22px;
+    color: #fff;
+  }
+  .is-hide-mobile {
+    display: none !important;
+  }
+  .is-visible-mobile {
+    display: block !important;
+  }
+  .message-container {
+    min-height: 500px !important;
+    padding-bottom: 100px !important;
+  }
+  .type-message-section {
+    width: 96% !important;
+    background-color: #000;
+  }
+  .register-score-section {
+    margin: 33px 28px 77px 28px !important;
+  }
+  .score-submission-winner-list {
+    width: 100% !important;
+    flex-direction: column !important;
+    height: auto !important;
+  }
+  .font-english .add-screenshot-btn {
+    width: 50% !important;
+  }
+  .user-image-btn {
+    display: flex;
+    align-items: center !important;
+    padding: 20px;
+  }
+  .game-score-detail {
+    gap: 20px !important;
   }
 }

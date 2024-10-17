@@ -104,7 +104,6 @@
 }
 .user-image-btn {
   display: flex;
-  justify-content: space-between;
   padding: 20px;
 }
 .userimage-name {
@@ -483,4 +482,7 @@ input:focus-visible {
 .tournament-chat-tabs {
   position: sticky;
   top: 0;
+}
+.chat-back-icon {
+  display: none;
 }

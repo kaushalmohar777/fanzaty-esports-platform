@@ -127,11 +127,8 @@ const ScoreSubmissionTab = () => {
               {t("score_submission.score_submission")}
             </h1>
 
-            <Row
-              gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
-              className="score-submission-partison"
-            >
-              <Col className="gutter-row" span={12}>
+            <Row gutter={[16, 16]} className="score-submission-partison">
+              <Col className="gutter-row" span={6} offset={6}>
                 <div className="score-submission-winner-list">
                   <div className="score-submission-score">03</div>
                   <div className="winner-name-img">
@@ -146,7 +143,7 @@ const ScoreSubmissionTab = () => {
                   </div>
                 </div>
               </Col>
-              <Col className="gutter-row" span={12}>
+              <Col className="gutter-row" span={6} offset={6}>
                 <div className="score-submission-winner-list">
                   <div className="score-submission-score">03</div>
                   <div className="winner-name-img">
@@ -167,7 +164,7 @@ const ScoreSubmissionTab = () => {
             <div className="winner-score">
               <h4 className="winner-heading">{t("score_submission.winner")}</h4>
               <Row>
-                <Col span={12} offset={6}>
+                <Col xs={24} sm={24} md={12} lg={12} offset={6}>
                   <div className="score-submission-winner-list">
                     <div className="winner-name-img">
                       <img

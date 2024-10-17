@@ -352,3 +352,26 @@ $breakpoint-mobile: 768px;
 .ant-menu-item-only-child {
   margin-left: 0 !important;
 }
+
+.join-tournament-style {
+  margin-left: 15px;
+  background: #08ff96;
+  border-color: #08ff96;
+  width: 198px;
+  height: 50px;
+  padding: 14px 12px 14px 12px;
+  gap: 10px;
+  border-radius: 5px;
+  font-family: "Inter";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  text-align: center;
+}
+
+.mobile {
+  display: none !important;
+}
+.desktop {
+  display: block !important;
+}

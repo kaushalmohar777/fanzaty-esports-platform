@@ -12,7 +12,11 @@ import { showToast } from "../../../shared/sharedComponents/ToasterMessage/Toast
 import useSocket from "../../../hooks/useSocket";
 import selectFile from "../../../assets/icons/select-file.svg";
 import sendIcon from "../../../assets/icons/send-icon.svg";
-import { FileImageOutlined, VideoCameraOutlined } from "@ant-design/icons";
+import {
+  FileImageOutlined,
+  LeftOutlined,
+  VideoCameraOutlined,
+} from "@ant-design/icons";
 import userImage from "../../../assets/images/user-image.svg";
 
 /* eslint-disable react-refresh/only-export-components */
@@ -373,12 +377,32 @@ const ChatTab = () => {
     setUser(null);
   };
 
+  const handleBackClick = () => {
+    setDataUser({
+      name: "",
+      email: "",
+      profile_pic: "",
+      online: false,
+      _id: "",
+    });
+  };
+
   return (
     <section>
       <div className="container">
         <div>
-          <Row gutter={[16, 16]}>
-            <Col span={8} className="message-outer-box">
+          <Row gutter={{ xs: 8, sm: 24, md: 24, lg: 32 }}>
+            <Col
+              span={8}
+              xs={24}
+              sm={24}
+              md={8}
+              className={`message-outer-box ${
+                dataUser && dataUser?.name
+                  ? `is-hide-mobile`
+                  : `is-visible-mobile`
+              }`}
+            >
               <div>
                 <div className="tournament-chat-tabs">
                   <Tabs
@@ -395,10 +419,24 @@ const ChatTab = () => {
               </div>
             </Col>
             {activeTab == "chat" ? (
-              <Col span={16}>
+              <Col
+                xs={24}
+                sm={24}
+                md={16}
+                span={16}
+                className={
+                  dataUser && dataUser?.name
+                    ? "is-visible-mobile"
+                    : "is-hide-mobile"
+                }
+              >
                 <div className="message-right-box">
                   {/* chat header */}
                   <div className="user-image-btn">
+                    <LeftOutlined
+                      onClick={handleBackClick}
+                      className="chat-back-icon"
+                    />
                     {dataUser && (
                       <div className="userimage-name">
                         {dataUser?.profile_pic ? (
@@ -598,12 +636,26 @@ const ChatTab = () => {
                 </div>
               </Col>
             ) : (
-              <Col span={16}>
+              <Col
+                span={16}
+                xs={24}
+                sm={24}
+                md={16}
+                className={
+                  dataUser && dataUser?.name
+                    ? "is-visible-mobile"
+                    : "is-hide-mobile"
+                }
+              >
                 <div className="message-right-box">
                   {/* chat header */}
                   <div className="user-image-btn">
                     {dataUser && (
                       <div className="userimage-name">
+                        <LeftOutlined
+                          onClick={handleBackClick}
+                          className="chat-back-icon"
+                        />
                         {dataUser?.profile_pic ? (
                           <img
                             src={dataUser?.profile_pic}

@@ -273,15 +273,8 @@ const Navbar = () => {
           }))}
         />
       </div>
-      <div className="menu-mobile" style={menuMobileStyle}>
-        <Button
-          type="text"
-          icon={<MenuOutlined />}
-          onClick={() => setOpen(true)}
-          style={menuItemStyle}
-        />
-      </div>
-      <div style={menuItemStyle} className="lanuage-selection-division">
+
+      <div style={menuItemStyle} className="lanuage-selection-division desktop">
         <span
           className={lang === "ar" ? `selected-language` : `language`}
           onClick={() => changeLanguage("ar")}
@@ -296,6 +289,7 @@ const Navbar = () => {
           En
         </span>
       </div>
+
       {!isLogin ? (
         <Link to="/sign-up">
           <Button
@@ -314,6 +308,7 @@ const Navbar = () => {
               type="primary"
               icon={<UserOutlined />}
               style={loginButtonStyle}
+              className="join-tournament-style"
             >
               <span className="join-tour-navbar-btn">
                 {t("menu.join_tournament")}
@@ -404,6 +399,31 @@ const Navbar = () => {
           }))}
         />
       </Drawer>
+
+      <div style={menuItemStyle} className="lanuage-selection-division mobile">
+        <span
+          className={lang === "ar" ? `selected-language` : `language`}
+          onClick={() => changeLanguage("ar")}
+        >
+          Ar
+        </span>
+        /
+        <span
+          className={lang === "en" ? `selected-language` : `language`}
+          onClick={() => changeLanguage("en")}
+        >
+          En
+        </span>
+      </div>
+
+      <div className="menu-mobile" style={menuMobileStyle}>
+        <Button
+          type="text"
+          icon={<MenuOutlined />}
+          onClick={() => setOpen(true)}
+          style={menuItemStyle}
+        />
+      </div>
     </Header>
   );
 };

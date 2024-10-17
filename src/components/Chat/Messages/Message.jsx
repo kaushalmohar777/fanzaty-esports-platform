@@ -18,6 +18,7 @@ import {
   FileImageOutlined,
   VideoCameraOutlined,
   FileOutlined,
+  LeftOutlined,
 } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -300,6 +301,16 @@ const Message = () => {
     return null;
   };
 
+  const handleBackClick = () => {
+    setDataUser({
+      name: "",
+      email: "",
+      profile_pic: "",
+      online: false,
+      _id: "",
+    });
+  };
+
   const items = [
     {
       key: "1",
@@ -345,8 +356,18 @@ const Message = () => {
           <h1 className="message-heading">{t("chatMessages.message")}</h1>
         </div>
         <div>
-          <Row gutter={[16, 16]}>
-            <Col span={8} className="message-outer-box">
+          <Row gutter={{ xs: 8, sm: 24, md: 24, lg: 32 }}>
+            <Col
+              xs={24}
+              sm={24}
+              md={8}
+              span={8}
+              className={`message-outer-box ${
+                dataUser && dataUser?.name
+                  ? `is-hide-mobile`
+                  : `is-visible-mobile`
+              }`}
+            >
               <div className="message-left-box">
                 {userList &&
                   userList.map((item, index) => (
@@ -375,12 +396,26 @@ const Message = () => {
                 </div>
               </div>
             </Col>
-            <Col span={16}>
+            <Col
+              xs={24}
+              sm={24}
+              md={16}
+              span={16}
+              className={
+                dataUser && dataUser?.name
+                  ? "is-visible-mobile"
+                  : "is-hide-mobile"
+              }
+            >
               <div className="message-right-box">
                 {/* chat header */}
                 <div className="user-image-btn">
                   {dataUser && (
                     <div className="userimage-name">
+                      <LeftOutlined
+                        onClick={handleBackClick}
+                        className="chat-back-icon"
+                      />
                       {dataUser?.profile_pic ? (
                         <img
                           src={dataUser?.profile_pic}

@@ -111,7 +111,7 @@ const UpcomingTournamentTab = () => {
     <section className="upcoming-tournament">
       <div className="container">
         {upcomingTournaments &&
-          upcomingTournaments.map((item, index) => (
+          upcomingTournaments?.map((item, index) => (
             <div className="main-box" key={index}>
               <Row
                 gutter={[16, 16]}
