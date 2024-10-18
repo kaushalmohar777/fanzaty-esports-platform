@@ -189,8 +189,8 @@
   width: 47%;
   height: 48%;
   max-height: 138px;
-  top: 109%;
-  left: -12%;
+  top: 111%;
+  left: -128px;
   transform: translate(calc(100% - 37px), -50%);
 }
 .font-english .winner-heading {
@@ -309,4 +309,10 @@
   padding: 15px;
   border-radius: 10px;
   cursor: pointer;
+}
+.action-btn-score {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }

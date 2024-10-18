@@ -128,7 +128,7 @@ const ScoreSubmissionTab = () => {
             </h1>
 
             <Row gutter={[16, 16]} className="score-submission-partison">
-              <Col className="gutter-row" span={6} offset={6}>
+              <Col className="gutter-row" span={12}>
                 <div className="score-submission-winner-list">
                   <div className="score-submission-score">03</div>
                   <div className="winner-name-img">
@@ -143,7 +143,7 @@ const ScoreSubmissionTab = () => {
                   </div>
                 </div>
               </Col>
-              <Col className="gutter-row" span={6} offset={6}>
+              <Col className="gutter-row" span={12}>
                 <div className="score-submission-winner-list">
                   <div className="score-submission-score">03</div>
                   <div className="winner-name-img">
@@ -164,7 +164,7 @@ const ScoreSubmissionTab = () => {
             <div className="winner-score">
               <h4 className="winner-heading">{t("score_submission.winner")}</h4>
               <Row>
-                <Col xs={24} sm={24} md={12} lg={12} offset={6}>
+                <Col xs={24} sm={24} md={12} lg={12}>
                   <div className="score-submission-winner-list">
                     <div className="winner-name-img">
                       <img
@@ -183,7 +183,7 @@ const ScoreSubmissionTab = () => {
 
             {/* Action Buttons */}
             {data?.status !== "Past_Tournament" ? (
-              <div>
+              <div className="action-btn-score">
                 <button
                   className="add-screenshot-btn"
                   onClick={handleAddScreenshotClick}
@@ -207,7 +207,6 @@ const ScoreSubmissionTab = () => {
             {screenshot && (
               <div className="screenshot-preview">
                 <p>{screenshot.name}</p>
-                {/* Optionally, show a preview of the image */}
                 <img
                   src={URL.createObjectURL(screenshot)}
                   alt="Screenshot Preview"

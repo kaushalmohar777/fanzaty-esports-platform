@@ -79,6 +79,9 @@
   .login-up-box {
     width: 100% !important;
   }
+  .track {
+    flex-direction: column !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -432,9 +435,13 @@
     width: 100% !important;
     flex-direction: column !important;
     height: auto !important;
+    padding: 20px 0 !important;
   }
   .font-english .add-screenshot-btn {
-    width: 50% !important;
+    width: 100% !important;
+  }
+  .font-arabic .add-screenshot-btn {
+    width: 100% !important;
   }
   .user-image-btn {
     display: flex;
@@ -443,5 +450,31 @@
   }
   .game-score-detail {
     gap: 20px !important;
+  }
+  .score-submission-partison::after {
+    content: "";
+    position: absolute !important;
+    background-image: url(/src/assets/images/score-submission-img.svg);
+    background-repeat: no-repeat;
+    background-size: 100% !important;
+    position: absolute;
+    width: 100% !important;
+    height: 58% !important;
+    max-height: 161px !important;
+    top: 111% !important;
+    left: -301px !important;
+    transform: translate(calc(100% - 37px), -50%);
+  }
+  .font-english .report-issue-btn {
+    margin-left: 0 !important;
+  }
+  .track {
+    flex-direction: column !important;
+  }
+  .my-tournament-inner::before {
+    width: 187px !important;
+  }
+  .ongoing-tournament-inner::before {
+    width: 187px !important;
   }
 }
