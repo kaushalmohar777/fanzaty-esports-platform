@@ -260,8 +260,8 @@
   }
   .user-detail-dropdown {
     width: 68px !important;
-    margin-right: 18px;
-    margin-left: 18px;
+    margin-right: 10px;
+    margin-left: 15px;
   }
   .noti-join-tou {
     // flex-direction: column !important;
@@ -413,6 +413,7 @@
     display: block !important;
     font-size: 22px;
     color: #fff;
+    transform: rotate(180deg);
   }
   .is-hide-mobile {
     display: none !important;
@@ -476,5 +477,17 @@
   }
   .ongoing-tournament-inner::before {
     width: 187px !important;
+  }
+  .font-arabic .bio {
+    width: 100% !important;
+  }
+  .send-icon-image {
+    right: 38% !important;
+  }
+  .profile-right-section .ant-row {
+    width: 100% !important;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap !important;
   }
 }

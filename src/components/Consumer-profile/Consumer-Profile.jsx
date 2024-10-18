@@ -150,7 +150,7 @@ const ConsumerProfile = () => {
       />
 
       <Row gutter={[16, 16]} className="consumer-profile-section">
-        <Col span={7}>
+        <Col xs={24} sm={24} md={7} lg={7} xl={7}>
           <div className="consumer-section-right-pannel bg-dark-black border-1">
             <div className="user-profile-section">
               <img className="profile-img" src={Userprofileimg} alt="" />
@@ -237,10 +237,10 @@ const ConsumerProfile = () => {
             </Button> */}
           </div>
         </Col>
-        <Col span={17}>
+        <Col xs={24} sm={24} md={17} lg={17} xl={17}>
           <div className="profile-right-section">
-            <Row>
-              <Col span={7}>
+            <Row gutter={[16, 16]}>
+              <Col xs={24} sm={12} md={8}>
                 <div className="consumer-section-right-pannel left-pannel bg-dark-black border-1 ">
                   <h2 className="text-invited">{t("consumerProfile.unoId")}</h2>
                   <h3 className="text-invited-num">23235</h3>
@@ -261,7 +261,7 @@ const ConsumerProfile = () => {
                   </Button>
                 </div>
               </Col>
-              <Col span={7}>
+              <Col xs={24} sm={12} md={8}>
                 <div className="consumer-section-right-pannel left-pannel bg-dark-black border-1">
                   <h2 className="text-invited">{t("consumerProfile.pubg")}</h2>
                   <h3 className="text-invited-num">ZZ10</h3>
@@ -282,7 +282,7 @@ const ConsumerProfile = () => {
                   </Button>
                 </div>
               </Col>
-              <Col span={7}>
+              <Col xs={24} sm={12} md={8}>
                 <div className="consumer-section-right-pannel left-pannel bg-dark-black border-1">
                   <h2 className="text-invited">{t("consumerProfile.fc24")}</h2>
                   <h3 className="text-invited-num">PS3 XBI</h3>
@@ -305,8 +305,8 @@ const ConsumerProfile = () => {
               </Col>
             </Row>
             <div className="comment-section">
-              <Row>
-                <Col span={24} className="border-1">
+              <Row gutter={[16, 16]}>
+                <Col xs={24} sm={12} md={24} className="border-1">
                   <div className="comment-total-sectipn">
                     <div className="text-comment">
                       <h3>{t("consumerProfile.comments")}</h3>
@@ -324,7 +324,7 @@ const ConsumerProfile = () => {
                       </h3>
                     </div>
                   </div>
-                  <div className="comment-section consumer-section-right-pannel left-pannel bg-dark-black  ">
+                  <div className="comment-section-inner consumer-section-right-pannel left-pannel bg-dark-black">
                     {consumerDetails && consumerDetails?.comments?.length > 0
                       ? consumerDetails?.comments?.map((item, index) => (
                           <div className="ratings-section" key={index}>

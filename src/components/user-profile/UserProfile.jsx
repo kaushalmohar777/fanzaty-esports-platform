@@ -153,8 +153,8 @@ const UserProfile = () => {
               {userData?.firstName} {userData?.lastName}
             </h1>
             <p className="user-bio">
-  {userData?.bio ? userData?.bio : t("user_profile.write_your_bio")}
-</p>
+              {userData?.bio ? userData?.bio : t("user_profile.write_your_bio")}
+            </p>
           </div>
 
           <div className="coin-win-section" style={{ position: "relative" }}>
@@ -173,7 +173,9 @@ const UserProfile = () => {
                 <div className="game-play-box">
                   <div className="inner-box">
                     <p className="game-detail">{t("user_profile.win_rate")}</p>
-                    <p className="game-score">0</p>
+                    <p className="game-score">
+                      {userData?.winRate ? userData?.winRate : 0}
+                    </p>
                   </div>
                 </div>
               </Col>

@@ -275,7 +275,7 @@
 .sign-up-box::after {
   content: "";
   position: absolute;
-  inset: 1px;
+  inset: 0px;
   background-color: #000;
   border: 3px solid #08ff96;
   z-index: -2;

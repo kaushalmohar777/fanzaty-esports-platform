@@ -121,7 +121,7 @@
 
 .profile-right-section .ant-row {
   width: 100%;
-  gap: 20px;
+  // gap: 20px;
   justify-content: space-between;
   flex-wrap: nowrap;
 }
@@ -167,6 +167,12 @@
 .comment-section {
   margin-top: 20px;
   max-height: 645px;
+  overflow-y: scroll;
+}
+
+.comment-section-inner {
+  max-height: 645px;
+  min-height: 481px;
   overflow-y: scroll;
 }
 .comment-total-sectipn {
