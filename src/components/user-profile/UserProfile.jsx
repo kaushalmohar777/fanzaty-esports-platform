@@ -152,7 +152,9 @@ const UserProfile = () => {
             <h1 className="user-profile-name">
               {userData?.firstName} {userData?.lastName}
             </h1>
-            <p className="user-bio">{t("user_profile.write_your_bio")}</p>
+            <p className="user-bio">
+  {userData?.bio ? userData?.bio : t("user_profile.write_your_bio")}
+</p>
           </div>
 
           <div className="coin-win-section" style={{ position: "relative" }}>

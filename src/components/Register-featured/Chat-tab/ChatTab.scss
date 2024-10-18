@@ -19,7 +19,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   // height: 100vh;
-  padding: 30px 0 100px 0px;
+  padding: 30px 0 120px 0px;
   border: 1px solid #d9d9d926;
   border-radius: 10px;
   overflow-y: scroll;
@@ -71,17 +71,18 @@
   margin-left: 15px;
 }
 .contact-us {
-  width: 81%;
+  width: 96%;
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: 1px;
-  left: 52%;
+  bottom: 0.5px;
+  left: 50.3%;
   max-width: 374px;
   margin: 0 auto;
   transform: translate(-50%, 0);
   padding-bottom: 48px;
   padding-top: 10px;
+  background-color: black;
 }
 .contact-us-btn {
   width: 281px;
@@ -90,6 +91,8 @@
   padding: 22px 24px 22px 24px;
   border-radius: 5px;
   border: 1px solid #08ff96;
+  position: relative;
+    top: 19px;
 
   button {
     font-family: "Inter", sans-serif;
