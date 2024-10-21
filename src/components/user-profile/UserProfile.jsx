@@ -69,25 +69,25 @@ const UserProfile = () => {
               <div className="game-head">
                 <h4 className="game-name">{t("user_profile.rival_stats")}</h4>
                 <div className="game-score-detail">
-                  <div>
+                  <div className="state-by-game">
                     <p className="game-sub-heading">
                       {t("user_profile.game_title")}
                     </p>
                     <p className="game-dynamic-sub-head">{item.gameTitle}</p>
                   </div>
-                  <div>
+                  <div className="state-by-game">
                     <p className="game-sub-heading">
                       {t("user_profile.ripoint_earn")}
                     </p>
                     <p className="game-dynamic-sub-head">{item.ripointEearn}</p>
                   </div>
-                  <div>
+                  <div className="state-by-game">
                     <p className="game-sub-heading">
                       {t("user_profile.rival_record")}
                     </p>
                     <p className="game-dynamic-sub-head">{item.rivalRecord}</p>
                   </div>
-                  <div>
+                  <div className="state-by-game">
                     <p className="game-sub-heading">
                       {t("user_profile.rival_rating")}
                     </p>

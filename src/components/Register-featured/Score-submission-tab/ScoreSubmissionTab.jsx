@@ -38,7 +38,6 @@ const ScoreSubmissionTab = () => {
           showToast(response?.message, "success");
           setScreenshot(null);
         }
-        console.log("response", response);
       } catch (error) {
         console.log("error: ", error);
         showToast(error?.error?.message, "error");
@@ -163,8 +162,14 @@ const ScoreSubmissionTab = () => {
             {/* Winner Section */}
             <div className="winner-score">
               <h4 className="winner-heading">{t("score_submission.winner")}</h4>
-              <Row>
-                <Col xs={24} sm={24} md={12} lg={12}>
+              <Row gutter={[16, 16]} justify={"center"}>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={24}
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
                   <div className="score-submission-winner-list">
                     <div className="winner-name-img">
                       <img
