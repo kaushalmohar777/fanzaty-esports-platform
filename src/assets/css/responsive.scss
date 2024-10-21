@@ -117,6 +117,7 @@
   }
   .about-us-details {
     width: 100% !important;
+    padding: 0 15px !important;
   }
   .join-us-section {
     height: auto !important;
@@ -484,12 +485,29 @@
     width: 100% !important;
   }
   .send-icon-image {
-    right: 38% !important;
+    position: absolute;
+    top: 15%;
+    right: 8% !important;
+    cursor: pointer;
   }
   .profile-right-section .ant-row {
     width: 100% !important;
     gap: 20px;
     justify-content: space-between;
     flex-wrap: wrap !important;
+  }
+  .particular-user-chat img {
+    width: 45px;
+    min-height: 45px;
+    border-radius: 100%;
+    margin: 0 10px;
+  }
+
+  .logo a img {
+    width: 60px;
+  }
+  .font-arabic .logo a img {
+    width: 40px;
+    margin-left: 40px;
   }
 }
